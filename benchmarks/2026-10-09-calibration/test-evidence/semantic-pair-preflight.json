@@ -1,0 +1,14 @@
+{
+  "controls_match": true,
+  "errors": [],
+  "declared_capability_differences": [],
+  "savings_claim_supported": false,
+  "limitations": [
+    "not evidence of implementation or review benefit",
+    "scriptable extraction cannot establish helper break-even by file count",
+    "runtime context/cache may vary despite matched declared controls",
+    "local inventory excludes plugin contents, builtins and remote catalogs; effective capability validation is required before causal claims",
+    "session usage excludes unmeasured setup/coordinator/review cost"
+  ],
+  "question": "workflow use with matched capabilities"
+}

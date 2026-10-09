@@ -1,0 +1,12 @@
+[
+  {
+    "repo": "/tmp/reliability-stage",
+    "staged": false,
+    "sizes": {
+      "AGENTS.md": 1527,
+      "CLAUDE.md": 11
+    },
+    "passed": true,
+    "errors": []
+  }
+]

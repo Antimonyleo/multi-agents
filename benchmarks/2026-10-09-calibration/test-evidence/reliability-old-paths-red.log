@@ -1,0 +1,58 @@
+test_empty_telemetry_blocks_continuation (test_native_reliability.RunReliabilityTest.test_empty_telemetry_blocks_continuation) ... FAIL
+test_cross_cwd_descendants_and_missing_capture (test_native_reliability.DiscoveryTest.test_cross_cwd_descendants_and_missing_capture) ... FAIL
+test_malformed_trace_leaves_incomplete_receipt (test_native_reliability.RunReliabilityTest.test_malformed_trace_leaves_incomplete_receipt) ... ERROR
+
+======================================================================
+ERROR: test_malformed_trace_leaves_incomplete_receipt (test_native_reliability.RunReliabilityTest.test_malformed_trace_leaves_incomplete_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/scripts/native_calibration.py", line 161, in events
+    result.append(json.loads(line))
+                  ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/tests/test_native_reliability.py", line 128, in test_malformed_trace_leaves_incomplete_receipt
+    a,b=self.prepare_fake(malformed=True); native.run(a,b)
+                                           ^^^^^^^^^^^^^^^
+  File "/tmp/reliability-stage/scripts/native_calibration.py", line 530, in run
+    stream = events(out / 'trace.jsonl')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/reliability-stage/scripts/native_calibration.py", line 163, in events
+    raise ValueError(f'malformed JSONL {path.name}:{n}') from exc
+ValueError: malformed JSONL trace.jsonl:1
+
+======================================================================
+FAIL: test_empty_telemetry_blocks_continuation (test_native_reliability.RunReliabilityTest.test_empty_telemetry_blocks_continuation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/tests/test_native_reliability.py", line 122, in test_empty_telemetry_blocks_continuation
+    self.assertFalse(metrics['quality_pass'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_cross_cwd_descendants_and_missing_capture (test_native_reliability.DiscoveryTest.test_cross_cwd_descendants_and_missing_capture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/tests/test_native_reliability.py", line 70, in test_cross_cwd_descendants_and_missing_capture
+    self.assertEqual({t[0]['payload']['id'] for t in traces}, {'parent', 'child', 'grandchild'})
+AssertionError: Items in the second set but not the first:
+'grandchild'
+'child'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.153s
+
+FAILED (failures=2, errors=1)
+{"output": "/tmp/tmpaen5hit9/claude-routing-inventory-baseline", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": true}, "wall_s": 0.017, "delegates": 0, "observed_models": [], "cost_usd_reported": null}

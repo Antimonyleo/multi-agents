@@ -1,0 +1,44 @@
+test_no_residual_group_receipt (test_cleanup.CleanupTest.test_no_residual_group_receipt) ... ERROR
+test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) ...
+  test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) (mode='normal') ... FAIL
+  test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) (mode='timeout_parent_alive') ... ERROR
+  test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) (mode='timeout_parent_term') ... FAIL
+
+======================================================================
+ERROR: test_no_residual_group_receipt (test_cleanup.CleanupTest.test_no_residual_group_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-runner/test_cleanup.py", line 52, in test_no_residual_group_receipt
+    self.assertEqual(receipt['cleanup']['status'], 'absent')
+                     ~~~~~~~^^^^^^^^^^^
+KeyError: 'cleanup'
+
+======================================================================
+ERROR: test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) (mode='timeout_parent_alive')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-runner/test_cleanup.py", line 40, in test_owned_children_cleanup_and_unrelated_survival
+    self.assertTrue(receipt['cleanup']['verified'])
+                    ~~~~~~~^^^^^^^^^^^
+KeyError: 'cleanup'
+
+======================================================================
+FAIL: test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) (mode='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-runner/test_cleanup.py", line 38, in test_owned_children_cleanup_and_unrelated_survival
+    self.assertFalse(alive(pid), 'owned child survived runner return')
+AssertionError: True is not false : owned child survived runner return
+
+======================================================================
+FAIL: test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) (mode='timeout_parent_term')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-runner/test_cleanup.py", line 38, in test_owned_children_cleanup_and_unrelated_survival
+    self.assertFalse(alive(pid), 'owned child survived runner return')
+AssertionError: True is not false : owned child survived runner return
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.857s
+
+FAILED (failures=2, errors=2)

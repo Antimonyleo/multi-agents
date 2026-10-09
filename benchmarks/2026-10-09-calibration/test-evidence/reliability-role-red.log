@@ -1,0 +1,15 @@
+test_unauthorized_requested_and_observed_role (test_native_reliability.UnauthorizedRunTest.test_unauthorized_requested_and_observed_role) ... FAIL
+
+======================================================================
+FAIL: test_unauthorized_requested_and_observed_role (test_native_reliability.UnauthorizedRunTest.test_unauthorized_requested_and_observed_role)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/tests/test_native_reliability.py", line 242, in test_unauthorized_requested_and_observed_role
+    self.assertFalse(json.loads((b/'metrics.json').read_text())['checks']['support_cap'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.070s
+
+FAILED (failures=1)
+{"output": "/tmp/tmpgunwzbht/claude-routing-inventory-workflow", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": true}, "wall_s": 0.017, "delegates": 1, "observed_models": [], "cost_usd_reported": null}

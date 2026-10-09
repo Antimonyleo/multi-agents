@@ -24,7 +24,7 @@ The wrapper depends on the existing host harness recorded in each manifest. No g
 
 ## Next test plan: reliability before efficiency
 
-Status: planned, not executed. Independent plan review accepted the design and limits on 2026-10-09; no further plan correction required. Based on the independent audit of `dfe47fd`; source is now `5ee26a0`, which restores scientific-evidence guidance. Preserve that later change. This plan supersedes the unlaunched prose pilot, not historical evidence. Planning is authorized; fixes and live allocations below remain proposed. Project2 stays paused. Native agents/settings and frozen benchmark records stay unchanged.
+Status: execution authorized by the user; offline stage A accepted. Native stages remain pending the budget constraint. See [execution results](TEST_RESULTS.md). Independent plan review accepted the design and limits on 2026-10-09. Based on the independent audit of `dfe47fd`; source is now `5ee26a0`, which restores scientific-evidence guidance. Preserve that later change. This plan supersedes the unlaunched prose pilot, not historical evidence. The user authorized executing this plan. Its gates, limits and conditional allocations still apply. Project2 stays paused. Native agents/settings and frozen benchmark records stay unchanged.
 
 ### Questions and order
 
@@ -104,4 +104,4 @@ Use one execution owner and native completion notifications throughout; no statu
 
 ### Completion and next action
 
-The planning checkpoint is complete when test families, scoring, boundaries, budgets and conditional stages are recorded and independently challenged. Execution is complete stage by stage only on its stated acceptance evidence; an invalid/failed pilot is a completed observation, not proof of efficiency. Keep this section as the plan and link results from `docs/STATE.md`; do not create parallel status narratives. The next execution action, if authorized, is A's offline regression/fix cycle. No live or scientific work starts from this planning checkpoint.
+The planning checkpoint is complete when test families, scoring, boundaries, budgets and conditional stages are recorded and independently challenged. Execution is complete stage by stage only on its stated acceptance evidence; an invalid/failed pilot is a completed observation, not proof of efficiency. Keep this section as the plan and link results from `docs/STATE.md`; do not create parallel status narratives. Stage A is complete within its reviewed scope. The next action is resolving the live budget constraint, then native qualification; a passing offline gate alone does not lift another gate or the scientific pause.

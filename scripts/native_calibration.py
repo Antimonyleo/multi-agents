@@ -5,6 +5,7 @@ import collections
 import hashlib
 import importlib.util
 import json
+import re
 from pathlib import Path
 import shutil
 import sqlite3
@@ -12,7 +13,7 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = Path('/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/run.py')
-SCOPE = ('This is a synthetic read-only inventory extraction task. Access only this '
+SCOPE = ('This is a synthetic read-only fixture task. Access only this '
          'workspace and, in the workflow arm, the scientific-workflow skill and native '
          'role definitions. No other projects, credentials, memory, web, scientific '
          'execution, unrelated processes or configuration changes. No background jobs. '
@@ -158,10 +159,64 @@ def events(path):
         for n, line in enumerate(path.read_text().splitlines(), 1):
             if line.strip():
                 try:
-                    result.append(json.loads(line))
+                    value = json.loads(line)
+                    if not isinstance(value, dict):
+                        raise ValueError('event must be an object')
+                    result.append(value)
                 except ValueError as exc:
                     raise ValueError(f'malformed JSONL {path.name}:{n}') from exc
     return result
+
+
+def valid_usage(provider, value):
+    required = ('input_tokens', 'output_tokens')
+    optional = ('cached_input_tokens', 'cache_creation_input_tokens', 'cache_read_input_tokens', 'reasoning_output_tokens', 'total_tokens')
+    return (isinstance(value, dict) and all(type(value.get(k)) is int and value[k] >= 0 for k in required)
+            and all(type(value[k]) is int and value[k] >= 0 for k in optional if k in value))
+
+
+def parent_id(meta):
+    parent = meta.get('parent_thread_id')
+    source = meta.get('source')
+    if isinstance(source, str):
+        try:
+            source = json.loads(source)
+        except ValueError:
+            source = None
+    if isinstance(source, dict):
+        sub = source.get('subagent')
+        spawn = sub.get('thread_spawn') if isinstance(sub, dict) else None
+        if isinstance(spawn, dict):
+            parent = parent or spawn.get('parent_thread_id')
+    return parent if isinstance(parent, str) and parent else None
+
+
+def delegation_check(arm, metrics, children=None):
+    calls = metrics['delegate_calls']
+    children = metrics['native_children'] if children is None else children
+    errors = list(metrics.get('tool_fragment_conflicts', []))
+    cap = 1 if arm == 'workflow' else 0
+    if len(calls) > cap or len(children) > cap:
+        errors.append('support start cap exceeded')
+    ids = [c.get('tool_use_id') or c.get('id') for c in calls]
+    if any(not isinstance(i, str) or not i for i in ids) or len(set(ids)) != len(ids):
+        errors.append('delegate identity missing or duplicated')
+    if any(c.get('role') != 'scientific_explorer' for c in calls):
+        errors.append('unauthorized or unresolved requested role')
+    if any(c.get('parent_tool_use_id') for c in calls):
+        errors.append('nested helper attempt')
+    if len(calls) != len(children):
+        errors.append('tool starts and native children do not reconcile')
+    child_ids = [c.get('id') for c in children]
+    if any(not isinstance(i, str) or not i for i in child_ids) or len(set(child_ids)) != len(child_ids):
+        errors.append('native child identity missing or duplicated')
+    for child in children:
+        if child.get('role') != 'scientific_explorer' or child.get('depth') != 1:
+            errors.append('native role or depth unverified')
+        linked = child.get('parent_tool_use_id') in ids or child.get('id') in [c.get('child_id') for c in calls]
+        if not linked:
+            errors.append('native child/start identity linkage unresolved')
+    return {'verified': not errors, 'errors': errors, 'unique_starts': len(ids), 'native_child_count': len(children)}
 
 
 def normalize(provider, stream, native=None):
@@ -172,20 +227,31 @@ def normalize(provider, stream, native=None):
     usage = None
     observed = set()
     result = None
+    provider_failed = False
     responses = {}
     missing_response_id = False
     seen_tools = set()
+    tool_fragments = {}
+    fragment_conflicts = []
     for e in stream:
         if provider == 'codex':
+            if e.get('type') in ('error', 'turn.failed'):
+                provider_failed = True
             if e.get('type') == 'turn.completed':
                 usage = e.get('usage')
             item = e.get('item', {})
-            if e.get('type') == 'item.completed' and item.get('id') not in seen_tools:
+            if e.get('type') == 'item.completed':
+                if item.get('id') in seen_tools:
+                    if tool_fragments.get(item.get('id')) != item:
+                        fragment_conflicts.append('conflicting repeated tool identity: ' + str(item.get('id')))
+                    continue
                 if item.get('id'):
                     seen_tools.add(item['id'])
+                    tool_fragments[item['id']] = item
                 tools[item.get('type', 'unknown')] += 1
                 if item.get('type') == 'collab_tool_call' and item.get('tool') == 'spawn_agent':
-                    delegates.append(item)
+                    delegates.append({**item, 'role': item.get('agent_type') or item.get('role') or item.get('arguments', {}).get('agent_type'),
+                                      'child_id': next(iter(item.get('receiver_thread_ids', [])), None)})
         else:
             if e.get('type') == 'result':
                 result = e
@@ -203,13 +269,17 @@ def normalize(provider, stream, native=None):
             for c in m.get('content', []) or []:
                 if isinstance(c, dict) and c.get('type') == 'tool_use':
                     if c.get('id') in seen_tools:
+                        if tool_fragments.get(c.get('id')) != c:
+                            fragment_conflicts.append('conflicting repeated tool identity: ' + str(c.get('id')))
                         continue
                     if c.get('id'):
                         seen_tools.add(c['id'])
+                        tool_fragments[c['id']] = c
                     tools[c.get('name', 'unknown')] += 1
                     if c.get('name') in ('Agent', 'Task'):
                         delegates.append({'role': c.get('input', {}).get('subagent_type'),
-                                          'tool_use_id': c.get('id'), 'input': c.get('input')})
+                                          'tool_use_id': c.get('id'), 'input': c.get('input'),
+                                          'parent_tool_use_id': e.get('parent_tool_use_id')})
     children = []
     thread_usage = []
     for trace in native:
@@ -223,14 +293,17 @@ def normalize(provider, stream, native=None):
         counts = [u for u in counts if u is not None]
         thread_usage.append({'id': meta.get('id'), 'usage_last_cumulative': counts[-1] if counts else None,
                              'model_contexts': [{'model': c.get('model'), 'effort': c.get('effort')} for c in contexts]})
-        parent = meta.get('parent_thread_id')
-        source = meta.get('source', {})
-        if isinstance(source, dict):
-            spawn = source.get('subagent', {}).get('thread_spawn', {})
-            parent = parent or spawn.get('parent_thread_id')
+        parent = parent_id(meta)
         if parent:
             children.append({'id': meta.get('id'), 'parent': parent, 'role': meta.get('agent_role'),
-                             'models': sorted({c.get('model') for c in contexts if c.get('model')})})
+                             'models': sorted({c.get('model') for c in contexts if c.get('model')}),
+                             'depth': None})
+    parents = {c['id']: c['parent'] for c in children}
+    for child in children:
+        depth, ancestor, seen = 1, child['parent'], {child['id']}
+        while ancestor in parents and ancestor not in seen:
+            seen.add(ancestor); ancestor = parents[ancestor]; depth += 1
+        child['depth'] = depth if ancestor not in seen else None
     context_counts = []
     for value in responses.values():
         keys = ('input_tokens', 'cache_creation_input_tokens', 'cache_read_input_tokens')
@@ -241,9 +314,12 @@ def normalize(provider, stream, native=None):
             'first_input_context_tokens': context_counts[0] if context_counts and not missing_response_id else None,
             'input_tokens_processed_from_messages': sum(context_counts) if complete else None,
             'response_telemetry_note': 'Latest available usage per stable assistant message ID; missing identities or usage leave totals unknown; child stream messages excluded; not a server request count.',
-            'provider_usage': usage, 'provider_result_model_usage': (result or {}).get('modelUsage'),
+            'provider_usage': usage, 'provider_telemetry_complete': valid_usage(provider, usage),
+            'usable_provider_usage': usage if valid_usage(provider, usage) else None, 'provider_result_model_usage': (result or {}).get('modelUsage'),
             'provider_reported_cost_usd': (result or {}).get('total_cost_usd'),
-            'provider_error': (result or {}).get('is_error') if provider == 'claude' else None,
+            'provider_terminal_complete': type((result or {}).get('is_error')) is bool if provider == 'claude' else usage is not None,
+            'provider_error': (result or {}).get('is_error') if provider == 'claude' else provider_failed,
+            'tool_fragment_conflicts': fragment_conflicts,
             'observed_models': sorted(observed), 'tools': dict(tools), 'delegate_calls': delegates,
             'native_children': children, 'thread_usage': thread_usage,
             'whole_family_accounting': 'unverified' if delegates or children else 'parent_only_no_delegate_observed',
@@ -307,6 +383,8 @@ def frozen_errors(out, manifest):
             errors.append(f'{out.name}: frozen {name} differs or identity missing')
     if fingerprint(out / 'workspace') != manifest.get('before'):
         errors.append(f'{out.name}: frozen workspace differs')
+    if manifest.get('task') == 'semantic' and manifest.get('semantic_fixture_sha256') != sha(ROOT / 'scripts/semantic_fixture.py'):
+        errors.append(f'{out.name}: semantic fixture version differs')
     if manifest.get('adapter_sha256') != sha(Path(__file__)):
         errors.append(f'{out.name}: adapter version differs; prepare a new pair')
     if manifest.get('legacy_harness_sha256') != sha(LEGACY):
@@ -358,7 +436,7 @@ def audit_pair(baseline, workflow):
         result['question'] = ('workflow use with matched capabilities' if mode == 'routing'
                               else 'capability deployment overhead')
         keys = ('provider', 'task', 'model_requested', 'effort_requested', 'timeout_s',
-                'base_prompt_sha256', 'truth_sha256', 'schema_sha256', 'adapter_sha256',
+                'base_prompt_sha256', 'semantic_fixture_sha256', 'purpose', 'truth_sha256', 'schema_sha256', 'adapter_sha256',
                 'legacy_harness_sha256', 'native_config_sha256', 'native_capability_files', 'envelope')
         for key in keys:
             if key not in a or key not in b or a[key] != b[key]:
@@ -390,6 +468,13 @@ def audit_pair(baseline, workflow):
     return result
 
 
+def semantic_module():
+    spec = importlib.util.spec_from_file_location('semantic_fixture', ROOT / 'scripts/semantic_fixture.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def prepare(args):
     out = Path(args.output).resolve()
     out.mkdir(parents=True, exist_ok=False)
@@ -397,13 +482,16 @@ def prepare(args):
     comparison = getattr(args, 'comparison', 'routing')
     if comparison not in ('routing', 'deployment'):
         raise ValueError('unknown comparison')
-    prose = getattr(args, 'task', 'inventory') == 'prose'
+    task = getattr(args, 'task', 'inventory')
+    prose = task == 'prose'
+    semantic = semantic_module() if task == 'semantic' else None
+    qualification = getattr(args, 'qualification', False)
     budget = getattr(args, 'budget_usd', 2)
-    truth = build_prose_fixture(workspace) if prose else build_fixture(workspace)
-    if truth != (prose_reference(workspace) if prose else reference(workspace)):
+    truth = semantic.build(workspace) if semantic else (build_prose_fixture(workspace) if prose else build_fixture(workspace, count=1 if qualification else 96))
+    if (semantic and not semantic.verify(workspace, truth)) or (not semantic and truth != (prose_reference(workspace) if prose else reference(workspace))):
         raise ValueError('independent reference disagrees')
     write(out / 'truth.json', truth)
-    write(out / 'schema.json', SCHEMA)
+    write(out / 'schema.json', semantic.SCHEMA if semantic else SCHEMA)
     (workspace / 'AGENTS.md').write_text(SCOPE + '\n')
     (workspace / 'CLAUDE.md').write_text('@AGENTS.md\n')
     if comparison == 'routing' or args.arm == 'workflow':
@@ -414,12 +502,18 @@ def prepare(args):
                     'no helper delegation. Direct tools and choosing no helper are valid. '
                     if args.arm == 'workflow' else
                     'Use one main execution owner and direct tools. Do not invoke skills or delegates. ')
-    prompt = SCOPE + intervention + (PROSE_TASK if prose else TASK) + '\n'
+    base_task = semantic.TASK if semantic else (PROSE_TASK if prose else TASK)
+    if qualification:
+        intervention = 'Call exactly one native scientific_explorer. Give it the mechanical task of reading the one inventory JSON and returning its selected record. Integrate its reply. No other role or nested helper. '
+    elif semantic and args.arm == 'workflow':
+        intervention = 'Call exactly one native scientific_explorer for this bounded mechanical assignment. Do not inspect its assigned files yourself unless its return has a concrete discrepancy. ' + semantic.HELPER_ASSIGNMENT + ' No other role or nested helper. '
+    prompt = SCOPE + intervention + base_task + '\n'
     (out / 'prompt.txt').write_text(prompt)
     sid = str(uuid.uuid4())
     manifest = {'provider': args.provider, 'arm': args.arm, 'session_id_requested': sid,
-                'comparison': comparison, 'task': 'prose' if prose else 'inventory',
-                'base_prompt_sha256': hashlib.sha256((SCOPE + (PROSE_TASK if prose else TASK)).encode()).hexdigest(),
+                'comparison': comparison, 'task': task, 'purpose': 'capture_qualification' if qualification else 'comparison',
+                'semantic_fixture_sha256': sha(ROOT / 'scripts/semantic_fixture.py') if semantic else None,
+                'base_prompt_sha256': hashlib.sha256((SCOPE + base_task).encode()).hexdigest(),
                 'schema_sha256': sha(out / 'schema.json'),
                 'cost_scope': 'session only; setup, coordinator and external review remain unmeasured',
                 'timeout_s': 300, 'model_requested': 'gpt-6.1-sol' if args.provider == 'codex' else 'opus',
@@ -445,56 +539,104 @@ def prepare(args):
 
 def collect_codex(out, stream):
     sid = next((e.get('thread_id') for e in stream if e.get('type') == 'thread.started'), None)
+    errors, candidates, conflicts = [], {}, set()
     if not sid:
+        write(out / 'native_capture.json', {'complete': False, 'errors': ['missing parent thread identity']})
         return []
-    candidates = []
     for db in (Path.home() / '.codex').glob('state_*.sqlite'):
         con = sqlite3.connect(f'file:{db}?mode=ro', uri=True)
         try:
-            rows = con.execute('select id, rollout_path, source from threads where cwd=?',
-                               (str(out / 'workspace'),)).fetchall()
-            candidates.extend(rows)
+            rows = con.execute('select id, rollout_path, source from threads').fetchall()
+            for thread, name, source in rows:
+                parent = parent_id({'source': source})
+                # Inspect metadata only to establish ownership; do not export unrelated sessions.
+                meta = {}
+                if isinstance(name, str) and Path(name).is_file():
+                    with Path(name).open() as handle:
+                        for line in handle:
+                            try:
+                                event = json.loads(line)
+                            except ValueError:
+                                break
+                            if isinstance(event, dict) and event.get('type') == 'session_meta':
+                                meta = event.get('payload', {}); break
+                if not isinstance(meta, dict):
+                    meta = {}
+                parent = parent_id(meta) or parent
+                candidate = (name, parent, meta.get('id'))
+                if thread in candidates and candidates[thread] != candidate:
+                    conflicts.add(thread)
+                candidates[thread] = candidate
         finally:
             con.close()
-    parsed = {}
-    for thread, name, _ in candidates:
-        if Path(name).is_file():
-            trace = events(Path(name))
-            meta = next((e.get('payload', {}) for e in trace if e.get('type') == 'session_meta'), {})
-            source = meta.get('source', {})
-            parent = meta.get('parent_thread_id')
-            if isinstance(source, dict):
-                parent = parent or source.get('subagent', {}).get('thread_spawn', {}).get('parent_thread_id')
-            parsed[thread] = (name, trace, parent)
     owned = {sid}
-    for _ in range(2):
-        owned.update(thread for thread, (_, _, parent) in parsed.items() if parent in owned)
+    while True:
+        expanded = owned | {thread for thread, (_, parent, _) in candidates.items() if parent in owned}
+        if expanded == owned:
+            break
+        owned = expanded
+    errors.extend('conflicting candidate identity: ' + str(thread) for thread in sorted(owned & conflicts))
     result = []
-    dest = out / 'native'
-    dest.mkdir(exist_ok=True)
-    for thread in sorted(owned & parsed.keys()):
-        name, trace, _ = parsed[thread]
+    dest = out / 'native'; dest.mkdir(exist_ok=True)
+    for thread in sorted(owned):
+        if thread not in candidates:
+            errors.append('missing descendant transcript: ' + thread); continue
+        name, _, ident = candidates[thread]
+        if ident != thread or not isinstance(name, str) or not Path(name).is_file():
+            errors.append('missing or mismatched descendant transcript: ' + thread); continue
+        try:
+            trace = events(Path(name))
+        except ValueError as exc:
+            errors.append(str(exc)); continue
         shutil.copyfile(name, dest / f'{thread}.jsonl')
         result.append(trace)
+    write(out / 'native_capture.json', {'complete': not errors, 'errors': errors, 'owned_ids': sorted(owned)})
     return result
 
 
 def collect_claude(out, sid):
-    # Exact requested session identity only; never inspect unrelated conversations.
-    dest = out / 'native'
-    dest.mkdir(exist_ok=True)
-    collected = []
+    dest = out / 'native'; dest.mkdir(exist_ok=True)
+    collected, errors, parents = [], [], []
     for project in (Path.home() / '.claude/projects').glob('*'):
         parent = project / f'{sid}.jsonl'
         if parent.is_file():
+            parents.append(parent)
             shutil.copyfile(parent, dest / 'parent.jsonl')
         folder = project / sid / 'subagents'
         if folder.is_dir():
-            for p in folder.glob('agent-*'):
-                if p.suffix in ('.jsonl', '.json'):
-                    shutil.copyfile(p, dest / p.name)
-                    if p.suffix == '.jsonl':
-                        collected.append({'file': p.name, 'events': events(p)})
+            for path in sorted(folder.glob('agent-*.jsonl')):
+                meta_path = path.with_suffix('.meta.json')
+                meta = json.loads(meta_path.read_text()) if meta_path.is_file() else {}
+                if not isinstance(meta, dict):
+                    raise ValueError('malformed child metadata')
+                trace = events(path)
+                ident = path.stem.removeprefix('agent-')
+                if any(t['id'] == ident for t in collected):
+                    errors.append('duplicate child transcript: ' + ident)
+                    continue
+                shutil.copyfile(path, dest / path.name)
+                if meta_path.exists(): shutil.copyfile(meta_path, dest / meta_path.name)
+                collected.append({'file': path.name, 'id': ident, 'role': meta.get('agentType'),
+                                  'parent_tool_use_id': meta.get('parentToolUseId') or meta.get('parent_tool_use_id'),
+                                  'depth': 1, 'events': trace})
+    if len(parents) != 1:
+        errors.append('missing or duplicated parent transcript')
+    if parents:
+        for event in events(parents[0]):
+            for content in event.get('message', {}).get('content', []) or []:
+                if isinstance(content, dict) and content.get('type') == 'tool_result':
+                    text = content.get('content')
+                    if not isinstance(text, str): text = json.dumps(text)
+                    match = re.search(r'agentId:\s*([A-Za-z0-9_-]+)', text)
+                    if match:
+                        for child in collected:
+                            if child['id'] == match.group(1):
+                                child['parent_tool_use_id'] = content.get('tool_use_id')
+    for child in collected:
+        # A nested request is invalid even if the child CLI never started it.
+        if normalize('claude', child['events'])['delegate_calls']:
+            child['depth'] = 2
+    write(out / 'native_capture.json', {'complete': not errors, 'errors': errors})
     return collected
 
 
@@ -507,78 +649,144 @@ def run(out, peer=None):
     pair = audit_pair(baseline, workflow)
     if not pair['controls_match']:
         raise ValueError('pair preflight failed: ' + '; '.join(pair['errors']))
-    if (peer / 'trace.jsonl').exists():
-        if not (peer / 'execution.json').exists():
-            raise ValueError('peer has no terminal receipt; inspect its owned execution before proceeding')
-        terminal = json.loads((peer / 'execution.json').read_text())
-        if terminal.get('returncode') != 0 or terminal.get('timed_out'):
+    if any((peer / name).exists() for name in ('trace.jsonl', 'execution.json', 'metrics.json')):
+        try:
+            terminal = json.loads((peer / 'execution.json').read_text())
+            checks = json.loads((peer / 'metrics.json').read_text()).get('checks', {})
+        except (OSError, ValueError, AttributeError) as exc:
+            raise ValueError('peer capture is incomplete or malformed; preserve its receipt') from exc
+        if not isinstance(terminal, dict) or type(terminal.get('returncode')) is not int or terminal['returncode'] != 0 or terminal.get('timed_out') is not False:
             raise ValueError('peer failed; preserve the affected comparison without an automatic further start')
-        if not (peer / 'metrics.json').exists():
-            raise ValueError('peer capture is incomplete; wait for its terminal metrics')
-        checks = json.loads((peer / 'metrics.json').read_text()).get('checks', {})
-        for name in ('terminal_success', 'workspace_unchanged', 'usage_present', 'support_cap'):
-            if checks.get(name) is not True:
+        for name in ('terminal_success', 'workspace_unchanged', 'usage_present', 'support_cap',
+                     'cleanup_verified', 'capture_complete', 'exact_output'):
+            if not isinstance(checks, dict) or checks.get(name) is not True:
                 raise ValueError(f'peer boundary/telemetry check failed: {name}')
-    if (out / 'execution.json').exists() or (out / 'trace.jsonl').exists():
+        if not isinstance(terminal.get('cleanup'), dict) or terminal['cleanup'].get('verified') is not True:
+            raise ValueError('peer cleanup unverified')
+    if any((out / name).exists() for name in ('execution.json', 'trace.jsonl', 'metrics.json')):
         raise ValueError('refusing unchanged retry; preserve previous receipt')
+    execute(out, manifest)
+
+
+def run_qualification(out):
+    out = Path(out).resolve()
+    manifest = json.loads((out / 'manifest.json').read_text())
+    if manifest.get('purpose') != 'capture_qualification' or manifest.get('arm') != 'workflow':
+        raise ValueError('not a frozen capture qualification')
+    errors = frozen_errors(out, manifest)
+    if errors: raise ValueError('qualification preflight failed: ' + '; '.join(errors))
+    if any((out / name).exists() for name in ('execution.json', 'trace.jsonl', 'metrics.json')):
+        raise ValueError('refusing qualification retry')
+    execute(out, manifest)
+
+
+def execute(out, manifest):
     spec = importlib.util.spec_from_file_location('legacy_workflow_harness', LEGACY)
     legacy = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(legacy)
     # Reuse existing finite timeout/process-group runner, not another orchestrator.
-    legacy.run(out, manifest)
-    execution = json.loads((out / 'execution.json').read_text())
-    stream = events(out / 'trace.jsonl')
-    native = collect_codex(out, stream) if manifest['provider'] == 'codex' else []
-    child_traces = collect_claude(out, manifest['session_id_requested']) if manifest['provider'] == 'claude' else []
-    metrics = normalize(manifest['provider'], stream, native)
-    if child_traces:
+    failure = None
+    try:
+        legacy.run(out, manifest)
+    except Exception as exc:
+        failure = f'runner failed: {type(exc).__name__}: {exc}'
+    capture(out, manifest, failure)
+
+
+def capture(out, manifest, failure=None):
+    """Always leave a terminal incomplete record when native capture cannot be parsed."""
+    errors = [failure] if failure else []
+    execution, stream, traces, children = {}, [], [], []
+    try:
+        execution = json.loads((out / 'execution.json').read_text())
+        if not isinstance(execution, dict): raise ValueError('receipt must be an object')
+    except (OSError, ValueError) as exc:
+        errors.append('missing or malformed execution receipt: ' + str(exc)); execution = {}
+    metrics = normalize(manifest['provider'], [])
+    try:
+        if not (out / 'trace.jsonl').is_file(): raise ValueError('missing trace')
+        stream = events(out / 'trace.jsonl')
+        if not stream: raise ValueError('empty trace')
+        if manifest['provider'] == 'codex':
+            traces = collect_codex(out, stream)
+        else:
+            children = collect_claude(out, manifest['session_id_requested'])
+        report = json.loads((out / 'native_capture.json').read_text())
+        if report.get('complete') is not True: errors.extend(report.get('errors') or ['native capture incomplete'])
+        metrics = normalize(manifest['provider'], stream, traces)
+    except (OSError, ValueError, TypeError, AttributeError, KeyError, IndexError, sqlite3.Error) as exc:
+        errors.append('native capture failed: ' + str(exc))
+    if children:
+        metrics['observed_models'] = sorted(set(metrics['observed_models']) | {e.get('message', {}).get('model') for t in children for e in t['events'] if e.get('message', {}).get('model')})
         metrics['claude_child_evidence'] = [{
-            'file': t['file'], 'models': sorted({e.get('message', {}).get('model') for e in t['events'] if e.get('message', {}).get('model')}),
+            'file': t['file'], 'id': t['id'], 'role': t['role'], 'depth': t['depth'],
+            'parent_tool_use_id': t['parent_tool_use_id'],
+            'models': sorted({e.get('message', {}).get('model') for e in t['events'] if e.get('message', {}).get('model')}),
             'usage_raw': [e['message']['usage'] for e in t['events'] if e.get('message', {}).get('usage')],
-        } for t in child_traces]
+        } for t in children]
         metrics['whole_family_accounting'] = 'unverified'
+    boundary = delegation_check(manifest['arm'], metrics, children if manifest['provider'] == 'claude' else None)
+    if manifest.get('purpose') == 'capture_qualification' and boundary['unique_starts'] != 1:
+        boundary['verified'] = False
+        boundary['errors'].append('qualification requires exactly one allowed helper')
     answer = None
-    if manifest['provider'] == 'claude':
-        final = next((e for e in reversed(stream) if e.get('type') == 'result'), {})
-        answer = final.get('structured_output')
-        if answer is None:
-            try:
-                answer = json.loads(final.get('result', ''))
-            except ValueError:
-                pass
-        if answer is not None:
-            write(out / 'answer.json', answer)
-    elif (out / 'answer.json').exists():
-        try:
+    try:
+        if manifest['provider'] == 'claude':
+            final = next((e for e in reversed(stream) if e.get('type') == 'result'), {})
+            answer = final.get('structured_output')
+            if answer is None:
+                try: answer = json.loads(final.get('result', ''))
+                except ValueError: pass
+            if answer is not None: write(out / 'answer.json', answer)
+        elif (out / 'answer.json').exists():
             answer = json.loads((out / 'answer.json').read_text())
-        except ValueError:
-            pass
+    except (OSError, ValueError, TypeError) as exc:
+        errors.append('answer parse failure: ' + str(exc))
     expected = json.loads((out / 'truth.json').read_text())
-    changed = fingerprint(out / 'workspace') != manifest['before']
-    checks = {'exact_output': score(answer, expected), 'workspace_unchanged': not changed,
-              'terminal_success': execution['returncode'] == 0 and not execution['timed_out'] and metrics['provider_error'] is not True,
-              'usage_present': isinstance(metrics['provider_usage'], dict),
-              'support_cap': max(len(metrics['delegate_calls']), len(metrics['native_children']), len(child_traces)) <= (1 if manifest['arm'] == 'workflow' else 0)}
+    cleanup = execution.get('cleanup', {})
+    checks = {'exact_output': semantic_module().score(answer, expected, out / 'workspace') if manifest.get('task') == 'semantic' else score(answer, expected),
+              'workspace_unchanged': fingerprint(out / 'workspace') == manifest['before'],
+              'terminal_success': type(execution.get('returncode')) is int and execution['returncode'] == 0 and execution.get('timed_out') is False and metrics['provider_terminal_complete'] and metrics['provider_error'] is False,
+              'usage_present': metrics['provider_telemetry_complete'],
+              'support_cap': boundary['verified'],
+              'cleanup_verified': isinstance(cleanup, dict) and cleanup.get('verified') is True and cleanup.get('status') in ('absent', 'terminated'),
+              'capture_complete': not errors}
+    if manifest.get('purpose') == 'capture_qualification':
+        metrics['qualification_gate'] = {
+            'native_identity_observed': bool(metrics['observed_models']) and bool(children) and all(c.get('models') for c in metrics.get('claude_child_evidence', [])),
+            'family_accounting': metrics['whole_family_accounting'],
+            'effective_permissions': 'unverified; inspect native allowed/denied scratch evidence',
+            'accepted': False,
+            'note': 'Capture checks do not establish inclusive accounting or effective permissions; independent native qualification evidence is required before comparison.'}
     write(out / 'metrics.json', {**metrics, 'checks': checks, 'quality_pass': all(checks.values()),
-                                'execution': execution, 'cleanup': 'runner exited; external child termination unverified if any',
-                                'scientific_execution': False})
-    print(json.dumps({'output': str(out), 'checks': checks, 'wall_s': execution['wall_s'],
+                                'execution_state': 'complete' if all(checks.values()) else 'incomplete',
+                                'capture_errors': errors, 'delegation_boundary': boundary,
+                                'execution': execution, 'cleanup': cleanup, 'scientific_execution': False})
+    print(json.dumps({'output': str(out), 'checks': checks, 'wall_s': execution.get('wall_s'),
                       'delegates': len(metrics['delegate_calls']), 'observed_models': metrics['observed_models'],
                       'cost_usd_reported': metrics['provider_reported_cost_usd']}))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['prepare', 'check-pair', 'run'])
+    parser.add_argument('action', choices=['prepare', 'check-pair', 'run', 'prepare-qualification', 'run-qualification'])
     parser.add_argument('--provider', choices=['codex', 'claude'])
     parser.add_argument('--arm', choices=['baseline', 'workflow'])
     parser.add_argument('--comparison', choices=['routing', 'deployment'], default='routing')
     parser.add_argument('--peer', help='Other frozen arm; required by check-pair and run')
-    parser.add_argument('--task', choices=['inventory', 'prose'], default='inventory')
-    parser.add_argument('--budget-usd', type=float, default=2)
+    parser.add_argument('--task', choices=['inventory', 'prose', 'semantic'], default='inventory')
+    parser.add_argument('--budget-usd', type=float)
     parser.add_argument('--output', required=True)
     args = parser.parse_args()
-    if args.action == 'prepare':
+    if args.budget_usd is None:
+        args.budget_usd = 0.4 if args.action == 'prepare-qualification' else 2
+    if args.action == 'prepare-qualification':
+        args.provider = args.provider or 'claude'
+        args.arm = 'workflow'; args.qualification = True; args.task = 'inventory'
+        print(prepare(args))
+    elif args.action == 'run-qualification':
+        run_qualification(Path(args.output).resolve())
+    elif args.action == 'prepare':
         if not args.provider or not args.arm:
             parser.error('prepare requires provider and arm')
         print(prepare(args))

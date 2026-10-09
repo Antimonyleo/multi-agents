@@ -1,0 +1,25 @@
+{
+  "scope": "three proposed native Claude benchmark families only; coordinator/reviewer cost unknown and excluded from this ceiling, no total-project spend claim",
+  "starts": {
+    "parent_max": 3,
+    "helper_max": 2,
+    "executed": 0
+  },
+  "proposed_cli_estimate_caps_usd": [
+    0.4,
+    0.8,
+    0.8
+  ],
+  "target_usd": 2,
+  "ceiling_usd": 3,
+  "budget_gate_pass": false,
+  "reason": "Native max-budget-usd is evaluated after model responses; spend may exceed cap. No supported pre-request bound verified for the $3 aggregate ceiling.",
+  "accounting_sources": {
+    "cli": "https://code.claude.com/docs/en/cli-reference",
+    "cost": "https://code.claude.com/docs/en/agent-sdk/cost-tracking"
+  },
+  "native_version": "2.1.296",
+  "fixture_source_sha256": "531292ae0af3c4b9e3296e5837149da2ed0c3b9dd417462abb487596c35415c0",
+  "fixture_independent_truth_review": "accepted; helper excerpts corrected to include both client return expressions",
+  "claim_limit": "No native runtime behavioral or savings result; no benchmark inference has started."
+}

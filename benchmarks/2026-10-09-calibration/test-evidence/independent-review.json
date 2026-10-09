@@ -1,0 +1,18 @@
+{
+  "disposition": "accept_stage_A",
+  "independence": "original harness auditor; independent of execution owner",
+  "scope": "confirmed defects, required reliability edge cases, targeted Codex fragment correction",
+  "tests": {
+    "workflow_repository": 82,
+    "native_focused": 41,
+    "isolated_runner": 16
+  },
+  "live_qualification": "not_accepted_not_launched",
+  "scientific_claim": "none",
+  "activated_source_hashes": {
+    "/home/hao/githubrepo/scientific-workflow-skill/scripts/native_calibration.py": "4c932cdb696385fc137739dab3039ede484c815fc1c6b207f1b87653a55da3d0",
+    "/home/hao/githubrepo/scientific-workflow-skill/tests/test_native_reliability.py": "938e20236231bedcd6432bab2b3a3b21f809ac203ad0fe2549c0d7f4f6b384c5",
+    "/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/run.py": "c53c8bbc032fd4f3da1d682c21af95a36a0bfd1ea27140fd1d11ede9ce3bfd76",
+    "/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/test_cleanup.py": "e099240e00d1f79ba304ae8bac4db80466227d69903e3022b9167240e99dbfbe"
+  }
+}

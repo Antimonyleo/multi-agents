@@ -1,0 +1,33 @@
+test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) ...
+  test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) (changed={'agent_type': 'scientific_reviewer'}) ... FAIL
+  test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) (changed={'receiver_thread_ids': ['other-child']}) ... FAIL
+  test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) (changed={'agent_type': 'scientific_reviewer', 'receiver_thread_ids': ['other-child']}) ... FAIL
+
+======================================================================
+FAIL: test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) (changed={'agent_type': 'scientific_reviewer'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/tests/test_native_reliability.py", line 124, in test_codex_repeated_start_conflicts_fail_boundary
+    self.assertTrue(metrics['tool_fragment_conflicts'])
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) (changed={'receiver_thread_ids': ['other-child']})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/tests/test_native_reliability.py", line 124, in test_codex_repeated_start_conflicts_fail_boundary
+    self.assertTrue(metrics['tool_fragment_conflicts'])
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) (changed={'agent_type': 'scientific_reviewer', 'receiver_thread_ids': ['other-child']})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/reliability-stage/tests/test_native_reliability.py", line 124, in test_codex_repeated_start_conflicts_fail_boundary
+    self.assertTrue(metrics['tool_fragment_conflicts'])
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=3)

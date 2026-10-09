@@ -1,0 +1,21 @@
+test_no_residual_group_receipt (test_cleanup.CleanupTest.test_no_residual_group_receipt) ... ok
+test_owned_children_cleanup_and_unrelated_survival (test_cleanup.CleanupTest.test_owned_children_cleanup_and_unrelated_survival) ... ok
+test_uninspectable_group_is_unresolved (test_cleanup.CleanupTest.test_uninspectable_group_is_unresolved) ... ok
+test_absolute_and_relative_evidence_paths (test_harness.HarnessTests.test_absolute_and_relative_evidence_paths) ... ok
+test_claude_trace_is_graded_and_denied_tools_fail (test_harness.HarnessTests.test_claude_trace_is_graded_and_denied_tools_fail) ... ok
+test_completion_vocabulary_is_explicit_and_graded (test_harness.HarnessTests.test_completion_vocabulary_is_explicit_and_graded) ... ok
+test_finite_timeout_terminates_child (test_harness.HarnessTests.test_finite_timeout_terminates_child) ... ok
+test_invalid_answer_and_missing_usage_fail_cleanly (test_harness.HarnessTests.test_invalid_answer_and_missing_usage_fail_cleanly) ... ok
+test_paused_case_rejects_automatic_resume_and_mutation (test_harness.HarnessTests.test_paused_case_rejects_automatic_resume_and_mutation) ... ok
+test_readonly_mutation_is_rejected (test_harness.HarnessTests.test_readonly_mutation_is_rejected) ... ok
+test_resume_rejects_reexecution_of_completed_step (test_harness.HarnessTests.test_resume_rejects_reexecution_of_completed_step) ... ok
+test_valid_evidence_and_motivating_failures (test_harness.HarnessTests.test_valid_evidence_and_motivating_failures) ... ok
+test_index_check_does_not_accept_unstaged_fix (test_health.HealthTests.test_index_check_does_not_accept_unstaged_fix) ... ok
+test_missing_task_fields_rejected_and_review_restricts_tools (test_health.HealthTests.test_missing_task_fields_rejected_and_review_restricts_tools) ... ok
+test_oversize_broken_route_and_override (test_health.HealthTests.test_oversize_broken_route_and_override) ... ok
+test_paused_dispatch_rejected_but_review_dry_run_allowed (test_health.HealthTests.test_paused_dispatch_rejected_but_review_dry_run_allowed) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.856s
+
+OK

@@ -1,0 +1,10 @@
+{
+  "commit": "383b16d3998022b77d3630ed04005494c02260a9",
+  "branch": "workflow-runner-reliability-20261009",
+  "worktree": "/tmp/workflow-runner-checkpoint",
+  "canonical_branch_unchanged": "dev",
+  "scope": [
+    "tools/workflow_evaluation/run.py",
+    "tools/workflow_evaluation/test_cleanup.py"
+  ]
+}
