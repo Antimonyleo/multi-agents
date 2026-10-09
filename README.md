@@ -1,57 +1,44 @@
 # scientific-workflow-skill
 
-A Claude Code workflow for daily scientific work: a routing skill (`scientific-workflow`)
-and five sub-agents (`scientific_explorer`, `_researcher`, `_worker`, `_analyst`,
-`_reviewer`) with a model and effort for each, plus the benchmark that tests it. This repo
-is the single source of truth. The live copies under `~/.claude` are links to it.
+One shared scientific workflow skill for **Codex and Claude Code**, with separate native adapters. Project authority, explicit pauses and scientific gates remain in the projects. Claude's existing agents and settings are preserved.
 
-## Layout
-
-| Path | What it is |
+| Path | Purpose |
 | --- | --- |
-| `skill/scientific-workflow/SKILL.md` | The skill: roles, when to delegate, review gates, brief, overrides. |
-| `skill/scientific-workflow/maintenance.md` | Where things live, the model-check procedure, evolution log, open questions. |
-| `agents/scientific_*.md` | The five agent definitions (model, effort, tools, rules). |
-| `settings/settings.snippet.json` | The `settings.json` keys the workflow depends on (spawn caps, Sonnet effort). Merge by hand. |
-| `benchmarks/2026-10-08/` | Protocols (frozen before each phase), `bench.py` harness, ground-truth scripts, per-run data, `RESULTS.md`. |
-| `scripts/install.sh` | Links the skill and agents into `~/.claude`. `--check` and `--uninstall` also work. |
+| `skill/scientific-workflow/SKILL.md` | Shared ownership, execution, review, evidence and pause rules |
+| `skill/scientific-workflow/references/` | Runtime-specific dispatch and supporting rationale |
+| `agents/scientific_*.md` | Existing Claude native agents, unchanged |
+| `agents/codex/*.toml` | Codex profiles, separately installed |
+| `settings/settings.snippet.json` | Optional existing Claude snippet; never automatically merged |
+| `scripts/install.sh` | Runtime selection, dry-run, all-destination preflight, backup receipts and rollback |
+| `scripts/validate.py`, `tests/` | Local structure and temporary-home installer checks |
+| `benchmarks/2026-10-08/` | Preserved Claude benchmark, including its original limitations |
+| `docs/migration/2026-10-09/` | Historical Codex sources and source identity inventory |
+| `docs/consolidation.md` | Migration contract, checks and activation record |
 
-## Install on a machine
+## Install
 
-    scripts/install.sh            # link skill and agents into ~/.claude
-    scripts/install.sh --check    # confirm the links
-    scripts/install.sh --uninstall
+Python 3.11+ is required. The default remains Claude for backward compatibility:
 
-The script never overwrites a real file; it skips and says so. It does not touch
-`settings.json`: merge `settings/settings.snippet.json` yourself.
+```sh
+scripts/install.sh --dry-run
+scripts/install.sh
+scripts/install.sh --check
+scripts/install.sh --target codex --dry-run
+scripts/install.sh --target codex --migrate
+scripts/install.sh --target both --check
+scripts/install.sh --rollback /absolute/path/to/receipt.json
+```
 
-## Improve the workflow
+Claude installation links the skill and the existing root agent files. Codex installation links the same skill under `~/.agents/skills/` and copies TOML profiles into `~/.codex/agents/` to preserve the tested native discovery shape. No duplicate skill is created under `~/.codex/skills/`. Agent and CLI settings are never rewritten.
 
-1. Edit files here. The links make the change live. Skill edits are picked up in a running
-   session; restart the session after changing an agent file.
-2. After any change to an agent, the settings or a Claude Code update, run the model check in
-   `skill/scientific-workflow/maintenance.md`.
-3. Add a dated line to the evolution log in `maintenance.md`. Record what changed and why.
-4. To test a change, add a new dated folder under `benchmarks/`, write its protocol before
-   running, and keep failed criteria as results. Have a fresh reviewer check any seeded ground
-   truth first (two of mine were wrong in the first benchmark).
-5. The main thread must not edit the skill or agents on its own; it proposes, you approve.
+A conflict blocks the entire installation before mutation. `--migrate` explicitly backs up conflicts; it does not discard them. Each changing install writes a receipt under `~/.local/state/scientific-workflow/transactions/`. Rollback first verifies every installed destination and backup; later edits block rollback rather than being overwritten. Automatic failure recovery also preserves concurrent edits, records conflicts and restores only unchanged owned paths. An interrupted or conflicting receipt requires manual inspection; it is never reported as a clean rollback. Check copied Codex profiles after source edits and reinstall with `--migrate` when needed.
 
-## Status (2026-10-08)
+`CLAUDE_HOME`, `CODEX_HOME`, `AGENTS_HOME` and `--state-dir` support temporary-home checks. Optional `--legacy-manual /path/to/SCIENTIFIC_AGENT_WORKFLOW.md` installs a compatibility pointer for Codex, preserving the old file through the same backup/receipt mechanism. See `scripts/install.sh --help`.
 
-50 headless runs, about $18 at list price. The workflow costs about 3 to 8% more than plain
-Sonnet when idle or invoked, never delegated by itself on small tasks, and is about half the
-cost of Opus alone on small tasks only because its main thread is Sonnet. A review routed to
-`scientific_reviewer` cost 4 to 5 times a small task and found nothing extra. Saving tokens
-and keeping long tasks on track are untested. See `benchmarks/2026-10-08/RESULTS.md` and the
-open questions in `maintenance.md`.
+Legacy Claude `--uninstall` removes only exact owned links. Use a receipt rollback to undo a migration or Codex copied profiles; uninstall never deletes an unrelated real file. Restart sessions after changing native agents. Source skill edits become visible through links; stage and validate before publishing.
 
-## Not in this repo
+## Maintenance and evidence
 
-- `~/.claude/settings.json` (only the snippet).
-- The project gate file for origamifolder7, `docs/agent_guidance/delegation.md` in that project,
-  and its `AGENTS.md` pointer. They name that project's required reviews.
-- The Codex counterpart: `~/.codex/agents/*.toml` and `~/.agents/skills/scientific-workflow/`.
-  Same role names, separate files. Update both when roles change.
-- Raw run logs (`run.jsonl`) and the generated fixtures. `bench.py build` rebuilds the fixtures.
-  `bench.py` has machine-specific paths: it builds fixtures from `/home/hao/folding/origamifolder7`.
+Use `skill/scientific-workflow/maintenance.md` for native model checks and historical results. Explicit approval for a proposed workflow change authorizes its scoped implementation and validation; ordinary project work does not authorize self-modifying the skill or agents.
+
+The preserved Claude benchmark reports 50 small-task runs and list-price estimates, with seeded-truth corrections. It does not establish long-task token savings, a universal model hierarchy or Codex behavior. The benchmark harness has machine-specific origamifolder7 paths. Raw run logs and generated fixtures remain outside this repo. No scientific project is resumed by installation or workflow testing.

@@ -1,0 +1,50 @@
+test_aliasing_runtime_homes_is_rejected (test_install.InstallTests.test_aliasing_runtime_homes_is_rejected) ... ok
+test_backup_drift_blocks_rollback (test_install.InstallTests.test_backup_drift_blocks_rollback) ... ok
+test_both_and_idempotence (test_install.InstallTests.test_both_and_idempotence) ... ok
+test_broken_symlink_conflict_can_restore (test_install.InstallTests.test_broken_symlink_conflict_can_restore) ... ok
+test_codex_does_not_touch_claude (test_install.InstallTests.test_codex_does_not_touch_claude) ... ok
+test_codex_uninstall_requires_receipt (test_install.InstallTests.test_codex_uninstall_requires_receipt) ... ok
+test_default_claude_preserves_settings (test_install.InstallTests.test_default_claude_preserves_settings) ... ok
+test_destination_overlap_rejected (test_install.InstallTests.test_destination_overlap_rejected) ... ok
+test_drift_blocks_rollback_without_partial_restoration (test_install.InstallTests.test_drift_blocks_rollback_without_partial_restoration) ... ok
+test_dry_run_has_no_writes (test_install.InstallTests.test_dry_run_has_no_writes) ... ok
+test_failure_recovery_preserves_intervening_backup_edit (test_install.InstallTests.test_failure_recovery_preserves_intervening_backup_edit) ... failed installation preserved concurrent changes; recovery required; receipt: /tmp/workflow-install-test-8oooydeg/state/transactions/960c34cac4fa4f209f8d0bb8d53045c6/receipt.json
+error: injected later failure
+ok
+test_failure_recovery_preserves_intervening_destination_edit (test_install.InstallTests.test_failure_recovery_preserves_intervening_destination_edit) ... failed installation preserved concurrent changes; recovery required; receipt: /tmp/workflow-install-test-plkcjyen/state/transactions/be30ed9d0d8f4f47bae30bfabf285918/receipt.json
+error: injected later failure
+ok
+test_injected_partial_copy_failure_restores_all (test_install.InstallTests.test_injected_partial_copy_failure_restores_all) ... failed installation restored; receipt: /tmp/workflow-install-test-m_d0k5vk/state/transactions/d9c3d322de88422780c5edf321ecf6ab/receipt.json
+error: injected I/O failure
+ok
+test_late_conflict_blocks_every_destination (test_install.InstallTests.test_late_conflict_blocks_every_destination) ... ok
+test_legacy_manual_requires_codex (test_install.InstallTests.test_legacy_manual_requires_codex) ... ok
+test_migration_and_full_rollback (test_install.InstallTests.test_migration_and_full_rollback) ... ok
+test_missing_source_blocks_install (test_install.InstallTests.test_missing_source_blocks_install) ... ok
+test_parent_file_blocks_before_any_mutation (test_install.InstallTests.test_parent_file_blocks_before_any_mutation) ... ok
+test_profile_drift_is_detected (test_install.InstallTests.test_profile_drift_is_detected) ... ok
+test_rollback_does_not_remove_preexisting_matching_profiles (test_install.InstallTests.test_rollback_does_not_remove_preexisting_matching_profiles) ... ok
+test_uninstall_preserves_unrelated_files (test_install.InstallTests.test_uninstall_preserves_unrelated_files) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 3.186s
+
+OK
+backup and install: /tmp/workflow-install-test-8oooydeg/agents/skills/scientific-workflow
+install: /tmp/workflow-install-test-8oooydeg/codex/agents/scientific_analyst.toml
+install: /tmp/workflow-install-test-8oooydeg/codex/agents/scientific_explorer.toml
+install: /tmp/workflow-install-test-8oooydeg/codex/agents/scientific_researcher.toml
+backup and install: /tmp/workflow-install-test-8oooydeg/codex/agents/scientific_reviewer.toml
+install: /tmp/workflow-install-test-8oooydeg/codex/agents/scientific_worker.toml
+backup and install: /tmp/workflow-install-test-plkcjyen/agents/skills/scientific-workflow
+install: /tmp/workflow-install-test-plkcjyen/codex/agents/scientific_analyst.toml
+install: /tmp/workflow-install-test-plkcjyen/codex/agents/scientific_explorer.toml
+install: /tmp/workflow-install-test-plkcjyen/codex/agents/scientific_researcher.toml
+backup and install: /tmp/workflow-install-test-plkcjyen/codex/agents/scientific_reviewer.toml
+install: /tmp/workflow-install-test-plkcjyen/codex/agents/scientific_worker.toml
+backup and install: /tmp/workflow-install-test-m_d0k5vk/agents/skills/scientific-workflow
+install: /tmp/workflow-install-test-m_d0k5vk/codex/agents/scientific_analyst.toml
+install: /tmp/workflow-install-test-m_d0k5vk/codex/agents/scientific_explorer.toml
+install: /tmp/workflow-install-test-m_d0k5vk/codex/agents/scientific_researcher.toml
+backup and install: /tmp/workflow-install-test-m_d0k5vk/codex/agents/scientific_reviewer.toml
+install: /tmp/workflow-install-test-m_d0k5vk/codex/agents/scientific_worker.toml

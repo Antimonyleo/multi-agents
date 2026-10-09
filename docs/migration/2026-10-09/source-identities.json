@@ -1,0 +1,372 @@
+{
+  "/home/hao/githubrepo/scientific-workflow-skill/.gitignore": {
+    "sha256": "1432fdfe6e077980c75c910be191dd950efc3c7415d5b8a8adfdaf656fb37ebc",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/README.md": {
+    "sha256": "1a25205346dee37d6193731c572896906554a7461f840321ab1331a72c42b60b",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/skill/scientific-workflow/SKILL.md": {
+    "sha256": "19bb519202ef6920f1bfa79dfddbbd3a253124b816a57cd515037f8e3b210489",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/skill/scientific-workflow/maintenance.md": {
+    "sha256": "0cc01a394724526812d71c108309843472a25a4a267331af7b4b81c145cdd502",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_analyst.md": {
+    "sha256": "c8c60a771f90bd25911b009ab9d7d4e66fe1db775e4c70da6ad260c8e7a50174",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_explorer.md": {
+    "sha256": "040ad15cf1e7e3ef1e4c74d6925016440f5ee48deb84fa8d7ca7b09a1cf39245",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_researcher.md": {
+    "sha256": "82e4d8367bab0270686158d112c083ed947ef020c4b9b58ceca8c213a0d6f450",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_reviewer.md": {
+    "sha256": "c9457c132c3b09320bbafcdf7b249fcba07b09f0f58a397dd15225b602754369",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_worker.md": {
+    "sha256": "ed248dec8f52c5b385c9141aebc1f82aec95ca071aec466475f666c2e0ba8b02",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/settings/settings.snippet.json": {
+    "sha256": "bf72f958250cfc4806de58497e5118c3e3fac944627a40aacd94eaba1f61d46a",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/scripts/install.sh": {
+    "sha256": "71d525f897f604be5c42f9794fff44a117dac9fcb2d7bc66d20d4f5ed25d4489",
+    "mode": 493
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/truth_t2.py": {
+    "sha256": "afec8518f722fd276cd7a0ca214325650465006ead84cc8efa0873a685dcdb96",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/truth_t3.py": {
+    "sha256": "117a79fb1012f51b980a198912b6a71678ce8eef355460aa8fec70217f096a0d",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/bench.py": {
+    "sha256": "8936399f6ce73cf5d71d7926c6c521a7aa85a79c8895050c0f71fc611b67a209",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/protocol.md": {
+    "sha256": "03e051b3fe8422bfec4e8d667e1bb1b309f3565961999155d3b43b97b9d931e8",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/protocol_phase2.md": {
+    "sha256": "c4a44c6db073a7329f6c8d1962e72b24227a4e9cd36395c73d213853b394ef8c",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/protocol_phase3.md": {
+    "sha256": "ac214e63ae094e6d90ec9811eed7230cc9fc3ecc286946d9cf964c732fe0f3a4",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/RESULTS.md": {
+    "sha256": "8c70fcb45f4eb151bd98c8db292a9f7c72f59de34eef5971bc48849a0d3dd4a7",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/protocol_phase4.md": {
+    "sha256": "5da33ebadc1c3737a241a02e121df9e53f4bc1e012bde611e9dc06d0842ff1fb",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/results_phase1.md": {
+    "sha256": "055292c0113bb275e72be85c74d1293afb465ba3ea37838527ee332940a10619",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/results_phase2.md": {
+    "sha256": "43d8c6ef8ce1f09efc235e12e536c75be3008d53ed55e6de52841649ff23d9d1",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/results_phase3.md": {
+    "sha256": "08c018a9d69782d7c76e3e03405ed02089409b52cac69672d027179237e37289",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/truth_t2.json": {
+    "sha256": "06c434209547ff81498eca0de6e71d19c8d499f66cf6a499dc1bccf81b43f9ac",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/truth_t3.json": {
+    "sha256": "16fab39e9454c27f09aad9c4cbcbe90beed743cca106ec2425463b54dae461b6",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/progress1.log": {
+    "sha256": "7c4d19eed6dc4fb25dcbd2e90a4719271c5b110191ccc6586a670d19fbc58b56",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/progress2.log": {
+    "sha256": "7205e70fc334c4b0295fc462ebea3e16e19593d53c454f0340f550ecc4a428b8",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/progress3.log": {
+    "sha256": "3290ad7372504d0c41ef87105fc1a04207addfcd466a6c806764b5a5ff025ce5",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/results_phase4.md": {
+    "sha256": "7a50894c1826f2a47a5fbae389b9c8cef4a0d9269d2cc7e86518ee1c4d9cbe50",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/progress4.log": {
+    "sha256": "05d42a1248f40249917627829c3dcef6b5260003f42464bd39805015a17cf6c9",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T1_B_1/metrics.json": {
+    "sha256": "d3c1f2be609882f0efd20d0116a544038b39659dca40a04037fbdbce7e78e2c9",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T1_B_2/metrics.json": {
+    "sha256": "9b782fc5ebed30dfcca70f99aae5b9d02bc6a22c32d8ec557b7443011edec58e",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T1_B_3/metrics.json": {
+    "sha256": "57fe48ca8e211038067b49512373e79df882d3d060cc03508085857f40a9bdff",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T1_W_1/metrics.json": {
+    "sha256": "04da5736c5e435d2cdfc57d307c9182745fdaab99ef647cf9db2aa897701187f",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T1_W_2/metrics.json": {
+    "sha256": "b0379c3a0b0ad24aa51b6087a040d1c7fdfc82f4e99889b9893e9a96c6435573",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T1_W_3/metrics.json": {
+    "sha256": "ca3fb7f3e79cb74b8c0383b8d9440855cb54704f2662d7427b03fe61163f49b5",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T2_B_1/metrics.json": {
+    "sha256": "b31387f724c302b90677e659b7e80ab1e6366194188d17dd71f48cfeae761340",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T2_B_2/metrics.json": {
+    "sha256": "c8027f4f58e1715bae27f0fc2661205d6a557d822d9e72abee1bbd63fbdeb3b1",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T2_B_3/metrics.json": {
+    "sha256": "7033ab13d76d6760fd636e811cc11a0c95c48bb3ad2938930edfb1896c83862c",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T2_W_1/metrics.json": {
+    "sha256": "477d0c71fe209c9fc1a5bfecb62f56893ace5ec78a0b48ebe99f7909ff525ebd",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T2_W_2/metrics.json": {
+    "sha256": "c284dedffa08656bdd9f44a018f04509f75ae813003824a42d0ae24059acd140",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T2_W_3/metrics.json": {
+    "sha256": "bda2f1cc9124a7e0dd7f28fded15510433580d2b5fe57ffc5b859c55b8ee5971",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T3_B_1/metrics.json": {
+    "sha256": "d41b12292894c718f1daf76f3ed60e6413b41f867a122a4028e084abde726f51",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T3_B_2/metrics.json": {
+    "sha256": "5a3e50e810be9970741d5911e98e7d6efa580815a4b978d1815fd0fdc63b7ff9",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T3_W_1/metrics.json": {
+    "sha256": "e333ce8b39883b86b18cddc4f5628cf8ba73442a7832ede458a192481453e38d",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs/T3_W_2/metrics.json": {
+    "sha256": "54dc1c0e91ac676e2f071ca33fbdc5b457a36a9581c14ec29f3bc2faa65ba586",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T3b_B_1/metrics.json": {
+    "sha256": "bf9e1c12a80114442cb7989a3829dc6b03891f39b1ebac4eca5b1492c7335963",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T3b_B_2/metrics.json": {
+    "sha256": "7a610bc80f31fd83d22ac0061c7736d57805410b04bc39640964b4d45fc91bc0",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T3b_B_3/metrics.json": {
+    "sha256": "d457418bee579451e9d11141d9f363b3f8b9a83b318a599ac7cac71a23b9756e",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T3b_X_1/metrics.json": {
+    "sha256": "244e3fa23590630d321f824412843cf669b2631b853ead8d27def3c71fdee058",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T3b_X_2/metrics.json": {
+    "sha256": "371a9252fc52033475b2e9769a1d6d3310417d0c3186d48c65f8c9eb5f41ae0c",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T3b_X_3/metrics.json": {
+    "sha256": "d29c2e0bf7fd282ffa981262c25bd7661043e6a4146057073bd0a290122398ab",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T5_B_1/metrics.json": {
+    "sha256": "dc12705e2de95acd4242918f147782ed47db048bac25a544a78aa0fac82ee210",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T5_B_2/metrics.json": {
+    "sha256": "2f6b31c713aaef5ffdb300693d53aa32d7a59f31f7af80a061feeb31649e68fe",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T5_B_3/metrics.json": {
+    "sha256": "2c5df5a9ec2d3f54fdfd54efc4df12d2dfd80683fee10a6a150486421415e514",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T5_X_1/metrics.json": {
+    "sha256": "5199016171ef12f6bb4dcc2c98a54a211257e0e1b7641ca86e27d7340bf1a750",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T5_X_2/metrics.json": {
+    "sha256": "173c77b2a3669d7b0d758c2d8b0d148099f6b626ff08f1b831734981bd149506",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs2/T5_X_3/metrics.json": {
+    "sha256": "865e2f0420cee38516530fe46b6222fe485397c64ab9376df8a76caa6554ee00",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_B_1/metrics.json": {
+    "sha256": "8066515b37d08e4781bf6539805f9120b58a7ff1aa651e924c4d6e5330116a74",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_B_2/metrics.json": {
+    "sha256": "ec51c0cd67ea3c6a4c18e765e9c7cb1600bdc2673e9900c880b6d6f40a766eb7",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_B_3/metrics.json": {
+    "sha256": "9ae61d9a09462c453055d4818211a3ed6c4a6b7b7529acc740c95baebf22a4d0",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_B_4/metrics.json": {
+    "sha256": "fee7262dc7a3d285b640891d478240a8fe73eedce689818608e9930af2a7cb1a",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_B_5/metrics.json": {
+    "sha256": "fbac58c86360eab00ffa63816b186e3bce73437622e6d6b6664204ef966945ae",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_R_1/metrics.json": {
+    "sha256": "37610fcda6995095d347a7fc29dea2eb25a1a2f98e0b2094e292cf4167ba09c0",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_R_2/metrics.json": {
+    "sha256": "3188ab8cbd0fde20bee91e0f448a82dfdf6a5bfb01e7a40726bb292d772cb84b",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_R_3/metrics.json": {
+    "sha256": "66ce1dd2860a77f177792451a62588bf69e77790b27247d6f3f73c4bd780a66d",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_R_4/metrics.json": {
+    "sha256": "eab02e6f6c74a56fca4da41c4f2a6cc412492f9a229628eb988288f20c7d4d67",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs3/T5v3_R_5/metrics.json": {
+    "sha256": "fa532d891148c63afacd94089de0257fb9e1f9b4502a5affc3e9555d09bd58b8",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T1_O_1/metrics.json": {
+    "sha256": "7bd9b0b6cfad3ac46c978c8810ed660ad0690962eb9f1fd278cfb44f1444a258",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T1_O_2/metrics.json": {
+    "sha256": "9d6dd03589145e29321050ec03e4cf665663b23655d083169f2bbe618c265520",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T1_O_3/metrics.json": {
+    "sha256": "b7bfafa65e8e7c316f09f34a01a5241b1a50f722415a04cbd0210c83b306609c",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T2_O_1/metrics.json": {
+    "sha256": "ae842961f788a81f47ccc2d5f0b31bcf0affa49050c00fe50f821a1a9bf89ae2",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T2_O_2/metrics.json": {
+    "sha256": "e01e74f46232619ebd4086e89d430bb9419fbb645e6aab0febf1241ce7081344",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T2_O_3/metrics.json": {
+    "sha256": "ef1de9165a79df1fd2828367f1f201174171542040a1e47e768f047714b578d2",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T3b_O_1/metrics.json": {
+    "sha256": "a66a9ac79968babdaab0238556e42a8588b2bca30da8e977af77fbd7013dde1b",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T3b_O_2/metrics.json": {
+    "sha256": "8360cb4e21ba402d0adeda1e9df67794aa560bfee05cf13d4d145bacc5ab4fa5",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T3b_O_3/metrics.json": {
+    "sha256": "64febd526f0c25a40ab1e14a2ac6c23e61eca25bd4f3d10369537236d8da818f",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T5v3_O_1/metrics.json": {
+    "sha256": "094823289aae13c461ae7aecc844361eb99c3011969ae062ee439316c4e98899",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T5v3_O_2/metrics.json": {
+    "sha256": "460b14b51799cb118180c97ed94c25eebab1b9cfadbbe676c3288660fce3abe0",
+    "mode": 420
+  },
+  "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-08/data/runs4/T5v3_O_3/metrics.json": {
+    "sha256": "2bb248efe63df9f3eb482c27aea7e4d1bbc23e5d2d0bb886ce6550949a414757",
+    "mode": 420
+  },
+  "/home/hao/.agents/skills/scientific-workflow/SKILL.md": {
+    "sha256": "30763110e0c47e1890622189bd41f46e6ffc960c26723add51e4e7d65746d89b",
+    "mode": 420
+  },
+  "/home/hao/.codex/agents/scientific_analyst.toml": {
+    "sha256": "d003d316eefc3f5b3e7cba220f610f0a76edebfbb752b7a584fdd7207e68d80b",
+    "mode": 420
+  },
+  "/home/hao/.codex/agents/scientific_explorer.toml": {
+    "sha256": "e92583901baff7f6205f76886f4bb1c3ba850775795e6b161487851b4b945720",
+    "mode": 420
+  },
+  "/home/hao/.codex/agents/scientific_researcher.toml": {
+    "sha256": "7b939493cf6ec0770d71b19c86fe8da0ebbb79ea1c702adf8c34d6f15eecd9fe",
+    "mode": 420
+  },
+  "/home/hao/.codex/agents/scientific_reviewer.toml": {
+    "sha256": "bf7427b452f60b44dcea53e25eb165f477f2f98d43a0db4e63e3c6702b69a36e",
+    "mode": 420
+  },
+  "/home/hao/.codex/agents/scientific_worker.toml": {
+    "sha256": "4ef9815f44d85ffa4a7bfda382eff501b0a511dd1b91b10ee223ed56aeda105c",
+    "mode": 420
+  },
+  "/home/hao/SCIENTIFIC_AGENT_WORKFLOW.md": {
+    "sha256": "3877f90f97630955521a0691e601b6686a8202d77d9a11efbc48b557c59bd85a",
+    "mode": 420
+  },
+  "/home/hao/.claude/settings.json": {
+    "sha256": "607820eee26bfc78501732f3708f667a42c7fb11b661ad602f31f72ae478f55f",
+    "mode": 384
+  },
+  "/home/hao/.codex/config.toml": {
+    "sha256": "7dbd72c64234b33eb1c7121d5e9a1e05ced40ecc12c6f1bf71bd948f03bd924e",
+    "mode": 384
+  },
+  "/home/hao/.claude/agents/scientific_analyst.md": {
+    "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_analyst.md"
+  },
+  "/home/hao/.claude/agents/scientific_explorer.md": {
+    "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_explorer.md"
+  },
+  "/home/hao/.claude/agents/scientific_researcher.md": {
+    "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_researcher.md"
+  },
+  "/home/hao/.claude/agents/scientific_reviewer.md": {
+    "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_reviewer.md"
+  },
+  "/home/hao/.claude/agents/scientific_worker.md": {
+    "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_worker.md"
+  },
+  "/home/hao/.claude/skills/scientific-workflow": {
+    "link": "/home/hao/githubrepo/scientific-workflow-skill/skill/scientific-workflow"
+  }
+}

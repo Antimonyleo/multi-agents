@@ -4,15 +4,23 @@
 
 | Item | Location |
 | --- | --- |
-| Agent definitions | `agents/scientific_*.md` in the source repo, linked into `~/.claude/agents/` |
+| Agent definitions | Claude: unchanged `agents/scientific_*.md`, linked into `~/.claude/agents/`; Codex: `agents/codex/*.toml`, installed copies in `~/.codex/agents/` |
 | Spawn caps, Sonnet effort | `~/.claude/settings.json` (`env`, `modelSettings`) |
-| Routing rules (this skill) | `skill/scientific-workflow/` in the source repo, linked as `~/.claude/skills/scientific-workflow` |
+| Routing rules (this skill) | `skill/scientific-workflow/` in the source repo, linked as `~/.claude/skills/scientific-workflow` and `~/.agents/skills/scientific-workflow` |
 | Source repo | `~/githubrepo/scientific-workflow-skill` (edit here; `scripts/install.sh --check` verifies the links) |
 | Benchmarks | `benchmarks/2026-10-08/` in the source repo (protocols, `bench.py`, data, `RESULTS.md`) |
 | Project review gates | each project's guidance, for example `docs/agent_guidance/delegation.md` |
-| Codex counterpart | `~/.codex/agents/*.toml`, `~/.agents/skills/scientific-workflow/`. Same role names, separate files. Update both when roles change. |
+| Runtime adapters | `references/codex.md` and `references/claude-code.md`; read only the active adapter. |
 
-## Check after any change or Claude Code update
+## Validate a change
+
+Run `python scripts/validate.py` and `python -m unittest discover -s tests -v` from the repository root. These check structure, local references, native profile parsing, protected historical/Claude identities and installer behavior in temporary homes. They do not establish live model routing, scientific success or token savings.
+
+Use an isolated staging copy because edits here are immediately visible through live skill links. Obtain user authority for workflow changes; an explicit request to implement the proposed change is authority for that scoped work, without repeated routine approval. It does not authorize unrelated native-agent edits or new scientific work. Archive conflicting prior sources and keep consolidation and routing improvements in separate commits.
+
+After activation, check `scripts/install.sh --target both --check` and project instruction health with `agent-workflow check --repo PATH` where available. Use a new session for changed profiles. Run fresh model-backed evaluation only when its scope and cost are authorized; use exact versions, objective outcomes, independent truth and a matched budget. Record native traces, permission policy, uncached/cached input, output, latency and price basis separately. Do not run a full expensive benchmark as an automatic maintenance check.
+
+## Check after an agent change or Claude Code update
 
 Run a fresh headless session in a scratch folder. Call each role once with a trivial task, with a main model different from the role's model:
 
@@ -50,6 +58,8 @@ Claude Code docs: sub-agents, costs, best-practices, model-config. Platform docs
   directory into `benchmarks/`. No content changed. Model check after the move (v2.1.294): all five agents
   and the skill load through the links; explorer haiku/high, researcher sonnet/medium, worker sonnet/medium,
   analyst sonnet/high, reviewer opus/high.
+
+- 2026-10-09: Consolidated the shared entrypoint and added separate Codex and Claude references. Copied Codex native profiles into `agents/codex/`; Claude native agents, links and settings are preserved. Archived the old Codex skill and home manual for provenance. Added transactional installation, conflict preflight, receipts and rollback. Existing benchmark artifacts remain unchanged. See repository-root `docs/consolidation.md` for activation and verification.
 
 ## Open questions
 

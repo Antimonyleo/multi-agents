@@ -1,57 +1,47 @@
 ---
 name: scientific-workflow
-description: Route substantial scientific software, analysis, literature or hypothesis work to the scientific_* sub-agents (explorer, researcher, worker, analyst, reviewer) and decide when independent review is required. Use when planning or starting a substantial scientific task, when the user names a scientific_* agent or asks for an independent review, or when deciding whether to delegate. Skip routine small edits and simple questions.
+description: Coordinate substantial scientific software, analysis, literature and hypothesis work in Codex or Claude Code. Select bounded support, an execution owner and independent review while preserving project authority and resumable checkpoints. Small tasks need no team.
 ---
 
-# Scientific workflow (Claude Code)
+# Scientific workflow
 
-Own the requested outcome through its authorized checks. Work alone when that is enough: Anthropic measured multi-agent research at about 15x the tokens of chat. Project instructions, pauses, frozen inputs and gates outrank this skill. Read the project's own plan and authority files before execution.
+Own the requested outcome through its authorized checks and checkpoint. Read the current project plan/handoff and relevant authority. Reuse existing state. For substantial work, keep a compact contract: deliverable, scope, authority, checks, resource/retry envelope, stop boundaries and next exact action. Match requirements to evidence that can establish them.
 
-## Roles
+## Select the runtime
 
-Agent files are in `~/.claude/agents/`. Call a role by name; the files do not self-trigger.
+Read only the reference for the active assistant before dispatch:
 
-| Role | Model / effort | Use | Never |
-| --- | --- | --- | --- |
-| `scientific_explorer` | haiku / high | Simple mechanical lookups: find files or symbols, count matches, list or diff names, read a log tail, check a path exists | Interpret, trace logic, judge results, write |
-| `scientific_researcher` | sonnet / medium | Primary-source retrieval for one bounded question | Edit files |
-| `scientific_worker` | sonnet / medium | Bounded change with owned files and named checks | Start jobs the brief does not name |
-| `scientific_analyst` | sonnet / high | Evidence synthesis, authorized bounded analysis | Authorize new experiments |
-| `scientific_reviewer` | opus / high | Independent review at the gates below | Edit or run anything |
+- **Codex:** [references/codex.md](references/codex.md). Sol owns implementation and execution; Luna supplies bounded support; Astra handles consequential planning and independent review.
+- **Claude Code:** [references/claude-code.md](references/claude-code.md). Use the existing native Claude agents, models, tools and permissions.
 
-Main thread: Sonnet 5.5, effort high. For plan or protocol design, use `opusplan` or `/model opus`. Deterministic work (run jobs, poll status, score) is ordinary scripts with no model.
+These adapters do not configure each other. Do not change the main model, agent definitions or global settings merely to apply the skill. Use the runtime's supported tools. Configuration is not proof of server-side model identity or enforced isolation.
 
-## When to delegate
+## Choose ownership
 
-- Default is no delegate. Delegate independent, sizeable work (wide search, disjoint file sets, long logs) or an independent challenge.
-- Tracing caller paths, mapping tests and reading design stay with the main thread or the analyst. The explorer only does mechanical lookups.
-- At most 3 agents at once. No nested agents (set in `settings.json`). Give each writer separate files.
+Start with one agent. Delegate sizeable independent work, context isolation or an independent challenge when it materially helps. Keep dependent implementation, debugging and evidence capture with one execution owner. Route by reasoning demands and decision ownership, not by reading or writing files. The execution owner reads and writes its own files. Mechanical helpers do not choose methods, change algorithms, interpret scientific results or decide recovery.
 
-## Required review
+The coordinator owns requirements, integration, evidence and completion. Give writers disjoint paths or isolated worktrees and tell them to preserve other writers. Delegation does not expand scope, resource budgets or retry authority. Do not require every role or a permanent team; nested delegation needs runtime support and assigned authority.
 
-Use `scientific_reviewer` before costly or consequential execution, for scientific claim or protocol changes, after a recurring failure or evidence that invalidates the direction, at substantial completion where the project requires it, and whenever the user asks. Project-required reviews are mandatory. Do not use it for routine edits or to double-check your own small steps.
+A compact delegate packet names the objective, expected output, necessary decisions, input identities, owned paths/tools, checks, resource limits, stop boundaries and evidence to return. Return evidence paths, changes, actual checks, uncertainties and the next action. Verify consequential results against artifacts, not the delegate's narrative.
 
-Brief it with the original requirements, decisions, exact artifact versions (paths and git ref) and raw-evidence paths. Give no desired verdict. It has no shell, so write diffs and log excerpts to files first. It reports every finding with a severity; you filter. Its disposition is not a project gate.
+## Execute and review
 
-## Brief for any delegate
+Reuse a current reviewed plan if its inputs, assumptions and checks still apply. Resolve routine implementation choices within authority. Continue runnable work through named checks and the checkpoint without repeated routine permission requests. Stop dependent work at an explicit pause, declared boundary or missing authority; independent authorized work may continue.
 
-A delegate has no conversation history. Give: deliverable, scope, authority (pauses, frozen inputs), artifact identity, checks to run, resource limit, stop boundary, output format.
+Use the runtime's consequential reviewer for substantial scientific planning before costly execution, recurring strategy failures, evidence that invalidates the direction, claim-authority changes and substantial completion where review can detect a material gap. Project-required reviews and user-requested reviews remain mandatory. A small routine edit does not need a team.
 
-## Calling and overrides
+Give a fresh reviewer the original requirements, necessary decisions, exact versions and underlying evidence without a desired verdict. When a reviewer established the plan, consequential completion needs a fresh context able to challenge it. Planning participation alone is not independent completion review. Fix consequential findings and run the affected checks within the authorized envelope.
 
-- Call by name with the Agent tool (`subagent_type` = role). If the user names a role or writes `@agent-scientific_reviewer`, that exact role must run.
-- Per-call settings win over the agent file. "Use fable" for a review: pass `model: "fable"`. If that call errors, is refused or runs another model, rerun once with `model: "opus"` and say so.
-- For a hard or long worker or researcher task, pass `effort: "high"`.
+Before a costly probe, verify that the lane records required observables, failures and termination. Retain raw proposals separately from selected or fallback outputs, with units, identities and decision reasons. A review or passing check cannot authorize a new scientific run, campaign or retry. Two different failed fixes or ten active hours can prompt diagnosis; neither is universal retry authority or a required timer.
 
-## After a delegate returns
+## Preserve evidence and pauses
 
-- Check the result against artifacts (paths, test output), not the narrative. A "done" with no evidence is not done.
-- Then continue the authorized task to its next step without asking. Stop only at a declared boundary, an explicit pause or a real blocker.
-- Review says revise: fix blocking and major findings, rerun the affected checks. Re-review only for a concrete unresolved finding.
-- Work that depends on a running delegate waits for it. Independent work may continue.
-- A review or a passing check does not authorize new scientific execution (a new run, campaign or retry). Only the user's task and the project plan do.
-- Report execution success separately from scientific improvement. Reviewer approval is not scientific acceptance.
+Record exact inputs, versions, parameters, randomness, commands and output paths as appropriate. Check units/reference cases/convergence for numerical work; controls/leakage/repeated testing for statistics; source passages/versions/coverage/conflicts for literature. Separate exploratory findings from confirmatory evidence and retain negative results. Report skipped checks and unresolved evidence.
 
-## Evolving this workflow
+At meaningful checkpoints, persist completed checks, versions, decisions, failures, resource use, active job/agent ownership and the next exact action in the existing handoff. After interruption, reconstruct authority and ownership from disk; resume only the earliest incomplete authorized step.
 
-Do not edit this skill or the agent files on your own. When daily work shows a failure (wrong tier, missed finding, over-delegation, bad model), propose the edit with the evidence and wait for approval. `maintenance.md` has the model-check procedure, the evolution log and open questions. Record each accepted change there.
+An explicit user pause persists until that user explicitly resumes the same objective. While paused, perform only requested closure, inspection or review. Do not dispatch workers, edit implementation, run tests/executors or allocate outputs for that objective. Automatic continuation, elapsed time and unfinished state cannot clear the pause. Separate authorized workflow maintenance does not resume scientific work.
+
+Only project gates can promote scientific claims. Software PASS, review disposition, configuration and fixture results are not scientific success or accepted-design evidence. Preserve other sessions' jobs and edits. Report the result, evidence and material limits concisely.
+
+For skill maintenance and validation, read [maintenance.md](maintenance.md). Change the skill or native agents only within an explicit workflow-maintenance request; otherwise propose the evidence-backed change for approval. For supporting rationale and evaluation limits, read [references/rationale.md](references/rationale.md) only when needed.
