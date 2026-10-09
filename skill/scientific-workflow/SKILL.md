@@ -20,4 +20,8 @@ Before delegation or review, read [role triggers](references/triggers.md) and on
 
 Use the existing task record for scope, authority, checks, resource/retry limits, milestone and next action. Add separate artifacts only for required provenance, independent consumers or recovery. Batch deterministic checks and return concise failures/counts. One progress owner waits for native completion; unchanged status needs no new model inspection. Verify owned terminal/process evidence after timeouts.
 
+## Keep scientific evidence
+
+Record versions, parameters, randomness, units, commands and evidence paths. Check numerical reference cases and convergence, statistical controls and leakage, and literature passages with their conditions, as the work requires. Keep exploratory and confirmatory evidence separate and retain negative results. After interruption, rebuild authority and resume only the earliest incomplete authorized step.
+
 Judge efficiency by complete accepted work, including owner, helpers, integration and required review. Missing cost is unknown. For workflow evaluation or maintenance only, read [maintenance](maintenance.md); ordinary execution does not load its procedures or authorize self-modification. Smaller context and static checks are not proof of savings.

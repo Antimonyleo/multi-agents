@@ -85,6 +85,8 @@ Claude Code docs: sub-agents, costs, best-practices, model-config. Platform docs
 
 - 2026-10-09: Clarified explicit entry/handoff/stop triggers for each role and review scheduling at project scope/planning, declared major phases and final project review. Routine subtasks, time and unchanged status do not trigger review. Required gates and material exceptions remain. Native profiles/config/settings are unchanged. This small instruction refinement needs no extra reviewer dispatch or repeated passing code suite.
 
+- 2026-10-09: Restored a short "Keep scientific evidence" paragraph in `SKILL.md` (versions, parameters, randomness, units, numerical and statistical controls, literature conditions, exploratory versus confirmatory evidence, negative results, resume point). The 841 to 429 word cut had removed it without relocating it. Entrypoint is now 484 words in total. Static change only; no model-backed run.
+
 ## Open questions
 
 - Can the reviewer run at medium effort (the Opus 5.5 default) and still find what high finds? Its cost was 3 to 5 times a whole small task.

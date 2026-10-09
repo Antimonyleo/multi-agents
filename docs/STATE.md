@@ -25,6 +25,8 @@ Current efficiency correction: see [six fixes and evidence](efficiency-correctio
 
 Efficiency corrections: 61 offline tests and required structure, installation, skill and instruction checks passed; independent review: accepted all three corrections; no remaining finding in scope. Corrections checkpointed locally without a push.
 
+Prose-document pilot (prepared 2026-10-09, $0.70 per session cap) was not launched: its fixture is a scriptable control and the adapter now requires a matched peer. Replace it with a task that needs reading or reasoning a script cannot do, in "routing" mode, with a user-set budget (user cap: $2 target, $3 ceiling).
+
 Next action: further model-backed evaluation needs its own bounded authority. The original adapter/pilot checkpoint is complete. Before another calibration, select the unresolved question and freeze a new matched task, budget and controls. Live child discovery, restrictions and usage inclusion need validation before delegated-cost claims; the current collector can miss children with another cwd. Codex also needs restored service readiness. Do not automatically rerun or expand the panel.
 
 Open: helper break-even, demanding execution ownership, major-phase review benefit and repeatability remain unmeasured. The four-start pilot was authorized by the user's go-ahead and all four starts ended. Further model-backed calibration needs its own bounded scope/budget; workflow maintenance does not resume Project2.
