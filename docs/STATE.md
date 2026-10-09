@@ -35,6 +35,8 @@ Execution record: [test results](../benchmarks/2026-10-09-calibration/TEST_RESUL
 
 Next action: resolve the requested budget constraint, then run the prepared native qualification if allowed. No new benchmark parent/helper started. The native cap includes helpers but can overshoot after responses, so it does not prove a strict $3 bound. The user was asked whether to use native estimates with $1 headroom or require a strict pre-request bound; no answer was assumed. Capture qualification, benefit comparison and six prepared later behavioral specifications are unexecuted. Project2 remains paused; no efficiency/default claim.
 
+Evaluation discussion: see [interpretation and next evaluation](../benchmarks/2026-10-09-calibration/TEST_RESULTS.md#interpretation-and-next-evaluation-after-claude-side-checks). No universal token penalty or hours-based benefit is established. Prioritize bounded historical-session analysis before further paid benefit trials. Optional opt-in requires native invocation controls and auditing instruction routes; no settings or agents were changed.
+
 Open: helper break-even, demanding execution ownership, major-phase review benefit and repeatability remain unmeasured. The four-start pilot was authorized by the user's go-ahead and all four starts ended. Further model-backed calibration needs its own bounded scope/budget; workflow maintenance does not resume Project2.
 
 Boundaries that persist:
