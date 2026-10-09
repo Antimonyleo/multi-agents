@@ -1,0 +1,74 @@
+{
+  "status": "PREPARATION_COMPLETE_NO_INFERENCE",
+  "harness_path": "/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/run.py",
+  "harness_sha256": "0e20dd74b8de18776167bea409ac794cd31ecdb00d50378158aaf248afc468de",
+  "offline_harness_tests": {
+    "passed": 13,
+    "total": 13,
+    "elapsed_seconds": 0.224
+  },
+  "prepared": [
+    {
+      "provider": "codex",
+      "case": "routine",
+      "requested_model": "gpt-6.1-sol",
+      "path": "/tmp/scientific-workflow-calibration-preparation-20261009/codex-routine",
+      "manifest_sha256": "786b88f57cfe821016b1f069a60cae91054bed2c88579ea480877014cd0b9625",
+      "prompt_sha256": "ff5e71547121c22c9632dbf1a57ef93429a031b87bb22ebfd4a2c87470973b9b",
+      "status": "PREPARED_NOT_EXECUTED"
+    },
+    {
+      "provider": "codex",
+      "case": "resume",
+      "requested_model": "gpt-6.1-sol",
+      "path": "/tmp/scientific-workflow-calibration-preparation-20261009/codex-resume",
+      "manifest_sha256": "9da84568c3c635230cda3b3832639e97ccadec3e236d346443c1cf27bc003484",
+      "prompt_sha256": "4f5d17f38355ae0ce032e552b2805e52c03a1af70c43e44f48c1b46ba14c9e97",
+      "status": "PREPARED_NOT_EXECUTED"
+    },
+    {
+      "provider": "codex",
+      "case": "paused",
+      "requested_model": "gpt-6.1-sol",
+      "path": "/tmp/scientific-workflow-calibration-preparation-20261009/codex-paused",
+      "manifest_sha256": "855969275522e39cd95a7194325970e2df3cdfcd23b325b5ae82dc52aa04d3b7",
+      "prompt_sha256": "41ab7612054f27c36684ba929b6ce900a08ac16ab5fe9096d40f443d5d814f86",
+      "status": "PREPARED_NOT_EXECUTED"
+    },
+    {
+      "provider": "claude",
+      "case": "routine",
+      "requested_model": "sonnet",
+      "path": "/tmp/scientific-workflow-calibration-preparation-20261009/claude-routine",
+      "manifest_sha256": "de6b67cc2102dc36c04a1718ba020222c1c2fded02464379caa2d53926e9db90",
+      "prompt_sha256": "ff5e71547121c22c9632dbf1a57ef93429a031b87bb22ebfd4a2c87470973b9b",
+      "status": "PREPARED_NOT_EXECUTED"
+    },
+    {
+      "provider": "claude",
+      "case": "resume",
+      "requested_model": "sonnet",
+      "path": "/tmp/scientific-workflow-calibration-preparation-20261009/claude-resume",
+      "manifest_sha256": "363f448014b396c31836b02c32055d1fb37667b50fdb1d61e7571da7edbb4767",
+      "prompt_sha256": "4f5d17f38355ae0ce032e552b2805e52c03a1af70c43e44f48c1b46ba14c9e97",
+      "status": "PREPARED_NOT_EXECUTED"
+    },
+    {
+      "provider": "claude",
+      "case": "paused",
+      "requested_model": "sonnet",
+      "path": "/tmp/scientific-workflow-calibration-preparation-20261009/claude-paused",
+      "manifest_sha256": "5f79a026ee3dacb662a0db60b98e318fd0b6f19820c153a5c89806569111b00b",
+      "prompt_sha256": "41ab7612054f27c36684ba929b6ce900a08ac16ab5fe9096d40f443d5d814f86",
+      "status": "PREPARED_NOT_EXECUTED"
+    }
+  ],
+  "native_dispatch": "NOT_TESTED",
+  "native_adapter_readiness": "NOT_READY_LEGACY_HARNESS_DISABLES_CONFIG",
+  "scientific_execution": false,
+  "notes": [
+    "Six isolated synthetic fixtures prepared without model calls.",
+    "The legacy harness is suitable for boundary/recovery tests, not proof of native scientific_* discovery or delegation savings.",
+    "A future native adapter must capture child traces and validated whole-run usage before a paid comparison."
+  ]
+}
