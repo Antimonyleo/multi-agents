@@ -26,6 +26,19 @@ class CalibrationTest(unittest.TestCase):
                 else: bad['entries'][0]['revision'] = str(bad['entries'][0]['revision'])
                 self.assertFalse(native.score(bad, generated), mutate)
 
+    def test_prose_fixture_raw_truth(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td) / 'fixture'
+            generated = native.build_prose_fixture(root)
+            self.assertEqual(generated, native.prose_reference(root))
+            self.assertEqual(len(generated['entries']), 40)
+            self.assertTrue(native.score(generated, generated))
+            # Distractors must never be the answer: withdrawn/pending/draft labels are excluded.
+            self.assertFalse({'label-withdrawn', 'label-pending', 'label-older'} & {e['label'] for e in generated['entries']})
+            bad = copy.deepcopy(generated)
+            bad['entries'][0]['revision'] += 2
+            self.assertFalse(native.score(bad, generated))
+
     def test_codex_cumulative_snapshots_not_added(self):
         trace = [{'type': 'session_meta', 'payload': {'id': 'parent'}},
                  {'type': 'turn_context', 'payload': {'model': 'gpt-6.1-sol', 'effort': 'high'}}]

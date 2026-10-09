@@ -66,6 +66,68 @@ def build_fixture(root, count=96):
     return {'entries': sorted(truth, key=lambda x: x['path'])}
 
 
+PROSE_TASK = ('Read every .txt file recursively under notes/. Each is the revision log of one '
+              'component. From each file select the greatest revision number that was approved '
+              'and never withdrawn. Return one entry per file: path relative to the workspace, '
+              'component from the file header, that revision and its label. Sort entries by '
+              'path. Return only JSON with a single entries array. Do not omit any file.')
+WORDS = ('the review covered scheduling, vendor handoffs, shelf labels, packing lists and storage '
+         'conditions while the team compared earlier notes against current practice and recorded '
+         'minor wording changes without altering any decision').split()
+
+
+def build_prose_fixture(root, count=40):
+    """Synthetic prose logs; approval, withdrawal and drafts sit in different sentences."""
+    import random
+    root.mkdir(parents=True, exist_ok=False)
+    truth = []
+    for i in range(count):
+        rng = random.Random(i)
+        path = root / f'notes/team_{i % 5:02d}/component_{i:03d}.txt'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        r = 3 + i % 7
+        label = f'label-{(i * 7919) % 100003:05d}'
+
+        def approved(n, lab):
+            if i % 2:
+                return f'Board approved revision {n} (label {lab}).'
+            return f'Rev {n} was approved by the review board and tagged {lab}.'
+        body = [approved(r, label), approved(r - 1, 'label-older'),
+                f'Rev {r + 1} was drafted but never approved.',
+                approved(r + 2, 'label-withdrawn'),
+                f'Revision {r + 3}: label label-pending, approval pending.']
+        rng.shuffle(body)
+        parts = []
+        for sentence in body:
+            filler = ' '.join(rng.choice(WORDS) for _ in range(rng.randint(25, 40)))
+            parts.append(f'{filler.capitalize()}. {sentence}')
+        addenda = f'Addendum: revision {r + 2} was withdrawn after a failed audit.'
+        text = f'Component: component-{i:03d}\n\n' + '\n\n'.join(parts) + '\n\n' + addenda + '\n'
+        path.write_text(text)
+        truth.append({'path': str(path.relative_to(root)), 'component': f'component-{i:03d}',
+                      'revision': r, 'label': label})
+    return {'entries': sorted(truth, key=lambda x: x['path'])}
+
+
+def prose_reference(root):
+    """Independent raw-text algorithm; no generator formulas or cached truth."""
+    import re
+    rows = []
+    for p in sorted((root / 'notes').rglob('*.txt')):
+        text = p.read_text()
+        component = re.search(r'^Component: (\S+)', text, re.M).group(1)
+        found = {}
+        for n, lab in re.findall(r'[Rr]ev(?:ision)? (\d+) was approved by the review board and tagged (\S+?)\.', text):
+            found[int(n)] = lab
+        for n, lab in re.findall(r'Board approved revision (\d+) \(label (\S+?)\)\.', text):
+            found[int(n)] = lab
+        for n in re.findall(r'revision (\d+) was withdrawn', text):
+            found.pop(int(n), None)
+        top = max(found)
+        rows.append(dict(path=str(p.relative_to(root)), component=component, revision=top, label=found[top]))
+    return {'entries': rows}
+
+
 def reference(root):
     """Independent raw-input algorithm; no generator formulas or cached truth."""
     rows = []
@@ -167,8 +229,10 @@ def prepare(args):
     out = Path(args.output).resolve()
     out.mkdir(parents=True, exist_ok=False)
     workspace = out / 'workspace'
-    truth = build_fixture(workspace)
-    if truth != reference(workspace):
+    prose = getattr(args, 'task', 'inventory') == 'prose'
+    budget = getattr(args, 'budget_usd', 2)
+    truth = build_prose_fixture(workspace) if prose else build_fixture(workspace)
+    if truth != (prose_reference(workspace) if prose else reference(workspace)):
         raise ValueError('independent reference disagrees')
     write(out / 'truth.json', truth)
     write(out / 'schema.json', SCHEMA)
@@ -182,7 +246,7 @@ def prepare(args):
                     'no helper delegation. Direct tools and choosing no helper are valid. '
                     if args.arm == 'workflow' else
                     'Use one main execution owner and direct tools. Do not invoke skills or delegates. ')
-    prompt = SCOPE + intervention + TASK + '\n'
+    prompt = SCOPE + intervention + (PROSE_TASK if prose else TASK) + '\n'
     (out / 'prompt.txt').write_text(prompt)
     sid = str(uuid.uuid4())
     if args.provider == 'codex':
@@ -200,7 +264,7 @@ def prepare(args):
                    '--strict-mcp-config', '--mcp-config', '{"mcpServers":{}}',
                    '--permission-mode', 'dontAsk', '--permission-prompts', 'none',
                    '--tools', available, '--allowedTools', available,
-                   '--output-format', 'stream-json', '--verbose', '--max-budget-usd', '2',
+                   '--output-format', 'stream-json', '--verbose', '--max-budget-usd', str(budget),
                    '--json-schema', json.dumps(SCHEMA), '--append-system-prompt', SCOPE]
     manifest = {'provider': args.provider, 'arm': args.arm, 'session_id_requested': sid,
                 'command': command, 'timeout_s': 300, 'model_requested': 'gpt-6.1-sol' if args.provider == 'codex' else 'opus',
@@ -211,7 +275,7 @@ def prepare(args):
                 'native_agent_hashes': {str(p): sha(p) for p in sorted((Path.home() / ('.codex/agents' if args.provider == 'codex' else '.claude/agents')).glob('scientific_*'))},
                 'envelope': {'top_level_start_cap': 4, 'optional_support_start_cap_total': 2,
                              'per_session_deadline_s': 300, 'max_support_per_workflow': 1,
-                             'codex_hard_dollar_limit': 'not_available', 'claude_cli_budget_usd': 2,
+                             'codex_hard_dollar_limit': 'not_available', 'claude_cli_budget_usd': budget,
                              'call_caps': 'declared; Codex max_threads and depth constrain concurrency/depth, not total starts'},
                 'runtime_differences': ['synthetic scratch cwd', 'read-only task; no writes',
                                         'memory/web/MCP disabled where supported', 'Claude hooks disabled; user agents/auth retained',
@@ -341,6 +405,8 @@ def main():
     parser.add_argument('action', choices=['prepare', 'run'])
     parser.add_argument('--provider', choices=['codex', 'claude'])
     parser.add_argument('--arm', choices=['baseline', 'workflow'])
+    parser.add_argument('--task', choices=['inventory', 'prose'], default='inventory')
+    parser.add_argument('--budget-usd', type=float, default=2)
     parser.add_argument('--output', required=True)
     args = parser.parse_args()
     if args.action == 'prepare':
