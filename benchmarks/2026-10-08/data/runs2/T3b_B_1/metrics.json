@@ -1,0 +1,61 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.31035859999999993,
+ "turns": 8,
+ "duration_s": 52.8,
+ "tokens": {
+  "uncached_in": 47943,
+  "cache_read": 192383,
+  "output": 8013
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 47943,
+   "cache_read": 192383,
+   "output": 8013,
+   "cost": 0.3104
+  }
+ },
+ "peak_main_context": 62147,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 2,
+  "Read": 2,
+  "Bash": 2,
+  "Write": 1
+ },
+ "text": "Seven CLI defaults differ from `ControllerConfig`, so the CLI does not run the config's own defaults, and a launch with the CLI defaults uses the CLI values. I wrote the full table to `audit.md` and created no other file.\n\n**Memory outage:** claude-mem can't save memories right now. Its error is \"Provider reported the inference allowance exhausted\" (since 2026-10-08T18:37:18.662Z). It has no effect on this audit.\n\n**What I did:** I read both files. Then I parsed a minimal command line and listed the dataclass defaults, with bytecode writing off. I did not run `main()`, any simulation, or any test.\n\n**Direct options:** 43 CLI options feed a `ControllerConfig` field directly. 36 match and 7 do not. The CLI always passes its own value, so the config default is never used for these fields.\n\n| Option | CLI default | Config default |\n|---|---|---|\n| `--temperatures` | 70,60,50,40,30 | (80, 70, 60, 50, 40) |\n| `--eligibility-mode` | `effective_molarity` | `free_energy` |\n| `--trap-steps` | 200,000 | 10,000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--max-retries` | 1 | 2 |\n| `--final-hold-steps` | 20,000 | 0 |\n| `--max-events` | 500 | 1,000 |\n\n**Computed fields:** these are not direct options, so I did not put them in the mismatch line.\n- **`trap_release_steps`:** it resolves to the `--relax-steps` value, 10,000, when `--trap-release-steps` is omitted. The config default is 2,000, so this one also differs.\n- **`relaxation_min_chunks`:** it is `min(2, --relax-max-chunks)`, which is 2 with the CLI default. It would fall to 1 if `--relax-max-chunks` were 1.\n- **`convergence_window`:** it is hard-coded to 3 and matches the config.\n- **`final_hold_occupancy_threshold`:** the CLI passes `None` raw, and the config resolves it to `persistence_fraction` (0.5). It matches, but `summary.json` records the already-resolved 0.5.\n\nSix config fields have no CLI option, so they always take the dataclass default. They are `energy_tolerance`, `final_hold_stable_windows` and four `reopen_*` fields.\n\n**Not verified:**\n- I did not check which side is the intended value. Several differences look deliberate, such as the longer trap, the shorter retry and event limits, and effective-molarity gating, but that is my guess. I did not read `SOL_EXECUTION_PLAN.md` or any archived procedure, so I did not compare against the declared comparator or the best archived procedure that `AGENTS.md` requires before an expensive run.\n- I did not compare CLI options that don't feed `ControllerConfig` (the runner, the preparation step, `--scoring`, the planner-policy flags) against their own targets, such as `OxDNARunner` or `FoldingController`.\n- I ran no tests and exercised no real controller call path, so this says nothing about guard behavior or folding efficacy.\n- The working directory reported \"not a git repository\" when I ran `git status`, which contradicts the session's git snapshot. I did not investigate.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --max-retries, --final-hold-steps, --max-events",
+ "task": "T3b",
+ "arm": "B",
+ "fixture": "B",
+ "rep": 1,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 54.0,
+ "score": {
+  "correct": true,
+  "recall": 1.0,
+  "precision": 1.0,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

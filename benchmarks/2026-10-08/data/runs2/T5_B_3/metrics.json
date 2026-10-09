@@ -1,0 +1,48 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.1857798,
+ "turns": 6,
+ "duration_s": 28.0,
+ "tokens": {
+  "uncached_in": 29002,
+  "cache_read": 194629,
+  "output": 3087
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 29002,
+   "cache_read": 194629,
+   "output": 3087,
+   "cost": 0.1858
+  }
+ },
+ "peak_main_context": 41427,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 4,
+  "Grep": 1
+ },
+ "text": "**Short summary:** The diff is small, but the main change is not effective on the launch path. It also changes tuned defaults without the declared, tested comparison that AGENTS.md requires. I changed no files and ran no tests.\n\n- **`nucleation_fraction` 0.5 \u2192 0.35 (`controller.py:138`) does not apply to the CLI.**\n  - `scripts/run_design_controller.py:469` defaults `--nucleation-fraction` to 0.5.\n  - It passes that value explicitly to `ControllerConfig` (line 1038) and to the runner's `trap_check_fraction` (line 1021).\n  - A launch through `run_design_controller.py` therefore still runs at 0.5, whatever you intended.\n  - Callers that don't pass the field get 0.35: `run_anneal_baseline.py`, `run_hairpin_controller.py` and `run_dna_folding_pilot.py` (which only forwards `**config_fields`).\n  - `run_design_controller.py` uses a different runner `trap_check_fraction` (0.5), so the thresholds can disagree.\n  - This number gates trap verification and the nucleation decision (`controller.py:1879`, `2420`, `3211`). The campaign would silently not test the change you meant.\n- **`reopen_max_attempts` 2 \u2192 5 (`controller.py:177`) is a silent behaviour change, and the test was loosened to hide it.**\n  - There is no CLI flag for it (`grep reopen` in the CLI shows only the boolean flag).\n  - `--reopen-enclosing-domain` therefore runs with 5 attempts instead of the earlier 2.\n  - The test now only asserts `>= 1` (`test_controller_reopen.py:220`), so it no longer pins the value.\n  - AGENTS.md requires that changes to helper defaults be declared and tested, with a negative control. I found no such record in the diff.\n- **Removing the CLI check for adaptive release with zero release steps (`run_design_controller.py`, `main`) is probably safe.**\n  - `ControllerConfig.__post_init__` (`controller.py:222`) still raises the same error.\n  - The CLI now fails later, when the config is built, so the failure is less early.\n  - Any test that expects it to fail before construction would need a re-check. I found none matching the old message in `test/`.\n- The CLI help-text and error-message edits are cosmetic.\n\nI'd hold the launch until you decide whether the 0.35 and 5 are meant to apply, and wire them through the CLI or revert them. I did not check `SOL_EXECUTION_PLAN.md` for a declared comparator on these values; `grep nucleation` on it returned nothing.\n\nI rated both default changes \"minor\" because neither crashes anything or corrupts results. The first does make the campaign run different settings from the ones you meant. Say if you'd rather treat it as blocking.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default changed 0.5\u21920.35, but run_design_controller.py defaults --nucleation-fraction to 0.5 and passes it explicitly to ControllerConfig and trap_check_fraction, so the CLI launch ignores the change; other callers that omit the field get 0.35, so thresholds are inconsistent and the intended test is not what runs.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"minor\",\"why\":\"Default raised 2\u21925 with no CLI flag to set it, so --reopen-enclosing-domain silently gets 5 attempts; this is an undeclared change to a controller helper default, which AGENTS.md says must be declared and tested.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"minor\",\"why\":\"Assertion weakened from ==2 to >=1, so it no longer pins the default and gives no negative control for the changed value.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main\",\"severity\":\"minor\",\"why\":\"CLI pre-check for adaptive coupled release with zero release steps was removed; ControllerConfig.__post_init__ (controller.py:222) still raises, so it is safe but now fails later, at config construction.\"}]",
+ "task": "T5",
+ "arm": "B",
+ "fixture": "R_B",
+ "rep": 3,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 29.2,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "B": false,
+   "C": false
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}

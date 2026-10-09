@@ -1,0 +1,63 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.316539,
+ "turns": 13,
+ "duration_s": 57.9,
+ "tokens": {
+  "uncached_in": 42417,
+  "cache_read": 310715,
+  "output": 8476
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 42417,
+   "cache_read": 310715,
+   "output": 8476,
+   "cost": 0.3165
+  }
+ },
+ "peak_main_context": 56615,
+ "agents": [],
+ "skills": [
+  "scientific-workflow"
+ ],
+ "tools": {
+  "Skill": 1,
+  "Bash": 5,
+  "Read": 4,
+  "Write": 1
+ },
+ "text": "The CLI defaults do not match the `ControllerConfig` defaults for 7 of the 40 options that feed a config field directly. A computed field (`trap_release_steps`) also resolves to a value that differs from the config default. The full table is in `audit.md`.\n\nI read both files and cross-checked with a read-only script that compared the parser defaults with the dataclass defaults. Its differences match my manual list. I created no other file.\n\n**Direct options that differ (CLI default vs config default)**\n\n| Option | CLI | Config |\n| --- | --- | --- |\n| `--temperatures` | 70,60,50,40,30 | 80,70,60,50,40 |\n| `--eligibility-mode` | effective-molarity | free_energy |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--final-hold-steps` | 20000 | 0 |\n| `--max-retries` | 1 | 2 |\n| `--max-events` | 500 | 1000 |\n\nThe other 33 direct options match. That includes all four score weights, the guard and off-target settings, and the coupled-release and reopen flags.\n\n**Computed fields**\n- **`trap_release_steps`:** this differs. With `--trap-release-steps` omitted (its default is None), it falls back to `--relax-steps`, which is 10000. The config default is 2000. I did not list `--trap-release-steps` in the final line because it is not a direct copy.\n- **`relaxation_min_chunks`:** this is `min(2, --relax-max-chunks)`, so 2 by default, which matches the config.\n- **`convergence_window`:** this is hard-coded to 3, which matches.\n- **`final_hold_occupancy_threshold`:** it is passed through as None, and the config then resolves it to the persistence fraction (0.5). This matches.\n- **`reopen_*`:** four fields (`reopen_max_attempts`, `reopen_max_opening_chunks`, `reopen_open_fraction`, `reopen_rest_distance`) have no CLI option, so the CLI always uses the config defaults.\n\n**What a launch would use.** A run through this CLI uses its own defaults, not the dataclass ones. So the CLI defaults are the relevant ones for a launch. The mismatches matter only for code that builds `ControllerConfig()` directly.\n\n**Not verified**\n- Whether any of these mismatches is intended. I did not check `SOL_EXECUTION_PLAN.md` or the best archived procedure for the required values. Comparing resolved settings against the plan is still needed before the campaign.\n- Other scripts that build `ControllerConfig`: `run_anneal_baseline.py`, `run_hairpin_controller.py`, `run_dna_folding_pilot.py` and `run_coupled_checkpoint_diagnostic.py`.\n- CLI options that go to `OxDNARunner` or `FoldingController` instead of the config.\n- I ran no tests and no controller path.\n\nThis audit does not by itself clear or block the launch.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --final-hold-steps, --max-retries, --max-events",
+ "task": "T3b",
+ "arm": "X",
+ "fixture": "W",
+ "rep": 1,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 59.1,
+ "score": {
+  "correct": true,
+  "recall": 1.0,
+  "precision": 1.0,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.2231442,
+ "turns": 9,
+ "duration_s": 46.2,
+ "tokens": {
+  "uncached_in": 31749,
+  "cache_read": 283101,
+  "output": 3956
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 31749,
+   "cache_read": 283101,
+   "output": 3956,
+   "cost": 0.2231
+  }
+ },
+ "peak_main_context": 44170,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 8
+ },
+ "text": "**Do not launch yet.** The `reopen_max_attempts` change (2 \u2192 5) breaks two controller regression tests that passed before your edits. I did not run MD, and I did not modify any tracked file.\n\n**Evidence**\n- `test/test_controller_reopen.py` and `test/test_controller.py`: 74 pass and 2 fail. With your changes stashed, `test_controller_reopen.py` passes 8 of 8.\n  - `test_reopen_attempts_are_bounded_per_domain_and_temperature` now sees 4 `reopen_started` events where it expects 2.\n  - `test_resumed_state_keeps_reopen_attempt_budget` now ends `COMPLETE` instead of `FAILED`. Its seeded attempt count of 2 no longer exhausts the budget.\n- The edit to `test_default_config_leaves_reopen_off` replaces `assertEqual(..., 2)` with `assertGreaterEqual(..., 1)`. That hides the changed default instead of pinning it.\n- The CLI has no flag for reopen attempts, so `--reopen-enclosing-domain` runs would get 5 attempts per domain per temperature.\n- I could not run the full suite. 67 test files fail at collection because helper modules such as `run_reference_qualification` are missing from this checkout.\n\n**Minor issues**\n- **`nucleation_fraction` 0.5 \u2192 0.35:** inert through `scripts/run_design_controller.py`, which always passes `--nucleation-fraction` (default 0.5). Programmatic users of `ControllerConfig` would get a 0.35 controller threshold while the runner's `trap_check_fraction` is 0.5. No test pins it.\n- **Removed `trap_release_steps == 0` check in `main()`:** `ControllerConfig.__post_init__` still raises the same error. But that now happens after `mkdir`, `write_or_check_run_design`, the compiled-design write and `OxDNARunner` construction. A bad call leaves a partially written run directory.\n- **Wording-only edits:** the `--eligibility-mode` help text and the \"stable chunks\" error message changed. Harmless, but they sit beside real behavior changes.\n\n**Recommended before launch:** revert `reopen_max_attempts` to 2, or declare it and update the two tests to the new budget. Do the same for `nucleation_fraction` and the dropped guard. `AGENTS.md` says helper defaults are part of the method and must not change silently.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default raised 2->5 without a declared test. test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE, not FAILED) now fail; both pass at baseline. It also silently enlarges the per-domain reopen budget for CLI runs with --reopen-enclosing-domain.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"blocking\",\"why\":\"assertEqual(reopen_max_attempts, 2) was weakened to assertGreaterEqual(..., 1), so the changed default is no longer pinned and the real regressions go unnoticed. Restore the exact assertion or update it deliberately together with the two failing tests.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default 0.5->0.35 is undeclared. The CLI always passes --nucleation-fraction (default 0.5), so it is inert there, but programmatic users get a controller threshold of 0.35 against a runner trap_check_fraction of 0.5. No test pins it.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main\",\"severity\":\"minor\",\"why\":\"Removed the early trap_release_steps==0 check for --adaptive-coupled-release. ControllerConfig still raises, but only after the run directory, design files and OxDNARunner are created, which leaves a partial run dir on bad input.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"build_parser\",\"severity\":\"minor\",\"why\":\"Help-text and error-message rewording is unrelated to the behavior changes and adds review noise.\"}]",
+ "task": "T5v3",
+ "arm": "B",
+ "fixture": "R_B",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 48.1,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": false
+  },
+  "false_positives": [],
+  "n_findings": 5,
+  "modified_files": []
+ }
+}

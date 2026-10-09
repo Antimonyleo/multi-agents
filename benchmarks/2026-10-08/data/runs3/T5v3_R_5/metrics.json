@@ -1,0 +1,62 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 1.6128729999999996,
+ "turns": 3,
+ "duration_s": 18.5,
+ "tokens": {
+  "uncached_in": 139789,
+  "cache_read": 2369750,
+  "output": 26362
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 38316,
+   "cache_read": 301357,
+   "output": 4885,
+   "cost": 0.2624
+  },
+  "claude-opus-5-5": {
+   "uncached_in": 101473,
+   "cache_read": 2068393,
+   "output": 21477,
+   "cost": 1.3505
+  }
+ },
+ "peak_main_context": 50737,
+ "agents": [
+  "scientific_reviewer"
+ ],
+ "skills": [],
+ "tools": {
+  "Bash": 6,
+  "Agent": 1,
+  "Read": 21,
+  "Grep": 24,
+  "Glob": 4
+ },
+ "text": "**Do not launch from this change set yet.** I found one blocking issue. The `reopen_max_attempts` change (2 to 5) makes two existing tests fail. I ran `test/test_controller_reopen.py` on the working tree and 2 of 8 tests failed. The same file passes 8/8 at baseline `fcf174e`, which I checked out to a scratch copy.\n\n- **Failing tests:** `test_reopen_attempts_are_bounded_per_domain_and_temperature` fails with `4 != 2`. `test_resumed_state_keeps_reopen_attempt_budget` fails with `COMPLETE != FAILED`. Both rely on the default limit of 2. The edited assertion at line 220 (`assertEqual(..., 2)` to `assertGreaterEqual(..., 1)`) hides the default change but doesn't fix these two.\n- **Reach of the other edits:**\n  - The default `nucleation_fraction` change (0.5 to 0.35) does not reach `run_design_controller.py`, which passes its own `--nucleation-fraction` default of 0.5. It does reach `run_hairpin_controller.py`, which leaves its runner at 0.5, so runner and controller thresholds now differ. It also reaches any `ControllerConfig()` built without that field.\n  - The reopen limit only matters if `--reopen-enclosing-domain` is on, which is off by default. I don't know whether your campaign command turns it on.\n  - The removed CLI check for adaptive release steps is still enforced in `ControllerConfig.__post_init__` and pinned by `test/test_controller.py:1201`. The difference is that a bad value now fails after the run directory is written and the 80 C coil preparation has run.\n  - The help-text and error-message rewordings change text only.\n- **Governance (not marked blocking):** `SOL_EXECUTION_PLAN.md:230` says no new whole-fold campaign is authorized by that planning review. The reviewer also found no registered protocol or comparator parity for this CLI path, and no integration evidence in the review packet. You've said the campaign comes next, so that decision is yours. `AGENTS.md` still requires the controller parity review and integration evidence before full MD.\n- **Not checked:**\n  - I ran only the reopen test file, not the full suite.\n  - `EXECUTION_STATUS.md`, `HANDOFF.md` and `validation/` are missing from this worktree. I couldn't confirm whether `cbr_run` still occupies the GPUs.\n  - I don't know the exact campaign command.\n\nI wrote `review_changes.patch` in the working directory and modified no tracked file. The reviewer's report was relayed above, and its test-failure claim is confirmed by my run.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default raised 2->5 breaks test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE != FAILED); these pass at baseline fcf174e. Edit is undeclared, unrecorded in summary_parameters, and help/README still say 2.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"minor\",\"why\":\"assertEqual(reopen_max_attempts, 2) weakened to assertGreaterEqual(...,1), removing the default pin while the two dependent tests still assume 2.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default 0.5->0.35 is an undeclared method change with no test. The run_design_controller.py CLI overrides it (default 0.5), so the main campaign path is unaffected, but run_hairpin_controller.py now has runner trap_check_fraction 0.5 vs controller 0.35, and ControllerConfig() callers silently change.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main\",\"severity\":\"minor\",\"why\":\"Removed early check for adaptive coupled release with zero release steps. ControllerConfig.__post_init__ still raises, but only after run_dir creation, design file writes and the 80 C coil preparation MD, so a bad launch wastes compute.\"}]",
+ "task": "T5v3",
+ "arm": "R",
+ "fixture": "R_W",
+ "rep": 5,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 280.4,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}

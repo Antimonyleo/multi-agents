@@ -1,0 +1,65 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 1.2386216000000003,
+ "turns": 1,
+ "duration_s": 19.3,
+ "tokens": {
+  "uncached_in": 113306,
+  "cache_read": 1513103,
+  "output": 24697
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 50185,
+   "cache_read": 544865,
+   "output": 7419,
+   "cost": 0.3839
+  },
+  "claude-opus-5-5": {
+   "uncached_in": 63121,
+   "cache_read": 968238,
+   "output": 17278,
+   "cost": 0.8548
+  }
+ },
+ "peak_main_context": 62598,
+ "agents": [
+  "scientific_reviewer"
+ ],
+ "skills": [
+  "scientific-workflow"
+ ],
+ "tools": {
+  "Skill": 1,
+  "Bash": 14,
+  "Agent": 1,
+  "Read": 22,
+  "Grep": 16,
+  "Glob": 1
+ },
+ "text": "**Do not launch yet.** The reviewer's disposition was \"revise\", and I confirmed the main problem by running the tests. The change set raises `reopen_max_attempts` from 2 to 5, and that breaks two tests.\n\n**What I checked**\n- **Tests:**\n  - `test_reopen_attempts_are_bounded_per_domain_and_temperature` fails with `4 != 2`.\n  - `test_resumed_state_keeps_reopen_attempt_budget` fails with `COMPLETE != FAILED`. Its seeded budget of 2 is no longer exhausted.\n  - I did not run the tests on the base commit. Both failures follow directly from the changed default.\n  - The `test_same_cadence_gate_pilot.py` failures come from a missing `validation/` directory, not from this diff.\n  - `test_dna_folding_pilot.py` has an import error on collection that is not caused by this diff.\n- **Test edit:** `test_default_config_leaves_reopen_off` used to pin the default at 2. It now asserts only `>= 1`, so a silent change to that default would no longer be caught.\n- **No authority:** neither `nucleation_fraction` 0.35 nor `reopen_max_attempts` 5 appears in `SOL_EXECUTION_PLAN.md`. `AGENTS.md` treats a helper default as part of the method.\n- **`nucleation_fraction` has no effect on the CLI path:** `run_design_controller.py` always passes `--nucleation-fraction` (default 0.5), so a campaign launched through it would still use 0.5.\n- **Other callers see the new value:** `run_hairpin_controller.py` and `ControllerConfig()` with no arguments get the controller's new 0.35. The runner's trap check stays at 0.5.\n- **Reopen budget is invisible in outputs:** there is no CLI flag for `reopen_max_attempts`, and `summary_parameters` does not record it. A campaign with `--reopen-enclosing-domain` would look the same in `summary.json` whether the budget was 2 or 5.\n\n**Smaller items**\n- **Resume:** nothing compares a resumed run's settings with the original run. The reopen budget count is saved in the state but its limit is not. A run resumed after this change would get extra attempts, and the summary would still list no parameter changes.\n- **Precheck removal:** the CLI check for adaptive coupled release with zero release steps was removed. The same check in `ControllerConfig.__post_init__` now fires only after run-directory creation, NUPACK diagnostics and the 80 C relaxation MD. The final outcome is the same.\n- **Cosmetic:** the help-string and error-message rewording is harmless.\n\n**What would clear the blockers:** revert both defaults and restore the `assertEqual(..., 2)` pin. Alternatively, declare the changes in a reviewed protocol, with a CLI flag, a summary entry and updated tests. I changed no tracked files. I wrote `review_changes.patch` and `review_brief.md` to the working directory.\n\nFINDINGS: [{\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.reopen_max_attempts\", \"severity\": \"blocking\", \"why\": \"Default raised 2 to 5 with no protocol or plan authority. It breaks test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE != FAILED). The CLI has no flag for it and summary_parameters does not record it, so budget-2 and budget-5 runs look identical.\"}, {\"file\": \"test/test_controller_reopen.py\", \"symbol\": \"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\", \"severity\": \"blocking\", \"why\": \"The assertEqual(reopen_max_attempts, 2) pin was weakened to assertGreaterEqual(..., 1). This removes the control that would catch a silent default change, while the two budget-dependent tests in the same file now fail.\"}, {\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.nucleation_fraction\", \"severity\": \"minor\", \"why\": \"Default lowered 0.5 to 0.35 without authority. The CLI always passes 0.5, so a CLI campaign is unaffected. Direct ControllerConfig() callers such as run_hairpin_controller.py get a controller threshold of 0.35 while OxDNARunner.trap_check_fraction stays 0.5. Revert it or declare it.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"main\", \"severity\": \"minor\", \"why\": \"The precheck for --adaptive-coupled-release with zero release steps was removed. The ControllerConfig check now fires only after mkdir, NUPACK diagnostics and the 80 C relaxation MD, so a bad setting wastes compute and leaves a partial run directory.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"validate_event_limit_resume\", \"severity\": \"minor\", \"why\": \"Resume does not compare reopen_max_attempts or nucleation_fraction with the original run, and the continuation summary hardcodes scientific_parameter_changes=[]. A run resumed after the default change silently gets extra reopen attempts. Reopen is off by default, so this matters only for reopen runs.\"}]",
+ "task": "T5v3",
+ "arm": "R",
+ "fixture": "R_W",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 244.9,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 5,
+  "modified_files": []
+ }
+}

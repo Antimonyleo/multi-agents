@@ -1,0 +1,52 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.22303860000000003,
+ "turns": 8,
+ "duration_s": 35.9,
+ "tokens": {
+  "uncached_in": 34578,
+  "cache_read": 213553,
+  "output": 4204
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 34578,
+   "cache_read": 213553,
+   "output": 4204,
+   "cost": 0.223
+  }
+ },
+ "peak_main_context": 47003,
+ "agents": [],
+ "skills": [
+  "scientific-workflow"
+ ],
+ "tools": {
+  "Skill": 1,
+  "Bash": 5
+ },
+ "text": "**Don't launch yet.** The change set silently changes controller behavior, and two tests fail on it.\n\nI ran only `test/test_controller_reopen.py`: 6 passed, 2 failed. I did not run the other test files or a CLI dry run.\n\n- **Reopen attempt limit (blocking).** `reopen_max_attempts` goes from 2 to 5 (`controller.py:177`). The CLI has no flag for it, so every `--reopen-enclosing-domain` run gets 5 attempts. That is a method change with no declared test. Two tests that encode the old limit now fail:\n  - `test_reopen_attempts_are_bounded_per_domain_and_temperature`: 4 `reopen_started` events, expected 2.\n  - `test_resumed_state_keeps_reopen_attempt_budget`: the run reaches COMPLETE, expected FAILED.\n  - The one test edit loosens `assertEqual(..., 2)` to `assertGreaterEqual(..., 1)`. That hides the change instead of testing it, and the two failing tests were left alone.\n  - Before launch, revert the value, or declare it and update those tests with a negative control. AGENTS.md says a helper default is part of the method.\n- **Nucleation fraction (minor).** `ControllerConfig.nucleation_fraction` goes from 0.5 to 0.35 (`controller.py:138`), but the CLI default stays 0.5 (`run_design_controller.py:469`) and is passed explicitly. The campaign launched through that CLI is therefore unaffected. The scripts `run_anneal_baseline.py`, `run_hairpin_controller.py` and `run_dna_folding_pilot.py` don't mention `nucleation_fraction` in a grep, so they appear to take the new 0.35. It also makes the library default disagree with the CLI. Revert it or align both.\n- **Removed release-steps check (minor).** The CLI no longer rejects `--adaptive-coupled-release` with zero release steps. `ControllerConfig.__post_init__` (`controller.py:222`) still raises, so the guard remains but fires later, at config construction.\n- **Cosmetic edits (minor).** The edits to the `--eligibility-mode` help text and one error message change no behavior. I found no test or doc that matches either string.\n\nI changed no files. The pytest runs may have left `__pycache__` files, which are generated output.\n\nFINDINGS: [{\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.reopen_max_attempts\", \"severity\": \"blocking\", \"why\": \"Default raised from 2 to 5 with no CLI override, so reopen-enabled runs silently get a different attempt budget. test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE, expected FAILED) now fail.\"}, {\"file\": \"test/test_controller_reopen.py\", \"symbol\": \"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\", \"severity\": \"blocking\", \"why\": \"The exact assertion of the default (2) was loosened to assertGreaterEqual(..., 1), which hides the default change and lets the pinned-default regression pass; the two dependent tests were not updated and fail.\"}, {\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.nucleation_fraction\", \"severity\": \"minor\", \"why\": \"Default changed from 0.5 to 0.35, but the CLI default stays 0.5 and is passed explicitly, so the campaign is unaffected. Scripts that don't pass the field (run_anneal_baseline, run_hairpin_controller, run_dna_folding_pilot) get the new value, and the library and CLI defaults now disagree.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"main (adaptive coupled release validation)\", \"severity\": \"minor\", \"why\": \"The early check for adaptive coupled release with zero release steps was removed. ControllerConfig.__post_init__ still raises, so the guard remains but fires later, at config construction.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"build_parser / main (help text and error message wording)\", \"severity\": \"minor\", \"why\": \"Cosmetic wording changes with no behavior effect; they add noise to a pre-launch change set.\"}]",
+ "task": "T5",
+ "arm": "X",
+ "fixture": "R_W",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 37.2,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "B": false,
+   "C": true
+  },
+  "false_positives": [
+   "ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off"
+  ],
+  "n_findings": 5,
+  "modified_files": []
+ }
+}

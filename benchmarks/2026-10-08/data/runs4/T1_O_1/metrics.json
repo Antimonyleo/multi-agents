@@ -1,0 +1,38 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.1730256,
+ "turns": 2,
+ "duration_s": 6.4,
+ "tokens": {
+  "uncached_in": 19630,
+  "cache_read": 43108,
+  "output": 369
+ },
+ "per_model": {
+  "claude-opus-5-5": {
+   "uncached_in": 19630,
+   "cache_read": 43108,
+   "output": 369,
+   "cost": 0.173
+  }
+ },
+ "peak_main_context": 31670,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 1
+ },
+ "text": "The claude-mem plugin can't save memories right now. It reported \"Provider reported the inference allowance exhausted\", so nothing from this session will be remembered until the allowance resets.\n\ntrap-stiffness=0.7, max-force=20.0",
+ "task": "T1",
+ "arm": "O",
+ "fixture": "B",
+ "rep": 1,
+ "cap": 1.5,
+ "timed_out": false,
+ "wall_s": 8.1,
+ "score": {
+  "correct": true
+ }
+}

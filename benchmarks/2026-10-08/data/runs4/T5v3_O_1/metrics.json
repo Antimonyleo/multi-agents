@@ -1,0 +1,52 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.5453914000000001,
+ "turns": 13,
+ "duration_s": 61.6,
+ "tokens": {
+  "uncached_in": 41800,
+  "cache_read": 454097,
+  "output": 6013
+ },
+ "per_model": {
+  "claude-opus-5-5": {
+   "uncached_in": 41800,
+   "cache_read": 454097,
+   "output": 6013,
+   "cost": 0.5454
+  }
+ },
+ "peak_main_context": 53822,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 7,
+  "Grep": 3,
+  "Read": 2
+ },
+ "text": "First, a note from the session hook: claude-mem can't save memories right now. It reported \"Provider reported the inference allowance exhausted\", so nothing from this session will be remembered until that allowance resets.\n\n**Don't launch from this change set yet.** Two reopen tests fail with it (109 passed, 2 failed). The same 8 reopen tests all pass on the committed code. The cause is the change to `reopen_max_attempts` (2 \u2192 5):\n\n- **Every run with `--reopen-enclosing-domain` gets the new value.** `scripts/run_design_controller.py` has no flag for this setting, so it always uses the `ControllerConfig` default. The run record only stores `reopen_enclosing_domain` (line 762), not the attempt limit. So the campaign would quietly differ from the archived reopen runs (A2/A4), which used 2.\n- **The two failing tests catch exactly this.** One gets 4 reopen attempts where 2 were expected. In the other, a resumed run finishes `COMPLETE` instead of `FAILED`. The edit to `test_default_config_leaves_reopen_off` (now only checks `>= 1`) removes the one direct check on the default but doesn't touch these two.\n- If 5 attempts is intended, it should be a declared CLI flag that the run record stores, with the tests updated on purpose.\n\nSmaller issues:\n\n- **`nucleation_fraction` 0.5 \u2192 0.35 doesn't affect this launcher.** The CLI passes its own `--nucleation-fraction` (still 0.5) to both the controller and the simulation runner. It does change `run_hairpin_controller.py`, which uses the default, and any `run_dna_folding_pilot.py` protocol without that field. In those scripts the controller would accept a trap at 0.35 while the runner still checks at 0.5.\n- **A bad setting now fails late.** With the CLI check gone, `--adaptive-coupled-release` with zero release steps is only rejected when `ControllerConfig` is built. By then the run directory, the energy diagnostics and the 80 C coil relaxation have already been made and run. The result is still correct, just wasted setup.\n- The help-text and error-message edits are harmless. No test checks the old CLI wording.\n\nTo run the baseline comparison I briefly stashed and then restored your changes; the diff is unchanged (3 files, +5/\u22127). I didn't check `SOL_EXECUTION_PLAN.md` for which flags the campaign will use. I wrote no scratch files.\n\nFINDINGS: [{\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.reopen_max_attempts\", \"severity\": \"blocking\", \"why\": \"Default changed 2 -> 5. The CLI has no flag for it and the run record doesn't store it, so every --reopen-enclosing-domain run silently gets a different retry budget than the archived reopen procedure. test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE != FAILED) now fail.\"}, {\"file\": \"test/test_controller_reopen.py\", \"symbol\": \"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\", \"severity\": \"minor\", \"why\": \"Loosening assertEqual(\u2026, 2) to assertGreaterEqual(\u2026, 1) removes the direct check on the method default. The other reopen tests still fail, so the suite is not green.\"}, {\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.nucleation_fraction\", \"severity\": \"minor\", \"why\": \"Default 0.5 -> 0.35 has no effect on run_design_controller.py, which passes --nucleation-fraction (0.5) explicitly. It silently changes run_hairpin_controller.py and default-relying protocols, where the controller (0.35) and the runner's trap_check_fraction (0.5) would then disagree.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"main\", \"severity\": \"minor\", \"why\": \"Removing the early check for adaptive coupled release with zero release steps moves the error to ControllerConfig. It now fires only after the run directory is created, NUPACK diagnostics run and the 80 C coil relaxation runs.\"}]",
+ "task": "T5v3",
+ "arm": "O",
+ "fixture": "R_B",
+ "rep": 1,
+ "cap": 4.0,
+ "timed_out": false,
+ "wall_s": 63.0,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}

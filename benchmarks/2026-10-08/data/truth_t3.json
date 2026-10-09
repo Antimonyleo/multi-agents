@@ -1,0 +1,136 @@
+{
+ "n_fields_in_config": 48,
+ "n_cli_options": 69,
+ "n_mapped": 42,
+ "n_direct_args": 36,
+ "direct_options": [
+  "--adaptive-coupled-release",
+  "--contact-tolerance",
+  "--coupled-final-hold-repair",
+  "--coupled-release-max-chunks",
+  "--coupled-release-stable-chunks",
+  "--effective-molarity-m",
+  "--final-hold-max-chunks",
+  "--final-hold-min-chunks",
+  "--final-hold-occupancy-threshold",
+  "--final-hold-steps",
+  "--handoff-future-obstructions",
+  "--max-backtracks",
+  "--max-candidate-actions",
+  "--max-events",
+  "--max-force",
+  "--max-free-energy",
+  "--max-provisional-degraded-domains",
+  "--max-relaxation-off-target-peak",
+  "--max-retries",
+  "--max-total-off-target-contacts",
+  "--min-binding-probability",
+  "--nucleation-fraction",
+  "--occupancy-tolerance",
+  "--off-target-growth-limit",
+  "--persistence-fraction",
+  "--relax-extra-chunk-on-near-boundary",
+  "--relax-max-chunks",
+  "--relax-stable-windows",
+  "--relax-steps",
+  "--relaxation-off-target-tail",
+  "--reopen-enclosing-domain",
+  "--soft-repair-priority",
+  "--stop-after-accepted-domains",
+  "--temporal-occupancy-validation",
+  "--trap-steps",
+  "--trap-stiffness"
+ ],
+ "mismatches": [
+  {
+   "field": "final_hold_chunk_steps",
+   "cli_dest": "final_hold_steps",
+   "cli_option": "--final-hold-steps",
+   "cli_default": 20000,
+   "config_default": 0,
+   "match": false
+  },
+  {
+   "field": "max_events",
+   "cli_dest": "max_events",
+   "cli_option": "--max-events",
+   "cli_default": 500,
+   "config_default": 1000,
+   "match": false
+  },
+  {
+   "field": "max_retries_per_domain",
+   "cli_dest": "max_retries",
+   "cli_option": "--max-retries",
+   "cli_default": 1,
+   "config_default": 2,
+   "match": false
+  },
+  {
+   "field": "relaxation_max_chunks",
+   "cli_dest": "relax_max_chunks",
+   "cli_option": "--relax-max-chunks",
+   "cli_default": 4,
+   "config_default": 10,
+   "match": false
+  },
+  {
+   "field": "trap_steps",
+   "cli_dest": "trap_steps",
+   "cli_option": "--trap-steps",
+   "cli_default": 200000,
+   "config_default": 10000,
+   "match": false
+  }
+ ],
+ "non_direct": [
+  {
+   "field": "convergence_window",
+   "cli_dest": null,
+   "expr": "3",
+   "config_default": 3,
+   "match": null
+  },
+  {
+   "field": "eligibility_mode",
+   "cli_dest": null,
+   "expr": "args.eligibility_mode.replace('-', '_')",
+   "config_default": "free_energy",
+   "match": null
+  },
+  {
+   "field": "relaxation_min_chunks",
+   "cli_dest": null,
+   "expr": "min(2, args.relax_max_chunks)",
+   "config_default": 2,
+   "match": null
+  },
+  {
+   "field": "score_weights",
+   "cli_dest": null,
+   "expr": "ScoreWeights(distance=args.weight_distance, free_energy=args.weight_free_energy, accessibility=args.weight_accessibility, enclosure_risk=args.weight_enclosure)",
+   "config_default": "<expr:field(default_factory=ScoreWeights)>",
+   "match": null
+  },
+  {
+   "field": "temperatures_c",
+   "cli_dest": null,
+   "expr": "temperatures",
+   "config_default": [
+    80.0,
+    70.0,
+    60.0,
+    50.0,
+    40.0
+   ],
+   "match": null
+  },
+  {
+   "field": "trap_release_steps",
+   "cli_dest": null,
+   "expr": "trap_release_steps",
+   "config_default": 2000,
+   "match": null
+  }
+ ]
+}

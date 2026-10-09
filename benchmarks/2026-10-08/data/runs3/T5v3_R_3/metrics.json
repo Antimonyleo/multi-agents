@@ -1,0 +1,64 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.6141648,
+ "turns": 2,
+ "duration_s": 21.2,
+ "tokens": {
+  "uncached_in": 72277,
+  "cache_read": 438269,
+  "output": 11978
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 29500,
+   "cache_read": 194225,
+   "output": 4489,
+   "cost": 0.2017
+  },
+  "claude-opus-5-5": {
+   "uncached_in": 42777,
+   "cache_read": 244044,
+   "output": 7489,
+   "cost": 0.4125
+  }
+ },
+ "peak_main_context": 41925,
+ "agents": [
+  "scientific_reviewer"
+ ],
+ "skills": [
+  "scientific-workflow"
+ ],
+ "tools": {
+  "Skill": 1,
+  "Bash": 2,
+  "Read": 13,
+  "Agent": 1,
+  "Grep": 7
+ },
+ "text": "**Do not launch yet.** The review found two blocking problems and three minor ones. I confirmed the key claims in the code. I did not run the test suite, so I don't know whether the tests pass with the new defaults.\n\n**Blocking**\n- **Undeclared default changes:** `reopen_max_attempts` goes from 2 to 5 and `nucleation_fraction` from 0.5 to 0.35. Neither value appears in `SOL_EXECUTION_PLAN.md`. AGENTS.md says a helper default is part of the method and may change only if declared and tested.\n- **Weakened regression test:** `test/test_controller_reopen.py` changed `assertEqual(..., 2)` to `assertGreaterEqual(..., 1)`. That was the only test pinning the default, so it can no longer catch this change.\n- **Where the 5 applies:** it is used only when reopen is enabled. Reopen is off by default and the CLI has no override for the attempt count.\n- **Fix:** either declare the new values and pin them in the test, or revert them.\n\n**Minor**\n- **`nucleation_fraction` 0.35:** the main CLI always passes its own default of 0.5, so the main launch path is unaffected. The new 0.35 does reach other callers that use the config default, such as `run_hairpin_controller.py`.\n- **Removed CLI check:** the adaptive-release and zero-release-steps check in `main()` is gone. `ControllerConfig` still rejects that case, so it can't run silently. The check now fires at `scripts/run_design_controller.py:1032`, after the run directory and the random-coil preparation run (`:949`). A bad flag combination would waste that setup. Restoring the early check is cheap.\n- **Edited messages:** the stable-chunks error text in the CLI no longer matches the config's wording. The help-text edit is harmless.\n\n**Authorization:** `SOL_EXECUTION_PLAN.md:230` says no new whole-fold campaign is authorized by the current planning review. You've told me the campaign is next, and your instruction outranks the file. The plan should still record it, along with the declared values. `EXECUTION_STATUS.md`, which AGENTS.md says to read, does not exist in the repo.\n\n**Not checked:** the test suite; the campaign's actual launcher and flags (especially `--reopen-enclosing-domain`); whether other tests that use `ControllerConfig()` defaults still pass at 0.35.\n\nI wrote `review_change.patch` (the diff I gave the reviewer) in the working directory and changed no tracked files.\n\nFINDINGS: [{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"blocking\",\"why\":\"assertEqual(reopen_max_attempts, 2) was loosened to assertGreaterEqual(..., 1), so nothing pins the default any more and the undeclared 2->5 change cannot be detected; AGENTS.md and SOL_EXECUTION_PLAN.md:162 forbid silent default changes.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default changed 2->5 with no declaration in SOL_EXECUTION_PLAN.md; it is used at controller.py:2335/2361/2486 whenever reopen is enabled, the CLI cannot override it, and the run settings record omits it. It is inert while reopen is off, so confirm the campaign flags or declare and test the value.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default changed 0.5->0.35 without declaration. The main CLI always passes --nucleation-fraction (default 0.5, run_design_controller.py:469/1038), so the main launch path is unaffected. Callers relying on the config default, such as run_hairpin_controller.py and FoldingController(config=None), do change.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main\",\"severity\":\"minor\",\"why\":\"The early adaptive_coupled_release plus zero-release-steps check was removed. ControllerConfig still rejects it (controller.py:222-223), but only at run_design_controller.py:1032, after the run directory is created and coil-preparation MD runs (:949), so a bad flag combination wastes setup and leaves a partial run directory.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main (coupled release stable chunks message)\",\"severity\":\"minor\",\"why\":\"CLI error text changed to 'must be a positive integer' and no longer matches the ControllerConfig message (controller.py:232); no test checks the CLI wording.\"}]",
+ "task": "T5v3",
+ "arm": "R",
+ "fixture": "R_W",
+ "rep": 3,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 126.9,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": false
+  },
+  "false_positives": [],
+  "n_findings": 5,
+  "modified_files": []
+ }
+}

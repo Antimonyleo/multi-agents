@@ -1,0 +1,47 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.20678760000000002,
+ "turns": 7,
+ "duration_s": 36.4,
+ "tokens": {
+  "uncached_in": 30110,
+  "cache_read": 232878,
+  "output": 3980
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 30110,
+   "cache_read": 232878,
+   "output": 3980,
+   "cost": 0.2068
+  }
+ },
+ "peak_main_context": 42533,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 6
+ },
+ "text": "The change set isn't ready to launch. Two of the edited defaults break tests, and the `nucleation_fraction` edit does nothing through the CLI. I ran only `test/test_controller_reopen.py` and did not run MD or the rest of the suite.\n\n- **`reopen_max_attempts` 2 \u2192 5:** this breaks two tests in `test/test_controller_reopen.py`.\n  - `test_reopen_attempts_are_bounded_per_domain_and_temperature` now sees 4 `reopen_started` events instead of 2.\n  - `test_resumed_state_keeps_reopen_attempt_budget` finishes `COMPLETE` instead of `FAILED`.\n  - The only test you edited is `test_default_config_leaves_reopen_off`, which now asserts `>= 1` instead of `== 2`. That hides the change and removes the guard on the default.\n  - Reopening is off by default, but it is the budget that bounds reopening when enabled.\n  - `AGENTS.md` says a helper default is part of the method. A change like this needs to be declared and tested, not made silently.\n- **`nucleation_fraction` 0.5 \u2192 0.35:** this has no effect through `scripts/run_design_controller.py`.\n  - The CLI's `--nucleation-fraction` defaults to 0.5 (line 469). It passes that value to both `ControllerConfig` (line 1038) and the runner's `trap_check_fraction` (line 1021).\n  - A CLI campaign therefore still runs at 0.5, and its recorded parameters will say 0.5.\n  - Direct `ControllerConfig()` callers do get 0.35, but their runner threshold (`trap_check_fraction`) is separate. Several scripts also hard-code 0.5.\n  - No test or plan text mentions 0.35. If you want 0.35, the CLI default and runner threshold need the same change and a test. If not, revert it.\n- **Removed `trap_release_steps == 0` check in the CLI:** this is safe. `ControllerConfig` (`controller.py:222`) enforces the same rule. It now fails after the OxDNARunner is built instead of at argument parsing, but still before any MD.\n- **Reworded help and error strings:** these are harmless.\n\nFINDINGS: [{\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.reopen_max_attempts\", \"severity\": \"blocking\", \"why\": \"Raising the default from 2 to 5 makes test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2 reopen_started events) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE instead of FAILED) fail. It is an undeclared change to a bounding default, and the one test you edited was loosened to hide it.\"}, {\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.nucleation_fraction\", \"severity\": \"blocking\", \"why\": \"The new 0.35 default is overridden by the CLI's --nucleation-fraction default of 0.5, which feeds both ControllerConfig and the runner's trap_check_fraction. A CLI campaign runs at 0.5 while the diff suggests 0.35. Direct ControllerConfig callers get 0.35 with a mismatched runner threshold. The change is untested and not in the plan.\"}, {\"file\": \"test/test_controller_reopen.py\", \"symbol\": \"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\", \"severity\": \"minor\", \"why\": \"The assertEqual(..., 2) was weakened to assertGreaterEqual(..., 1), so the test no longer pins the default budget.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"main\", \"severity\": \"minor\", \"why\": \"The CLI check for adaptive coupled release with zero release steps was removed. ControllerConfig still enforces it, but the error now appears after the runner is built rather than at argument validation.\"}]",
+ "task": "T5",
+ "arm": "B",
+ "fixture": "R_B",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 37.6,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": true,
+   "B": false,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}

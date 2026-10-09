@@ -1,0 +1,60 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.305454,
+ "turns": 8,
+ "duration_s": 46.2,
+ "tokens": {
+  "uncached_in": 47837,
+  "cache_read": 216780,
+  "output": 7077
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 47837,
+   "cache_read": 216780,
+   "output": 7077,
+   "cost": 0.3055
+  }
+ },
+ "peak_main_context": 62041,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 2,
+  "Read": 3,
+  "Glob": 1,
+  "Write": 1
+ },
+ "text": "**Seven CLI defaults differ from the `ControllerConfig` defaults.** Nothing was run; this is a read of the source. The full table is in `audit.md`, the only file I created.\n\nI checked 42 option-to-field links. 35 match and 7 do not:\n\n| Option | CLI default | Config default |\n|---|---|---|\n| `--temperatures` | 70,60,50,40,30 | (80, 70, 60, 50, 40) |\n| `--eligibility-mode` | effective_molarity | free_energy |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--final-hold-steps` | 20000 | 0 |\n| `--max-retries` (\u2192 `max_retries_per_domain`) | 1 | 2 |\n| `--max-events` | 500 | 1000 |\n\n- **`--final-hold-steps`:** the config default of 0 disables the final hold, and the CLI default of 20000 enables it. I confirmed that only at the `<= 0` check in `controller.py:1289`.\n- **`--eligibility-mode`:** this changes the eligibility gate itself, not just a number.\n\n**Computed fields, with the controlling option omitted:**\n- `trap_release_steps` resolves to 10000, copied from `--relax-steps`. The config default is 2000, so this one also differs.\n- `relaxation_min_chunks` resolves to 2, which matches.\n- `convergence_window` is hard-coded to 3, which matches.\n- `final_hold_occupancy_threshold` is passed as None and resolves to `persistence_fraction` (0.5) on both sides, which matches.\n- `score_weights` resolves to 1.0, 0.35, 0.5 and 0.75, which matches.\n\nSix config fields have no CLI option, so their config defaults always apply: `energy_tolerance` and `final_hold_stable_windows`, plus the four `reopen_*` limits.\n\n**Not verified:**\n- I did not run `--help` or import the modules, so the values come from the source only.\n- I did not check which side is correct or whether the differences are intentional.\n- I did not compare either side with `SOL_EXECUTION_PLAN.md`.\n- I did not compare the runner-side options (`--salt-m`, `--nucleation-stable-chunks`, `--trap-seed-*` and others) against any default, because they do not feed `ControllerConfig`.\n- I did not look for other callers that build a `ControllerConfig`.\n- I did not read the controller code after the `final_hold_chunk_steps` check.\n\nA match here only means the two defaults agree. Whether either one is the right setting for the campaign is a separate check against the plan.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --final-hold-steps, --max-retries, --max-events",
+ "task": "T3",
+ "arm": "W",
+ "rep": 1,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 47.4,
+ "score": {
+  "correct": false,
+  "recall": 1.0,
+  "precision": 0.714,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

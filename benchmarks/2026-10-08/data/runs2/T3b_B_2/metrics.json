@@ -1,0 +1,61 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.3207614,
+ "turns": 10,
+ "duration_s": 64.2,
+ "tokens": {
+  "uncached_in": 44088,
+  "cache_read": 293237,
+  "output": 8579
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 44088,
+   "cache_read": 293237,
+   "output": 8579,
+   "cost": 0.3208
+  }
+ },
+ "peak_main_context": 58288,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 3,
+  "Read": 3,
+  "Write": 1,
+  "Edit": 2
+ },
+ "text": "The full table is in `audit.md`. Seven CLI options have defaults that differ from the matching `ControllerConfig` fields, so the CLI is not a drop-in for the config defaults. I read the source only and ran nothing.\n\n**Direct options.** 42 CLI options feed a `ControllerConfig` field directly (the four score weights go through `ScoreWeights`). 35 match. These seven do not:\n\n| Option | CLI default | Config default |\n|---|---|---|\n| `--temperatures` | 70,60,50,40,30 | (80, 70, 60, 50, 40) |\n| `--eligibility-mode` | effective-molarity | free_energy |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--final-hold-steps` | 20000 | 0 |\n| `--max-retries` | 1 | 2 (`max_retries_per_domain`) |\n| `--max-events` | 500 | 1000 |\n\n**Computed fields.**\n- **`trap_release_steps`:** it differs. When `--trap-release-steps` is omitted, it takes the value of `--relax-steps`, which is 10000 by default. The config default is 2000. I left it off the MISMATCHES line because the option's own default is `None`. Treat it as a seventh-plus-one difference for launch purposes.\n- **`relaxation_min_chunks`:** it is `min(2, --relax-max-chunks)`, so 2 at defaults. This matches the config.\n- **`final_hold_occupancy_threshold`:** it resolves to `--persistence-fraction`, 0.5. This matches the config's own fallback.\n- **`convergence_window`:** it is hard-coded to 3 in the CLI. This matches the config.\n- **Unset fields:** the CLI never sets `energy_tolerance`, `final_hold_stable_windows` or the four `reopen_*` fields, so they always use the config defaults.\n\n**Not verified:**\n- I did not check whether the config defaults are intentional or relied on elsewhere, such as by tests or other `ControllerConfig(...)` callers.\n- I did not check how the controller treats `final_hold_chunk_steps=0` versus 20000.\n- I did not compare the resolved CLI values with `SOL_EXECUTION_PLAN.md` or any archived procedure.\n- I did not trace code that could change `args` or the config after parsing, such as the resume path.\n- The count of 42 rows comes from my own tally of the table.\n\nThe audit does not say whether the campaign is ready. That depends on whether the CLI values are the intended ones, which the plan and archived procedure would settle.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --final-hold-steps, --max-retries, --max-events",
+ "task": "T3b",
+ "arm": "B",
+ "fixture": "B",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 65.5,
+ "score": {
+  "correct": true,
+  "recall": 1.0,
+  "precision": 1.0,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

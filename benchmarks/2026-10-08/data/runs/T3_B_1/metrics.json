@@ -1,0 +1,61 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.31630660000000005,
+ "turns": 8,
+ "duration_s": 53.0,
+ "tokens": {
+  "uncached_in": 47452,
+  "cache_read": 252563,
+  "output": 7601
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 47452,
+   "cache_read": 252563,
+   "output": 7601,
+   "cost": 0.3163
+  }
+ },
+ "peak_main_context": 61654,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 2,
+  "Read": 2,
+  "Glob": 1,
+  "Write": 1,
+  "Edit": 1
+ },
+ "text": "The CLI defaults and the `ControllerConfig` defaults do not all match. Seven of the 41 options that feed a config field directly differ, so the CLI is not simply running the config defaults. I wrote the full table to `audit.md`, the only file I created.\n\n| Option | CLI default | Config default |\n|---|---|---|\n| `--temperatures` | 70,60,50,40,30 | (80, 70, 60, 50, 40) |\n| `--eligibility-mode` | `effective-molarity` | `free_energy` |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--final-hold-steps` | 20000 | 0 |\n| `--max-retries` | 1 | 2 |\n| `--max-events` | 500 | 1000 |\n\nThe other 34 direct options match. That count includes the four `--weight-*` options, which feed the nested `ScoreWeights`, and `--final-hold-occupancy-threshold`, which is None on both sides and resolves to the persistence fraction.\n\nSome fields are computed from other arguments, not set directly:\n- **`trap_release_steps`:** this is `--trap-release-steps` if given, otherwise the value of `--relax-steps`. Omitted, it resolves to 10000, while the config default is 2000. It also moves whenever `--relax-steps` changes.\n- **`relaxation_min_chunks`:** this is `min(2, --relax-max-chunks)`. Omitted, it resolves to 2, which equals the config default.\n- **`convergence_window`:** this is hard-coded to 3, which equals the config default.\n- **Config fields with no CLI option:** `energy_tolerance`, `final_hold_stable_windows` and the four `reopen_*` fields always use the config defaults.\n\n**What I did not verify:**\n- **Parser not run:** I read the source and did not run the parser, so I did not confirm the defaults with `--help`.\n- **Intent not checked:** I did not compare either side against `SOL_EXECUTION_PLAN.md` or the archived procedure. Some mismatches may be deliberate overrides, such as the 70\u201330 \u00b0C schedule and the effective-molarity gate. This audit shows they differ, not which side is correct.\n- **Effect of the differing values not checked:** I did not check what `final_hold_chunk_steps=0` does in the controller, or how `--max-retries` and `trap_release_steps` interact with the per-domain patient guard.\n- **Other code not checked:** I did not look at other callers of `ControllerConfig`, the tests, or `OxDNARunner` defaults.\n\nBefore a campaign launches, someone should check whether the plan's declared settings explicitly set these seven options, or whether runs rely on the CLI defaults.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --final-hold-steps, --max-retries, --max-events",
+ "task": "T3",
+ "arm": "B",
+ "rep": 1,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 54.1,
+ "score": {
+  "correct": false,
+  "recall": 1.0,
+  "precision": 0.714,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

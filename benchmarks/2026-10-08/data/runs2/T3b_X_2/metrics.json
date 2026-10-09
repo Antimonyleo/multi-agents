@@ -1,0 +1,64 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.335515,
+ "turns": 13,
+ "duration_s": 56.3,
+ "tokens": {
+  "uncached_in": 46640,
+  "cache_read": 318635,
+  "output": 8526
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 46640,
+   "cache_read": 318635,
+   "output": 8526,
+   "cost": 0.3355
+  }
+ },
+ "peak_main_context": 60838,
+ "agents": [],
+ "skills": [
+  "scientific-workflow"
+ ],
+ "tools": {
+  "Skill": 1,
+  "Grep": 2,
+  "Bash": 3,
+  "Read": 4,
+  "Write": 1
+ },
+ "text": "Seven CLI options that feed `ControllerConfig` directly have different defaults from the config. That likely matters for your launch decision, because a run that omits these options gets the CLI values, not the config values. The full table is in `audit.md`.\n\nI read both files and confirmed the CLI defaults by running the parser with only the required arguments. That check wrote no files and ran no simulation.\n\n**Direct options with different defaults:**\n\n| Option | CLI default | Config default |\n| --- | --- | --- |\n| `--temperatures` | 70,60,50,40,30 | (80, 70, 60, 50, 40) |\n| `--eligibility-mode` | effective-molarity | free_energy |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--final-hold-steps` | 20000 | 0 |\n| `--max-retries` | 1 | 2 |\n| `--max-events` | 500 | 1000 |\n\nThe other 33 direct options match, including the four score weights.\n\n**Computed fields:**\n- `trap_release_steps` takes the value of `--relax-steps` (10000) when `--trap-release-steps` is omitted. The config default is 2000.\n- `relaxation_min_chunks` is `min(2, --relax-max-chunks)`, so 2 by default, which matches the config.\n- `convergence_window` is hard-coded to 3 in the script, which matches the config.\n- `final_hold_occupancy_threshold` is passed as None, and the config resolves it to `persistence_fraction` (0.5).\n\n**Never set by the CLI:** `energy_tolerance` (0.05), `final_hold_stable_windows` (2), and the four `reopen_*` tuning fields (`reopen_max_attempts` 2, `reopen_max_opening_chunks` 4, `reopen_open_fraction` 0.25, `reopen_rest_distance` 6.0). These always use the config defaults.\n\n**Not verified:**\n- I did not compare any default with `SOL_EXECUTION_PLAN.md` or the archived best procedure, so I can't say which side is the intended campaign value.\n- I did not trace how the controller uses the fields, including the per-domain patient guard behind `max_retries_per_domain`.\n- I looked only at the one `ControllerConfig(...)` call in the script. I did not search other callers, launchers or notebooks.\n- I did not audit options that bypass `ControllerConfig`, such as `--trap-chunk-steps`, `--trap-seed-*`, `--orientation-*`, `--salt-m` and `--scoring`.\n- I ran no tests and did no engine startup or MD.\n\n`git status` failed in the working directory (\"not a git repository\"), although the session context said it was one. `audit.md` is the only file I created.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --final-hold-steps, --max-retries, --max-events",
+ "task": "T3b",
+ "arm": "X",
+ "fixture": "W",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 57.5,
+ "score": {
+  "correct": true,
+  "recall": 1.0,
+  "precision": 1.0,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

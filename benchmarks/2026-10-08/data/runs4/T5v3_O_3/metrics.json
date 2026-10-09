@@ -1,0 +1,50 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.5027922,
+ "turns": 13,
+ "duration_s": 162.3,
+ "tokens": {
+  "uncached_in": 35570,
+  "cache_read": 507181,
+  "output": 5845
+ },
+ "per_model": {
+  "claude-opus-5-5": {
+   "uncached_in": 35570,
+   "cache_read": 507181,
+   "output": 5845,
+   "cost": 0.5028
+  }
+ },
+ "peak_main_context": 47588,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 12
+ },
+ "text": "**Summary:** Don't launch from this change set yet. Raising `reopen_max_attempts` from 2 to 5 breaks two existing reopen regression tests, and runs don't record the new value. The other three changes don't stop a launch.\n\n- **`reopen_max_attempts` 2 \u2192 5 (blocking).** `test/test_controller_reopen.py` passes 8/8 on clean HEAD and 6/8 with your changes:\n  - `test_reopen_attempts_are_bounded_per_domain_and_temperature` fails with `4 != 2`.\n  - `test_resumed_state_keeps_reopen_attempt_budget` fails with `COMPLETE != FAILED`.\n\n  These are the only new failures across the whole suite: 85 failed at HEAD, 87 with your changes. The other 85 failures and 89 errors already fail at HEAD, so they come from the environment, not your edits. The CLI has no `--reopen-max-attempts` flag, and the settings record it writes (around `scripts/run_design_controller.py:762`) leaves the value out. So any `--reopen-enclosing-domain` run would quietly use 5 attempts, while the README still says \"at most two\". If reopen stays off for the campaign, this setting does nothing, but the tests still fail.\n- **Test weakened (minor).** Changing `assertEqual(..., 2)` to `assertGreaterEqual(..., 1)` removes the guard that would have caught this default change.\n- **`nucleation_fraction` 0.5 \u2192 0.35 (minor).** This has no effect on a CLI campaign. The CLI passes `--nucleation-fraction` with its own default of 0.5 (line 469), and the runner's `trap_check_fraction` also defaults to 0.5. If you meant the campaign to use 0.35, it won't. Code that builds `ControllerConfig` directly would get 0.35 for the controller but 0.5 for the runner.\n- **CLI check for adaptive release removed (minor).** `ControllerConfig.__post_init__` (controller.py:222) still rejects zero release steps. But that check now runs after the run directory is created, the design is written and the energy diagnostics run, so a bad command fails late and leaves a partial run directory.\n- **Help text and error message rewording:** no issue.\n\nI didn't modify any tracked files or write a review scratch file. The HEAD comparisons ran in temporary git worktrees, which were removed afterwards. I didn't check the scientific case for 0.35 or 5 attempts against the plan's comparator: the `validation/` files it cites are not in this checkout.\n\nFINDINGS: [{\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.reopen_max_attempts\", \"severity\": \"blocking\", \"why\": \"Default raised 2->5 breaks test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE != FAILED); both pass at HEAD. It is an undeclared method change that has no CLI flag, is missing from the resolved-settings record and contradicts the README limit of two attempts.\"}, {\"file\": \"test/test_controller_reopen.py\", \"symbol\": \"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\", \"severity\": \"minor\", \"why\": \"assertEqual(..., 2) loosened to assertGreaterEqual(..., 1), which removes the regression guard on a method default.\"}, {\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.nucleation_fraction\", \"severity\": \"minor\", \"why\": \"Default 0.35 is unused by the CLI, which passes --nucleation-fraction with default 0.5, so the campaign will not use 0.35. Direct ControllerConfig users get 0.35 while OxDNARunner.trap_check_fraction stays 0.5.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"main\", \"severity\": \"minor\", \"why\": \"Removed early check that adaptive coupled release needs positive release steps. ControllerConfig still rejects it, but only after run_dir creation, design write and energy diagnostics, so a bad command fails late and leaves a partial run directory.\"}]",
+ "task": "T5v3",
+ "arm": "O",
+ "fixture": "R_B",
+ "rep": 3,
+ "cap": 4.0,
+ "timed_out": false,
+ "wall_s": 163.5,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}

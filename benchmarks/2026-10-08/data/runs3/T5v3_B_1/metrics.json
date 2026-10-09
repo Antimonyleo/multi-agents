@@ -1,0 +1,50 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.22845879999999996,
+ "turns": 9,
+ "duration_s": 48.0,
+ "tokens": {
+  "uncached_in": 32100,
+  "cache_read": 283554,
+  "output": 4338
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 32100,
+   "cache_read": 283554,
+   "output": 4338,
+   "cost": 0.2285
+  }
+ },
+ "peak_main_context": 44521,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 8
+ },
+ "text": "Don't launch yet. The change set breaks two reopen tests, and the `nucleation_fraction` change does nothing for CLI runs. I ran `test/test_controller_reopen.py`, `test/test_controller.py` and `test/test_run_design_controller.py`: 109 passed, 2 failed. I did not run MD. A full `pytest test` run stops at 67 collection errors (for example `No module named 'run_reference_qualification'`), which come from the test environment, not this diff.\n\n- **Blocking: reopen tests fail.** Raising `reopen_max_attempts` from 2 to 5 breaks `test_reopen_attempts_are_bounded_per_domain_and_temperature` (it got 4 `reopen_started` events, expected 2). It also breaks `test_resumed_state_keeps_reopen_attempt_budget` (the result was COMPLETE, expected FAILED). The one-line test edit loosens `test_default_config_leaves_reopen_off` to `>= 1`, so that test no longer checks the value. This only matters when `--reopen-enclosing-domain` is on, and the CLI has no flag for the attempt count. I did not check whether your plan intends reopen for this campaign. The change also isn't declared or tested, which `AGENTS.md` requires for a changed helper default.\n- **Minor: the `nucleation_fraction` change does nothing for CLI runs.** `scripts/run_design_controller.py:469` still defaults `--nucleation-fraction` to 0.5. It passes that value to both `ControllerConfig` and the runner's `trap_check_fraction`. The campaign therefore still uses 0.5. Direct `ControllerConfig()` users get 0.35 while runner-side defaults stay 0.5. If you want 0.35, change the CLI default and add a declared test. If not, revert it.\n- **Minor: the adaptive-release check was removed from `main()`.** `--adaptive-coupled-release` with `--trap-release-steps 0` now fails later, in `ControllerConfig` (`controller.py:222`), after the NUPACK setup and runner construction. The error is the same, so this is not silent. The restored early check is a one-line fix.\n- **Cosmetic:** the CLI help text and the error message wording changed. These are harmless, but nothing tests the new wording.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default changed 2->5 with no declared test; test_reopen_attempts_are_bounded_per_domain_and_temperature (4 != 2) and test_resumed_state_keeps_reopen_attempt_budget (COMPLETE != FAILED) now fail, and test_default_config_leaves_reopen_off was loosened to >=1.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"blocking\",\"why\":\"The exact-value assertion was weakened to assertGreaterEqual(...,1), so it no longer guards the default, and the other two tests that hardcode 2 were not updated and fail.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default 0.5->0.35 has no effect on CLI runs because run_design_controller.py:469 defaults --nucleation-fraction to 0.5 and always passes it to both ControllerConfig and the runner; it only makes direct library defaults diverge from the CLI/runner.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main\",\"severity\":\"minor\",\"why\":\"Removed the early adaptive-coupled-release/trap_release_steps==0 check; the same error now fires only in ControllerConfig.__post_init__ after NUPACK/runner setup, so a bad launch fails late.\"}]",
+ "task": "T5v3",
+ "arm": "B",
+ "fixture": "R_B",
+ "rep": 1,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 49.4,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": false
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}

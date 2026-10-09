@@ -1,0 +1,62 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.608037,
+ "turns": 9,
+ "duration_s": 77.0,
+ "tokens": {
+  "uncached_in": 45776,
+  "cache_read": 265625,
+  "output": 9438
+ },
+ "per_model": {
+  "claude-opus-5-5": {
+   "uncached_in": 45776,
+   "cache_read": 265625,
+   "output": 9438,
+   "cost": 0.608
+  }
+ },
+ "peak_main_context": 59583,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 3,
+  "Grep": 2,
+  "Read": 2,
+  "Write": 1
+ },
+ "text": "The claude-mem memory plugin is still failing with \"Provider reported the inference allowance exhausted\", so nothing from this session will be saved to memory.\n\n**Result: 8 CLI options have defaults that differ from `ControllerConfig`.** Seven feed a config field directly. The eighth, `--trap-release-steps`, feeds a computed field. The full table is in `audit.md`, which is the only file I wrote.\n\nA mismatch means only that the two defaults differ. It doesn't say which value is correct. Any option set explicitly on the launch command overrides the CLI default.\n\n**Options that feed a config field directly:** 42 checked, 35 match.\n\n| CLI option | CLI default | Config field: default |\n|---|---|---|\n| `--temperatures` | 70,60,50,40,30 C | `temperatures_c`: 80,70,60,50,40 C |\n| `--eligibility-mode` | `effective_molarity` | `eligibility_mode`: `free_energy` |\n| `--trap-steps` | 200,000 | `trap_steps`: 10,000 |\n| `--relax-max-chunks` | 4 | `relaxation_max_chunks`: 10 |\n| `--max-retries` | 1 | `max_retries_per_domain`: 2 |\n| `--final-hold-steps` | 20,000 | `final_hold_chunk_steps`: 0 |\n| `--max-events` | 500 | `max_events`: 1,000 |\n\n**Fields computed by the CLI:**\n- `trap_release_steps` equals `--trap-release-steps` if given, otherwise `--relax-steps`. When both are omitted it is 10,000; the config default is 2,000. Mismatch.\n- `relaxation_min_chunks` equals `min(2, --relax-max-chunks)`, which is 2. Matches the config.\n- `convergence_window` is fixed at 3 in the CLI. Matches the config.\n- `--final-hold-occupancy-threshold` is passed through as None. Both the CLI and the config then use `persistence_fraction` (0.5). Matches.\n\nSix config fields are never set by the CLI, so their config defaults always apply: `energy_tolerance`, `final_hold_stable_windows` and the four `reopen_*` fields.\n\n**How I checked:** I read both files. I then built the parser with only the required arguments and created a default `ControllerConfig()` in Python. Bytecode writing was off, so no files were created. The printed values matched what I read.\n\n**What I did not verify:**\n- Which defaults are intended. I didn't compare them with the checkpoint or comparator in `SOL_EXECUTION_PLAN.md`, `EXECUTION_STATUS.md`, or any archived `summary.json`.\n- The actual campaign launch command, whose explicit options would override these defaults.\n- Whether `FoldingController` changes config values after it is constructed.\n- `OxDNARunner` defaults, the tests, and any MD run.\n\nBefore launch, check the launch command against the plan's declared settings for these eight options.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --max-retries, --final-hold-steps, --max-events, --trap-release-steps",
+ "task": "T3b",
+ "arm": "O",
+ "fixture": "B",
+ "rep": 3,
+ "cap": 4.0,
+ "timed_out": false,
+ "wall_s": 78.2,
+ "score": {
+  "correct": true,
+  "recall": 1.0,
+  "precision": 1.0,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-release-steps",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

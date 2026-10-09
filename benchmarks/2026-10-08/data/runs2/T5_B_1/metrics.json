@@ -1,0 +1,47 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.2425096,
+ "turns": 9,
+ "duration_s": 41.7,
+ "tokens": {
+  "uncached_in": 34009,
+  "cache_read": 305878,
+  "output": 4533
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 34009,
+   "cache_read": 305878,
+   "output": 4533,
+   "cost": 0.2425
+  }
+ },
+ "peak_main_context": 46430,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 8
+ },
+ "text": "The change set is not ready to launch. Two controller tests that pass on the committed baseline (81/81) now fail with your changes (79 of 81 pass). I did not edit any file.\n\n- **Blocking: reopen attempts.** `reopen_max_attempts` went from 2 to 5. `test_reopen_attempts_are_bounded_per_domain_and_temperature` and `test_resumed_state_keeps_reopen_attempt_budget` fail, because they depend on the old default. Your edit to `test_default_config_leaves_reopen_off` replaced the exact value check with `>= 1`, so that test no longer pins the value. The CLI has no `--reopen-max-attempts` flag, so any run with `--reopen-enclosing-domain` would silently get 5 attempts instead of 2.\n- **Blocking: nucleation fraction.** `ControllerConfig.nucleation_fraction` went from 0.5 to 0.35, but the campaign CLI always passes its own `--nucleation-fraction` (default 0.5) at `scripts/run_design_controller.py:1038`. A campaign launched from the CLI will therefore still run at 0.5, which is probably not what you intend. Other callers that don't pass the value, such as `scripts/run_hairpin_controller.py`, now silently get 0.35. `AGENTS.md` says helper defaults are part of the method. Nothing in `SOL_EXECUTION_PLAN.md` or the status files mentions 0.35, so the change is undeclared, and no test covers it.\n- **Minor:** The adaptive-coupled-release check on `trap_release_steps == 0` was removed from the CLI. `ControllerConfig` (`controller.py:222`) enforces the same rule, so it still fails, only later and with the same message. I did not check whether any setup runs between the two points.\n- **Minor:** The edits to the `--eligibility-mode` help text and the \"positive integer\" error message change wording only. They have no effect on behavior.\n\nBefore launch, pick one of two routes for each default (2\u21925 and 0.5\u21920.35). Either revert it, or declare it in the plan with a CLI flag and a test that pins the new value. I did not run any MD, and I did not review whether 0.35 or 5 is scientifically sound.\n\nFINDINGS: [{\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.reopen_max_attempts\", \"severity\": \"blocking\", \"why\": \"Default changed 2->5 without declaration or a CLI flag. Two tests that pass at HEAD now fail (test_reopen_attempts_are_bounded_per_domain_and_temperature, test_resumed_state_keeps_reopen_attempt_budget), and the one assertion edited in test_default_config_leaves_reopen_off was loosened to >= 1.\"}, {\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.nucleation_fraction\", \"severity\": \"blocking\", \"why\": \"Default changed 0.5->0.35, but run_design_controller.py always passes its own --nucleation-fraction (default 0.5), so the CLI campaign is unaffected while other callers such as run_hairpin_controller.py silently get 0.35. It is an undeclared gate change with no test and no mention in the plan.\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"main\", \"severity\": \"minor\", \"why\": \"The adaptive-coupled-release check on trap_release_steps == 0 was removed from the CLI. ControllerConfig.__post_init__ still raises the same error, so only the timing of the failure changes. Wording edits to the --eligibility-mode help and the stable-chunks error message are cosmetic.\"}]",
+ "task": "T5",
+ "arm": "B",
+ "fixture": "R_B",
+ "rep": 1,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 42.9,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": true,
+   "B": false,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 3,
+  "modified_files": []
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.0902608,
+ "turns": 2,
+ "duration_s": 6.9,
+ "tokens": {
+  "uncached_in": 18869,
+  "cache_read": 46514,
+  "output": 549
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 18869,
+   "cache_read": 46514,
+   "output": 549,
+   "cost": 0.0903
+  }
+ },
+ "peak_main_context": 33079,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 1
+ },
+ "text": "Note: claude-mem can't save memories right now. Its error was \"Provider reported the inference allowance exhausted\" (since 2026-10-08T18:37:18.662Z). Nothing from this session will be remembered until the allowance resets or you switch the observer provider in `~/.claude-mem/settings.json`.\n\ntrap-stiffness=0.7, max-force=20.0",
+ "task": "T1",
+ "arm": "W",
+ "rep": 3,
+ "cap": 0.8,
+ "timed_out": false,
+ "wall_s": 122.5,
+ "score": {
+  "correct": true
+ }
+}

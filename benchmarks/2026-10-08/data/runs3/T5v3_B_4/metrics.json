@@ -1,0 +1,50 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.24842899999999998,
+ "turns": 8,
+ "duration_s": 49.3,
+ "tokens": {
+  "uncached_in": 33946,
+  "cache_read": 287535,
+  "output": 5517
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 33946,
+   "cache_read": 287535,
+   "output": 5517,
+   "cost": 0.2484
+  }
+ },
+ "peak_main_context": 46367,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 7
+ },
+ "text": "**Do not launch yet.** Two of the three edited files' tests fail, and the cause is one of your own default changes. I ran `test_controller_reopen.py`, `test_run_design_controller.py` and `test_controller.py`: 109 passed and 2 failed. I did not run the rest of the suite, and no MD or engine run was done.\n\n**Blocking:** `ControllerConfig.reopen_max_attempts` went from 2 to 5 (`controller.py:177`).\n- `test_reopen_attempts_are_bounded_per_domain_and_temperature` fails. It expects 2 `reopen_started` events and gets 4, and the result is `COMPLETE` where `FAILED` is expected.\n- `test_resumed_state_keeps_reopen_attempt_budget` fails for the same reason. It hard-codes 2 attempts.\n- The diff edited only `test_default_config_leaves_reopen_off`, and changed its assertion from `== 2` to `>= 1`. That change hides the new default instead of testing it. The two failing tests were left as they were.\n- This is a method change that was not declared. `AGENTS.md` requires such changes to be declared and tested, with a negative control, before any full MD.\n- It only matters when `--reopen-enclosing-domain` is on. That flag defaults to off, and the CLI has no option for the attempt count, so 5 would apply silently.\n- Fix: either revert to 2, or declare the change, update the tests to assert 5, and add a negative control.\n\n**Minor:**\n- **`nucleation_fraction` default 0.5 \u2192 0.35 (`controller.py:138`).**\n  - `run_design_controller.py` always passes `--nucleation-fraction` (default 0.5), so the CLI campaign does not use the new value.\n  - Other `ControllerConfig` callers will pick up 0.35. These include `run_hairpin_controller.py`, `run_anneal_baseline.py` and `run_dna_folding_pilot.py`.\n  - The default no longer matches the CLI default or the runner's `trap_check_fraction`.\n  - No test covers it, and `SOL_EXECUTION_PLAN.md` does not mention it. Revert it, or declare it and set the CLI default to match.\n- **Removed CLI check for adaptive release with zero release steps (`run_design_controller.py`, `main`).**\n  - `ControllerConfig` still raises the same error, but only after the run directory is created, the random coil is prepared and the relaxation has run.\n  - A bad `--adaptive-coupled-release --relax-steps 0` now fails late and leaves a partial run directory.\n  - It cannot affect a valid launch. No CLI test covers the message. Restore the early check.\n- **Reworded help and error strings** (`--eligibility-mode` help, \"must be a positive integer\"). They are harmless, but unrelated to the other changes.\n\nNot checked: whether the failing tests pass on the committed baseline. I did not stash or check out anything, because tracked files must stay untouched. The `4 != 2` mismatch points directly at the default change. I also did not check the plan's launch flags or whether the campaign enables reopen.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default changed 2 -> 5 without a declared, tested method change; test_reopen_attempts_are_bounded_per_domain_and_temperature and test_resumed_state_keeps_reopen_attempt_budget now fail (4 != 2 reopen_started events; COMPLETE instead of FAILED). The change is only active with --reopen-enclosing-domain, and the CLI has no option to set it.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"blocking\",\"why\":\"Assertion weakened from ==2 to >=1, which hides the new default instead of testing it. The two tests that hard-code 2 attempts were not updated and fail, and there is no negative control.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default 0.5 -> 0.35 is undeclared and untested. The CLI always overrides it with --nucleation-fraction (0.5), so the campaign is unaffected. Other ControllerConfig callers (run_hairpin_controller, run_anneal_baseline, run_dna_folding_pilot) pick up 0.35, and it no longer matches the runner's trap_check_fraction default.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main\",\"severity\":\"minor\",\"why\":\"Removed the early check that adaptive coupled release needs positive trap_release_steps. ControllerConfig still raises it, but only after the run dir is created, the coil prepared and the relaxation run, so an invalid combination fails late with a partial run directory.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"build_parser/main\",\"severity\":\"minor\",\"why\":\"Help text and error-message rewordings are unrelated to the other changes in the set. They are harmless and could be dropped to keep the change set small.\"}]",
+ "task": "T5v3",
+ "arm": "B",
+ "fixture": "R_B",
+ "rep": 4,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 50.6,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": false
+  },
+  "false_positives": [],
+  "n_findings": 5,
+  "modified_files": []
+ }
+}

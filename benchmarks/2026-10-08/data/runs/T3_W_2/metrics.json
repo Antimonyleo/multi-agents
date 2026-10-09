@@ -1,0 +1,61 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.33422620000000003,
+ "turns": 12,
+ "duration_s": 59.2,
+ "tokens": {
+  "uncached_in": 46058,
+  "cache_read": 318081,
+  "output": 8641
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 46058,
+   "cache_read": 318081,
+   "output": 8641,
+   "cost": 0.3342
+  }
+ },
+ "peak_main_context": 60256,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 4,
+  "Bash": 2,
+  "Read": 3,
+  "Write": 1,
+  "Edit": 1
+ },
+ "text": "The CLI defaults do not all match `ControllerConfig`: 7 of the 41 direct options differ, and one computed field also differs. I wrote the full table to `audit.md`, the only file I created.\n\n**Direct options that differ**\n\n| Option | CLI default | Config default |\n|---|---|---|\n| `--temperatures` | `70,60,50,40,30` | `(80,70,60,50,40)` |\n| `--eligibility-mode` | `effective-molarity` | `free_energy` |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--final-hold-steps` | 20000 | 0 |\n| `--max-retries` | 1 | 2 (`max_retries_per_domain`) |\n| `--max-events` | 500 | 1000 |\n\nThe other 34 direct options match. These include the weights, persistence and nucleation fractions, force and stiffness, retry and backtrack limits, and every opt-in flag.\n\n**Computed fields (omitted option)**\n- **`trap_release_steps`:** it resolves to `--relax-steps`, which is 10000. The config default is 2000, so this one differs.\n- **`relaxation_min_chunks`:** it is `min(2, --relax-max-chunks)`, which is 2. That matches.\n- **`convergence_window`:** it is hard-coded to 3 and matches.\n- **`final_hold_occupancy_threshold`:** it stays `None` and resolves to `persistence_fraction`, which is 0.5. That matches.\n\nSix config fields have no CLI option and always use the dataclass default: `energy_tolerance`, `final_hold_stable_windows`, and four `reopen_*` fields.\n\nI read both files and confirmed the values by parsing a minimal command line with the real parser and instantiating `ControllerConfig()`. No engine, MD or tests ran.\n\n**What I did not verify**\n- Whether the CLI values are the intended ones. I did not compare against the current checkpoint or comparator in `SOL_EXECUTION_PLAN.md`, which AGENTS.md says governs actual temperatures and controller behavior.\n- Whether any code in `controller.py` or `search.py` changes a config value after construction.\n- What `final_hold_chunk_steps=0` does inside the controller.\n- Other callers of `ControllerConfig`, such as `run_hairpin_controller.py` and the tests.\n- Whether the mismatches affect any run, and no scientific behavior.\n\nThis is not a go or no-go on the campaign. Your launch commands will only get the config defaults if they omit these options, so the real question is which values you intend them to use.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --final-hold-steps, --max-retries, --max-events",
+ "task": "T3",
+ "arm": "W",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 60.5,
+ "score": {
+  "correct": false,
+  "recall": 1.0,
+  "precision": 0.714,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.3370814,
+ "turns": 8,
+ "duration_s": 62.7,
+ "tokens": {
+  "uncached_in": 50175,
+  "cache_read": 256777,
+  "output": 8505
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 50175,
+   "cache_read": 256777,
+   "output": 8505,
+   "cost": 0.3371
+  }
+ },
+ "peak_main_context": 64377,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 2,
+  "Read": 2,
+  "Bash": 1,
+  "Write": 1,
+  "Edit": 1
+ },
+ "text": "**The CLI defaults do not match the config defaults: 7 of the 42 direct options differ, and one computed field differs too.** A launch that relies on the CLI defaults gets different settings from a bare `ControllerConfig()`. The full table is in `audit.md`, the only file I created.\n\nDirect options that differ (CLI default \u2192 config default):\n\n| Option | CLI default | Config default |\n|---|---|---|\n| `--temperatures` | 70,60,50,40,30 | 80,70,60,50,40 |\n| `--eligibility-mode` | `effective-molarity` | `free_energy` |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--final-hold-steps` | 20000 | 0 |\n| `--max-retries` | 1 | 2 |\n| `--max-events` | 500 | 1000 |\n\nThe other 35 direct options match.\n\nComputed fields:\n- **`trap_release_steps`:** this one differs. When `--trap-release-steps` is omitted it resolves to `--relax-steps`, which is 10000 by default. The config default is 2000. Changing `--relax-steps` therefore also changes the release length.\n- **`relaxation_min_chunks`:** it resolves to 2, the same as the config. It drops to 1 if `--relax-max-chunks` is 1.\n- **`convergence_window`:** hard-coded to 3, the same as the config.\n- **`final_hold_occupancy_threshold`:** the CLI passes None, which resolves to `persistence_fraction` (0.5), the same as the config.\n\nNo CLI option sets `energy_tolerance` (0.05), `final_hold_stable_windows` (2) or the four `reopen_*` tuning fields. They always use the config defaults.\n\nI read both files and then ran only the argument parser on a minimal command line, comparing its output with `ControllerConfig()`. That agreed with my reading of the code. It ran with bytecode writing off, and no MD or tests ran. The git status check failed because the working directory is not a git repository, despite the session context saying otherwise.\n\n**Not verified:**\n- **Intended defaults:** I did not read `SOL_EXECUTION_PLAN.md` or the archived controller runs, so I can't say which side is intended. The CLI values may be a deliberate protocol. The mismatch is not a bug unless the config values are the intended ones.\n- **Campaign command line:** I did not check whether the planned command sets these options explicitly, which would override the defaults.\n- **Downstream meaning:** I did not check what `final_hold_chunk_steps=0` does in the controller, or the defaults of options that don't feed `ControllerConfig` (listed in section D of `audit.md`).\n- **Parity with the archived procedure:** your guidelines require this before full MD, and it was not part of this audit.\n\nMISMATCHES: --temperatures, --eligibility-mode, --trap-steps, --relax-max-chunks, --final-hold-steps, --max-retries, --max-events",
+ "task": "T3b",
+ "arm": "B",
+ "fixture": "B",
+ "rep": 3,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 64.0,
+ "score": {
+  "correct": true,
+  "recall": 1.0,
+  "precision": 1.0,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--temperatures",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

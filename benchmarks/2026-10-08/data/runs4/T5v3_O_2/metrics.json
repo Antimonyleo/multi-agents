@@ -1,0 +1,50 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.48304460000000005,
+ "turns": 11,
+ "duration_s": 74.8,
+ "tokens": {
+  "uncached_in": 35444,
+  "cache_read": 416703,
+  "output": 5812
+ },
+ "per_model": {
+  "claude-opus-5-5": {
+   "uncached_in": 35444,
+   "cache_read": 416703,
+   "output": 5812,
+   "cost": 0.483
+  }
+ },
+ "peak_main_context": 47467,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 10
+ },
+ "text": "**Don't launch yet: the `reopen_max_attempts` change breaks existing tests and silently changes behaviour that the run never records.** I changed no tracked files.\n\n**Blocking: the reopen attempt limit went from 2 to 5.**\n- **Tests break:** `test/test_controller_reopen.py` has 2 failed and 6 passed on your working tree; all 8 pass on `HEAD`. One failure is \"4 != 2\" in the per-domain attempt-bound test. In the other, a resumed run that should end FAILED now ends COMPLETE.\n- **Test weakened:** you edited the test that pinned the default at 2 to only check `>= 1`. Nothing now pins it.\n- **No flag and no record:** `run_design_controller.py` has no option for this setting. Any `--reopen-enclosing-domain` run will quietly use 5, and `summary_parameters` doesn't save the value to `summary.json`. That's an undeclared method change of the kind AGENTS.md says not to make.\n\n**Minor: `nucleation_fraction` went from 0.5 to 0.35.** The main CLI still passes 0.5 explicitly, so campaign runs launched through it are unaffected. Three other scripts never set it, so they now use 0.35: `run_hairpin_controller.py`, `run_dna_folding_pilot.py` and `run_dna_relaxation_diagnostic.py`. Under 0.35 a trap counts as nucleated with fewer pairs formed, so it is released earlier. The code default and the CLI default now disagree.\n\n**Minor: the CLI's adaptive-release check is gone.** `ControllerConfig` still rejects that bad setting, but only after the run directory is written and the random-coil preparation MD has run. A bad flag now fails late, after spending compute.\n\n**Harmless:** the help text and error message rewording.\n\n**Not checked:** the full test suite won't collect in this shell (67 collection errors on `HEAD` as well). That looks like the wrong conda environment, so only the reopen test file was compared. I ran no MD.\n\nFINDINGS: [{\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.reopen_max_attempts\", \"severity\": \"blocking\", \"why\": \"Default 2->5 breaks 2 of 8 reopen regression tests (8/8 pass at HEAD: per-domain bound gives 4 != 2, resumed-budget run ends COMPLETE instead of FAILED); the CLI has no flag for it and summary_parameters does not record it, so --reopen-enclosing-domain runs silently change behavior\"}, {\"file\": \"test/test_controller_reopen.py\", \"symbol\": \"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\", \"severity\": \"minor\", \"why\": \"assertEqual(...,2) loosened to assertGreaterEqual(...,1), so nothing pins the reopen-attempt default\"}, {\"file\": \"origami_folding/controller.py\", \"symbol\": \"ControllerConfig.nucleation_fraction\", \"severity\": \"minor\", \"why\": \"Default 0.5->0.35 is undeclared; run_design_controller.py passes 0.5 explicitly, but run_hairpin_controller.py, run_dna_folding_pilot.py and run_dna_relaxation_diagnostic.py fall back to the default and now count nucleation, and release traps, at fewer formed pairs; code and CLI defaults now disagree\"}, {\"file\": \"scripts/run_design_controller.py\", \"symbol\": \"main\", \"severity\": \"minor\", \"why\": \"Removed early check for adaptive release with zero release steps; ControllerConfig still rejects it, but only after the run directory is written and prepare_random_coil MD has run\"}]",
+ "task": "T5v3",
+ "arm": "O",
+ "fixture": "R_B",
+ "rep": 2,
+ "cap": 4.0,
+ "timed_out": false,
+ "wall_s": 76.2,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}

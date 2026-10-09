@@ -1,0 +1,67 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 1.1454276,
+ "turns": 2,
+ "duration_s": 20.7,
+ "tokens": {
+  "uncached_in": 103487,
+  "cache_read": 1417118,
+  "output": 21057
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 30433,
+   "cache_read": 196051,
+   "output": 4606,
+   "cost": 0.207
+  },
+  "claude-opus-5-5": {
+   "uncached_in": 73054,
+   "cache_read": 1221067,
+   "output": 16451,
+   "cost": 0.9384
+  }
+ },
+ "peak_main_context": 42858,
+ "agents": [
+  "scientific_reviewer"
+ ],
+ "skills": [
+  "scientific-workflow"
+ ],
+ "tools": {
+  "Skill": 1,
+  "Bash": 2,
+  "Read": 19,
+  "Agent": 1,
+  "Glob": 3,
+  "Grep": 15
+ },
+ "text": "**Do not launch yet.** Two changes need fixing first: the `reopen_max_attempts` default, and the removed CLI check for adaptive release. I ran `test/test_controller_reopen.py` and 2 of its 8 tests fail with this diff. The `scientific_reviewer` found the rest by reading the code, and I did not run the other test files.\n\n- **Blocking: `reopen_max_attempts` 2 \u2192 5.**\n  - The CLI has no flag for it and `scripts/run_design_controller.py` doesn't pass it. Any run with `--reopen-enclosing-domain` therefore uses 5 attempts.\n  - `summary.json` doesn't record the setting, and the CLI help and `README.md` still say 2. The archived reopen arms A3 and A4 ran with 2, so new results would not be comparable and nothing would show it.\n  - I ran the tests: `test_reopen_attempts_are_bounded_per_domain_and_temperature` fails (`4 != 2`). `test_resumed_state_keeps_reopen_attempt_budget` also fails; it expected FAILED but got COMPLETE.\n  - The loosened assertion (`assertGreaterEqual(..., 1)`) no longer pins the default. `SOL_EXECUTION_PLAN.md:162` says every intended change needs a reason and a bounded test.\n- **Blocking: removed CLI check for `--adaptive-coupled-release` with `trap_release_steps == 0`.**\n  - The controller (`controller.py:222-223`) and the runner (`oxdna_runner.py:1429-1430`) both still reject this combination, so it doesn't misbehave silently.\n  - The error now comes after the run directory is created and `--prepare-steps` of oxDNA relaxation has run. `summary.json` is never written, so `scripts/launch_lin_mechanism_batch.sh` relaunches that directory and repeats the cost. This weakens a fail-fast check, and the diff gives no reason for removing it.\n  - The reviewer rated this minor. I rate it blocking because wasted MD on a full campaign is the cost the check prevents. This is my judgment, and the code does not make it unavoidable. Downgrade it if you accept that cost.\n- **Minor: `nucleation_fraction` 0.5 \u2192 0.35.**\n  - The CLI default of 0.5 is explicit, and the launchers pass 1.0, so the standard path is unchanged.\n  - Callers that build `ControllerConfig` without the field now get 0.35, for example `scripts/run_hairpin_controller.py`. Its runner still stops traps at 0.5, so the controller and runner thresholds disagree.\n  - `summarize_benchmarks.py` and `target_diagnostic.py` still default to 0.5. The change is undeclared and untested.\n- **Minor: help and error rewording.** No test or doc depends on the old text. The CLI message now says \"must be a positive integer\" while the controller says \"must be positive\".\n- **Authority.** `SOL_EXECUTION_PLAN.md:210` and `:230` say no whole-fold campaign or new integration MD allocation is authorized. `EXECUTION_STATUS.md`, `HANDOFF.md` and `validation/` are absent from this workspace, so I could not compare against the comparator's frozen settings.\n\nTo unblock:\n1. Revert `reopen_max_attempts` to 2, or declare 5 with a CLI flag, a `summary.json` entry, updated docs and a pinned test.\n2. Restore the CLI check, or state why it was removed.\n3. Declare or revert the `nucleation_fraction` change.\n4. Get the reopen tests passing.\n5. Confirm the campaign allocation.\n\nI changed no tracked file. The only scratch file I wrote is `review_change.patch`.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default 2->5 is inherited by every CLI run with --reopen-enclosing-domain (no CLI flag, not passed at run_design_controller.py:1032-1086, not recorded in summary.json); docs/help still say 2 and archived A3/A4 arms used 2, so results are silently non-comparable; undeclared and untested per SOL_EXECUTION_PLAN.md:162.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"test_reopen_attempts_are_bounded_per_domain_and_temperature / test_resumed_state_keeps_reopen_attempt_budget\",\"severity\":\"blocking\",\"why\":\"Both tests fail with the new default (observed by running pytest: '4 != 2' and COMPLETE != FAILED); 2 failed, 6 passed. The launch code does not pass its own tests.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"test_default_config_leaves_reopen_off\",\"severity\":\"minor\",\"why\":\"assertGreaterEqual(reopen_max_attempts, 1) duplicates the constructor check and no longer pins the default, so it hides the 2->5 change; no negative control or real-caller test added.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main (removed adaptive_coupled_release/trap_release_steps==0 check)\",\"severity\":\"blocking\",\"why\":\"ControllerConfig.__post_init__ (controller.py:222-223) and the runner still reject it, but only after the run dir is created and --prepare-steps oxDNA relaxation has run; no summary.json is written, so the launcher relaunches and repeats the waste. No reason given for removal. Severity is my judgment; the reviewer rated it minor.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default 0.5->0.35 leaves CLI (explicit default 0.5) and launchers (1.0) unchanged, but callers that omit it (e.g. run_hairpin_controller.py) get 0.35 while the runner trap early-stop stays 0.5, and summarize_benchmarks.py/target_diagnostic.py still default to 0.5; undeclared and untested.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"build_parser help text / coupled_release_stable_chunks ValueError\",\"severity\":\"minor\",\"why\":\"Rewording is cosmetic, with no dependent test or doc found; the CLI message ('must be a positive integer') now differs from ControllerConfig ('must be positive').\"},{\"file\":\"SOL_EXECUTION_PLAN.md\",\"symbol\":\"campaign authorization (lines 210, 230)\",\"severity\":\"minor\",\"why\":\"Plan states no whole-fold campaign or new integration MD allocation is authorized, and EXECUTION_STATUS.md/validation/ are absent from the workspace, so the declared comparator could not be checked; the user must confirm authorization.\"}]",
+ "task": "T5v3",
+ "arm": "R",
+ "fixture": "R_W",
+ "rep": 1,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 217.7,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": true
+  },
+  "false_positives": [
+   "test_reopen_attempts_are_bounded_per_domain_and_temperature / test_resumed_state_keeps_reopen_attempt_budget"
+  ],
+  "n_findings": 7,
+  "modified_files": []
+ }
+}

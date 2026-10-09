@@ -1,0 +1,60 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.3854408,
+ "turns": 14,
+ "duration_s": 82.4,
+ "tokens": {
+  "uncached_in": 48671,
+  "cache_read": 346994,
+  "output": 12139
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 48671,
+   "cache_read": 346994,
+   "output": 12139,
+   "cost": 0.3854
+  }
+ },
+ "peak_main_context": 62869,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 2,
+  "Read": 4,
+  "Bash": 2,
+  "Write": 1,
+  "Edit": 4
+ },
+ "text": "The CLI defaults do not match the config defaults. Six of the 41 options that feed `ControllerConfig` directly differ, and two computed fields differ too. The full table is in `audit.md`. It is the only file I created. Because the six are intentional-looking CLI overrides rather than typos, the \"mismatch\" is only a problem if someone builds `ControllerConfig()` bare and expects CLI behaviour.\n\n**Direct options that differ:**\n\n| Option | CLI default | Config default |\n|---|---|---|\n| `--eligibility-mode` | effective-molarity | free_energy |\n| `--trap-steps` | 200000 | 10000 |\n| `--relax-max-chunks` | 4 | 10 |\n| `--max-retries` | 1 | 2 |\n| `--final-hold-steps` | 20000 | 0 (no final hold) |\n| `--max-events` | 500 | 1000 |\n\nThe other 35 match. That includes all four score weights and every opt-in policy flag (all off).\n\n**Computed fields, when the option is omitted:**\n- **`temperatures_c`:** the CLI gives (70, 60, 50, 40, 30). The config default is (80, 70, 60, 50, 40). These differ.\n- **`trap_release_steps`:** this takes the value of `--relax-steps`, which is 10000. The config default is 2000. These differ, and it also changes if `--relax-steps` changes.\n- **`final_hold_occupancy_threshold`:** both sides resolve to `persistence_fraction`, 0.5.\n- **`relaxation_min_chunks`:** this is `min(2, --relax-max-chunks)`, so 2 at the default.\n- **`convergence_window`:** this is hard-coded to 3 in the call, and the config default is also 3.\n\nSix config fields have no CLI option and always use the dataclass default: `energy_tolerance`, `final_hold_stable_windows` and four `reopen_*` fields.\n\n**How I checked:** I read both files. I also parsed the CLI with only the required arguments and compared the result with a bare `ControllerConfig()`. Both methods agree. I did not read `SOL_EXECUTION_PLAN.md`, so I don't know whether these CLI defaults are the declared campaign settings.\n\n**Not verified:**\n- Whether the CLI or the config values are the intended ones.\n- The other scripts that build `ControllerConfig` themselves: `run_anneal_baseline.py`, `run_coupled_checkpoint_diagnostic.py`, `run_dna_folding_pilot.py` and `run_hairpin_controller.py`.\n- Runner, planner and engine behaviour, including the per-domain patient guard. This was not a controller-parity review, so it does not certify that the whole-fold launch is ready.\n- Tests, MD and NUPACK were not run.\n\n`--temperatures` and `--trap-release-steps` are left off the line below because they are computed, as you asked. Both do differ from the config default.\n\nMISMATCHES: --eligibility-mode, --trap-steps, --relax-max-chunks, --max-retries, --final-hold-steps, --max-events",
+ "task": "T3",
+ "arm": "B",
+ "rep": 2,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 83.5,
+ "score": {
+  "correct": false,
+  "recall": 1.0,
+  "precision": 0.833,
+  "claimed": [
+   "--eligibility-mode",
+   "--final-hold-steps",
+   "--max-events",
+   "--max-retries",
+   "--relax-max-chunks",
+   "--trap-steps"
+  ],
+  "audit_coverage": 1.0,
+  "indirect_coverage": 1.0,
+  "constraints_ok": true,
+  "added": [
+   "audit.md"
+  ],
+  "changed": [],
+  "removed": [],
+  "disclosure": true
+ }
+}

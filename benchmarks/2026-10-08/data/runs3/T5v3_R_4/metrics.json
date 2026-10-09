@@ -1,0 +1,65 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.6724692,
+ "turns": 4,
+ "duration_s": 22.4,
+ "tokens": {
+  "uncached_in": 75260,
+  "cache_read": 600711,
+  "output": 13222
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 33281,
+   "cache_read": 242002,
+   "output": 5508,
+   "cost": 0.2366
+  },
+  "claude-opus-5-5": {
+   "uncached_in": 41979,
+   "cache_read": 358709,
+   "output": 7714,
+   "cost": 0.4359
+  }
+ },
+ "peak_main_context": 45705,
+ "agents": [
+  "scientific_reviewer"
+ ],
+ "skills": [
+  "scientific-workflow"
+ ],
+ "tools": {
+  "Skill": 1,
+  "Bash": 1,
+  "Read": 13,
+  "Grep": 14,
+  "Agent": 1,
+  "Glob": 1
+ },
+ "text": "**Do not launch yet.** One issue should stop the launch if the campaign uses `--reopen-enclosing-domain`. The rest are minor. I checked the reviewer's main claims in the code. I ran no tests or MD, and the reviewer could only read files.\n\n**Blocking (conditional on the reopen flag)**\n- `ControllerConfig.reopen_max_attempts` changed from 2 to 5 (`origami_folding/controller.py:177`).\n- `scripts/run_design_controller.py` never passes this value to the config. The CLI cannot override it, so any run with `--reopen-enclosing-domain` uses 5 retries instead of 2.\n- `summary_parameters` does not record the value. `summary.json` therefore won't show the change.\n- No plan or protocol entry declares the change.\n- The README still says the limit is two attempts, and the archived reopen results used 2.\n- AGENTS.md treats helper defaults as part of the method, so this is an undeclared method change.\n- If the campaign does not use the flag, this drops to minor.\n\n**Minor**\n- **Nucleation default (0.5 \u2192 0.35):** the main CLI passes `--nucleation-fraction` explicitly at its own default of 0.5, so its settings are unchanged. `scripts/run_hairpin_controller.py` omits the value and now gets 0.35 in the controller, while `origami_folding/oxdna_runner.py` still defaults to 0.5. Protocol JSONs that lack the key may also resolve to 0.35 in `run_dna_folding_pilot.py` and `run_dna_relaxation_diagnostic.py`. I did not check those files. No test pins 0.35.\n- **Weakened test:** `test_default_config_leaves_reopen_off` went from `assertEqual(..., 2)` to `assertGreaterEqual(..., 1)`. Nothing pins the default now, and there is no negative control.\n- **Removed CLI guard (adaptive release with 0 release steps):** `ControllerConfig` still raises the same error (`controller.py:222`). From the CLI it now fires after resume validation, run-directory creation and the prepare-relaxation MD run. A bad command wastes MD time. No CLI-level test covers it.\n- **Error message wording:** the CLI and config messages for the coupled-release stable-chunks check now differ. This is harmless.\n- **Missing governance files:** `EXECUTION_STATUS.md` doesn't exist, although AGENTS.md says to read it. The current checkpoint in `SOL_EXECUTION_PLAN.md` doesn't authorize these edits. I found no frozen protocol JSON for them.\n\n**Before launch**\n- Revert both defaults, or declare them in a protocol.\n- Record `reopen_max_attempts` in `summary_parameters`.\n- Restore the exact-value tests.\n- Add a CLI test for the adaptive-release guard.\n- Run the four affected test files.\n\nScratch file: `review_change.patch`. It holds the diff and is the only file I wrote.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default changed 2->5 (line 177). The CLI never forwards this field, so it cannot be overridden. summary_parameters does not record it, and no plan or protocol declares the change. Any run with --reopen-enclosing-domain silently uses 5 retries instead of the archived 2 (README says two). Blocking only if the campaign uses that flag.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default changed 0.5->0.35 without a declaration or test. The main CLI passes 0.5 explicitly and is unaffected. scripts/run_hairpin_controller.py omits it, so the controller now uses 0.35 while oxdna_runner still defaults to 0.5. Protocol-driven scripts may also resolve to 0.35 (unchecked).\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"minor\",\"why\":\"assertEqual(reopen_max_attempts, 2) was loosened to assertGreaterEqual(..., 1). That only repeats the __post_init__ validation, so the default is no longer pinned and there is no negative control.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main (removed adaptive_coupled_release/trap_release_steps guard)\",\"severity\":\"minor\",\"why\":\"ControllerConfig.__post_init__ still enforces the rule (controller.py:222), but from the CLI it now fires after resume validation, run-dir creation and the prepare-relaxation MD run, wasting MD time on a bad command. No CLI-level test covers it.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main (coupled_release_stable_chunks error message)\",\"severity\":\"minor\",\"why\":\"The CLI message ('must be a positive integer') now differs from the config message ('must be positive'). It is cosmetic, and only the config message is tested.\"},{\"file\":\"SOL_EXECUTION_PLAN.md\",\"symbol\":\"current checkpoint / EXECUTION_STATUS.md\",\"severity\":\"minor\",\"why\":\"EXECUTION_STATUS.md is missing, the current checkpoint authorizes none of these edits, and no frozen protocol JSON covers the new defaults, as scientific_rules.md requires before new MD.\"}]",
+ "task": "T5v3",
+ "arm": "R",
+ "fixture": "R_W",
+ "rep": 4,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 118.7,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": true
+  },
+  "false_positives": [],
+  "n_findings": 6,
+  "modified_files": []
+ }
+}

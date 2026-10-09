@@ -1,0 +1,38 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.1781456,
+ "turns": 2,
+ "duration_s": 9.0,
+ "tokens": {
+  "uncached_in": 19850,
+  "cache_read": 43108,
+  "output": 537
+ },
+ "per_model": {
+  "claude-opus-5-5": {
+   "uncached_in": 19850,
+   "cache_read": 43108,
+   "output": 537,
+   "cost": 0.1781
+  }
+ },
+ "peak_main_context": 31890,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Grep": 1
+ },
+ "text": "trap-stiffness=0.7, max-force=20.0\n\n(Separately, the claude-mem plugin reports it can't save memories right now: \"Provider reported the inference allowance exhausted.\")",
+ "task": "T1",
+ "arm": "O",
+ "fixture": "B",
+ "rep": 2,
+ "cap": 1.5,
+ "timed_out": false,
+ "wall_s": 10.6,
+ "score": {
+  "correct": true
+ }
+}

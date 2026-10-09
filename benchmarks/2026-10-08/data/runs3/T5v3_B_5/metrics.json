@@ -1,0 +1,50 @@
+{
+ "completed": true,
+ "is_error": false,
+ "subtype": "success",
+ "cost": 0.2301236,
+ "turns": 9,
+ "duration_s": 43.1,
+ "tokens": {
+  "uncached_in": 32108,
+  "cache_read": 283968,
+  "output": 4493
+ },
+ "per_model": {
+  "claude-sonnet-5-5": {
+   "uncached_in": 32108,
+   "cache_read": 283968,
+   "output": 4493,
+   "cost": 0.2301
+  }
+ },
+ "peak_main_context": 44529,
+ "agents": [],
+ "skills": [],
+ "tools": {
+  "Bash": 8
+ },
+ "text": "Don't launch yet. The raised `reopen_max_attempts` default (2 \u2192 5) breaks two existing tests, and that default would apply silently to any run with `--reopen-enclosing-domain`. Those tests pass on the baseline and fail with your changes. I also temporarily ran `git stash`/`pop` to get that baseline. Your diff is restored unchanged.\n\n**The change set:**\n- **`ControllerConfig.reopen_max_attempts`:** default raised from 2 to 5.\n- **`ControllerConfig.nucleation_fraction`:** default lowered from 0.5 to 0.35.\n- **`scripts/run_design_controller.py`:** a help-text wording change, an error-message wording change, and removal of the CLI check that adaptive coupled release needs positive release steps.\n- **`test_default_config_leaves_reopen_off`:** the exact-value assertion was loosened to `>= 1`.\n\n**What I observed:**\n- **Test run:** `test_controller.py` and `test_run_design_controller.py` pass. Together with `test_controller_reopen.py` that is 109 passed and 2 failed. I did not run the full suite.\n- **Failing tests:** `test_reopen_attempts_are_bounded_per_domain_and_temperature` and `test_resumed_state_keeps_reopen_attempt_budget`. The second one seeds an attempt count of 2 and expects \"attempt limit reached\". With the limit at 5 the run completes instead. I did not read the first test in detail. Both look like they assume the old limit of 2.\n- **Loosened assertion:** the `>= 1` check hides the default change instead of testing it.\n- **`reopen_max_attempts` has no CLI flag.** The CLI never records or passes it, and the recorded parameters only list `reopen_enclosing_domain`. A campaign with `--reopen-enclosing-domain` would therefore run with 5 attempts, and the run record would not show it. `AGENTS.md` says a helper default is part of the method and must not change silently.\n- **`nucleation_fraction` does not affect `run_design_controller.py`.** The CLI default is still 0.5 and is always passed to the config. The 0.35 default only changes callers that construct `ControllerConfig` without it. `run_hairpin_controller.py` and `run_anneal_baseline.py` do not mention it. I did not check whether the pilot's `config_fields` supply it.\n- **The removed CLI check is harmless.** `ControllerConfig.__post_init__` raises the same \"positive release steps\" error, and `test_controller.py:1201` covers it. The only loss is that the failure now comes after the earlier setup in `main()` instead of before it.\n\n**Not checked:** whether 5 attempts or 0.35 is scientifically justified. I did not compare against `SOL_EXECUTION_PLAN.md` or any archived procedure, and ran no MD.\n\nFINDINGS: [{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.reopen_max_attempts\",\"severity\":\"blocking\",\"why\":\"Default raised 2 to 5 with no CLI flag and not recorded in run parameters. Any --reopen-enclosing-domain campaign silently runs a different retry budget. Two existing tests that pass on the baseline now fail: test_reopen_attempts_are_bounded_per_domain_and_temperature and test_resumed_state_keeps_reopen_attempt_budget.\"},{\"file\":\"test/test_controller_reopen.py\",\"symbol\":\"ReopenEnclosingDomainTests.test_default_config_leaves_reopen_off\",\"severity\":\"blocking\",\"why\":\"Exact-value assertion (== 2) was loosened to >= 1, which hides the default change instead of testing it. Together with the two failing tests, there is no regression coverage of the intended attempt limit through the real caller.\"},{\"file\":\"origami_folding/controller.py\",\"symbol\":\"ControllerConfig.nucleation_fraction\",\"severity\":\"minor\",\"why\":\"Default changed 0.5 to 0.35, but run_design_controller.py always passes its own default of 0.5, so the change has no effect on that campaign path. It only changes other ControllerConfig callers (e.g. run_hairpin_controller.py, run_anneal_baseline.py), and the CLI default and config default now disagree.\"},{\"file\":\"scripts/run_design_controller.py\",\"symbol\":\"main (adaptive_coupled_release release-steps check)\",\"severity\":\"minor\",\"why\":\"CLI pre-check for positive release steps was removed. ControllerConfig.__post_init__ still raises the same error, so behavior is preserved, but the failure now comes later in setup. The edits to help text and the error message are cosmetic.\"}]",
+ "task": "T5v3",
+ "arm": "B",
+ "fixture": "R_B",
+ "rep": 5,
+ "cap": 3.0,
+ "timed_out": false,
+ "wall_s": 44.5,
+ "score": {
+  "correct": false,
+  "parsed": true,
+  "found": {
+   "A": false,
+   "C": true
+  },
+  "seen_only_as_minor": {
+   "A": true,
+   "C": false
+  },
+  "false_positives": [],
+  "n_findings": 4,
+  "modified_files": []
+ }
+}
