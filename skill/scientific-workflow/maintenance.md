@@ -73,6 +73,8 @@ Claude Code docs: sub-agents, costs, best-practices, model-config. Platform docs
 
 - 2026-10-09: Audited both installed hierarchies and coordination paths. Kept native Claude agents/settings and Codex profiles/config unchanged. Clarified main-as-owner, coordinator-only orchestration, decision-focused costly review, one progress owner with backoff, bounded context/output, effort escalation based on reasoning rather than run length, native override/limit caveats and affected-role-only smoke checks. Added an optional deterministic review-packet completeness check. See repository-root `docs/efficiency-audit-2026-10-09.md` for the issue inventory and measured limits.
 
+- 2026-10-09: Clarified explicit entry/handoff/stop triggers for each role and review scheduling at project scope/planning, declared major phases and final project review. Routine subtasks, time and unchanged status do not trigger review. Required gates and material exceptions remain. Native profiles/config/settings are unchanged. This small instruction refinement needs no extra reviewer dispatch or repeated passing code suite.
+
 ## Open questions
 
 - Can the reviewer run at medium effort (the Opus 5.5 default) and still find what high finds? Its cost was 3 to 5 times a whole small task.

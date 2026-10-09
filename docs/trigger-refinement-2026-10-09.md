@@ -1,0 +1,11 @@
+# Role-trigger refinement - 2026-10-09 UTC
+
+User requested clearer tier allocation and project scope/planning/phased review at major milestones, rather than every task. The shared core now links an explicit role entry/evidence/stop table and names the major review schedule. Native models, effort, tools, agent definitions, links and installed settings remain unchanged. Project2 remains paused.
+
+Changed guidance: SKILL.md, references/triggers.md and the maintenance evolution log. Existing project-required reviews, scientific gates and material exception reviews remain mandatory. The trigger table clarifies existing allocation; it does not install an autonomous scheduler or permit new scientific activity.
+
+Named checks: scripts/validate.py passed 8 local links, 5 parsed Codex profiles and 74 protected historical/Claude sources; skill-creator quick validator valid; instruction-health passed. The initial commands were mistakenly launched from /tmp; they failed to find the staged files. The same checks then passed from the correct isolated stage. No code/schema changed, so the already passing 38-test code suite was not repeated. No extra expensive reviewer was activated for this small refinement.
+
+Manual decision walkthrough: (1) one known lookup uses a direct tool; (2) substantial independent mechanical extraction can use Luna/Haiku; (3) demanding implementation stays with one Sol/Sonnet owner; (4) ambiguous synthesis can use the analyst; (5) missing terminal phase evidence returns to owner, not completion review; (6) a declared major phase gate or material exception invokes the consequential reviewer; (7) unchanged job progress/status invokes no new role. Required user/project review overrides a cost preference, and all paused-science boundaries persist.
+
+Final installed checks passed after publication: 13 destinations; protected native/config/link hashes unchanged; 8 local references and 5 Codex profiles valid. Prior review packets remain historical version-bound evidence; their hashes are not silently rewritten for this later instruction change. No push or new native dispatch benchmark is part of this instruction-only refinement. Actual speed, token savings and automatic trigger adherence remain unmeasured; the table cannot guarantee zero waste or maximum efficiency.
