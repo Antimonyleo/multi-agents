@@ -1,0 +1,37 @@
+{
+  "status": "READY_FOR_BOUNDED_DIAGNOSTIC",
+  "authority": "User go ahead following four-run protocol",
+  "project2": "USER_PAUSED_DO_NOT_RESUME",
+  "top_level_starts": 4,
+  "support_calls_max": 2,
+  "order": [
+    "codex-baseline",
+    "codex-workflow",
+    "claude-workflow",
+    "claude-baseline"
+  ],
+  "total_session_wall_ceiling_s": 1200,
+  "per_session_timeout_s": 300,
+  "claude_cli_max_budget_usd_per_session": 2,
+  "codex_hard_monetary_cap": "unavailable; declared starts and finite deadlines only",
+  "checks": {
+    "adapter_unit_tests": "5 passed",
+    "source_required_tests": "38 passed",
+    "protected_sources": "PASS",
+    "raw_truth_reference": "equal 96 rows",
+    "scorer_good_and_bad_controls": "PASS"
+  },
+  "policy_change_threshold": {
+    "minimum_descriptive_improvement_percent": 20,
+    "quality_regression_allowed": false,
+    "other_metric_regression_tolerance_percent": 10,
+    "default_change": "requires repeats; this n=1 pair cannot change defaults"
+  },
+  "limitations": [
+    "child accounting semantics may remain unknown",
+    "native restrictions not equivalent to OS isolation",
+    "no model identity self-report",
+    "no automatic retries",
+    "preparation and final reviewer costs excluded from pilot arms and disclosed separately"
+  ]
+}

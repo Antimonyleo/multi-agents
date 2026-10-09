@@ -1,0 +1,7 @@
+{
+  "owned_pilot_cli_pids_remaining": [],
+  "all_four_execution_receipts_terminal": true,
+  "native_delegate_calls_observed": 0,
+  "pause_marker_preserved": true,
+  "termination_limit": "process command identity check, not proof about arbitrary external descendants; no delegated/background activity observed"
+}

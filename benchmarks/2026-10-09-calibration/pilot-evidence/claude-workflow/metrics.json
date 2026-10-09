@@ -1,0 +1,83 @@
+{
+  "accounting_note": "Do not sum parent result totals and child transcripts; inclusion semantics unverified.",
+  "checks": {
+    "exact_output": true,
+    "support_cap": true,
+    "terminal_success": true,
+    "usage_present": true,
+    "workspace_unchanged": true
+  },
+  "cleanup": "runner exited; external child termination unverified if any",
+  "delegate_calls": [],
+  "execution": {
+    "returncode": 0,
+    "timed_out": false,
+    "wall_s": 38.012
+  },
+  "native_children": [],
+  "net_cost_claim_supported": false,
+  "observed_models": [
+    "claude-opus-5-5"
+  ],
+  "provider_error": false,
+  "provider_reported_cost_usd": 0.34720100000000004,
+  "provider_result_model_usage": {
+    "claude-opus-5-5": {
+      "cacheCreationInputTokens": 28735,
+      "cacheReadInputTokens": 67745,
+      "canonicalModel": "claude-opus-5-5",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.34720100000000004,
+      "inputTokens": 8,
+      "maxOutputTokens": 128000,
+      "outputTokens": 5187,
+      "provider": "firstParty",
+      "thinkingTokens": 117,
+      "webSearchRequests": 0
+    }
+  },
+  "provider_usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 28735,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 28735,
+    "cache_read_input_tokens": 67745,
+    "fallback_credit": null,
+    "inference_geo": "global",
+    "input_tokens": 8,
+    "iterations": [
+      {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4420,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4420,
+        "cache_read_input_tokens": 24315,
+        "input_tokens": 2,
+        "output_tokens": 4020,
+        "type": "message"
+      }
+    ],
+    "output_tokens": 5187,
+    "output_tokens_details": {
+      "thinking_tokens": 117
+    },
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 0
+    },
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "quality_pass": true,
+  "scientific_execution": false,
+  "thread_usage": [],
+  "tools": {
+    "Bash": 3,
+    "Skill": 1,
+    "StructuredOutput": 1
+  },
+  "whole_family_accounting": "parent_only_no_delegate_observed"
+}

@@ -1,0 +1,58 @@
+{
+  "accounting_note": "Do not sum parent result totals and child transcripts; inclusion semantics unverified.",
+  "checks": {
+    "exact_output": true,
+    "support_cap": true,
+    "terminal_success": true,
+    "usage_present": true,
+    "workspace_unchanged": true
+  },
+  "cleanup": "runner exited; external child termination unverified if any",
+  "delegate_calls": [],
+  "execution": {
+    "returncode": 0,
+    "timed_out": false,
+    "wall_s": 80.382
+  },
+  "native_children": [],
+  "net_cost_claim_supported": false,
+  "observed_models": [
+    "gpt-6.1-sol"
+  ],
+  "provider_error": null,
+  "provider_reported_cost_usd": null,
+  "provider_result_model_usage": null,
+  "provider_usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 46080,
+    "input_tokens": 67821,
+    "output_tokens": 3062,
+    "reasoning_output_tokens": 0
+  },
+  "quality_pass": true,
+  "scientific_execution": false,
+  "thread_usage": [
+    {
+      "id": "01a1218d-dcbd-7df3-aa75-39d4abb1bbd4",
+      "model_contexts": [
+        {
+          "effort": "high",
+          "model": "gpt-6.1-sol"
+        }
+      ],
+      "usage_last_cumulative": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 46080,
+        "input_tokens": 67821,
+        "output_tokens": 3062,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 70883
+      }
+    }
+  ],
+  "tools": {
+    "agent_message": 2,
+    "command_execution": 3
+  },
+  "whole_family_accounting": "parent_only_no_delegate_observed"
+}

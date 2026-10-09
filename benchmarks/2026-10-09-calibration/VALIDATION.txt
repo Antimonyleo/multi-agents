@@ -1,0 +1,75 @@
+test_aliasing_runtime_homes_is_rejected (test_install.InstallTests.test_aliasing_runtime_homes_is_rejected) ... ok
+test_backup_drift_blocks_rollback (test_install.InstallTests.test_backup_drift_blocks_rollback) ... ok
+test_both_and_idempotence (test_install.InstallTests.test_both_and_idempotence) ... ok
+test_broken_symlink_conflict_can_restore (test_install.InstallTests.test_broken_symlink_conflict_can_restore) ... ok
+test_codex_does_not_touch_claude (test_install.InstallTests.test_codex_does_not_touch_claude) ... ok
+test_codex_uninstall_requires_receipt (test_install.InstallTests.test_codex_uninstall_requires_receipt) ... ok
+test_default_claude_preserves_settings (test_install.InstallTests.test_default_claude_preserves_settings) ... ok
+test_destination_overlap_rejected (test_install.InstallTests.test_destination_overlap_rejected) ... ok
+test_drift_blocks_rollback_without_partial_restoration (test_install.InstallTests.test_drift_blocks_rollback_without_partial_restoration) ... ok
+test_dry_run_has_no_writes (test_install.InstallTests.test_dry_run_has_no_writes) ... ok
+test_failure_recovery_preserves_intervening_backup_edit (test_install.InstallTests.test_failure_recovery_preserves_intervening_backup_edit) ... failed installation preserved concurrent changes; recovery required; receipt: /tmp/workflow-install-test-063bx4we/state/transactions/b104d1daf31c4d298cc198c591c21085/receipt.json
+error: injected later failure
+ok
+test_failure_recovery_preserves_intervening_destination_edit (test_install.InstallTests.test_failure_recovery_preserves_intervening_destination_edit) ... failed installation preserved concurrent changes; recovery required; receipt: /tmp/workflow-install-test-yivbc16d/state/transactions/5ccb058940d642fb82471166c540a724/receipt.json
+error: injected later failure
+ok
+test_injected_partial_copy_failure_restores_all (test_install.InstallTests.test_injected_partial_copy_failure_restores_all) ... failed installation restored; receipt: /tmp/workflow-install-test-_5n5j66d/state/transactions/112bdfc84a28489c8c3c55821e17a7dd/receipt.json
+error: injected I/O failure
+ok
+test_late_conflict_blocks_every_destination (test_install.InstallTests.test_late_conflict_blocks_every_destination) ... ok
+test_legacy_manual_requires_codex (test_install.InstallTests.test_legacy_manual_requires_codex) ... ok
+test_migration_and_full_rollback (test_install.InstallTests.test_migration_and_full_rollback) ... ok
+test_missing_source_blocks_install (test_install.InstallTests.test_missing_source_blocks_install) ... ok
+test_parent_file_blocks_before_any_mutation (test_install.InstallTests.test_parent_file_blocks_before_any_mutation) ... ok
+test_profile_drift_is_detected (test_install.InstallTests.test_profile_drift_is_detected) ... ok
+test_rollback_does_not_remove_preexisting_matching_profiles (test_install.InstallTests.test_rollback_does_not_remove_preexisting_matching_profiles) ... ok
+test_uninstall_preserves_unrelated_files (test_install.InstallTests.test_uninstall_preserves_unrelated_files) ... ok
+test_children_never_count_as_zero (test_native_calibration.CalibrationTest.test_children_never_count_as_zero) ... ok
+test_codex_cumulative_snapshots_not_added (test_native_calibration.CalibrationTest.test_codex_cumulative_snapshots_not_added) ... ok
+test_independent_raw_truth (test_native_calibration.CalibrationTest.test_independent_raw_truth) ... ok
+test_malformed_trace_rejected (test_native_calibration.CalibrationTest.test_malformed_trace_rejected) ... ok
+test_parent_child_relationship (test_native_calibration.CalibrationTest.test_parent_child_relationship) ... ok
+test_sqlite_source_string_does_not_hide_child (test_native_calibration.CollectorTest.test_sqlite_source_string_does_not_hide_child) ... ok
+test_acknowledgement_does_not_certify_readiness (test_review_packet.PacketTests.test_acknowledgement_does_not_certify_readiness) ... ok
+test_bad_json_cli_reports_incomplete (test_review_packet.PacketTests.test_bad_json_cli_reports_incomplete) ... ok
+test_blocking_review_explicitly_acknowledges_missing_results (test_review_packet.PacketTests.test_blocking_review_explicitly_acknowledges_missing_results) ... ok
+test_changed_artifact_is_detected (test_review_packet.PacketTests.test_changed_artifact_is_detected) ... ok
+test_cli_is_read_only_and_returns_nonzero_for_incomplete_packet (test_review_packet.PacketTests.test_cli_is_read_only_and_returns_nonzero_for_incomplete_packet) ... ok
+test_complete_packet_binds_exact_evidence (test_review_packet.PacketTests.test_complete_packet_binds_exact_evidence) ... ok
+test_directory_cannot_be_an_artifact (test_review_packet.PacketTests.test_directory_cannot_be_an_artifact) ... ok
+test_duplicate_names_and_unknown_status_rejected (test_review_packet.PacketTests.test_duplicate_names_and_unknown_status_rejected) ... ok
+test_failure_evidence_is_complete_but_not_accepted (test_review_packet.PacketTests.test_failure_evidence_is_complete_but_not_accepted) ... ok
+test_invalid_structure_reports_errors (test_review_packet.PacketTests.test_invalid_structure_reports_errors) ... ok
+test_missing_artifact_is_detected (test_review_packet.PacketTests.test_missing_artifact_is_detected) ... ok
+test_missing_required_check_blocks_review (test_review_packet.PacketTests.test_missing_required_check_blocks_review) ... ok
+test_missing_terminal_result_blocks_completion (test_review_packet.PacketTests.test_missing_terminal_result_blocks_completion) ... ok
+test_nonstring_status_reports_error (test_review_packet.PacketTests.test_nonstring_status_reports_error) ... ok
+test_planning_does_not_require_experiment_already_run (test_review_packet.PacketTests.test_planning_does_not_require_experiment_already_run) ... ok
+test_skip_requires_reason_and_evidence (test_review_packet.PacketTests.test_skip_requires_reason_and_evidence) ... ok
+test_terminal_evidence_cannot_be_unbound_file (test_review_packet.PacketTests.test_terminal_evidence_cannot_be_unbound_file) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 2.100s
+
+OK
+backup and install: /tmp/workflow-install-test-063bx4we/agents/skills/scientific-workflow
+install: /tmp/workflow-install-test-063bx4we/codex/agents/scientific_analyst.toml
+install: /tmp/workflow-install-test-063bx4we/codex/agents/scientific_explorer.toml
+install: /tmp/workflow-install-test-063bx4we/codex/agents/scientific_researcher.toml
+backup and install: /tmp/workflow-install-test-063bx4we/codex/agents/scientific_reviewer.toml
+install: /tmp/workflow-install-test-063bx4we/codex/agents/scientific_worker.toml
+backup and install: /tmp/workflow-install-test-yivbc16d/agents/skills/scientific-workflow
+install: /tmp/workflow-install-test-yivbc16d/codex/agents/scientific_analyst.toml
+install: /tmp/workflow-install-test-yivbc16d/codex/agents/scientific_explorer.toml
+install: /tmp/workflow-install-test-yivbc16d/codex/agents/scientific_researcher.toml
+backup and install: /tmp/workflow-install-test-yivbc16d/codex/agents/scientific_reviewer.toml
+install: /tmp/workflow-install-test-yivbc16d/codex/agents/scientific_worker.toml
+backup and install: /tmp/workflow-install-test-_5n5j66d/agents/skills/scientific-workflow
+install: /tmp/workflow-install-test-_5n5j66d/codex/agents/scientific_analyst.toml
+install: /tmp/workflow-install-test-_5n5j66d/codex/agents/scientific_explorer.toml
+install: /tmp/workflow-install-test-_5n5j66d/codex/agents/scientific_researcher.toml
+backup and install: /tmp/workflow-install-test-_5n5j66d/codex/agents/scientific_reviewer.toml
+install: /tmp/workflow-install-test-_5n5j66d/codex/agents/scientific_worker.toml
+
+Observed structure validation: PASS: 8 local links, 5 Codex profiles, 74 protected Claude/benchmark files

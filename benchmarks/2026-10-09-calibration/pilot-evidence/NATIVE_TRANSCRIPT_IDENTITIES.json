@@ -1,0 +1,29 @@
+{
+  "codex-baseline": {
+    "preserved_raw_native_transcripts": {
+      "/tmp/workflow-native-pilot-20261009/codex-baseline/native/01a1218d-dcbd-7df3-aa75-39d4abb1bbd4.jsonl": "97841d85a1a559b461d41ce59e098e12f11fee4e2ef174be0a5faae887228e82"
+    },
+    "external_path_limit": "native full transcripts stay on this host; committed CLI traces and metrics preserve scoring/accounting"
+  },
+  "codex-workflow": {
+    "preserved_raw_native_transcripts": {
+      "/tmp/workflow-native-pilot-20261009/codex-workflow/native/01a1218f-d7df-7410-a96b-173f6d7718a8.jsonl": "5d295abd6357cbf9a41fb423561153eae4aade933fd1d2e6db5be5eddb9ed91f"
+    },
+    "external_path_limit": "native full transcripts stay on this host; committed CLI traces and metrics preserve scoring/accounting",
+    "failure": "startup service 503: Unable to verify Daybreak Blue access",
+    "cli_reconnect_events": 9,
+    "failed_attempt_usage": "unknown; no completed usage event; not zero"
+  },
+  "claude-workflow": {
+    "preserved_raw_native_transcripts": {
+      "/tmp/workflow-native-pilot-20261009/claude-workflow/native/parent.jsonl": "d737f3be75030ce014ff48e6e0c1c6777e6404d42f559b2b0c9a9ab1560bd21e"
+    },
+    "external_path_limit": "native full transcripts stay on this host; committed CLI traces and metrics preserve scoring/accounting"
+  },
+  "claude-baseline": {
+    "preserved_raw_native_transcripts": {
+      "/tmp/workflow-native-pilot-20261009/claude-baseline/native/parent.jsonl": "71e80def3f0c35c9e0dec82272891fbf44f2c72e9279f24513f15d8ff9525efe"
+    },
+    "external_path_limit": "native full transcripts stay on this host; committed CLI traces and metrics preserve scoring/accounting"
+  }
+}

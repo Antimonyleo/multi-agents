@@ -1,0 +1,56 @@
+{
+  "phase": "completion",
+  "question": "Does the completed bounded pilot and adapter support the reported conclusions and safe checkpoint? Identify consequential correctness, accounting, scope or evidence defects. No preferred disposition.",
+  "scope": "Shared workflow calibration: four sessions, exact synthetic extraction truth, unchanged native agent/model defaults, one small post-pilot extraction instruction; no science.",
+  "stop_boundary": "No inference reruns, configuration changes, additional agents, scientific execution or Project2 resume.",
+  "artifacts": [
+    {
+      "path": "RESULTS.md",
+      "sha256": "e1839777fbf59b3395885379a4b13a35cd71e9e8b81ab19f474e03dd95dbcb75"
+    },
+    {
+      "path": "pilot-evidence/SUMMARY.json",
+      "sha256": "58be28a5752768868799a8cb406acf7d271b7f13d305f3732acf7d32a09341f1"
+    },
+    {
+      "path": "pilot-evidence/READINESS.json",
+      "sha256": "6ac24a3b404b93e6152df4a74ac7f5a1db0bf74c2438ca0acbc0fad9e879452f"
+    },
+    {
+      "path": "pilot-evidence/NATIVE_TRANSCRIPT_IDENTITIES.json",
+      "sha256": "e78110492ed5a34563500d59780b81283d11469c1b3bc12416bbd4bf1628c582"
+    },
+    {
+      "path": "VALIDATION.txt",
+      "sha256": "c459c461287e413371e47df1dc49515fad90a57f3913dc356844ea6ae6b352da"
+    },
+    {
+      "path": "../../scripts/native_calibration.py",
+      "sha256": "a75c7f592f979e8e174269acad0be391af4a467b93ac5433fdc0631567733ad1"
+    },
+    {
+      "path": "../../tests/test_native_calibration.py",
+      "sha256": "4ddfc608ae272e12c8f4bf56d41e7b4b6d0758bc80b2b7975b05c3a500ddc5d9"
+    },
+    {
+      "path": "../../skill/scientific-workflow/SKILL.md",
+      "sha256": "a4217aafe5d0a2dbe8086d057b0c92c089b03125c56892cc3388b610b01d27db"
+    }
+  ],
+  "required_checks": [
+    "unit_tests",
+    "structure"
+  ],
+  "checks": [
+    {
+      "name": "unit_tests",
+      "status": "passed",
+      "evidence": "VALIDATION.txt"
+    },
+    {
+      "name": "structure",
+      "status": "passed",
+      "evidence": "VALIDATION.txt"
+    }
+  ]
+}

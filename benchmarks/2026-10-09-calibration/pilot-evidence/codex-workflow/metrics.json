@@ -1,0 +1,44 @@
+{
+  "accounting_note": "Do not sum parent result totals and child transcripts; inclusion semantics unverified.",
+  "checks": {
+    "exact_output": false,
+    "support_cap": true,
+    "terminal_success": false,
+    "usage_present": false,
+    "workspace_unchanged": true
+  },
+  "cleanup": "runner exited; external child termination unverified if any",
+  "delegate_calls": [],
+  "execution": {
+    "returncode": 1,
+    "timed_out": false,
+    "wall_s": 289.294
+  },
+  "native_children": [],
+  "net_cost_claim_supported": false,
+  "observed_models": [
+    "gpt-6.1-sol"
+  ],
+  "provider_error": null,
+  "provider_reported_cost_usd": null,
+  "provider_result_model_usage": null,
+  "provider_usage": null,
+  "quality_pass": false,
+  "scientific_execution": false,
+  "thread_usage": [
+    {
+      "id": "01a1218f-d7df-7410-a96b-173f6d7718a8",
+      "model_contexts": [
+        {
+          "effort": "high",
+          "model": "gpt-6.1-sol"
+        }
+      ],
+      "usage_last_cumulative": null
+    }
+  ],
+  "tools": {
+    "error": 1
+  },
+  "whole_family_accounting": "parent_only_no_delegate_observed"
+}

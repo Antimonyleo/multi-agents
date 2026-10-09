@@ -1,6 +1,6 @@
 # Bridging workflow policy to measured execution - 2026-10-09
 
-Status: PREPARATION COMPLETE; NATIVE PILOT NOT EXECUTED. This protocol separates a complete preparation checkpoint from the unexecuted measurement work. It does not claim that the efficiency gap is closed.
+Status: FOUR PLANNED PILOT STARTS EXECUTED; ONE OPERATIONAL STARTUP FAILURE. See [results](RESULTS.md) and `pilot-evidence/SUMMARY.json`. The preparation checkpoint sections below describe the pre-launch state; this execution checkpoint does not claim that all efficiency questions are resolved.
 
 ## Objective and boundaries
 
@@ -78,11 +78,11 @@ Never remove a project-required independent review to make a baseline cheaper. R
 
 Repeated observations are needed before changing routing defaults. Keep a conditional rule tied to workload/tools/quality rather than a universal rule that every easy job delegates. Independent major-phase review assesses the completed evidence and proposed policy change once; no reviewer at every trial, poll or minor fix.
 
-## Current preparation checkpoint and next exact action
+## Historical preparation checkpoint and next exact action
 
 Completed: existing harness inspection, 13/13 deterministic tests, six prepared fixtures, source identities/commands and this protocol. Zero model calls and zero scientific execution. Native dispatch, aggregation, task benefit and actual savings remain untested.
 
-Next exact action: implement/validate the narrow native capture adapter and freeze the first task's truth/scorer. Then complete the total live-run budget and launch-readiness packet before the four-run pilot. Do not launch inference from the legacy PREPARATION.json commands as proof of native hierarchy behavior. Record pilot results before changing any role/model/effort default.
+Next exact action at preparation (now superseded by RESULTS.md): implement/validate the narrow native capture adapter and freeze the first task's truth/scorer. Then complete the total live-run budget and launch-readiness packet before the four-run pilot. Do not launch inference from the legacy PREPARATION.json commands as proof of native hierarchy behavior. Record pilot results before changing any role/model/effort default.
 
 Basis: [OpenAI skill-evaluation guidance](https://developers.openai.com/blog/eval-skills) recommends captured traces/artifacts with outcome, process and efficiency checks. The two local harnesses supply existing code/evidence patterns; neither proves this new pilot has run.
 

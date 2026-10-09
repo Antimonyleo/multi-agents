@@ -1,0 +1,46 @@
+{
+  "status": "FOUR_PLANNED_STARTS_EXECUTED_ONE_OPERATIONAL_FAILURE",
+  "top_level_starts": 4,
+  "support_calls_observed": 0,
+  "scientific_execution": false,
+  "project2": "USER_PAUSED_DO_NOT_RESUME",
+  "quality": {
+    "successful_outputs": 3,
+    "total_top_level_starts": 4,
+    "exact_rows_each_success": 96
+  },
+  "claude": {
+    "sample_size_per_arm": 1,
+    "baseline_wall_s": 41.973,
+    "workflow_wall_s": 38.012,
+    "baseline_cli_cost_estimate_usd": 0.2307956,
+    "workflow_cli_cost_estimate_usd": 0.34720100000000004,
+    "cost_estimate_change_percent": 50.43657678049325,
+    "wall_change_percent": -9.437019036046978,
+    "workflow_skill_calls": 1,
+    "default_change_supported": false,
+    "cost_basis": "CLI modelUsage costBasis=list; not billed invoice",
+    "limits": [
+      "single pair",
+      "workflow-first order and unequal caching",
+      "different exploratory reads before identical extraction",
+      "no delegate invoked; no helper break-even evidence"
+    ]
+  },
+  "codex": {
+    "comparison": "INCONCLUSIVE_OPERATIONAL_STARTUP_FAILURE",
+    "baseline_pass": true,
+    "workflow_failure": "503 Daybreak Blue verification unavailable",
+    "failed_usage": "unknown; do not treat as zero",
+    "reruns": 0
+  },
+  "policy": "native agents/model/effort defaults unchanged",
+  "validation": "43 tests passed before pilot; post-pilot collector regression test separately added",
+  "remaining": [
+    "live native child discovery/effort/tool restriction and usage inclusion semantics",
+    "helper break-even on independently useful context-heavy work",
+    "demanding implementation owner and major-phase review benefit",
+    "repeatability and main-model choice as a separate intervention"
+  ],
+  "overhead_accounting": "Preparation/coordinator and one independent completion review are separate calibration overhead, not included in per-arm CLI estimates. Whole-project billed cost is unavailable."
+}
