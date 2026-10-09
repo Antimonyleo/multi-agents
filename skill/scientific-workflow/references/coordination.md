@@ -1,33 +1,27 @@
-# Coordination for substantial delegated work or slow jobs
+# Coordination for delegation, slow jobs and consequential review
 
-Read this reference when assembling a consequential multi-artifact review, coordinating several lanes or running a long job. It supplements the shared decision rules; it does not require delegation or new resources.
+## One assignment and one record
 
-## Assignment and context
+Reuse the project's current plan/manifest. Record scope, authority, deliverable, checks, resource/retry limits, required milestone and next action there. Do not create parallel readiness, progress and completion narratives that restate the same facts. Keep separate raw logs or review records when required for evidence/recovery; link them from the current record. Preserve frozen history.
 
-Agent slots are ceilings, not targets or spend caps. Begin with useful independent lanes and reserve capacity for required review. Name anticipated substantial delegate/review calls and conditions for another call in the existing contract. Preserve its actual budget; do not invent one. Reuse a suitable owned thread for continuation, but fresh independent completion remains distinct from the plan author. Do not fill slots, retry unchanged capacity failures or start other sessions to bypass limits.
+A substantial delegate gets relevant requirements/input identities, owned paths/tools, replaced owner work, bounded return, acceptance check and stop boundary. Prefer fresh bounded context to the entire conversation. Writers preserve others' work. Keep detailed outputs on disk; return results, anomalies and source paths. The owner integrates and checks acceptance without repeating the delegated investigation unless concrete evidence or a required audit warrants it. Delegates do not start their own team.
 
-Give the delegate objective, necessary decisions, exact input identities, owned paths/tools, checks, limits, stop boundaries and evidence to return. Prefer pertinent excerpts and artifact paths over unrelated history. Tell writers to preserve other writers. Keep detailed logs on disk. Specify a concise result size when useful, allowing detail for consequential findings; final-answer length does not cap hidden reasoning or total cost.
+## Review once when ready
 
-## Reviewer packet
+State original requirements, the consequential decision and why review is needed. Bind exact inputs and terminal checks before readiness/completion review. Planning reviews evaluate methods and limits; blocking questions state missing evidence. Use a project's existing checker or the optional [packet checker](../maintenance.md#review-packet-check) only when many artifacts make it useful. A compact self-contained review does not need another JSON packet.
 
-State the blocked decision, why independent review is needed, scoped requirements and evidence that would change the disposition. Assemble readiness/completion artifacts and terminal outcomes before dispatch. Reuse a project checker or the optional [review packet check](../maintenance.md#review-packet-check). Planning reviews evaluate proposed checks/limits before execution. A narrow blocking question may explicitly acknowledge missing evidence; it cannot certify later readiness.
+Ask one scoped pass, including assumptions and counterevidence, without the desired verdict. For efficiency claims require matched controls, workload relevance, complete cost scope and uncertainty—not just passing tests/hashes. Plan authors cannot independently certify consequential completion. User/project-required gates remain mandatory. Routine edits within an already reviewed decision do not activate another reviewer.
 
-Give original requirements, necessary decisions, exact versions and underlying evidence without a desired verdict. Request one scoped pass, severity/evidence and disposition/next checks. Scope the question without hiding counterevidence. Do not ask for line-by-line narration or speculative expansion. Re-review only an unresolved consequential finding, material new evidence or a required gate; unchanged pending evidence is not a new review.
+## Wait without spending model turns on unchanged state
 
-A completed stage alone does not require another review of the same decision. Routine code questions stay with the execution owner. Planning assistance is not independent plan review. If the reviewer authored the plan, consequential completion needs a fresh context. Project/user-required reviews remain mandatory even when costly.
+Use one progress owner and native completion notifications. Otherwise use bounded waits suited to job duration and safety deadlines, up to 60 seconds per wait for user responsiveness; back off unchanged polling. User updates may report the last verified state without another inspection or worker turn. Do not activate a second watcher or resume an agent for status-only acknowledgements. Deterministic watchdogs, not reasoning loops, enforce hard limits.
 
-## Jobs, checks and progress
+Before relaunch after timeout, inspect owned terminal/process evidence. A timed-out tool is not proof its child stopped. Preserve other sessions' processes and allocations. Stop on changed authority or a declared resource boundary; a slot becoming free is not authority for more work.
 
-Choose checks from the change and project authority: focused checks for local changes, required broad checks for shared loaders/schemas/gates. Do not repeat or expand a passing suite without an affected requirement. Instruction-only maintenance does not trigger scientific tests. Before costly execution, verify required observables, failure/termination capture and durable outcomes. Preserve raw proposals separately from selected/fallback outputs. Review feedback does not grant another scientific attempt.
+## Validate and account for the whole task
 
-Use one progress owner and native completion notifications. Without notifications, select cadence from job duration and safety deadline and back off unchanged polls. Avoid seconds-apart model polls for multi-minute work. Native waits of up to 60 seconds can keep the coordinator responsive; user updates do not require another worker turn or artifact read. Use shorter checks only for a real deadline, and deterministic watchdogs for hard limits.
+Run affected checks and required project checks once per relevant change. Repeat a passing check only when changed inputs/code or a concrete unresolved concern warrants it. Batch independent deterministic reads/checks; filter output to failures, counts and evidence paths before loading it into context.
 
-Do not resume a worker merely to ask about the same job, run parallel watchers or send turn-triggering acknowledgements. Interrupt for changed authority/input, consequential findings or a declared boundary. A tool timeout is not proof a process stopped: inspect owned process/terminal evidence before any relaunch. Do not disturb another session's jobs to free capacity.
+Record versions, parameters, commands, relevant units/randomness, failures and skipped checks. Preserve scientific reference/control checks and evidence even when reducing narration. Static checks and successful execution do not promote scientific claims.
 
-## Evidence and integration
-
-Keep one contract/manifest. Send changed decisions, new findings and paths; repeat hashes only for changed versions or inaccessible records. Verify setup/dispatch metadata where relevant and reuse it until configuration changes. Do not repeatedly ask agents to identify their model.
-
-The coordinator checks coverage, identities and consequential outputs without repeating full reviewer inspection. Filter tool output before loading it: relevant excerpts, counts/failure categories and full-log paths. Retain counterevidence and complete raw logs. Persist versions, checks, decisions, failures, resources, ownership and next action at meaningful checkpoints. Resume the earliest incomplete authorized step after reconstructing state.
-
-Measure outcomes, not names or visible chatter. Compare matched scope/budgets and separate cached input, uncached input, output and latency. Reasoning tokens are part of output. Static fixtures and shorter summaries cannot establish savings or scientific success.
+Distinguish recurring task cost (owner, helpers, integration, failed attempts, required review and supervision) from one-time setup/evaluation cost. Include all of it when reporting project spend. Record cached/new input, output and latency separately; reasoning is part of output. Missing coordinator/child usage remains unknown, never zero. A concise answer does not prove low hidden cost. Keep budgets in the existing contract; no extra sessions, retries or budget enlargement to bypass limits.

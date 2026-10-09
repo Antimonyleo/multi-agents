@@ -1,40 +1,23 @@
 ---
 name: scientific-workflow
-description: Coordinate substantial scientific software, analysis, literature and hypothesis work in Codex or Claude Code. Select bounded support, an execution owner and independent review while preserving project authority and resumable checkpoints. Small tasks need no team.
+description: Route substantial scientific work in Codex or Claude through direct tools, one execution owner, bounded support or major-milestone review. Routine tasks use lightweight handling.
 ---
 
 # Scientific workflow
 
-Own the outcome through authorized checks and checkpoint. Read current project authority and plan/handoff at task entry, after interruption or when they change; reuse verified state between those events. Keep one compact contract for substantial work: deliverable, scope, authority, checks, resource/retry envelope, stop boundaries and next action. Match requirements to evidence.
+Read applicable project authority and the current plan at entry or after a material change; reuse verified state. Complete authorized work through named checks and checkpoint. Preserve explicit pauses, frozen inputs, resource ownership and scientific gates. Only the user can resume a paused objective; while paused, do only requested closure, inspection or review. Workflow maintenance, test passes and reviews do not authorize scientific runs or promote claims.
 
-Coordination rules apply to the coordinator. A delegate follows its bounded assignment and native restrictions; seeing this skill does not authorize another plan, team or review cycle. Further delegation needs assigned authority and independent work.
+## Choose the smallest sufficient path
 
-## Runtime and ownership
+- **Explicit-rule extraction or transformation:** inspect a representative record/schema, scan the full inputs with a script and return requested results, counts and anomalies. Keep raw inputs and source paths available. Finish through required checks; no role selection, coordination packet or extra review unless project authority requires it.
+- **Dependent implementation or analysis:** one capable owner reads, implements, debugs and validates. The main may be that owner. Reuse the existing plan; do not place an equally capable supervisor above an owner without a useful separate responsibility.
+- **Independent support:** delegate only when it replaces identified owner work, isolates substantial irrelevant context or supplies a required independent challenge. Before spawning, name the work the owner will omit, tool fit, compact return and sufficient acceptance check. Integrate the result; reopen its inputs only for a concrete discrepancy or required audit.
+- **Consequential review:** use the strong reviewer for project scope/planning before costly science, declared major-phase gates, final project review or a material exception. A routine task, passing test or new report is not a new milestone. Preserve user/project-required reviews.
 
-Read only the active adapter before dispatch: [Codex](references/codex.md) or [Claude Code](references/claude-code.md). Preserve native models, tools and permissions. Do not change main/global configuration merely to apply the skill. Configuration is not server-side model provenance or enforced isolation.
+Before delegation or review, read [role triggers](references/triggers.md) and only the active adapter: [Codex](references/codex.md) or [Claude](references/claude-code.md). Keep native agents, tools, models and user choices intact. For slow jobs, substantial delegation or multi-artifact review, read [coordination](references/coordination.md). A delegate follows its assignment; this skill does not authorize another team.
 
-Start with one agent. The main agent can own execution; an equally capable coordinator does not need a worker beneath it. Keep dependent implementation, debugging and evidence capture with one owner who reads/writes its own files. Delegate sizeable independent support, disjoint work or consequential challenge only when it materially helps, then integrate rather than repeat it. Small known lookups and checks use direct tools; a cheaper model is not automatically a cheaper workflow. For extraction with explicit rules, inspect a representative record/schema and scan all inputs with a script; load requested results, counts and anomalies into model context, retaining raw inputs and paths for verification. Slots are ceilings, not targets or spending limits. Before delegation, use the [role triggers](references/triggers.md) to choose entry evidence, owner and stop condition.
+## Keep coordination bounded
 
-Route by reasoning and decision ownership, not file operations, input volume or run duration. Mechanical helpers do not choose methods, alter algorithms, interpret science or decide recovery. Escalate a concrete reasoning gap, not latency or repeated polling. Preserve explicit user model/effort choices. Writers get disjoint paths/worktrees and preserve other writers.
+Use the existing task record for scope, authority, checks, resource/retry limits, milestone and next action. Add separate artifacts only for required provenance, independent consumers or recovery. Batch deterministic checks and return concise failures/counts. One progress owner waits for native completion; unchanged status needs no new model inspection. Verify owned terminal/process evidence after timeouts.
 
-## Execution and review
-
-Reuse a reviewed plan while inputs, assumptions and checks remain applicable. Continue authorized work through named checks/checkpoint without routine reapproval. Run change-appropriate and project-required checks; repeat/expand a passing suite only for a concrete affected requirement. Workflow maintenance does not authorize scientific execution.
-
-Use the consequential reviewer at project scope/planning before costly scientific execution, declared major phase gates and final project review. Between milestones, review only a claim-authority change, invalidated central assumption or material recurring strategy failure that needs an independent decision. User/project-required reviews remain mandatory. Routine tasks and completed subtasks do not create review milestones; the reviewer is not a default debugger, progress monitor or test runner.
-
-State the blocked decision, scoped requirements, why review is needed and evidence that would change it. Readiness/completion needs versioned artifacts and terminal checks first. A planning review checks proposed methods/limits; a narrow blocking question may acknowledge missing evidence but cannot certify readiness. Give a fresh reviewer original requirements and raw evidence without a desired verdict. Plan authors do not independently certify their own consequential completion. Re-review only concrete unresolved findings, material new evidence or required gates, not unchanged pending packets.
-
-For substantial delegation, many-artifact review or slow jobs, read [coordination.md](references/coordination.md). Use bounded packets/results and one progress owner. Prefer native notifications; otherwise back off unchanged polling within safety deadlines. Required user updates do not need another worker turn or inspection. Deterministic watchdogs enforce hard limits. Inspect existing process/terminal evidence before relaunch after a tool timeout. No parallel watchers or turn-triggering status acknowledgements.
-
-Keep one manifest and send new findings/changes plus paths. Verify consequential artifacts without duplicating full review. Filter logs at the source; retain full evidence on disk and preserve failures/counterevidence. A short final answer does not limit hidden reasoning or cost. Do not start extra sessions or enlarge budgets to evade capacity limits.
-
-## Evidence and boundaries
-
-Record relevant versions, parameters, randomness, units, commands and evidence paths. Check numerical reference cases/convergence, statistical controls/leakage and literature passages/conditions as appropriate. Separate exploratory from confirmatory evidence and retain negative results. Persist checks, decisions, failures, resources, job/agent ownership and next action at checkpoints; reconstruct authority and resume only the earliest incomplete authorized step after interruption.
-
-A user pause persists until that user explicitly resumes the same objective. While paused, perform only requested closure, inspection or review. Do not dispatch workers, edit implementation, run tests/executors or allocate outputs for it. Time, automatic continuation and unfinished state cannot clear the pause. Separate workflow maintenance does not resume science.
-
-A review or PASS does not authorize another scientific run/retry or promote claims; only project gates do. Preserve declared attempt limits, frozen inputs and other sessions' edits/jobs. Report skipped checks and limits. Measure efficiency under matched scope/budgets with cached/uncached input, output and latency separated; reasoning is part of output. Names, fixtures or less chatter do not prove savings.
-
-Read [maintenance.md](maintenance.md) for skill validation/authorized changes and [rationale.md](references/rationale.md) only for supporting evidence. Ordinary project work does not authorize self-modifying the skill or native agents.
+Judge efficiency by complete accepted work, including owner, helpers, integration and required review. Missing cost is unknown. For workflow evaluation or maintenance only, read [maintenance](maintenance.md); ordinary execution does not load its procedures or authorize self-modification. Smaller context and static checks are not proof of savings.

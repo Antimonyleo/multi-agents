@@ -66,6 +66,45 @@ class CalibrationTest(unittest.TestCase):
         self.assertEqual(result['observed_models'], ['gpt-6-luna'])
         self.assertEqual(result['whole_family_accounting'], 'unverified')
 
+    def test_repeated_message_fragments_do_not_multiply_context_or_tools(self):
+        usage = {'input_tokens': 10, 'cache_creation_input_tokens': 20, 'cache_read_input_tokens': 30}
+        message = {'type': 'assistant', 'message': {'id': 'message1', 'usage': usage,
+                   'content': [{'type': 'tool_use', 'id': 'tool1', 'name': 'Bash', 'input': {}}]}}
+        child = copy.deepcopy(message)
+        child['parent_tool_use_id'] = 'parent-call'
+        child['message']['id'] = 'child-message'
+        result = native.normalize('claude', [message, message, child])
+        self.assertEqual(result['assistant_response_count'], 1)
+        self.assertEqual(result['first_input_context_tokens'], 60)
+        self.assertEqual(result['input_tokens_processed_from_messages'], 60)
+        self.assertEqual(result['tools']['Bash'], 1)
+
+    def test_missing_response_identity_or_usage_is_unknown(self):
+        result = native.normalize('claude', [{'type': 'assistant', 'message': {'content': []}}])
+        self.assertIsNone(result['assistant_response_count'])
+        self.assertIsNone(result['input_tokens_processed_from_messages'])
+
+    def test_partial_response_telemetry_never_reports_complete_total(self):
+        usage = {'input_tokens': 10, 'cache_creation_input_tokens': 20, 'cache_read_input_tokens': 30}
+        valid = {'type': 'assistant', 'message': {'id': 'first', 'usage': usage}}
+        for missing in ({'usage': usage}, {'id': 'second'}):
+            with self.subTest(missing=missing):
+                result = native.normalize('claude', [valid, {'type': 'assistant', 'message': missing}])
+                self.assertIsNone(result['input_tokens_processed_from_messages'])
+                self.assertFalse(result['response_telemetry_complete'])
+                if 'id' not in missing:
+                    self.assertIsNone(result['assistant_response_count'])
+
+    def test_later_fragment_completes_same_response(self):
+        usage = {'input_tokens': 10, 'cache_creation_input_tokens': 20, 'cache_read_input_tokens': 30}
+        stream = [{'type': 'assistant', 'message': {'id': 'first'}},
+                  {'type': 'assistant', 'message': {'id': 'first', 'usage': usage}},
+                  {'type': 'assistant', 'message': {'id': 'first'}}]
+        result = native.normalize('claude', stream)
+        self.assertEqual(result['input_tokens_processed_from_messages'], 60)
+        self.assertEqual(result['assistant_response_count'], 1)
+        self.assertTrue(result['response_telemetry_complete'])
+
     def test_malformed_trace_rejected(self):
         with tempfile.TemporaryDirectory() as td:
             p = Path(td) / 'trace.jsonl'
@@ -99,5 +138,142 @@ class CollectorTest(unittest.TestCase):
                 traces = native.collect_codex(out, [{'type': 'thread.started', 'thread_id': 'parent'}])
             self.assertEqual({t[0]['payload']['id'] for t in traces}, {'parent', 'child'})
             self.assertFalse((out / 'native/unrelated.jsonl').exists())
+
+
+
+class PairControlTest(unittest.TestCase):
+    def setUp(self):
+        from unittest.mock import patch
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.home = self.root / 'home'
+        for folder, config in [('.claude', 'settings.json'), ('.codex', 'config.toml')]:
+            path = self.home / folder
+            (path / 'agents').mkdir(parents=True)
+            (path / config).write_text('{}' if folder == '.claude' else '')
+        self.home_patch = patch.object(native.Path, 'home', return_value=self.home)
+        self.home_patch.start()
+        self.addCleanup(self.home_patch.stop)
+
+    def pair(self, provider='claude', comparison='routing', task='inventory'):
+        from types import SimpleNamespace
+        paths = []
+        for arm in ['baseline', 'workflow']:
+            out = self.root / (provider + '-' + comparison + '-' + task + '-' + arm)
+            native.prepare(SimpleNamespace(output=str(out), provider=provider, arm=arm,
+                                           comparison=comparison, task=task, budget_usd=2))
+            paths.append(out)
+        return paths
+
+    def test_routing_keeps_tool_and_skill_availability_equal(self):
+        import json
+        a, b = self.pair()
+        ma, mb = [json.loads((p / 'manifest.json').read_text()) for p in (a, b)]
+        for option in ('--tools', '--allowedTools'):
+            self.assertEqual(ma['command'][ma['command'].index(option) + 1],
+                             mb['command'][mb['command'].index(option) + 1])
+        self.assertEqual(ma['before'], mb['before'])
+        self.assertTrue(native.audit_pair(a, b)['controls_match'])
+
+    def test_deployment_difference_is_declared_not_instruction_effect(self):
+        a, b = self.pair(comparison='deployment')
+        result = native.audit_pair(a, b)
+        self.assertTrue(result['controls_match'])
+        self.assertTrue(result['declared_capability_differences'])
+        self.assertEqual(result['question'], 'capability deployment overhead')
+        self.assertFalse(result['savings_claim_supported'])
+
+    def test_command_drift_rejects_even_when_summary_fields_match(self):
+        import json
+        a, b = self.pair()
+        p = b / 'manifest.json'; data = json.loads(p.read_text())
+        data['command'][data['command'].index('--model') + 1] = 'sonnet'
+        native.write(p, data)
+        self.assertFalse(native.audit_pair(a, b)['controls_match'])
+
+    def test_identical_command_tampering_cannot_bypass_declared_controls(self):
+        import json
+        for provider, option, replacement in [('claude', '--model', 'sonnet'),
+                                               ('claude', '--max-budget-usd', '999'),
+                                               ('codex', '--cd', '/tmp/unchecked-workspace')]:
+            with self.subTest(option=option):
+                a, b = self.pair(provider=provider)
+                for root in (a, b):
+                    p = root / 'manifest.json'; data = json.loads(p.read_text())
+                    data['command'][data['command'].index(option) + 1] = replacement
+                    native.write(p, data)
+                self.assertFalse(native.audit_pair(a, b)['controls_match'])
+                import shutil
+                shutil.rmtree(a); shutil.rmtree(b)
+
+    def test_new_native_agent_is_detected(self):
+        a, b = self.pair()
+        (self.home / '.claude/agents/ordinary.md').write_text('new capability')
+        self.assertFalse(native.audit_pair(a, b)['controls_match'])
+
+    def test_global_skill_addition_and_change_are_detected(self):
+        entry = self.home / '.agents/skills/ordinary/SKILL.md'
+        entry.parent.mkdir(parents=True)
+        entry.write_text('original')
+        a, b = self.pair()
+        entry.write_text('changed')
+        self.assertFalse(native.audit_pair(a, b)['controls_match'])
+        entry.write_text('original')
+        added = self.home / '.claude/skills/new/SKILL.md'
+        added.parent.mkdir(parents=True)
+        added.write_text('new capability')
+        self.assertFalse(native.audit_pair(a, b)['controls_match'])
+
+    def test_fixture_drift_is_caught_before_inference(self):
+        a, b = self.pair()
+        (b / 'workspace/inventory/group_00/component_000.json').write_text('{}')
+        result = native.audit_pair(a, b)
+        self.assertFalse(result['controls_match'])
+        self.assertTrue(any('workspace' in e for e in result['errors']))
+
+    def test_prose_fixture_keeps_its_existing_reference(self):
+        a, b = self.pair(task='prose')
+        result = native.audit_pair(a, b)
+        self.assertTrue(result['controls_match'])
+        self.assertIn('not evidence of implementation or review benefit', result['limitations'])
+
+    def test_codex_pair_and_unequal_budget(self):
+        import json
+        a, b = self.pair(provider='codex')
+        self.assertTrue(native.audit_pair(a, b)['controls_match'])
+        p = b / 'manifest.json'; data = json.loads(p.read_text())
+        data['timeout_s'] += 10
+        native.write(p, data)
+        self.assertFalse(native.audit_pair(a, b)['controls_match'])
+
+    def test_run_requires_peer_before_importing_runner(self):
+        from unittest.mock import patch
+        a, _ = self.pair()
+        with patch.object(native.importlib.util, 'spec_from_file_location',
+                          side_effect=AssertionError('runner import before pair guard')):
+            with self.assertRaisesRegex(ValueError, 'peer'):
+                native.run(a)
+
+    def test_peer_missing_usage_stops_before_runner_import(self):
+        from unittest.mock import patch
+        a, b = self.pair()
+        (b / 'trace.jsonl').write_text('{}\n')
+        native.write(b / 'execution.json', {'returncode': 0, 'timed_out': False})
+        native.write(b / 'metrics.json', {'checks': {'terminal_success': True,
+                     'workspace_unchanged': True, 'usage_present': False, 'support_cap': True}})
+        with patch.object(native.importlib.util, 'spec_from_file_location',
+                          side_effect=AssertionError('runner imported after missing peer telemetry')):
+            with self.assertRaisesRegex(ValueError, 'usage_present'):
+                native.run(a, b)
+
+    def test_legacy_pair_cannot_certify_matched_routing(self):
+        import json
+        a, b = self.pair()
+        for root in (a, b):
+            p = root / 'manifest.json'; data = json.loads(p.read_text())
+            data.pop('comparison', None)
+            native.write(p, data)
+        self.assertFalse(native.audit_pair(a, b)['controls_match'])
 
 if __name__ == '__main__': unittest.main()

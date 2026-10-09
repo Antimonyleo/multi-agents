@@ -172,12 +172,17 @@ def normalize(provider, stream, native=None):
     usage = None
     observed = set()
     result = None
+    responses = {}
+    missing_response_id = False
+    seen_tools = set()
     for e in stream:
         if provider == 'codex':
             if e.get('type') == 'turn.completed':
                 usage = e.get('usage')
             item = e.get('item', {})
-            if e.get('type') == 'item.completed':
+            if e.get('type') == 'item.completed' and item.get('id') not in seen_tools:
+                if item.get('id'):
+                    seen_tools.add(item['id'])
                 tools[item.get('type', 'unknown')] += 1
                 if item.get('type') == 'collab_tool_call' and item.get('tool') == 'spawn_agent':
                     delegates.append(item)
@@ -186,10 +191,21 @@ def normalize(provider, stream, native=None):
                 result = e
                 usage = e.get('usage')
             m = e.get('message', {})
+            if e.get('type') == 'assistant' and not e.get('parent_tool_use_id'):
+                if not m.get('id'):
+                    missing_response_id = True
+                else:
+                    responses.setdefault(m['id'], None)
+                    if isinstance(m.get('usage'), dict):
+                        responses[m['id']] = m['usage']
             if m.get('model'):
                 observed.add(m['model'])
             for c in m.get('content', []) or []:
                 if isinstance(c, dict) and c.get('type') == 'tool_use':
+                    if c.get('id') in seen_tools:
+                        continue
+                    if c.get('id'):
+                        seen_tools.add(c['id'])
                     tools[c.get('name', 'unknown')] += 1
                     if c.get('name') in ('Agent', 'Task'):
                         delegates.append({'role': c.get('input', {}).get('subagent_type'),
@@ -215,7 +231,17 @@ def normalize(provider, stream, native=None):
         if parent:
             children.append({'id': meta.get('id'), 'parent': parent, 'role': meta.get('agent_role'),
                              'models': sorted({c.get('model') for c in contexts if c.get('model')})})
-    return {'provider_usage': usage, 'provider_result_model_usage': (result or {}).get('modelUsage'),
+    context_counts = []
+    for value in responses.values():
+        keys = ('input_tokens', 'cache_creation_input_tokens', 'cache_read_input_tokens')
+        context_counts.append(sum(value[k] for k in keys) if isinstance(value, dict) and all(type(value.get(k)) is int and value[k] >= 0 for k in keys) else None)
+    complete = bool(context_counts) and not missing_response_id and None not in context_counts
+    return {'assistant_response_count': len(responses) if responses and not missing_response_id else None,
+            'response_telemetry_complete': complete,
+            'first_input_context_tokens': context_counts[0] if context_counts and not missing_response_id else None,
+            'input_tokens_processed_from_messages': sum(context_counts) if complete else None,
+            'response_telemetry_note': 'Latest available usage per stable assistant message ID; missing identities or usage leave totals unknown; child stream messages excluded; not a server request count.',
+            'provider_usage': usage, 'provider_result_model_usage': (result or {}).get('modelUsage'),
             'provider_reported_cost_usd': (result or {}).get('total_cost_usd'),
             'provider_error': (result or {}).get('is_error') if provider == 'claude' else None,
             'observed_models': sorted(observed), 'tools': dict(tools), 'delegate_calls': delegates,
@@ -225,10 +251,152 @@ def normalize(provider, stream, native=None):
             'accounting_note': 'Do not sum parent result totals and child transcripts; inclusion semantics unverified.'}
 
 
+def toolset(arm, comparison):
+    available = 'Read,Glob,Grep,Bash'
+    if comparison == 'routing' or arm == 'workflow':
+        available += ',Agent,Skill'
+    return available
+
+
+def native_capability_files(provider):
+    """Re-enumerate user agent files and skill entrypoints, including additions.
+
+    This is a bounded local inventory, not the effective runtime/plugin catalog.
+    """
+    home = Path.home()
+    runtime = home / ('.codex' if provider == 'codex' else '.claude')
+    paths = {p for p in (runtime / 'agents').rglob('*') if p.is_file()}
+    for root in (home / '.agents/skills', runtime / 'skills'):
+        if root.is_dir():
+            for entry in root.iterdir():
+                if entry.is_dir():
+                    paths.update(p for p in entry.rglob('SKILL.md') if p.is_file())
+    return {str(p): sha(p) for p in sorted(paths)}
+
+
+def build_command(out, manifest):
+    """Bind launch arguments to the declared controls and checked workspace."""
+    workspace = out / 'workspace'
+    if manifest['provider'] == 'codex':
+        command = ['codex', '--no-daemon', 'exec', '--skip-git-repo-check', '--model', manifest['model_requested'],
+                   '--sandbox', 'read-only', '--config', 'approval_policy="never"',
+                   '--config', 'model_reasoning_effort=' + json.dumps(manifest['effort_requested']), '--config', 'web_search="disabled"',
+                   '--config', 'features.memories=false', '--config', 'mcp_servers.openaiDeveloperDocs.enabled=false',
+                   '--config', 'agents.max_threads=2', '--config', 'agents.max_depth=1',
+                   '--json', '--color', 'never', '--cd', str(workspace),
+                   '--output-schema', str(out / 'schema.json'), '--output-last-message', str(out / 'answer.json'), '-']
+    else:
+        available = toolset(manifest['arm'], manifest['comparison'])
+        command = ['claude', '-p', '--model', manifest['model_requested'], '--effort', manifest['effort_requested'], '--session-id', manifest['session_id_requested'],
+                   '--setting-sources', 'user', '--settings', '{"disableAllHooks":true}',
+                   '--strict-mcp-config', '--mcp-config', '{"mcpServers":{}}',
+                   '--permission-mode', 'dontAsk', '--permission-prompts', 'none',
+                   '--tools', available, '--allowedTools', available,
+                   '--output-format', 'stream-json', '--verbose', '--max-budget-usd', str(manifest['envelope']['claude_cli_budget_usd']),
+                   '--json-schema', json.dumps(json.loads((out / 'schema.json').read_text())), '--append-system-prompt', SCOPE]
+    return command
+
+
+def frozen_errors(out, manifest):
+    """Read-only identity checks, also used before any model process starts."""
+    errors = []
+    files = {'prompt.txt': 'prompt_sha256', 'truth.json': 'truth_sha256',
+             'schema.json': 'schema_sha256'}
+    for name, key in files.items():
+        if not (out / name).is_file() or sha(out / name) != manifest.get(key):
+            errors.append(f'{out.name}: frozen {name} differs or identity missing')
+    if fingerprint(out / 'workspace') != manifest.get('before'):
+        errors.append(f'{out.name}: frozen workspace differs')
+    if manifest.get('adapter_sha256') != sha(Path(__file__)):
+        errors.append(f'{out.name}: adapter version differs; prepare a new pair')
+    if manifest.get('legacy_harness_sha256') != sha(LEGACY):
+        errors.append(f'{out.name}: runner version differs')
+    provider = manifest.get('provider')
+    if provider not in ('codex', 'claude'):
+        errors.append(f'{out.name}: unknown provider')
+        return errors
+    config = Path.home() / ('.codex/config.toml' if provider == 'codex' else '.claude/settings.json')
+    if not config.is_file() or sha(config) != manifest.get('native_config_sha256'):
+        errors.append(f'{out.name}: native config differs')
+    if native_capability_files(provider) != manifest.get('native_capability_files'):
+        errors.append(f'{out.name}: local native capability inventory differs or missing')
+    if manifest.get('command') != build_command(out, manifest):
+        errors.append(f'{out.name}: launch command differs from declared controls')
+    return errors
+
+
+def comparable_command(manifest, out):
+    command = manifest['command'][:]
+    for i, arg in enumerate(command):
+        if i and command[i - 1] == '--session-id':
+            command[i] = '<SESSION>'
+        elif (manifest['comparison'] == 'deployment' and i
+              and command[i - 1] in ('--tools', '--allowedTools')):
+            command[i] = '<DECLARED_CAPABILITIES>'
+        else:
+            command[i] = arg.replace(str(out), '<RUN>')
+    return command
+
+
+def audit_pair(baseline, workflow):
+    """Check comparability, not scientific acceptance, spending authority or savings."""
+    baseline, workflow = Path(baseline).resolve(), Path(workflow).resolve()
+    result = {'controls_match': False, 'errors': [], 'declared_capability_differences': [],
+              'savings_claim_supported': False,
+              'limitations': ['not evidence of implementation or review benefit',
+                              'scriptable extraction cannot establish helper break-even by file count',
+                              'runtime context/cache may vary despite matched declared controls',
+                              'local inventory excludes plugin contents, builtins and remote catalogs; effective capability validation is required before causal claims',
+                              'session usage excludes unmeasured setup/coordinator/review cost']}
+    try:
+        a, b = [json.loads((p / 'manifest.json').read_text()) for p in (baseline, workflow)]
+        if a.get('arm') != 'baseline' or b.get('arm') != 'workflow' or baseline == workflow:
+            raise ValueError('expected distinct baseline and workflow preparations')
+        mode = a.get('comparison')
+        if mode not in ('routing', 'deployment') or b.get('comparison') != mode:
+            raise ValueError('missing or unequal comparison type; legacy trials remain historical')
+        result['question'] = ('workflow use with matched capabilities' if mode == 'routing'
+                              else 'capability deployment overhead')
+        keys = ('provider', 'task', 'model_requested', 'effort_requested', 'timeout_s',
+                'base_prompt_sha256', 'truth_sha256', 'schema_sha256', 'adapter_sha256',
+                'legacy_harness_sha256', 'native_config_sha256', 'native_capability_files', 'envelope')
+        for key in keys:
+            if key not in a or key not in b or a[key] != b[key]:
+                result['errors'].append(f'control differs or missing: {key}')
+        for path, manifest in ((baseline, a), (workflow, b)):
+            result['errors'].extend(frozen_errors(path, manifest))
+            if manifest['provider'] == 'claude':
+                for flag in ('--tools', '--allowedTools'):
+                    actual = manifest['command'][manifest['command'].index(flag) + 1]
+                    expected = toolset(manifest['arm'], mode)
+                    if actual != expected:
+                        result['errors'].append(f'{manifest["arm"]}: unexpected {flag} set')
+        if comparable_command(a, baseline) != comparable_command(b, workflow):
+            result['errors'].append('effective launch command controls differ')
+        def payload(manifest):
+            return {k: v for k, v in manifest['before'].items()
+                    if not k.startswith(('.agents/skills/', '.claude/skills/'))}
+        if payload(a) != payload(b):
+            result['errors'].append('task workspace/guidance differs')
+        if mode == 'routing' and a['before'] != b['before']:
+            result['errors'].append('skill/catalog availability differs in matched routing comparison')
+        if mode == 'deployment':
+            result['declared_capability_differences'] = ['local workflow skill snapshot']
+            if a['provider'] == 'claude':
+                result['declared_capability_differences'].append('Agent and Skill tool availability')
+        result['controls_match'] = not result['errors']
+    except (OSError, ValueError, TypeError, KeyError, IndexError) as exc:
+        result['errors'].append(str(exc))
+    return result
+
+
 def prepare(args):
     out = Path(args.output).resolve()
     out.mkdir(parents=True, exist_ok=False)
     workspace = out / 'workspace'
+    comparison = getattr(args, 'comparison', 'routing')
+    if comparison not in ('routing', 'deployment'):
+        raise ValueError('unknown comparison')
     prose = getattr(args, 'task', 'inventory') == 'prose'
     budget = getattr(args, 'budget_usd', 2)
     truth = build_prose_fixture(workspace) if prose else build_fixture(workspace)
@@ -238,7 +406,7 @@ def prepare(args):
     write(out / 'schema.json', SCHEMA)
     (workspace / 'AGENTS.md').write_text(SCOPE + '\n')
     (workspace / 'CLAUDE.md').write_text('@AGENTS.md\n')
-    if args.arm == 'workflow':
+    if comparison == 'routing' or args.arm == 'workflow':
         shutil.copytree(ROOT / 'skill/scientific-workflow', workspace / '.agents/skills/scientific-workflow')
         shutil.copytree(ROOT / 'skill/scientific-workflow', workspace / '.claude/skills/scientific-workflow')
     intervention = ('Use $scientific-workflow. Zero or one native scientific_explorer support call is '
@@ -249,30 +417,17 @@ def prepare(args):
     prompt = SCOPE + intervention + (PROSE_TASK if prose else TASK) + '\n'
     (out / 'prompt.txt').write_text(prompt)
     sid = str(uuid.uuid4())
-    if args.provider == 'codex':
-        command = ['codex', '--no-daemon', 'exec', '--skip-git-repo-check', '--model', 'gpt-6.1-sol',
-                   '--sandbox', 'read-only', '--config', 'approval_policy="never"',
-                   '--config', 'model_reasoning_effort="high"', '--config', 'web_search="disabled"',
-                   '--config', 'features.memories=false', '--config', 'mcp_servers.openaiDeveloperDocs.enabled=false',
-                   '--config', 'agents.max_threads=2', '--config', 'agents.max_depth=1',
-                   '--json', '--color', 'never', '--cd', str(workspace),
-                   '--output-schema', str(out / 'schema.json'), '--output-last-message', str(out / 'answer.json'), '-']
-    else:
-        available = 'Read,Glob,Grep,Bash' + (',Agent,Skill' if args.arm == 'workflow' else '')
-        command = ['claude', '-p', '--model', 'opus', '--effort', 'high', '--session-id', sid,
-                   '--setting-sources', 'user', '--settings', '{"disableAllHooks":true}',
-                   '--strict-mcp-config', '--mcp-config', '{"mcpServers":{}}',
-                   '--permission-mode', 'dontAsk', '--permission-prompts', 'none',
-                   '--tools', available, '--allowedTools', available,
-                   '--output-format', 'stream-json', '--verbose', '--max-budget-usd', str(budget),
-                   '--json-schema', json.dumps(SCHEMA), '--append-system-prompt', SCOPE]
     manifest = {'provider': args.provider, 'arm': args.arm, 'session_id_requested': sid,
-                'command': command, 'timeout_s': 300, 'model_requested': 'gpt-6.1-sol' if args.provider == 'codex' else 'opus',
+                'comparison': comparison, 'task': 'prose' if prose else 'inventory',
+                'base_prompt_sha256': hashlib.sha256((SCOPE + (PROSE_TASK if prose else TASK)).encode()).hexdigest(),
+                'schema_sha256': sha(out / 'schema.json'),
+                'cost_scope': 'session only; setup, coordinator and external review remain unmeasured',
+                'timeout_s': 300, 'model_requested': 'gpt-6.1-sol' if args.provider == 'codex' else 'opus',
                 'effort_requested': 'high', 'scientific_execution': False, 'before': fingerprint(workspace),
                 'prompt_sha256': sha(out / 'prompt.txt'), 'adapter_sha256': sha(Path(__file__)),
                 'legacy_harness_sha256': sha(LEGACY), 'truth_sha256': sha(out / 'truth.json'),
                 'native_config_sha256': sha(Path.home() / ('.codex/config.toml' if args.provider == 'codex' else '.claude/settings.json')),
-                'native_agent_hashes': {str(p): sha(p) for p in sorted((Path.home() / ('.codex/agents' if args.provider == 'codex' else '.claude/agents')).glob('scientific_*'))},
+                'native_capability_files': native_capability_files(args.provider),
                 'envelope': {'top_level_start_cap': 4, 'optional_support_start_cap_total': 2,
                              'per_session_deadline_s': 300, 'max_support_per_workflow': 1,
                              'codex_hard_dollar_limit': 'not_available', 'claude_cli_budget_usd': budget,
@@ -280,8 +435,10 @@ def prepare(args):
                 'runtime_differences': ['synthetic scratch cwd', 'read-only task; no writes',
                                         'memory/web/MCP disabled where supported', 'Claude hooks disabled; user agents/auth retained',
                                         'Codex direct process (--no-daemon); native user config retained',
-                                        'workflow skill snapshotted locally; baseline explicitly declines skill/delegates',
+                                        'routing mode matches tool/skill availability; deployment mode measures declared capability differences',
+                                        'baseline explicitly declines skill/delegates; installed global catalogs may remain visible in both arms',
                                         'permissions differ across runtimes; compare within runtime only']}
+    manifest['command'] = build_command(out, manifest)
     write(out / 'manifest.json', manifest)
     return out
 
@@ -341,17 +498,27 @@ def collect_claude(out, sid):
     return collected
 
 
-def run(out):
+def run(out, peer=None):
+    if peer is None:
+        raise ValueError('run requires --peer for a matched preparation; this check does not authorize inference')
+    out, peer = Path(out).resolve(), Path(peer).resolve()
     manifest = json.loads((out / 'manifest.json').read_text())
-    config = Path.home() / ('.codex/config.toml' if manifest['provider'] == 'codex' else '.claude/settings.json')
-    if (sha(config) != manifest['native_config_sha256']
-            or sha(out / 'prompt.txt') != manifest['prompt_sha256']
-            or sha(out / 'truth.json') != manifest['truth_sha256']
-            or sha(Path(__file__)) != manifest['adapter_sha256']
-            or sha(LEGACY) != manifest['legacy_harness_sha256']
-            or fingerprint(out / 'workspace') != manifest['before']
-            or any(sha(Path(p)) != digest for p, digest in manifest['native_agent_hashes'].items())):
-        raise ValueError('frozen runtime, adapter, agent, prompt or fixture changed')
+    baseline, workflow = (out, peer) if manifest.get('arm') == 'baseline' else (peer, out)
+    pair = audit_pair(baseline, workflow)
+    if not pair['controls_match']:
+        raise ValueError('pair preflight failed: ' + '; '.join(pair['errors']))
+    if (peer / 'trace.jsonl').exists():
+        if not (peer / 'execution.json').exists():
+            raise ValueError('peer has no terminal receipt; inspect its owned execution before proceeding')
+        terminal = json.loads((peer / 'execution.json').read_text())
+        if terminal.get('returncode') != 0 or terminal.get('timed_out'):
+            raise ValueError('peer failed; preserve the affected comparison without an automatic further start')
+        if not (peer / 'metrics.json').exists():
+            raise ValueError('peer capture is incomplete; wait for its terminal metrics')
+        checks = json.loads((peer / 'metrics.json').read_text()).get('checks', {})
+        for name in ('terminal_success', 'workspace_unchanged', 'usage_present', 'support_cap'):
+            if checks.get(name) is not True:
+                raise ValueError(f'peer boundary/telemetry check failed: {name}')
     if (out / 'execution.json').exists() or (out / 'trace.jsonl').exists():
         raise ValueError('refusing unchanged retry; preserve previous receipt')
     spec = importlib.util.spec_from_file_location('legacy_workflow_harness', LEGACY)
@@ -402,9 +569,11 @@ def run(out):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['prepare', 'run'])
+    parser.add_argument('action', choices=['prepare', 'check-pair', 'run'])
     parser.add_argument('--provider', choices=['codex', 'claude'])
     parser.add_argument('--arm', choices=['baseline', 'workflow'])
+    parser.add_argument('--comparison', choices=['routing', 'deployment'], default='routing')
+    parser.add_argument('--peer', help='Other frozen arm; required by check-pair and run')
     parser.add_argument('--task', choices=['inventory', 'prose'], default='inventory')
     parser.add_argument('--budget-usd', type=float, default=2)
     parser.add_argument('--output', required=True)
@@ -413,8 +582,16 @@ def main():
         if not args.provider or not args.arm:
             parser.error('prepare requires provider and arm')
         print(prepare(args))
+    elif args.action == 'check-pair':
+        if not args.peer:
+            parser.error('check-pair requires --peer')
+        out = Path(args.output).resolve()
+        arm = json.loads((out / 'manifest.json').read_text()).get('arm')
+        result = audit_pair(out, args.peer) if arm == 'baseline' else audit_pair(args.peer, out)
+        print(json.dumps(result, indent=2))
+        raise SystemExit(0 if result['controls_match'] else 1)
     else:
-        run(Path(args.output).resolve())
+        run(Path(args.output).resolve(), args.peer)
 
 
 if __name__ == '__main__':

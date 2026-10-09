@@ -14,14 +14,18 @@ Done, with the record that proves it:
 - Role triggers and milestone review schedule: `docs/trigger-refinement-2026-10-09.md`.
 - Calibration preparation: `benchmarks/2026-10-09-calibration/PROTOCOL.md`. Six offline boundary fixtures and the reused 13-test harness.
 - Native capture adapter and four-start pilot: `benchmarks/2026-10-09-calibration/RESULTS.md`. Three exact outputs passed; Codex workflow startup failed with service 503. No retries or delegates. Claude workflow cost estimate was 50.44% higher and wall time 9.44% shorter in one pair; no reliable savings/default change established.
-- Completion: 44 repository tests, protected-source/skill/link/instruction checks and one independent Astra review passed. `benchmarks/2026-10-09-calibration/REVIEW.md` preserves limits.
+- Original pilot completion: 44 repository tests, protected-source/skill/link/instruction checks and one independent Astra review passed. `benchmarks/2026-10-09-calibration/REVIEW.md` preserves limits.
 - Post-pilot extraction guidance favors representative schema inspection and scripted scanning; its model-backed effect remains untested.
 
 Dead ends:
 - The reused harness cannot test native `scientific_*` roles. Its isolated Claude mode cannot invoke the shared skill, so its results are not workflow evidence.
-- Claude main is now `opus` at high effort (`RUNTIME_REFRESH.json`). Sonnet-main text in `maintenance.md` is stale for current runs; leave settings alone and freeze them per arm.
+- The last inspected Claude main was `opus` at high effort (`RUNTIME_REFRESH.json`). Historical Sonnet-main entries describe prior runs; inspect/freeze current settings per comparison.
 
-Next action: the authorized adapter/pilot checkpoint is complete. Before another calibration, select the unresolved question and freeze a new matched task, budget and controls. Live child discovery, restrictions and usage inclusion need validation before delegated-cost claims; the current collector can miss children with another cwd. Codex also needs restored service readiness. Do not automatically rerun or expand the panel.
+Current efficiency correction: see [six fixes and evidence](efficiency-corrections.md). The old Claude pair used unequal toolsets and different startup skill/plugin catalogs, so it cannot isolate workflow instructions. Its prices and output checks remain historical observations.
+
+Efficiency corrections: 61 offline tests and required structure, installation, skill and instruction checks passed; independent review: accepted all three corrections; no remaining finding in scope. Corrections checkpointed locally without a push.
+
+Next action: further model-backed evaluation needs its own bounded authority. The original adapter/pilot checkpoint is complete. Before another calibration, select the unresolved question and freeze a new matched task, budget and controls. Live child discovery, restrictions and usage inclusion need validation before delegated-cost claims; the current collector can miss children with another cwd. Codex also needs restored service readiness. Do not automatically rerun or expand the panel.
 
 Open: helper break-even, demanding execution ownership, major-phase review benefit and repeatability remain unmeasured. The four-start pilot was authorized by the user's go-ahead and all four starts ended. Further model-backed calibration needs its own bounded scope/budget; workflow maintenance does not resume Project2.
 

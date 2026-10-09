@@ -5,7 +5,7 @@
 | Item | Location |
 | --- | --- |
 | Agent definitions | Claude: unchanged `agents/scientific_*.md`, linked into `~/.claude/agents/`; Codex: `agents/codex/*.toml`, installed copies in `~/.codex/agents/` |
-| Spawn caps, Sonnet effort | `~/.claude/settings.json` (`env`, `modelSettings`) |
+| Native main/role settings and spawn caps | `~/.claude/settings.json` (`env`, `modelSettings`) |
 | Routing rules (this skill) | `skill/scientific-workflow/` in the source repo, linked as `~/.claude/skills/scientific-workflow` and `~/.agents/skills/scientific-workflow` |
 | Source repo | `~/githubrepo/scientific-workflow-skill` (edit here; `scripts/install.sh --check` verifies the links) |
 | Benchmarks | `benchmarks/2026-10-08/` in the source repo (protocols, `bench.py`, data, `RESULTS.md`) |
@@ -19,6 +19,16 @@ Run `python scripts/validate.py` and `python -m unittest discover -s tests -v` f
 Use an isolated staging copy because edits here are immediately visible through live skill links. Obtain user authority for workflow changes; an explicit request to implement the proposed change is authority for that scoped work, without repeated routine approval. It does not authorize unrelated native-agent edits or new scientific work. Archive conflicting prior sources and keep consolidation and routing improvements in separate commits.
 
 After activation, check `scripts/install.sh --target both --check` and project instruction health with `agent-workflow check --repo PATH` where available. Use a new session for changed profiles. Run fresh model-backed evaluation only when its scope and cost are authorized; use exact versions, objective outcomes, independent truth and a matched budget. Record native traces, permission policy, uncached/cached input, output, latency and price basis separately. Do not run a full expensive benchmark as an automatic maintenance check.
+
+## Efficiency evaluation
+
+Choose the question before preparing trials. `scripts/native_calibration.py prepare --comparison routing` is the default: both arms receive the same tools and local skill catalog, while the baseline declines workflow use/delegation. `--comparison deployment` deliberately varies local skill and supported tool availability; its cost is deployment overhead, not an isolated instruction effect. Installed global catalogs can remain visible in both arms. Preserve user/native settings and label the scope actually measured.
+
+Prepare both arms with the same task, runtime, budget and source version. Run `check-pair --output BASELINE_DIR --peer WORKFLOW_DIR`. `run --output ARM_DIR --peer OTHER_DIR` requires that pair and verifies frozen inputs, launch controls and terminal peer state before importing the runner. These are non-executing validity checks, not inference authority. Legacy preparations remain historical and cannot certify a new matched comparison. A matched manifest does not guarantee identical runtime context or caching.
+
+Inventory and the existing template-based prose fixture are scriptable extraction controls. Use them for correctness, context and non-delegation overhead, not as proof of implementation/review benefit or helper savings by file count. A helper-benefit task must have an independent lane that removes owner work and a return/check cheaper than repeating it. Implementation and major-phase review need their own representative fixtures; preserve required gates in both arms. Do not launch another panel merely because a prior task produced no delegation.
+
+Review the experimental design against the original question before costly runs: workload relevance, changed versus held-fixed variables, command-level tools/permissions, exact truth, caching/order, cost scope and limits. Hashes and passing tests alone do not answer these questions. Count parent, child, integration, failed attempts and required review in recurring task cost. Record one-time setup/evaluation separately and include it for total project spend. Unavailable usage prevents complete-cost claims; a single pair stays descriptive. Use existing traces/offline checks first and the current task record for evidence; avoid another reporting framework.
 
 ## Review packet check
 
