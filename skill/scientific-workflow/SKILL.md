@@ -34,6 +34,16 @@ Give a fresh reviewer the original requirements, necessary decisions, exact vers
 
 Before a costly probe, verify that the lane records required observables, failures and termination. Retain raw proposals separately from selected or fallback outputs, with units, identities and decision reasons. A review or passing check cannot authorize a new scientific run, campaign or retry. Two different failed fixes or ten active hours can prompt diagnosis; neither is universal retry authority or a required timer.
 
+## Reduce coordination overhead
+
+Keep one execution owner through dependent steps. Delegate support only when its bounded output saves that owner substantial work. Do not activate a consequential reviewer with a known incomplete packet unless a specific blocking question requires an early decision. For readiness or completion review, first assemble the named required artifacts and terminal checks. Label an early review's narrow question and missing evidence explicitly; it cannot certify readiness or completion.
+
+Keep one versioned task contract and evidence manifest. Send changes and new findings, with paths to the full record; repeat identities only when a version changes or the recipient cannot access the record. A changed artifact invalidates only the checks that depend on it. Re-review for a concrete unresolved finding, material new evidence or required gate, not an unchanged pending packet.
+
+For slow tests or jobs, prefer deterministic durable progress/terminal output and native completion notifications where supported. Poll only to obtain needed new state or protect a declared limit. Do not generate repeated agent turns, messages or wait-only reasoning while the same operation runs. Keep user updates concise and timely. Preserve mandatory tests and complete failure capture; a lower token count does not justify weaker evidence.
+
+The coordinator checks requirement coverage, versions and consequential outputs. It need not repeat the reviewer's full inspection. Filter tool output before loading large logs into model context; retain full logs as artifacts. If measuring efficiency, compare outcomes under matched scope/budgets and report uncached input, cached input, output and latency separately. Configuration and static tests do not demonstrate savings.
+
 ## Preserve evidence and pauses
 
 Record exact inputs, versions, parameters, randomness, commands and output paths as appropriate. Check units/reference cases/convergence for numerical work; controls/leakage/repeated testing for statistics; source passages/versions/coverage/conflicts for literature. Separate exploratory findings from confirmatory evidence and retain negative results. Report skipped checks and unresolved evidence.

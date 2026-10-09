@@ -61,6 +61,8 @@ Claude Code docs: sub-agents, costs, best-practices, model-config. Platform docs
 
 - 2026-10-09: Consolidated the shared entrypoint and added separate Codex and Claude references. Copied Codex native profiles into `agents/codex/`; Claude native agents, links and settings are preserved. Archived the old Codex skill and home manual for provenance. Added transactional installation, conflict preflight, receipts and rollback. Existing benchmark artifacts remain unchanged. See repository-root `docs/consolidation.md` for activation and verification.
 
+- 2026-10-09: Added coordination rules from the paused-run process audit: one dependent execution owner, reviewer packets ready for the requested decision, changes instead of repeated packets, durable progress during slow jobs and no duplicate full coordinator review. Required evidence/checks and project boundaries stay intact. No token-saving percentage is claimed.
+
 ## Open questions
 
 - Can the reviewer run at medium effort (the Opus 5.5 default) and still find what high finds? Its cost was 3 to 5 times a whole small task.
