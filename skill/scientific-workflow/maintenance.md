@@ -20,11 +20,19 @@ Use an isolated staging copy because edits here are immediately visible through 
 
 After activation, check `scripts/install.sh --target both --check` and project instruction health with `agent-workflow check --repo PATH` where available. Use a new session for changed profiles. Run fresh model-backed evaluation only when its scope and cost are authorized; use exact versions, objective outcomes, independent truth and a matched budget. Record native traces, permission policy, uncached/cached input, output, latency and price basis separately. Do not run a full expensive benchmark as an automatic maintenance check.
 
+## Review packet check
+
+For a consequential handoff with many artifacts/checks, reuse the project's packet checker if it has one. Otherwise use `python scripts/review_packet.py /path/to/packet.json` from this repository. The helper is optional for small or self-contained reviews; it does not create another task framework or replace project authority.
+
+The JSON packet names `phase` (`plan`, `blocking`, `readiness`, `completion`), `question`, `scope`, `stop_boundary`, `artifacts` (paths and SHA-256), `required_checks`, and `checks` (unique names, status and terminal evidence paths). Paths are relative to the packet file unless absolute. Plan checks may be `planned`; readiness/completion need terminal evidence for every named required check. Failed checks are terminal evidence, not acceptance. A skipped check needs a reason. A blocking review may acknowledge pending evidence by check name in `acknowledged_missing`; its narrow result cannot certify readiness. All phases require existing, exact artifact versions; avoid shipping this phase schema for every trivial task.
+
+The helper reads files and returns missing/mismatched items plus `packet_complete_for_phase`. It neither launches review nor authorizes execution nor establishes scientific acceptance. It does not infer omitted requirements, decide whether a skipped/failed check satisfies a gate, or verify the correctness of check results. Run it once when assembling/changing the packet, not at every progress poll.
+
 ## Check after an agent change or Claude Code update
 
-Run a fresh headless session in a scratch folder. Call each role once with a trivial task, with a main model different from the role's model:
+Use available native transcript/task metadata first. A skill-only edit does not require model-backed calls for unchanged agents. After an actual agent/CLI routing change, verify the affected role with one bounded scratch task and a main model different from the role's model; expand to other roles only if the evidence suggests shared routing failure. The example below is a dispatch smoke check, not a routine five-role maintenance checklist:
 
-    claude -p "Call scientific_explorer, then scientific_reviewer ... each once. Task: Reply with the single word OK. Use no tools." \
+    claude -p "Call the one affected scientific role once. Task: Reply with the single word OK. Use no tools." \
       --model sonnet --output-format stream-json --verbose --allowedTools "Agent" --permission-mode dontAsk
 
 The stream shows only the main thread. Read the sub-agent models from the transcripts: `~/.claude/projects/<session dir>/<session id>/subagents/agent-*.jsonl` (`message.model`, `"effort"`), and the role from the matching `.meta.json` (`agentType`). A role that runs on the main model instead of its own is the failure in anthropics/claude-code#100082.
@@ -62,6 +70,8 @@ Claude Code docs: sub-agents, costs, best-practices, model-config. Platform docs
 - 2026-10-09: Consolidated the shared entrypoint and added separate Codex and Claude references. Copied Codex native profiles into `agents/codex/`; Claude native agents, links and settings are preserved. Archived the old Codex skill and home manual for provenance. Added transactional installation, conflict preflight, receipts and rollback. Existing benchmark artifacts remain unchanged. See repository-root `docs/consolidation.md` for activation and verification.
 
 - 2026-10-09: Added coordination rules from the paused-run process audit: one dependent execution owner, reviewer packets ready for the requested decision, changes instead of repeated packets, durable progress during slow jobs and no duplicate full coordinator review. Required evidence/checks and project boundaries stay intact. No token-saving percentage is claimed.
+
+- 2026-10-09: Audited both installed hierarchies and coordination paths. Kept native Claude agents/settings and Codex profiles/config unchanged. Clarified main-as-owner, coordinator-only orchestration, decision-focused costly review, one progress owner with backoff, bounded context/output, effort escalation based on reasoning rather than run length, native override/limit caveats and affected-role-only smoke checks. Added an optional deterministic review-packet completeness check. See repository-root `docs/efficiency-audit-2026-10-09.md` for the issue inventory and measured limits.
 
 ## Open questions
 

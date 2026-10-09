@@ -1,0 +1,160 @@
+{
+  "source_revision": "158a90a87f5625834f8acdc81166f889c73ced68",
+  "source_files": {
+    ".gitignore": "1432fdfe6e077980c75c910be191dd950efc3c7415d5b8a8adfdaf656fb37ebc",
+    "README.md": "df192c35d1dcd805afc64c881bb36a6fe9266de1420e581d8bcaca92b8c3158a",
+    "AGENTS.md": "5ceeca32e1c4706dc933ab149c6b665e2cda36dd9c344c7a7f16fd0bb1923908",
+    "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+    "skill/scientific-workflow/SKILL.md": "4bb2f2742c0873bef219eb8505217aa44636fa4e33c73473ffa5e4f544170a0e",
+    "skill/scientific-workflow/maintenance.md": "88862625384f9c2566144d4e5685fdf1efb43e4aa3051815517824b3bb0b6496",
+    "skill/scientific-workflow/references/codex.md": "ecf639d259c755835937918921c33489fb908ec4779425b15cb52dd82995205f",
+    "skill/scientific-workflow/references/claude-code.md": "87f66949d2d43f519fcc57254fb22b1efba74feaf3b482e4dd78c06433651a3c",
+    "skill/scientific-workflow/references/rationale.md": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5",
+    "agents/scientific_analyst.md": "c8c60a771f90bd25911b009ab9d7d4e66fe1db775e4c70da6ad260c8e7a50174",
+    "agents/scientific_explorer.md": "040ad15cf1e7e3ef1e4c74d6925016440f5ee48deb84fa8d7ca7b09a1cf39245",
+    "agents/scientific_researcher.md": "82e4d8367bab0270686158d112c083ed947ef020c4b9b58ceca8c213a0d6f450",
+    "agents/scientific_reviewer.md": "c9457c132c3b09320bbafcdf7b249fcba07b09f0f58a397dd15225b602754369",
+    "agents/scientific_worker.md": "ed248dec8f52c5b385c9141aebc1f82aec95ca071aec466475f666c2e0ba8b02",
+    "agents/codex/scientific_analyst.toml": "d003d316eefc3f5b3e7cba220f610f0a76edebfbb752b7a584fdd7207e68d80b",
+    "agents/codex/scientific_explorer.toml": "e92583901baff7f6205f76886f4bb1c3ba850775795e6b161487851b4b945720",
+    "agents/codex/scientific_researcher.toml": "7b939493cf6ec0770d71b19c86fe8da0ebbb79ea1c702adf8c34d6f15eecd9fe",
+    "agents/codex/scientific_reviewer.toml": "bf7427b452f60b44dcea53e25eb165f477f2f98d43a0db4e63e3c6702b69a36e",
+    "agents/codex/scientific_worker.toml": "4ef9815f44d85ffa4a7bfda382eff501b0a511dd1b91b10ee223ed56aeda105c",
+    "settings/settings.snippet.json": "bf72f958250cfc4806de58497e5118c3e3fac944627a40aacd94eaba1f61d46a",
+    "scripts/install.sh": "ea504c54c9b5066280fcb9b6f135ae11f655f74c263b91696e52d0b65a8ea0d8",
+    "scripts/install.py": "5dc60f8348b9e8f1e7c5519a85e2fd0a23325d9aefdacc8f6002777acbbe3c6b",
+    "scripts/validate.py": "4d319c40a9168819099470bb45104c471ad0be9ade8924f63585cbf1780f74f9",
+    "benchmarks/2026-10-08/truth_t2.py": "afec8518f722fd276cd7a0ca214325650465006ead84cc8efa0873a685dcdb96",
+    "benchmarks/2026-10-08/truth_t3.py": "117a79fb1012f51b980a198912b6a71678ce8eef355460aa8fec70217f096a0d",
+    "benchmarks/2026-10-08/bench.py": "8936399f6ce73cf5d71d7926c6c521a7aa85a79c8895050c0f71fc611b67a209",
+    "benchmarks/2026-10-08/protocol.md": "03e051b3fe8422bfec4e8d667e1bb1b309f3565961999155d3b43b97b9d931e8",
+    "benchmarks/2026-10-08/protocol_phase2.md": "c4a44c6db073a7329f6c8d1962e72b24227a4e9cd36395c73d213853b394ef8c",
+    "benchmarks/2026-10-08/protocol_phase3.md": "ac214e63ae094e6d90ec9811eed7230cc9fc3ecc286946d9cf964c732fe0f3a4",
+    "benchmarks/2026-10-08/RESULTS.md": "8c70fcb45f4eb151bd98c8db292a9f7c72f59de34eef5971bc48849a0d3dd4a7",
+    "benchmarks/2026-10-08/protocol_phase4.md": "5da33ebadc1c3737a241a02e121df9e53f4bc1e012bde611e9dc06d0842ff1fb",
+    "benchmarks/2026-10-08/data/results_phase1.md": "055292c0113bb275e72be85c74d1293afb465ba3ea37838527ee332940a10619",
+    "benchmarks/2026-10-08/data/results_phase2.md": "43d8c6ef8ce1f09efc235e12e536c75be3008d53ed55e6de52841649ff23d9d1",
+    "benchmarks/2026-10-08/data/results_phase3.md": "08c018a9d69782d7c76e3e03405ed02089409b52cac69672d027179237e37289",
+    "benchmarks/2026-10-08/data/truth_t2.json": "06c434209547ff81498eca0de6e71d19c8d499f66cf6a499dc1bccf81b43f9ac",
+    "benchmarks/2026-10-08/data/truth_t3.json": "16fab39e9454c27f09aad9c4cbcbe90beed743cca106ec2425463b54dae461b6",
+    "benchmarks/2026-10-08/data/progress1.log": "7c4d19eed6dc4fb25dcbd2e90a4719271c5b110191ccc6586a670d19fbc58b56",
+    "benchmarks/2026-10-08/data/progress2.log": "7205e70fc334c4b0295fc462ebea3e16e19593d53c454f0340f550ecc4a428b8",
+    "benchmarks/2026-10-08/data/progress3.log": "3290ad7372504d0c41ef87105fc1a04207addfcd466a6c806764b5a5ff025ce5",
+    "benchmarks/2026-10-08/data/results_phase4.md": "7a50894c1826f2a47a5fbae389b9c8cef4a0d9269d2cc7e86518ee1c4d9cbe50",
+    "benchmarks/2026-10-08/data/progress4.log": "05d42a1248f40249917627829c3dcef6b5260003f42464bd39805015a17cf6c9",
+    "benchmarks/2026-10-08/data/runs/T1_B_1/metrics.json": "d3c1f2be609882f0efd20d0116a544038b39659dca40a04037fbdbce7e78e2c9",
+    "benchmarks/2026-10-08/data/runs/T1_B_2/metrics.json": "9b782fc5ebed30dfcca70f99aae5b9d02bc6a22c32d8ec557b7443011edec58e",
+    "benchmarks/2026-10-08/data/runs/T1_B_3/metrics.json": "57fe48ca8e211038067b49512373e79df882d3d060cc03508085857f40a9bdff",
+    "benchmarks/2026-10-08/data/runs/T1_W_1/metrics.json": "04da5736c5e435d2cdfc57d307c9182745fdaab99ef647cf9db2aa897701187f",
+    "benchmarks/2026-10-08/data/runs/T1_W_2/metrics.json": "b0379c3a0b0ad24aa51b6087a040d1c7fdfc82f4e99889b9893e9a96c6435573",
+    "benchmarks/2026-10-08/data/runs/T1_W_3/metrics.json": "ca3fb7f3e79cb74b8c0383b8d9440855cb54704f2662d7427b03fe61163f49b5",
+    "benchmarks/2026-10-08/data/runs/T2_B_1/metrics.json": "b31387f724c302b90677e659b7e80ab1e6366194188d17dd71f48cfeae761340",
+    "benchmarks/2026-10-08/data/runs/T2_B_2/metrics.json": "c8027f4f58e1715bae27f0fc2661205d6a557d822d9e72abee1bbd63fbdeb3b1",
+    "benchmarks/2026-10-08/data/runs/T2_B_3/metrics.json": "7033ab13d76d6760fd636e811cc11a0c95c48bb3ad2938930edfb1896c83862c",
+    "benchmarks/2026-10-08/data/runs/T2_W_1/metrics.json": "477d0c71fe209c9fc1a5bfecb62f56893ace5ec78a0b48ebe99f7909ff525ebd",
+    "benchmarks/2026-10-08/data/runs/T2_W_2/metrics.json": "c284dedffa08656bdd9f44a018f04509f75ae813003824a42d0ae24059acd140",
+    "benchmarks/2026-10-08/data/runs/T2_W_3/metrics.json": "bda2f1cc9124a7e0dd7f28fded15510433580d2b5fe57ffc5b859c55b8ee5971",
+    "benchmarks/2026-10-08/data/runs/T3_B_1/metrics.json": "d41b12292894c718f1daf76f3ed60e6413b41f867a122a4028e084abde726f51",
+    "benchmarks/2026-10-08/data/runs/T3_B_2/metrics.json": "5a3e50e810be9970741d5911e98e7d6efa580815a4b978d1815fd0fdc63b7ff9",
+    "benchmarks/2026-10-08/data/runs/T3_W_1/metrics.json": "e333ce8b39883b86b18cddc4f5628cf8ba73442a7832ede458a192481453e38d",
+    "benchmarks/2026-10-08/data/runs/T3_W_2/metrics.json": "54dc1c0e91ac676e2f071ca33fbdc5b457a36a9581c14ec29f3bc2faa65ba586",
+    "benchmarks/2026-10-08/data/runs2/T3b_B_1/metrics.json": "bf9e1c12a80114442cb7989a3829dc6b03891f39b1ebac4eca5b1492c7335963",
+    "benchmarks/2026-10-08/data/runs2/T3b_B_2/metrics.json": "7a610bc80f31fd83d22ac0061c7736d57805410b04bc39640964b4d45fc91bc0",
+    "benchmarks/2026-10-08/data/runs2/T3b_B_3/metrics.json": "d457418bee579451e9d11141d9f363b3f8b9a83b318a599ac7cac71a23b9756e",
+    "benchmarks/2026-10-08/data/runs2/T3b_X_1/metrics.json": "244e3fa23590630d321f824412843cf669b2631b853ead8d27def3c71fdee058",
+    "benchmarks/2026-10-08/data/runs2/T3b_X_2/metrics.json": "371a9252fc52033475b2e9769a1d6d3310417d0c3186d48c65f8c9eb5f41ae0c",
+    "benchmarks/2026-10-08/data/runs2/T3b_X_3/metrics.json": "d29c2e0bf7fd282ffa981262c25bd7661043e6a4146057073bd0a290122398ab",
+    "benchmarks/2026-10-08/data/runs2/T5_B_1/metrics.json": "dc12705e2de95acd4242918f147782ed47db048bac25a544a78aa0fac82ee210",
+    "benchmarks/2026-10-08/data/runs2/T5_B_2/metrics.json": "2f6b31c713aaef5ffdb300693d53aa32d7a59f31f7af80a061feeb31649e68fe",
+    "benchmarks/2026-10-08/data/runs2/T5_B_3/metrics.json": "2c5df5a9ec2d3f54fdfd54efc4df12d2dfd80683fee10a6a150486421415e514",
+    "benchmarks/2026-10-08/data/runs2/T5_X_1/metrics.json": "5199016171ef12f6bb4dcc2c98a54a211257e0e1b7641ca86e27d7340bf1a750",
+    "benchmarks/2026-10-08/data/runs2/T5_X_2/metrics.json": "173c77b2a3669d7b0d758c2d8b0d148099f6b626ff08f1b831734981bd149506",
+    "benchmarks/2026-10-08/data/runs2/T5_X_3/metrics.json": "865e2f0420cee38516530fe46b6222fe485397c64ab9376df8a76caa6554ee00",
+    "benchmarks/2026-10-08/data/runs3/T5v3_B_1/metrics.json": "8066515b37d08e4781bf6539805f9120b58a7ff1aa651e924c4d6e5330116a74",
+    "benchmarks/2026-10-08/data/runs3/T5v3_B_2/metrics.json": "ec51c0cd67ea3c6a4c18e765e9c7cb1600bdc2673e9900c880b6d6f40a766eb7",
+    "benchmarks/2026-10-08/data/runs3/T5v3_B_3/metrics.json": "9ae61d9a09462c453055d4818211a3ed6c4a6b7b7529acc740c95baebf22a4d0",
+    "benchmarks/2026-10-08/data/runs3/T5v3_B_4/metrics.json": "fee7262dc7a3d285b640891d478240a8fe73eedce689818608e9930af2a7cb1a",
+    "benchmarks/2026-10-08/data/runs3/T5v3_B_5/metrics.json": "fbac58c86360eab00ffa63816b186e3bce73437622e6d6b6664204ef966945ae",
+    "benchmarks/2026-10-08/data/runs3/T5v3_R_1/metrics.json": "37610fcda6995095d347a7fc29dea2eb25a1a2f98e0b2094e292cf4167ba09c0",
+    "benchmarks/2026-10-08/data/runs3/T5v3_R_2/metrics.json": "3188ab8cbd0fde20bee91e0f448a82dfdf6a5bfb01e7a40726bb292d772cb84b",
+    "benchmarks/2026-10-08/data/runs3/T5v3_R_3/metrics.json": "66ce1dd2860a77f177792451a62588bf69e77790b27247d6f3f73c4bd780a66d",
+    "benchmarks/2026-10-08/data/runs3/T5v3_R_4/metrics.json": "eab02e6f6c74a56fca4da41c4f2a6cc412492f9a229628eb988288f20c7d4d67",
+    "benchmarks/2026-10-08/data/runs3/T5v3_R_5/metrics.json": "fa532d891148c63afacd94089de0257fb9e1f9b4502a5affc3e9555d09bd58b8",
+    "benchmarks/2026-10-08/data/runs4/T1_O_1/metrics.json": "7bd9b0b6cfad3ac46c978c8810ed660ad0690962eb9f1fd278cfb44f1444a258",
+    "benchmarks/2026-10-08/data/runs4/T1_O_2/metrics.json": "9d6dd03589145e29321050ec03e4cf665663b23655d083169f2bbe618c265520",
+    "benchmarks/2026-10-08/data/runs4/T1_O_3/metrics.json": "b7bfafa65e8e7c316f09f34a01a5241b1a50f722415a04cbd0210c83b306609c",
+    "benchmarks/2026-10-08/data/runs4/T2_O_1/metrics.json": "ae842961f788a81f47ccc2d5f0b31bcf0affa49050c00fe50f821a1a9bf89ae2",
+    "benchmarks/2026-10-08/data/runs4/T2_O_2/metrics.json": "e01e74f46232619ebd4086e89d430bb9419fbb645e6aab0febf1241ce7081344",
+    "benchmarks/2026-10-08/data/runs4/T2_O_3/metrics.json": "ef1de9165a79df1fd2828367f1f201174171542040a1e47e768f047714b578d2",
+    "benchmarks/2026-10-08/data/runs4/T3b_O_1/metrics.json": "a66a9ac79968babdaab0238556e42a8588b2bca30da8e977af77fbd7013dde1b",
+    "benchmarks/2026-10-08/data/runs4/T3b_O_2/metrics.json": "8360cb4e21ba402d0adeda1e9df67794aa560bfee05cf13d4d145bacc5ab4fa5",
+    "benchmarks/2026-10-08/data/runs4/T3b_O_3/metrics.json": "64febd526f0c25a40ab1e14a2ac6c23e61eca25bd4f3d10369537236d8da818f",
+    "benchmarks/2026-10-08/data/runs4/T5v3_O_1/metrics.json": "094823289aae13c461ae7aecc844361eb99c3011969ae062ee439316c4e98899",
+    "benchmarks/2026-10-08/data/runs4/T5v3_O_2/metrics.json": "460b14b51799cb118180c97ed94c25eebab1b9cfadbbe676c3288660fce3abe0",
+    "benchmarks/2026-10-08/data/runs4/T5v3_O_3/metrics.json": "2bb248efe63df9f3eb482c27aea7e4d1bbc23e5d2d0bb886ce6550949a414757",
+    "tests/test_install.py": "012ed242640347b5052071d10e6effb82fd26059b2a93d8a36699c91d32d9df5",
+    "docs/consolidation.md": "7fd17fdebe7b8cc728aa80b618336587c0faef3878a77739cfd71d6c816c0a37",
+    "docs/install-tests-2026-10-09.txt": "0dac90a72f9050c2087765076e974bfa5ef6a49b69714d5d7ad386c3237eec18",
+    "docs/review-2026-10-09.md": "a1f812309bac3fabcc87053391338f4b435e0a3860559f72fa4e3203a4de0309",
+    "docs/validation-2026-10-09.md": "3ea5e34e2942f658616ec196be33b51957b3a78120ab3dff6b85d93aadbc8f15",
+    "docs/migration/2026-10-09/SCIENTIFIC_AGENT_WORKFLOW.before.md": "3877f90f97630955521a0691e601b6686a8202d77d9a11efbc48b557c59bd85a",
+    "docs/migration/2026-10-09/source-identities.json": "64a7d797e9ea078790a26a636d54922c0ab5744eb0055f99a515890395130511",
+    "docs/migration/2026-10-09/codex-skill-before/SKILL.md": "30763110e0c47e1890622189bd41f46e6ffc960c26723add51e4e7d65746d89b"
+  },
+  "protected_installed": {
+    "/home/hao/.claude/settings.json": {
+      "sha256": "607820eee26bfc78501732f3708f667a42c7fb11b661ad602f31f72ae478f55f",
+      "link": null
+    },
+    "/home/hao/.codex/config.toml": {
+      "sha256": "7dbd72c64234b33eb1c7121d5e9a1e05ced40ecc12c6f1bf71bd948f03bd924e",
+      "link": null
+    },
+    "/home/hao/.claude/agents/scientific_analyst.md": {
+      "sha256": "c8c60a771f90bd25911b009ab9d7d4e66fe1db775e4c70da6ad260c8e7a50174",
+      "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_analyst.md"
+    },
+    "/home/hao/.claude/agents/scientific_explorer.md": {
+      "sha256": "040ad15cf1e7e3ef1e4c74d6925016440f5ee48deb84fa8d7ca7b09a1cf39245",
+      "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_explorer.md"
+    },
+    "/home/hao/.claude/agents/scientific_researcher.md": {
+      "sha256": "82e4d8367bab0270686158d112c083ed947ef020c4b9b58ceca8c213a0d6f450",
+      "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_researcher.md"
+    },
+    "/home/hao/.claude/agents/scientific_reviewer.md": {
+      "sha256": "c9457c132c3b09320bbafcdf7b249fcba07b09f0f58a397dd15225b602754369",
+      "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_reviewer.md"
+    },
+    "/home/hao/.claude/agents/scientific_worker.md": {
+      "sha256": "ed248dec8f52c5b385c9141aebc1f82aec95ca071aec466475f666c2e0ba8b02",
+      "link": "/home/hao/githubrepo/scientific-workflow-skill/agents/scientific_worker.md"
+    },
+    "/home/hao/.codex/agents/scientific_analyst.toml": {
+      "sha256": "d003d316eefc3f5b3e7cba220f610f0a76edebfbb752b7a584fdd7207e68d80b",
+      "link": null
+    },
+    "/home/hao/.codex/agents/scientific_explorer.toml": {
+      "sha256": "e92583901baff7f6205f76886f4bb1c3ba850775795e6b161487851b4b945720",
+      "link": null
+    },
+    "/home/hao/.codex/agents/scientific_researcher.toml": {
+      "sha256": "7b939493cf6ec0770d71b19c86fe8da0ebbb79ea1c702adf8c34d6f15eecd9fe",
+      "link": null
+    },
+    "/home/hao/.codex/agents/scientific_reviewer.toml": {
+      "sha256": "bf7427b452f60b44dcea53e25eb165f477f2f98d43a0db4e63e3c6702b69a36e",
+      "link": null
+    },
+    "/home/hao/.codex/agents/scientific_worker.toml": {
+      "sha256": "4ef9815f44d85ffa4a7bfda382eff501b0a511dd1b91b10ee223ed56aeda105c",
+      "link": null
+    },
+    "/home/hao/.claude/skills/scientific-workflow": {
+      "link": "/home/hao/githubrepo/scientific-workflow-skill/skill/scientific-workflow"
+    },
+    "/home/hao/.agents/skills/scientific-workflow": {
+      "link": "/home/hao/githubrepo/scientific-workflow-skill/skill/scientific-workflow"
+    }
+  }
+}

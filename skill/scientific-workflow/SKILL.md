@@ -5,53 +5,36 @@ description: Coordinate substantial scientific software, analysis, literature an
 
 # Scientific workflow
 
-Own the requested outcome through its authorized checks and checkpoint. Read the current project plan/handoff and relevant authority. Reuse existing state. For substantial work, keep a compact contract: deliverable, scope, authority, checks, resource/retry envelope, stop boundaries and next exact action. Match requirements to evidence that can establish them.
+Own the outcome through authorized checks and checkpoint. Read current project authority and plan/handoff at task entry, after interruption or when they change; reuse verified state between those events. Keep one compact contract for substantial work: deliverable, scope, authority, checks, resource/retry envelope, stop boundaries and next action. Match requirements to evidence.
 
-## Select the runtime
+Coordination rules apply to the coordinator. A delegate follows its bounded assignment and native restrictions; seeing this skill does not authorize another plan, team or review cycle. Further delegation needs assigned authority and independent work.
 
-Read only the reference for the active assistant before dispatch:
+## Runtime and ownership
 
-- **Codex:** [references/codex.md](references/codex.md). Sol owns implementation and execution; Luna supplies bounded support; Astra handles consequential planning and independent review.
-- **Claude Code:** [references/claude-code.md](references/claude-code.md). Use the existing native Claude agents, models, tools and permissions.
+Read only the active adapter before dispatch: [Codex](references/codex.md) or [Claude Code](references/claude-code.md). Preserve native models, tools and permissions. Do not change main/global configuration merely to apply the skill. Configuration is not server-side model provenance or enforced isolation.
 
-These adapters do not configure each other. Do not change the main model, agent definitions or global settings merely to apply the skill. Use the runtime's supported tools. Configuration is not proof of server-side model identity or enforced isolation.
+Start with one agent. The main agent can own execution; an equally capable coordinator does not need a worker beneath it. Keep dependent implementation, debugging and evidence capture with one owner who reads/writes its own files. Delegate sizeable independent support, disjoint work or consequential challenge only when it materially helps, then integrate rather than repeat it. Small known lookups and checks use direct tools; a cheaper model is not automatically a cheaper workflow. Slots are ceilings, not targets or spending limits.
 
-## Choose ownership
+Route by reasoning and decision ownership, not file operations, input volume or run duration. Mechanical helpers do not choose methods, alter algorithms, interpret science or decide recovery. Escalate a concrete reasoning gap, not latency or repeated polling. Preserve explicit user model/effort choices. Writers get disjoint paths/worktrees and preserve other writers.
 
-Start with one agent. Delegate sizeable independent work, context isolation or an independent challenge when it materially helps. Keep dependent implementation, debugging and evidence capture with one execution owner. Route by reasoning demands and decision ownership, not by reading or writing files. The execution owner reads and writes its own files. Mechanical helpers do not choose methods, change algorithms, interpret scientific results or decide recovery.
+## Execution and review
 
-The coordinator owns requirements, integration, evidence and completion. Give writers disjoint paths or isolated worktrees and tell them to preserve other writers. Delegation does not expand scope, resource budgets or retry authority. Do not require every role or a permanent team; nested delegation needs runtime support and assigned authority.
+Reuse a reviewed plan while inputs, assumptions and checks remain applicable. Continue authorized work through named checks/checkpoint without routine reapproval. Run change-appropriate and project-required checks; repeat/expand a passing suite only for a concrete affected requirement. Workflow maintenance does not authorize scientific execution.
 
-A compact delegate packet names the objective, expected output, necessary decisions, input identities, owned paths/tools, checks, resource limits, stop boundaries and evidence to return. Return evidence paths, changes, actual checks, uncertainties and the next action. Verify consequential results against artifacts, not the delegate's narrative.
+Use the consequential reviewer for substantial scientific plans before costly execution, claim-authority changes, material recurring strategy failures or invalidated assumptions, and substantial completion when independent challenge can find a material gap. User/project-required reviews remain mandatory. The reviewer is not a default debugger, progress monitor or test runner.
 
-## Execute and review
+State the blocked decision, scoped requirements, why review is needed and evidence that would change it. Readiness/completion needs versioned artifacts and terminal checks first. A planning review checks proposed methods/limits; a narrow blocking question may acknowledge missing evidence but cannot certify readiness. Give a fresh reviewer original requirements and raw evidence without a desired verdict. Plan authors do not independently certify their own consequential completion. Re-review only concrete unresolved findings, material new evidence or required gates, not unchanged pending packets.
 
-Reuse a current reviewed plan if its inputs, assumptions and checks still apply. Resolve routine implementation choices within authority. Continue runnable work through named checks and the checkpoint without repeated routine permission requests. Stop dependent work at an explicit pause, declared boundary or missing authority; independent authorized work may continue.
+For substantial delegation, many-artifact review or slow jobs, read [coordination.md](references/coordination.md). Use bounded packets/results and one progress owner. Prefer native notifications; otherwise back off unchanged polling within safety deadlines. Required user updates do not need another worker turn or inspection. Deterministic watchdogs enforce hard limits. Inspect existing process/terminal evidence before relaunch after a tool timeout. No parallel watchers or turn-triggering status acknowledgements.
 
-Use the runtime's consequential reviewer for substantial scientific planning before costly execution, recurring strategy failures, evidence that invalidates the direction, claim-authority changes and substantial completion where review can detect a material gap. Project-required reviews and user-requested reviews remain mandatory. A small routine edit does not need a team.
+Keep one manifest and send new findings/changes plus paths. Verify consequential artifacts without duplicating full review. Filter logs at the source; retain full evidence on disk and preserve failures/counterevidence. A short final answer does not limit hidden reasoning or cost. Do not start extra sessions or enlarge budgets to evade capacity limits.
 
-Give a fresh reviewer the original requirements, necessary decisions, exact versions and underlying evidence without a desired verdict. When a reviewer established the plan, consequential completion needs a fresh context able to challenge it. Planning participation alone is not independent completion review. Fix consequential findings and run the affected checks within the authorized envelope.
+## Evidence and boundaries
 
-Before a costly probe, verify that the lane records required observables, failures and termination. Retain raw proposals separately from selected or fallback outputs, with units, identities and decision reasons. A review or passing check cannot authorize a new scientific run, campaign or retry. Two different failed fixes or ten active hours can prompt diagnosis; neither is universal retry authority or a required timer.
+Record relevant versions, parameters, randomness, units, commands and evidence paths. Check numerical reference cases/convergence, statistical controls/leakage and literature passages/conditions as appropriate. Separate exploratory from confirmatory evidence and retain negative results. Persist checks, decisions, failures, resources, job/agent ownership and next action at checkpoints; reconstruct authority and resume only the earliest incomplete authorized step after interruption.
 
-## Reduce coordination overhead
+A user pause persists until that user explicitly resumes the same objective. While paused, perform only requested closure, inspection or review. Do not dispatch workers, edit implementation, run tests/executors or allocate outputs for it. Time, automatic continuation and unfinished state cannot clear the pause. Separate workflow maintenance does not resume science.
 
-Keep one execution owner through dependent steps. Delegate support only when its bounded output saves that owner substantial work. Do not activate a consequential reviewer with a known incomplete packet unless a specific blocking question requires an early decision. For readiness or completion review, first assemble the named required artifacts and terminal checks. Label an early review's narrow question and missing evidence explicitly; it cannot certify readiness or completion.
+A review or PASS does not authorize another scientific run/retry or promote claims; only project gates do. Preserve declared attempt limits, frozen inputs and other sessions' edits/jobs. Report skipped checks and limits. Measure efficiency under matched scope/budgets with cached/uncached input, output and latency separated; reasoning is part of output. Names, fixtures or less chatter do not prove savings.
 
-Keep one versioned task contract and evidence manifest. Send changes and new findings, with paths to the full record; repeat identities only when a version changes or the recipient cannot access the record. A changed artifact invalidates only the checks that depend on it. Re-review for a concrete unresolved finding, material new evidence or required gate, not an unchanged pending packet.
-
-For slow tests or jobs, prefer deterministic durable progress/terminal output and native completion notifications where supported. Poll only to obtain needed new state or protect a declared limit. Do not generate repeated agent turns, messages or wait-only reasoning while the same operation runs. Keep user updates concise and timely. Preserve mandatory tests and complete failure capture; a lower token count does not justify weaker evidence.
-
-The coordinator checks requirement coverage, versions and consequential outputs. It need not repeat the reviewer's full inspection. Filter tool output before loading large logs into model context; retain full logs as artifacts. If measuring efficiency, compare outcomes under matched scope/budgets and report uncached input, cached input, output and latency separately. Configuration and static tests do not demonstrate savings.
-
-## Preserve evidence and pauses
-
-Record exact inputs, versions, parameters, randomness, commands and output paths as appropriate. Check units/reference cases/convergence for numerical work; controls/leakage/repeated testing for statistics; source passages/versions/coverage/conflicts for literature. Separate exploratory findings from confirmatory evidence and retain negative results. Report skipped checks and unresolved evidence.
-
-At meaningful checkpoints, persist completed checks, versions, decisions, failures, resource use, active job/agent ownership and the next exact action in the existing handoff. After interruption, reconstruct authority and ownership from disk; resume only the earliest incomplete authorized step.
-
-An explicit user pause persists until that user explicitly resumes the same objective. While paused, perform only requested closure, inspection or review. Do not dispatch workers, edit implementation, run tests/executors or allocate outputs for that objective. Automatic continuation, elapsed time and unfinished state cannot clear the pause. Separate authorized workflow maintenance does not resume scientific work.
-
-Only project gates can promote scientific claims. Software PASS, review disposition, configuration and fixture results are not scientific success or accepted-design evidence. Preserve other sessions' jobs and edits. Report the result, evidence and material limits concisely.
-
-For skill maintenance and validation, read [maintenance.md](maintenance.md). Change the skill or native agents only within an explicit workflow-maintenance request; otherwise propose the evidence-backed change for approval. For supporting rationale and evaluation limits, read [references/rationale.md](references/rationale.md) only when needed.
+Read [maintenance.md](maintenance.md) for skill validation/authorized changes and [rationale.md](references/rationale.md) only for supporting evidence. Ordinary project work does not authorize self-modifying the skill or native agents.
