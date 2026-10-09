@@ -10,7 +10,7 @@ Preserve the existing native definitions in repository-root `agents/scientific_*
 | scientific_analyst | sonnet / high | Evidence synthesis/authorized analysis; same writer tools |
 | scientific_reviewer | opus / high | Independent challenge; Read/Grep/Glob only; no shell, writes or jobs |
 
-The installed main uses Sonnet high and can own implementation directly. Another Sonnet worker needs a useful bounded context/disjoint lane, not duplicate dependent work. Keep interpretation/caller tracing with main/analyst; tiny mechanical lookups use direct tools. Named long jobs need exact commands and authority. Native agents prohibit further delegation; their turn ceilings are not targets.
+Inspect the current main settings at setup; they can change outside this skill. The main can own implementation directly. With a Sonnet main, another Sonnet worker needs a useful bounded context/disjoint lane, not duplicate dependent work. With an Opus main, bounded Sonnet execution may save cost, but only if the main integrates rather than repeats it; a cheaper child alone does not prove net savings. Keep interpretation/caller tracing with main/analyst; tiny mechanical lookups use direct tools. Named long jobs need exact commands and authority. Native agents prohibit further delegation; their turn ceilings are not targets.
 
 Call the named role through Agent (`subagent_type`), honoring user-named roles/@agent mentions. A non-fork delegate has fresh context; a fork inherits conversation. Prefer pertinent requirements and versioned evidence for bounded roles, not irrelevant history. For planning, existing `opusplan` or `/model opus` remains available; do not switch main to Opus just to prepare packets then duplicate that work in an Opus delegate.
 

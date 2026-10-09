@@ -85,3 +85,9 @@ Completed: existing harness inspection, 13/13 deterministic tests, six prepared 
 Next exact action: implement/validate the narrow native capture adapter and freeze the first task's truth/scorer. Then complete the total live-run budget and launch-readiness packet before the four-run pilot. Do not launch inference from the legacy PREPARATION.json commands as proof of native hierarchy behavior. Record pilot results before changing any role/model/effort default.
 
 Basis: [OpenAI skill-evaluation guidance](https://developers.openai.com/blog/eval-skills) recommends captured traces/artifacts with outcome, process and efficiency checks. The two local harnesses supply existing code/evidence patterns; neither proves this new pilot has run.
+
+## Runtime refresh during preparation
+
+A final historical-identity check found the Claude user settings changed outside this task: the current main model is `opus` with configured high effort, rather than the previously inspected Sonnet main. This task did not change or revert that file. All other recorded native agent/config/link identities match the prior audit. `RUNTIME_REFRESH.json` records the observed setting hash; active adapter wording now uses inspected current settings rather than claiming a permanent Sonnet main.
+
+The prepare-only legacy Claude manifests request Sonnet explicitly and disable customization, so they remain synthetic boundary controls, not tests of the installed Opus-main setup. Native pilot arms must freeze the same current main setting, or register Sonnet-main versus Opus-main as a separate controlled intervention. Do not confuse savings from changing the main model with benefits from delegation. This is a material calibration concern, not authority to rewrite another session's chosen default.
