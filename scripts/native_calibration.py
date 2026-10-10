@@ -219,6 +219,30 @@ def delegation_check(arm, metrics, children=None):
     return {'verified': not errors, 'errors': errors, 'unique_starts': len(ids), 'native_child_count': len(children)}
 
 
+def codex_usage_details(trace):
+    """Preserve compaction/record telemetry without replacing provider accounting."""
+    records = [e.get('payload', {}) for e in trace if e.get('type') == 'token_usage_record']
+    compactions = [e.get('payload', {}).get('compaction_response_id') for e in trace
+                   if e.get('type') == 'compacted']
+    last = records[-1].get('thread_token_usage') if records else None
+    usage = {}
+    conflicts = set()
+    for record in records:
+        ident = record.get('response_id')
+        if type(ident) is not str or not ident:
+            continue
+        value = record.get('usage')
+        if ident in usage and usage[ident] != value:
+            conflicts.add(ident)
+        usage[ident] = value
+    complete = bool(compactions) and all(
+        type(ident) is str and bool(ident) and ident not in conflicts
+        and valid_usage('codex', usage.get(ident)) for ident in compactions)
+    return {'usage_last_record_cumulative': last if valid_usage('codex', last) else None,
+            'compaction_response_usage': {ident: usage[ident] for ident in compactions} if complete else None,
+            'compaction_usage_complete': complete if compactions else None}
+
+
 def normalize(provider, stream, native=None):
     """Keep provider accounting separate; unknown child semantics never mean zero."""
     native = native or []
@@ -292,6 +316,7 @@ def normalize(provider, stream, native=None):
                   if e.get('type') == 'event_msg' and e.get('payload', {}).get('type') == 'token_count']
         counts = [u for u in counts if u is not None]
         thread_usage.append({'id': meta.get('id'), 'usage_last_cumulative': counts[-1] if counts else None,
+                             **codex_usage_details(trace),
                              'model_contexts': [{'model': c.get('model'), 'effort': c.get('effort')} for c in contexts]})
         parent = parent_id(meta)
         if parent:
@@ -324,7 +349,7 @@ def normalize(provider, stream, native=None):
             'native_children': children, 'thread_usage': thread_usage,
             'whole_family_accounting': 'unverified' if delegates or children else 'parent_only_no_delegate_observed',
             'net_cost_claim_supported': False,
-            'accounting_note': 'Do not sum parent result totals and child transcripts; inclusion semantics unverified.'}
+            'accounting_note': 'Do not sum parent result totals and child transcripts; inclusion semantics unverified. Native event snapshots, record totals and compaction usage are separate evidence; do not add overlapping totals.'}
 
 
 def toolset(arm, comparison):

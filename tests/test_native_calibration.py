@@ -48,6 +48,60 @@ class CalibrationTest(unittest.TestCase):
         self.assertEqual(result['thread_usage'][0]['usage_last_cumulative']['input_tokens'], 20)
         self.assertFalse(result['net_cost_claim_supported'])
 
+    def test_codex_compaction_usage_kept_separate_from_event_snapshot(self):
+        before = {'input_tokens': 100, 'output_tokens': 10}
+        compact = {'input_tokens': 30, 'output_tokens': 5}
+        total = {'input_tokens': 130, 'output_tokens': 15}
+        record = {'type': 'token_usage_record', 'payload': {
+            'response_id': 'compact', 'usage': compact, 'thread_token_usage': total}}
+        trace = [{'type': 'session_meta', 'payload': {'id': 'parent'}},
+                 {'type': 'event_msg', 'payload': {'type': 'token_count', 'info': {'total_token_usage': before}}},
+                 record, record,
+                 {'type': 'compacted', 'payload': {'compaction_response_id': 'compact'}}]
+        result = native.normalize('codex', [], [trace])
+        usage = result['thread_usage'][0]
+        self.assertEqual(usage['usage_last_cumulative'], before)
+        self.assertEqual(usage['usage_last_record_cumulative'], total)
+        self.assertEqual(usage['compaction_response_usage'], {'compact': compact})
+        self.assertTrue(usage['compaction_usage_complete'])
+        self.assertIsNone(result['usable_provider_usage'])
+        self.assertFalse(result['net_cost_claim_supported'])
+
+    def test_codex_missing_compaction_record_is_unknown(self):
+        trace = [{'type': 'compacted', 'payload': {'compaction_response_id': 'missing'}}]
+        usage = native.normalize('codex', [], [trace])['thread_usage'][0]
+        self.assertIsNone(usage['usage_last_record_cumulative'])
+        self.assertIsNone(usage['compaction_response_usage'])
+        self.assertFalse(usage['compaction_usage_complete'])
+
+    def test_codex_conflicting_or_invalid_compaction_usage_is_unknown(self):
+        first = {'type': 'token_usage_record', 'payload': {
+            'response_id': 'compact', 'usage': {'input_tokens': 30, 'output_tokens': 5}}}
+        for changed in ({'input_tokens': 31, 'output_tokens': 5},
+                        {'input_tokens': True, 'output_tokens': 5}):
+            with self.subTest(changed=changed):
+                other = copy.deepcopy(first)
+                other['payload']['usage'] = changed
+                trace = [first, other, {'type': 'compacted', 'payload': {'compaction_response_id': 'compact'}}]
+                usage = native.normalize('codex', [], [trace])['thread_usage'][0]
+                self.assertIsNone(usage['compaction_response_usage'])
+                self.assertFalse(usage['compaction_usage_complete'])
+
+    def test_codex_legacy_trace_does_not_imply_zero_compaction_cost(self):
+        usage = native.normalize('codex', [], [[]])['thread_usage'][0]
+        self.assertIsNone(usage['usage_last_record_cumulative'])
+        self.assertIsNone(usage['compaction_response_usage'])
+        self.assertIsNone(usage['compaction_usage_complete'])
+
+    def test_codex_latest_invalid_record_does_not_reuse_earlier_total(self):
+        for last in (None, {}, {'input_tokens': True, 'output_tokens': 0}):
+            with self.subTest(last=last):
+                trace = [{'type': 'token_usage_record', 'payload': {
+                    'thread_token_usage': {'input_tokens': 10, 'output_tokens': 2}}},
+                    {'type': 'token_usage_record', 'payload': {'thread_token_usage': last}}]
+                usage = native.normalize('codex', [], [trace])['thread_usage'][0]
+                self.assertIsNone(usage['usage_last_record_cumulative'])
+
     def test_children_never_count_as_zero(self):
         stream = [{'type': 'assistant', 'message': {'model': 'opus', 'content': [
             {'type': 'tool_use', 'name': 'Agent', 'id': 'a', 'input': {'subagent_type': 'scientific_explorer'}}]}},

@@ -1,0 +1,108 @@
+{
+  "scope": "Two existing long parent sessions, one scientific preparation and one workflow maintenance; bounded diagnostic retrospective, not a matched comparison.",
+  "selection": "2026-10-09 Codex non-exec parent candidates plus two Claude workflow-repository parents. Select the largest transcript per runtime with at least 20 observed assistant text messages (Codex) or distinct message IDs (Claude). Outcome-blind after metadata inspection. Short sessions excluded. No population inference.",
+  "parents": [
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T12-04-23-01a121d6-6de8-7690-be20-eed9f6a8b90e.jsonl",
+      "bytes": 6014981,
+      "sha256": "6cf1736321363f5962b905c76fec6a5f907f6bd8011bee3177e5f61a777a6482"
+    },
+    {
+      "runtime": "claude",
+      "path": "/home/hao/.claude/projects/-home-hao-githubrepo-scientific-workflow-skill/856948b7-9833-4325-b6e8-778af0ac0c7f.jsonl",
+      "bytes": 1724368,
+      "sha256": "ee8986c88ac884014ad97a0a04efab9e3ad0d25f4ccbaef66049e22062084d77"
+    }
+  ],
+  "children": [
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T12-04-23-01a121d6-6e20-7401-bed5-35cbcf826216.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a121d6-6e20-7401-bed5-35cbcf826216",
+      "bytes": 132021,
+      "sha256": "7ba34d84ad2dd5c938184be744afc7c73bd2c03176bab0fa911f58b383844b30"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T12-08-54-01a121da-90de-7293-a1b4-aa0f9f1c2dd0.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a121da-90de-7293-a1b4-aa0f9f1c2dd0",
+      "bytes": 639027,
+      "sha256": "280dbb77ccdf166efe18be258fd8a358db36fc23a39fbc62658b0b6923dbb6a4"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T12-15-55-01a121e0-fc59-74c2-b039-db890ffa04bc.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a121e0-fc59-74c2-b039-db890ffa04bc",
+      "bytes": 799885,
+      "sha256": "9691d60c6edbe1a7d08e8d21321d79ee965b2eeb6b97949d69b6de6b4dc8776b"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T14-03-31-01a12243-7e54-7291-ba28-ee1f65598a12.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a12243-7e54-7291-ba28-ee1f65598a12",
+      "bytes": 1158861,
+      "sha256": "f17bf732843193feb68cca5607a58fda9e6119093aa131c7addfb5b0eaf08e71"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T14-11-10-01a1224a-82c5-7491-ae56-0f255b6de0dd.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a1224a-82c5-7491-ae56-0f255b6de0dd",
+      "bytes": 843971,
+      "sha256": "85b1182e61d58f072d6c33833163bd69bded07ce298068bdd5e0722f63b599db"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T14-21-17-01a12253-c5ed-7ef0-853f-ab89b432012c.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a12253-c5ed-7ef0-853f-ab89b432012c",
+      "bytes": 52709,
+      "sha256": "e0c6fad95cfd925542df1f4b12f447ea1491f9d2d173260e8030c335846fc474"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T14-49-26-01a1226d-898d-7fe0-a142-d64f85916a90.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a1226d-898d-7fe0-a142-d64f85916a90",
+      "bytes": 1318935,
+      "sha256": "594d11263ddaef2ee9aeb6b5fe2527aa0a52c3f2cdf60e8e9d12433432349324"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T14-58-12-01a12275-91d5-7990-a5d2-7ca264f4c192.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a12275-91d5-7990-a5d2-7ca264f4c192",
+      "bytes": 1109935,
+      "sha256": "0811304cc6a8254dd58cb80be6824d4bf54e87cc3f18a3e0d19fbfccef7ecd19"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T17-10-06-01a122ee-5430-7b42-9fbd-d13a9f2e7ab2.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a122ee-5430-7b42-9fbd-d13a9f2e7ab2",
+      "bytes": 842461,
+      "sha256": "6712d81a86897dfb4c8b755910babf9dd2795d696899c364dc24e3cbb48f8142"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T17-15-44-01a122f3-7aff-7043-b156-6615b976d133.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a122f3-7aff-7043-b156-6615b976d133",
+      "bytes": 149024,
+      "sha256": "7ea3b627bfc6119b0d8b8eb4ed0ca937ff8a247cedd3349d400d5e3979904d24"
+    },
+    {
+      "runtime": "codex",
+      "path": "/home/hao/.codex/sessions/2026/10/09/rollout-2026-10-09T17-33-19-01a12303-9563-7d42-a838-e16c24b2cb43.jsonl",
+      "parent_id": "01a121d6-6de8-7690-be20-eed9f6a8b90e",
+      "id": "01a12303-9563-7d42-a838-e16c24b2cb43",
+      "bytes": 204540,
+      "sha256": "6ff6dae3c6b1b8bacfe8015dd854bb1e3b3e0f0e53653c2c2e14a0e4b145dfe9"
+    }
+  ]
+}

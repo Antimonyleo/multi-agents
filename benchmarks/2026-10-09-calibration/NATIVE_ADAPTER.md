@@ -100,6 +100,12 @@ After reliable capture, test these separately when their decision is needed. Pre
 | Consequential review value | Verified defect-bearing decision packets and clean controls | Score prevented wrong decisions, missed defects and false positives. Keep mandatory gates equal; never remove a required review to manufacture savings. |
 | Second runtime | Repeat only affected capture and behavioral checks | Native tool/permission differences require their own evidence. Do not infer Codex behavior from Claude or repeat a full model matrix. |
 
+The [bounded historical-session review](retrospective/REPORT.md) adds two prepared
+specifications: reuse a complete saved check receipt when visible output is
+incomplete, and reconstruct authority/ownership after compaction. Its observed
+Codex compaction-accounting gap now has offline regressions. These additions do
+not count as native behavioral passes or lift any live gate.
+
 Use one execution owner and native completion notifications throughout; no status-only subagents or per-task Astra reviews. Reuse existing audit findings. An independent reviewer checks the corrected reliability gate and the final decision supported by completed benchmark evidence; intermediate passing tests do not create new review milestones.
 
 ### Completion and next action

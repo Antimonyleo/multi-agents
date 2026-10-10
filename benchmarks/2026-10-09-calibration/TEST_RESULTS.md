@@ -53,3 +53,17 @@ Prioritized evaluation:
 3. Compare representative substantial independent retrieval and dependent implementation separately. Freeze accepted-result criteria, the capable single-owner/direct-tool baseline, allowed helper lane, source versions, review gates, accounting and budget before launches. Judge accepted quality, drift and recovery first, then cost/time per accepted outcome and their tradeoffs. Initial small comparisons are diagnostic; general defaults require held-out cases and justified repetition.
 
 Proposed admission criterion: optional orchestration needs substantial independent work, useful isolation of irrelevant context, or a consequential review requirement. Duration alone is insufficient: hours waiting for a solver may need no helper, while a short independent investigation may benefit. Keep one capable owner for interdependent steps. Do not run another broad model matrix or an hours-long campaign merely to force a favorable savings result. Further live allocation and the unresolved budget constraint remain as recorded above.
+
+## Bounded retrospective and capture extension, 2026-10-10
+
+The [historical-session review](retrospective/REPORT.md) is complete for two
+different long parent workloads across Codex and Claude. It found an exact
+Codex compaction-accounting difference and evidence loss followed by additional
+reads/checks. The native adapter now preserves record totals and matched
+compaction usage separately from event snapshots and provider totals. Five new
+regressions and the 87-test repository suite pass; the earlier independent Stage
+A review remains limited to its original inputs. Two additional behavioral
+specifications are prepared only. No new native family was started and no
+savings/default claim follows. Previous scratch preparations need regeneration
+for the changed adapter after the budget gate is resolved; historical manifests
+and the original six prepared cases remain unchanged.

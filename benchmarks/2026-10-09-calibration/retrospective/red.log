@@ -1,0 +1,79 @@
+test_children_never_count_as_zero (test_native_calibration.CalibrationTest.test_children_never_count_as_zero) ... ok
+test_codex_compaction_usage_kept_separate_from_event_snapshot (test_native_calibration.CalibrationTest.test_codex_compaction_usage_kept_separate_from_event_snapshot) ... ERROR
+test_codex_conflicting_or_invalid_compaction_usage_is_unknown (test_native_calibration.CalibrationTest.test_codex_conflicting_or_invalid_compaction_usage_is_unknown) ...
+  test_codex_conflicting_or_invalid_compaction_usage_is_unknown (test_native_calibration.CalibrationTest.test_codex_conflicting_or_invalid_compaction_usage_is_unknown) (changed={'input_tokens': 31, 'output_tokens': 5}) ... ERROR
+  test_codex_conflicting_or_invalid_compaction_usage_is_unknown (test_native_calibration.CalibrationTest.test_codex_conflicting_or_invalid_compaction_usage_is_unknown) (changed={'input_tokens': True, 'output_tokens': 5}) ... ERROR
+test_codex_cumulative_snapshots_not_added (test_native_calibration.CalibrationTest.test_codex_cumulative_snapshots_not_added) ... ok
+test_codex_legacy_trace_does_not_imply_zero_compaction_cost (test_native_calibration.CalibrationTest.test_codex_legacy_trace_does_not_imply_zero_compaction_cost) ... ERROR
+test_codex_missing_compaction_record_is_unknown (test_native_calibration.CalibrationTest.test_codex_missing_compaction_record_is_unknown) ... ERROR
+test_independent_raw_truth (test_native_calibration.CalibrationTest.test_independent_raw_truth) ... ok
+test_later_fragment_completes_same_response (test_native_calibration.CalibrationTest.test_later_fragment_completes_same_response) ... ok
+test_malformed_trace_rejected (test_native_calibration.CalibrationTest.test_malformed_trace_rejected) ... ok
+test_missing_response_identity_or_usage_is_unknown (test_native_calibration.CalibrationTest.test_missing_response_identity_or_usage_is_unknown) ... ok
+test_parent_child_relationship (test_native_calibration.CalibrationTest.test_parent_child_relationship) ... ok
+test_partial_response_telemetry_never_reports_complete_total (test_native_calibration.CalibrationTest.test_partial_response_telemetry_never_reports_complete_total) ... ok
+test_prose_fixture_raw_truth (test_native_calibration.CalibrationTest.test_prose_fixture_raw_truth) ... ok
+test_repeated_message_fragments_do_not_multiply_context_or_tools (test_native_calibration.CalibrationTest.test_repeated_message_fragments_do_not_multiply_context_or_tools) ... ok
+test_sqlite_source_string_does_not_hide_child (test_native_calibration.CollectorTest.test_sqlite_source_string_does_not_hide_child) ... ok
+test_codex_pair_and_unequal_budget (test_native_calibration.PairControlTest.test_codex_pair_and_unequal_budget) ... ok
+test_command_drift_rejects_even_when_summary_fields_match (test_native_calibration.PairControlTest.test_command_drift_rejects_even_when_summary_fields_match) ... ok
+test_deployment_difference_is_declared_not_instruction_effect (test_native_calibration.PairControlTest.test_deployment_difference_is_declared_not_instruction_effect) ... ok
+test_fixture_drift_is_caught_before_inference (test_native_calibration.PairControlTest.test_fixture_drift_is_caught_before_inference) ... ok
+test_global_skill_addition_and_change_are_detected (test_native_calibration.PairControlTest.test_global_skill_addition_and_change_are_detected) ... ok
+test_identical_command_tampering_cannot_bypass_declared_controls (test_native_calibration.PairControlTest.test_identical_command_tampering_cannot_bypass_declared_controls) ... ok
+test_legacy_pair_cannot_certify_matched_routing (test_native_calibration.PairControlTest.test_legacy_pair_cannot_certify_matched_routing) ... ok
+test_new_native_agent_is_detected (test_native_calibration.PairControlTest.test_new_native_agent_is_detected) ... ok
+test_peer_missing_usage_stops_before_runner_import (test_native_calibration.PairControlTest.test_peer_missing_usage_stops_before_runner_import) ... ok
+test_prose_fixture_keeps_its_existing_reference (test_native_calibration.PairControlTest.test_prose_fixture_keeps_its_existing_reference) ... ok
+test_routing_keeps_tool_and_skill_availability_equal (test_native_calibration.PairControlTest.test_routing_keeps_tool_and_skill_availability_equal) ... ok
+test_run_requires_peer_before_importing_runner (test_native_calibration.PairControlTest.test_run_requires_peer_before_importing_runner) ... ok
+
+======================================================================
+ERROR: test_codex_compaction_usage_kept_separate_from_event_snapshot (test_native_calibration.CalibrationTest.test_codex_compaction_usage_kept_separate_from_event_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_native_calibration.py", line 64, in test_codex_compaction_usage_kept_separate_from_event_snapshot
+    self.assertEqual(usage['usage_last_record_cumulative'], total)
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'usage_last_record_cumulative'
+
+======================================================================
+ERROR: test_codex_conflicting_or_invalid_compaction_usage_is_unknown (test_native_calibration.CalibrationTest.test_codex_conflicting_or_invalid_compaction_usage_is_unknown) (changed={'input_tokens': 31, 'output_tokens': 5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_native_calibration.py", line 87, in test_codex_conflicting_or_invalid_compaction_usage_is_unknown
+    self.assertIsNone(usage['compaction_response_usage'])
+                      ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'compaction_response_usage'
+
+======================================================================
+ERROR: test_codex_conflicting_or_invalid_compaction_usage_is_unknown (test_native_calibration.CalibrationTest.test_codex_conflicting_or_invalid_compaction_usage_is_unknown) (changed={'input_tokens': True, 'output_tokens': 5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_native_calibration.py", line 87, in test_codex_conflicting_or_invalid_compaction_usage_is_unknown
+    self.assertIsNone(usage['compaction_response_usage'])
+                      ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'compaction_response_usage'
+
+======================================================================
+ERROR: test_codex_legacy_trace_does_not_imply_zero_compaction_cost (test_native_calibration.CalibrationTest.test_codex_legacy_trace_does_not_imply_zero_compaction_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_native_calibration.py", line 92, in test_codex_legacy_trace_does_not_imply_zero_compaction_cost
+    self.assertIsNone(usage['usage_last_record_cumulative'])
+                      ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'usage_last_record_cumulative'
+
+======================================================================
+ERROR: test_codex_missing_compaction_record_is_unknown (test_native_calibration.CalibrationTest.test_codex_missing_compaction_record_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_native_calibration.py", line 73, in test_codex_missing_compaction_record_is_unknown
+    self.assertIsNone(usage['usage_last_record_cumulative'])
+                      ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'usage_last_record_cumulative'
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.574s
+
+FAILED (errors=5)
