@@ -87,7 +87,7 @@ def extract(source):
               'lines': len(records), 'record_types': dict(types), 'models': sorted(m for m in models if m),
               'span_seconds': (max(stamps) - min(stamps)).total_seconds() if stamps else None,
               'response_ids': len(responses), 'usage_missing_lines': missing_usage,
-              'parent_or_child_usage_totals': dict(totals) if not missing_usage else None,
+              'parent_or_child_usage_totals': dict(totals) if responses and not missing_usage else None,
               'tools': dict(tools), 'tool_calls': len(calls),
               'compaction_lines': compact, 'explicit_tool_error_lines': errors,
               'task_starts': starts, 'task_completions': completed,
@@ -99,17 +99,25 @@ def extract(source):
                   if r['type'] == 'event_msg' and r['payload'].get('type') == 'token_count'
                   and r['payload'].get('info')]
         result['last_cumulative_usage'] = {'line': counts[-1][0], 'usage': counts[-1][1]} if counts else None
-        result['response_usage_reconciles_with_cumulative'] = bool(counts) and all(totals[k] == counts[-1][1][k] for k in totals)
+        event_comparable = (bool(responses) and not missing_usage and bool(counts)
+                            and adapter.valid_usage('codex', counts[-1][1])
+                            and set(totals) <= set(counts[-1][1]))
+        result['response_usage_reconciles_with_cumulative'] = all(
+            totals[k] == counts[-1][1][k] for k in totals) if event_comparable else None
         details = adapter.codex_usage_details([r for _, r in records])
         result['record_and_compaction_evidence'] = details
         compaction_totals = collections.Counter()
         for usage in (details['compaction_response_usage'] or {}).values():
             compaction_totals.update(usage)
         result['compaction_usage_totals'] = dict(compaction_totals) if details['compaction_usage_complete'] else None
+        last = details['usage_last_record_cumulative']
+        record_comparable = (bool(responses) and not missing_usage and last is not None
+                             and set(totals) <= set(last))
         result['response_sum_matches_record_total'] = all(
-            totals[k] == (details['usage_last_record_cumulative'] or {}).get(k) for k in totals)
-        result['event_snapshot_plus_compactions_matches_record_total'] = bool(counts) and details['compaction_usage_complete'] and all(
-            counts[-1][1].get(k, 0) + compaction_totals[k] == totals[k] for k in totals)
+            totals[k] == last[k] for k in totals) if record_comparable else None
+        result['event_snapshot_plus_compactions_matches_record_total'] = all(
+            counts[-1][1][k] + compaction_totals[k] == totals[k] for k in totals
+        ) if event_comparable and record_comparable and details['compaction_usage_complete'] else None
         result['nested_shell_wait_calls'] = sum(
             len(re.findall(r'tools\.write_stdin\s*\(', str(args))) for _, name, args in calls.values() if name == 'exec')
     result['complete_cost_usd'] = None

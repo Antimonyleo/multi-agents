@@ -136,3 +136,34 @@ checks use temporary homes through the existing suite. The shared runner and
 live routing/settings were unchanged. The previous independent Stage A acceptance
 covers its historical inputs; it does not certify this later diagnostic extension.
 No live capture or efficiency claim is added.
+
+## Independent correction review and fresh preparation
+
+The [independent review](review.json) initially requested two corrections. An
+invalid earlier bool/float count could compare equal to a later integer and be
+lost during deduplication; `cache_write_input_tokens` also lacked validation.
+The extractor treated an empty response ledger as successful reconciliation.
+These were defects in the extension at `cf4a306`, beyond its passing test scope.
+
+Every compaction record is now validated before duplicate comparison. Invalid
+status remains attached to that response ID, and cache-write counts receive
+strict integer/nonnegative validation. Missing response totals and comparisons
+now remain `null`; valid zero usage still reconciles. Frozen inputs were preserved
+and the derived summary was regenerated. Parent measurements above are unchanged.
+
+Two more regression methods reproduced six failure cases before correction.
+The [focused check](review-focused.log) passed 30 tests; the
+[full suite](review-suite.log) passed 89 tests in 4.227 seconds. The failing cases
+are retained in [review-red.log](review-red.log); trailing terminal whitespace
+was trimmed when archiving these three logs. Structure/protected-file, skill,
+instruction and whitespace checks passed. Separate extractor checks verified
+absent and valid-zero usage against temporary files and the corrected frozen
+summary. The reviewer accepted both corrections with no remaining blocker in
+that scope. This does not certify live qualification, permissions or savings.
+
+[Fresh offline preparation](../test-evidence/live-preflight-2026-10-10.json)
+records three scratch families for the reviewed adapter. Frozen-input checks and
+the matched semantic pair passed. Claude version was 2.1.296. Prior preparations
+and their historical evidence were preserved. No benchmark parent or helper
+started. The budget question remains unanswered; a general continuation does not
+select between reported limits with headroom and a strict pre-request cap.

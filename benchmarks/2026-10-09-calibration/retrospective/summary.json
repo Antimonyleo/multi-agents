@@ -1,7 +1,7 @@
 {
   "scope": "Two existing long parent sessions, one scientific preparation and one workflow maintenance; bounded diagnostic retrospective, not a matched comparison.",
-  "adapter_sha256": "87161b2fe99b03cb3279eaeac7c9abaecdbc93dfe41bf45b82baedfea67903ab",
-  "extractor_sha256": "02fccfca77be4475cc0f60082b00ebe58e92d1e53e39074ed116b3377280f4e2",
+  "adapter_sha256": "2dbf1ee58877dd41c2294178b7339ece6d8af4f7faebd14825091aa5ed53f27c",
+  "extractor_sha256": "be0a37ec3937b48120a00517cc6dbc0c8c29222385f891e04ff8edac6bd0215e",
   "parents": [
     {
       "runtime": "codex",
@@ -791,7 +791,7 @@
       "span_seconds": 0.005,
       "response_ids": 0,
       "usage_missing_lines": [],
-      "parent_or_child_usage_totals": {},
+      "parent_or_child_usage_totals": null,
       "tools": {},
       "tool_calls": 0,
       "compaction_lines": [],
@@ -802,15 +802,15 @@
       "final_message_lines": [],
       "exact_repeated_tool_calls": [],
       "last_cumulative_usage": null,
-      "response_usage_reconciles_with_cumulative": false,
+      "response_usage_reconciles_with_cumulative": null,
       "record_and_compaction_evidence": {
         "usage_last_record_cumulative": null,
         "compaction_response_usage": null,
         "compaction_usage_complete": null
       },
       "compaction_usage_totals": null,
-      "response_sum_matches_record_total": true,
-      "event_snapshot_plus_compactions_matches_record_total": false,
+      "response_sum_matches_record_total": null,
+      "event_snapshot_plus_compactions_matches_record_total": null,
       "nested_shell_wait_calls": 0,
       "complete_cost_usd": null
     },

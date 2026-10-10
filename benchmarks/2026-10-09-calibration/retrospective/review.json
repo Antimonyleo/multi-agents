@@ -1,0 +1,45 @@
+{
+  "scope": "Independent review of cf4a306 compaction telemetry and bounded retrospective, then targeted correction followup.",
+  "role": "scientific_reviewer",
+  "configured_model": "gpt-6-astra",
+  "configured_effort": "high",
+  "initial_commit": "cf4a3061073df4667f465f09d1d7de676161a0a6",
+  "initial_disposition": "revise",
+  "findings": [
+    {
+      "severity": "P2",
+      "finding": "Earlier invalid bool/float usage could be overwritten by an equal integer; cache_write_input_tokens was not validated.",
+      "resolution": "Validate every record before duplicate comparison; retain invalid identity status; strictly validate cache-write counts.",
+      "status": "resolved"
+    },
+    {
+      "severity": "P2",
+      "finding": "Missing response usage received a successful empty all() reconciliation flag.",
+      "resolution": "Require observed complete response evidence and available cumulative fields; absent totals and comparisons are null.",
+      "status": "resolved"
+    }
+  ],
+  "final_disposition": "continue; no remaining blocker in this correction scope",
+  "required_tests": {
+    "tests": 89,
+    "status": "pass",
+    "seconds": 4.227,
+    "log": "review-suite.log"
+  },
+  "scoped_extractor_checks": [
+    "Absent usage stays unknown.",
+    "Valid zero usage reconciles.",
+    "Frozen parent arithmetic unchanged."
+  ],
+  "reviewed_sources": {
+    "scripts/native_calibration.py": "2dbf1ee58877dd41c2294178b7339ece6d8af4f7faebd14825091aa5ed53f27c",
+    "tests/test_native_calibration.py": "e6e46594e2aa3b327c393d9311d9fcb9de98d67c9793a8f14b18d2138a9f4c92",
+    "benchmarks/2026-10-09-calibration/retrospective/extract.py": "be0a37ec3937b48120a00517cc6dbc0c8c29222385f891e04ff8edac6bd0215e",
+    "benchmarks/2026-10-09-calibration/retrospective/summary.json": "f2af4001ea4e6fd7767f94154e36b52dc98094399e40b8863d6eb01262f85e15"
+  },
+  "review_limits": [
+    "Read-only review and in-memory probes; no edits or full-suite reruns.",
+    "No live native qualification, budget approval, scientific acceptance or efficiency verdict.",
+    "Reviewer/coordinator cost is unknown; no full-project spend claim."
+  ]
+}

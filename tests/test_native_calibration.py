@@ -102,6 +102,30 @@ class CalibrationTest(unittest.TestCase):
                 usage = native.normalize('codex', [], [trace])['thread_usage'][0]
                 self.assertIsNone(usage['usage_last_record_cumulative'])
 
+    def test_codex_invalid_earlier_compaction_usage_stays_unknown(self):
+        for invalid in (True, 1.0):
+            with self.subTest(invalid=invalid):
+                trace = [{'type': 'token_usage_record', 'payload': {
+                    'response_id': 'compact', 'usage': {'input_tokens': invalid, 'output_tokens': 0}}},
+                    {'type': 'token_usage_record', 'payload': {
+                        'response_id': 'compact', 'usage': {'input_tokens': 1, 'output_tokens': 0}}},
+                    {'type': 'compacted', 'payload': {'compaction_response_id': 'compact'}}]
+                usage = native.normalize('codex', [], [trace])['thread_usage'][0]
+                self.assertIsNone(usage['compaction_response_usage'])
+                self.assertFalse(usage['compaction_usage_complete'])
+
+    def test_codex_invalid_cache_write_counts_are_unknown(self):
+        for invalid in (-1, True, 1.0, '1'):
+            with self.subTest(invalid=invalid):
+                value = {'input_tokens': 1, 'output_tokens': 0, 'cache_write_input_tokens': invalid}
+                trace = [{'type': 'token_usage_record', 'payload': {
+                    'response_id': 'compact', 'usage': value, 'thread_token_usage': value}},
+                    {'type': 'compacted', 'payload': {'compaction_response_id': 'compact'}}]
+                usage = native.normalize('codex', [], [trace])['thread_usage'][0]
+                self.assertIsNone(usage['usage_last_record_cumulative'])
+                self.assertIsNone(usage['compaction_response_usage'])
+                self.assertFalse(usage['compaction_usage_complete'])
+
     def test_children_never_count_as_zero(self):
         stream = [{'type': 'assistant', 'message': {'model': 'opus', 'content': [
             {'type': 'tool_use', 'name': 'Agent', 'id': 'a', 'input': {'subagent_type': 'scientific_explorer'}}]}},

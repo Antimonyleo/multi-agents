@@ -1,0 +1,64 @@
+{
+  "status": "prepared offline; reviewed capture correction; no benchmark starts",
+  "scratch_root": "/tmp/workflow-native-reviewed-20261010-xlkrpqr_",
+  "inputs": [
+    {
+      "name": "qualification",
+      "output": "/tmp/workflow-native-reviewed-20261010-xlkrpqr_/qualification",
+      "manifest_sha256": "d56dd7aa4fe294521cd074b7637b6237a579d79233c4b1b5678c04df5b748bae",
+      "manifest_evidence": "qualification-preparation-2026-10-10.json",
+      "adapter_sha256": "2dbf1ee58877dd41c2294178b7339ece6d8af4f7faebd14825091aa5ed53f27c",
+      "cli_estimate_cap_usd": 0.4,
+      "frozen_errors": []
+    },
+    {
+      "name": "baseline",
+      "output": "/tmp/workflow-native-reviewed-20261010-xlkrpqr_/baseline",
+      "manifest_sha256": "355f52107e333d82ef5c8f2f209f1b9b53d01d9eb6a85a21240c80622720df1c",
+      "manifest_evidence": "baseline-preparation-2026-10-10.json",
+      "adapter_sha256": "2dbf1ee58877dd41c2294178b7339ece6d8af4f7faebd14825091aa5ed53f27c",
+      "cli_estimate_cap_usd": 0.8,
+      "frozen_errors": []
+    },
+    {
+      "name": "workflow",
+      "output": "/tmp/workflow-native-reviewed-20261010-xlkrpqr_/workflow",
+      "manifest_sha256": "f0001689700f9c886eb697afd841f17a0731124dc3d5ad63328a751cd5827b14",
+      "manifest_evidence": "workflow-preparation-2026-10-10.json",
+      "adapter_sha256": "2dbf1ee58877dd41c2294178b7339ece6d8af4f7faebd14825091aa5ed53f27c",
+      "cli_estimate_cap_usd": 0.8,
+      "frozen_errors": []
+    }
+  ],
+  "pair": {
+    "controls_match": true,
+    "errors": [],
+    "declared_capability_differences": [],
+    "savings_claim_supported": false,
+    "limitations": [
+      "not evidence of implementation or review benefit",
+      "scriptable extraction cannot establish helper break-even by file count",
+      "runtime context/cache may vary despite matched declared controls",
+      "local inventory excludes plugin contents, builtins and remote catalogs; effective capability validation is required before causal claims",
+      "session usage excludes unmeasured setup/coordinator/review cost"
+    ],
+    "question": "workflow use with matched capabilities"
+  },
+  "runtime_version": "2.1.296",
+  "scope": "Previously proposed three Claude parent families and at most two helpers; not an execution authorization.",
+  "budget_gate_pass": false,
+  "qualification_gate_pass": false,
+  "parent_start_cap": 3,
+  "helper_start_cap": 2,
+  "benchmark_parent_starts": 0,
+  "benchmark_helper_starts": 0,
+  "target_usd": 2,
+  "ceiling_usd": 3,
+  "coordinator_review_cost": "unknown and outside benchmark family estimates",
+  "limits": [
+    "Budget interpretation is unanswered; continue did not select an interpretation.",
+    "Native limits can overshoot after responses.",
+    "Capture checks do not establish effective permissions or inclusive family accounting.",
+    "Preparation files are historical evidence, not portable workspaces."
+  ]
+}

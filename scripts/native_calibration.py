@@ -170,7 +170,7 @@ def events(path):
 
 def valid_usage(provider, value):
     required = ('input_tokens', 'output_tokens')
-    optional = ('cached_input_tokens', 'cache_creation_input_tokens', 'cache_read_input_tokens', 'reasoning_output_tokens', 'total_tokens')
+    optional = ('cached_input_tokens', 'cache_write_input_tokens', 'cache_creation_input_tokens', 'cache_read_input_tokens', 'reasoning_output_tokens', 'total_tokens')
     return (isinstance(value, dict) and all(type(value.get(k)) is int and value[k] >= 0 for k in required)
             and all(type(value[k]) is int and value[k] >= 0 for k in optional if k in value))
 
@@ -232,6 +232,8 @@ def codex_usage_details(trace):
         if type(ident) is not str or not ident:
             continue
         value = record.get('usage')
+        if not valid_usage('codex', value):
+            conflicts.add(ident)
         if ident in usage and usage[ident] != value:
             conflicts.add(ident)
         usage[ident] = value

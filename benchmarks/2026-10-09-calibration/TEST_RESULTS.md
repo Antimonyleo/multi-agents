@@ -67,3 +67,14 @@ specifications are prepared only. No new native family was started and no
 savings/default claim follows. Previous scratch preparations need regeneration
 for the changed adapter after the budget gate is resolved; historical manifests
 and the original six prepared cases remain unchanged.
+
+During continuation, independent review of that extension found invalid earlier
+usage lost during duplicate comparison and missing ledgers marked reconciled.
+Both findings were corrected and accepted on targeted followup. The full suite
+now passes 89 tests; details and red/green logs are in the retrospective's
+[review record](retrospective/review.json). Derived empty-ledger totals/flags are
+unknown; frozen source inputs and parent arithmetic are unchanged.
+[Fresh preparations](test-evidence/live-preflight-2026-10-10.json) pass frozen
+checks and matched-pair preflight. No benchmark starts occurred. The budget
+choice remains unanswered, so native qualification and comparison remain
+unexecuted. Review/coordinator cost is unknown and outside family estimates.
