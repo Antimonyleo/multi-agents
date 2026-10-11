@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "clean_controls": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "defect": {
+            "type": "string"
+          },
+          "packet": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "packet",
+          "defect"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "packet_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "packet_digest",
+    "decision",
+    "findings",
+    "clean_controls"
+  ],
+  "type": "object"
+}

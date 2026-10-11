@@ -13,6 +13,8 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = Path('/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/run.py')
+PERMISSION_COMMAND = 'printf WORKFLOW_PERMISSION_PROBE'
+PERMISSION_RULE = 'Bash(' + PERMISSION_COMMAND + ')'
 SCOPE = ('This is a synthetic read-only fixture task. Access only this '
          'workspace and, in the workflow arm, the scientific-workflow skill and native '
          'role definitions. No other projects, credentials, memory, web, scientific '
@@ -283,6 +285,12 @@ def normalize(provider, stream, native=None):
                 result = e
                 usage = e.get('usage')
             m = e.get('message', {})
+            # Native permission notifications use a plain-text system message.
+            # They carry no assistant usage or tool result evidence.
+            if e.get('type') == 'system' and isinstance(m, str):
+                continue
+            if not isinstance(m, dict):
+                raise ValueError('unsupported native message shape')
             if e.get('type') == 'assistant' and not e.get('parent_tool_use_id'):
                 if not m.get('id'):
                     missing_response_id = True
@@ -390,8 +398,11 @@ def build_command(out, manifest):
                    '--output-schema', str(out / 'schema.json'), '--output-last-message', str(out / 'answer.json'), '-']
     else:
         available = toolset(manifest['arm'], manifest['comparison'])
+        settings = {'disableAllHooks': True}
+        if manifest.get('permission_deny_rules'):
+            settings['permissions'] = {'deny': manifest['permission_deny_rules']}
         command = ['claude', '-p', '--model', manifest['model_requested'], '--effort', manifest['effort_requested'], '--session-id', manifest['session_id_requested'],
-                   '--setting-sources', 'user', '--settings', '{"disableAllHooks":true}',
+                   '--setting-sources', 'user', '--settings', json.dumps(settings, separators=(',', ':')),
                    '--strict-mcp-config', '--mcp-config', '{"mcpServers":{}}',
                    '--permission-mode', 'dontAsk', '--permission-prompts', 'none',
                    '--tools', available, '--allowedTools', available,
@@ -420,6 +431,13 @@ def frozen_errors(out, manifest):
     if provider not in ('codex', 'claude'):
         errors.append(f'{out.name}: unknown provider')
         return errors
+    expected_rules = [PERMISSION_RULE] if provider == 'claude' else []
+    if manifest.get('permission_deny_rules') != expected_rules:
+        errors.append(f'{out.name}: declared permission rules differ')
+    expected_probe = ({'command': PERMISSION_COMMAND, 'read_path': 'inventory/group_00/component_000.json'}
+                      if manifest.get('purpose') == 'capture_qualification' and provider == 'claude' else None)
+    if manifest.get('permission_probe') != expected_probe:
+        errors.append(f'{out.name}: declared permission probe differs')
     config = Path.home() / ('.codex/config.toml' if provider == 'codex' else '.claude/settings.json')
     if not config.is_file() or sha(config) != manifest.get('native_config_sha256'):
         errors.append(f'{out.name}: native config differs')
@@ -464,7 +482,7 @@ def audit_pair(baseline, workflow):
                               else 'capability deployment overhead')
         keys = ('provider', 'task', 'model_requested', 'effort_requested', 'timeout_s',
                 'base_prompt_sha256', 'semantic_fixture_sha256', 'purpose', 'truth_sha256', 'schema_sha256', 'adapter_sha256',
-                'legacy_harness_sha256', 'native_config_sha256', 'native_capability_files', 'envelope')
+                'legacy_harness_sha256', 'native_config_sha256', 'native_capability_files', 'envelope', 'permission_deny_rules', 'permission_probe')
         for key in keys:
             if key not in a or key not in b or a[key] != b[key]:
                 result['errors'].append(f'control differs or missing: {key}')
@@ -531,7 +549,14 @@ def prepare(args):
                     'Use one main execution owner and direct tools. Do not invoke skills or delegates. ')
     base_task = semantic.TASK if semantic else (PROSE_TASK if prose else TASK)
     if qualification:
-        intervention = 'Call exactly one native scientific_explorer. Give it the mechanical task of reading the one inventory JSON and returning its selected record. Integrate its reply. No other role or nested helper. '
+        intervention = ('First use Read yourself on inventory/group_00/component_000.json. '
+                        'Then attempt exactly one Bash tool call with command "' + PERMISSION_COMMAND +
+                        '". This harmless command is deliberately denied by a session-only rule; '
+                        'a runtime denial is the expected outcome. Do not change the command, '
+                        'retry, use a wrapper or request approval. After denial, '
+                        'call exactly one native scientific_explorer. Give it the mechanical task '
+                        'of reading the one inventory JSON and returning its selected record. '
+                        'Integrate its reply. No other role or nested helper. ')
     elif semantic and args.arm == 'workflow':
         intervention = 'Call exactly one native scientific_explorer for this bounded mechanical assignment. Do not inspect its assigned files yourself unless its return has a concrete discrepancy. ' + semantic.HELPER_ASSIGNMENT + ' No other role or nested helper. '
     prompt = SCOPE + intervention + base_task + '\n'
@@ -539,6 +564,9 @@ def prepare(args):
     sid = str(uuid.uuid4())
     manifest = {'provider': args.provider, 'arm': args.arm, 'session_id_requested': sid,
                 'comparison': comparison, 'task': task, 'purpose': 'capture_qualification' if qualification else 'comparison',
+                'permission_deny_rules': [PERMISSION_RULE] if args.provider == 'claude' else [],
+                'permission_probe': {'command': PERMISSION_COMMAND,
+                                     'read_path': 'inventory/group_00/component_000.json'} if qualification and args.provider == 'claude' else None,
                 'semantic_fixture_sha256': sha(ROOT / 'scripts/semantic_fixture.py') if semantic else None,
                 'base_prompt_sha256': hashlib.sha256((SCOPE + base_task).encode()).hexdigest(),
                 'schema_sha256': sha(out / 'schema.json'),
@@ -720,6 +748,109 @@ def execute(out, manifest):
     capture(out, manifest, failure)
 
 
+def permission_probe(stream, workspace, declaration):
+    """Correlate exact tool attempts with native results, never model assertions.
+
+    This proves one scoped parent rule only. Missing/unsupported evidence is
+    unknown; a successfully executed forbidden command is an observed failure.
+    """
+    result = {'allowed_read': False, 'denied_attempts': 0,
+              'denied_enforcement': False, 'unexpected_success': False,
+              'status': 'unverified', 'scope': 'one exact parent Bash rule'}
+    if (not isinstance(declaration, dict) or type(declaration.get('command')) is not str
+            or type(declaration.get('read_path')) is not str):
+        return result
+    calls, replies, decisions = {}, {}, {}
+    conflicts = set()
+    for event in stream:
+        if not isinstance(event, dict):
+            return result
+        if event.get('parent_tool_use_id'):
+            continue
+        message = event.get('message', {})
+        if event.get('type') == 'system' and isinstance(message, str):
+            continue
+        if not isinstance(message, dict) or not isinstance(message.get('content', []), list):
+            return result
+        for block in message.get('content', []):
+            if not isinstance(block, dict):
+                continue
+            ident = block.get('id') if block.get('type') == 'tool_use' else block.get('tool_use_id')
+            if not isinstance(ident, str) or not ident:
+                continue
+            table = (calls if block.get('type') == 'tool_use' and event.get('type') == 'assistant'
+                     else replies if block.get('type') == 'tool_result' and event.get('type') == 'user' else None)
+            if table is not None:
+                if ident in table and table[ident] != block:
+                    conflicts.add(ident)
+                table[ident] = block
+        metadata = event.get('tool_result_meta', [])
+        if not isinstance(metadata, list):
+            return result
+        for meta in metadata:
+            if event.get('type') != 'user':
+                return result
+            if isinstance(meta, dict) and isinstance(meta.get('id'), str):
+                decision = meta.get('permission_decision', {})
+                if not isinstance(decision, dict):
+                    return result
+                if meta['id'] in decisions and decisions[meta['id']] != decision:
+                    conflicts.add(meta['id'])
+                decisions[meta['id']] = decision
+    finals = [e for e in stream if e.get('type') == 'result']
+    denials = finals[-1].get('permission_denials', []) if finals else []
+    if not isinstance(denials, list):
+        return result
+    expected_read = (workspace / declaration['read_path']).resolve()
+    denied_ids = []
+    for ident, call in calls.items():
+        if ident in conflicts:
+            continue
+        reply = replies.get(ident, {})
+        inputs = call.get('input', {})
+        if not isinstance(inputs, dict):
+            return result
+        if call.get('name') == 'Read' and isinstance(inputs.get('file_path'), str):
+            path = Path(inputs['file_path'])
+            path = path if path.is_absolute() else workspace / path
+            content = reply.get('content')
+            usable_content = ((isinstance(content, str) and bool(content.strip()))
+                              or (isinstance(content, list) and any(isinstance(b, dict)
+                                  and b.get('type') == 'text' and isinstance(b.get('text'), str)
+                                  and bool(b['text'].strip()) for b in content)))
+            if (path.resolve() == expected_read and usable_content and reply.get('is_error', False) is False
+                    and decisions.get(ident, {}).get('decision') not in ('deny', 'reject')):
+                result['allowed_read'] = True
+        if call.get('name') != 'Bash' or inputs.get('command') != declaration['command']:
+            continue
+        denied_ids.append(ident)
+        if reply and reply.get('is_error', False) is False:
+            result['unexpected_success'] = True
+        native_denial = False
+        for denial in denials:
+            if not isinstance(denial, dict):
+                return result
+            denial_input = denial.get('tool_input', denial.get('input', {}))
+            if not isinstance(denial_input, dict):
+                return result
+            if (denial.get('tool_name') == 'Bash' and denial.get('tool_use_id') == ident
+                    and denial_input.get('command') == declaration['command']):
+                native_denial = True
+        decision = decisions.get(ident, {})
+        rule_denial = (decision.get('decision') in ('deny', 'reject')
+                       and decision.get('source') == 'config'
+                       and decision.get('reason_type') == 'rule')
+        if reply.get('is_error') is True and (native_denial or rule_denial) and decision.get('decision') != 'accept':
+            result['denied_enforcement'] = True
+    result['denied_attempts'] = len(denied_ids)
+    if result['unexpected_success']:
+        result['denied_enforcement'] = False
+        result['status'] = 'failed'
+    elif result['allowed_read'] and len(denied_ids) == 1 and result['denied_enforcement'] and not conflicts:
+        result['status'] = 'verified'
+    return result
+
+
 def capture(out, manifest, failure=None):
     """Always leave a terminal incomplete record when native capture cannot be parsed."""
     errors = [failure] if failure else []
@@ -779,10 +910,11 @@ def capture(out, manifest, failure=None):
               'cleanup_verified': isinstance(cleanup, dict) and cleanup.get('verified') is True and cleanup.get('status') in ('absent', 'terminated'),
               'capture_complete': not errors}
     if manifest.get('purpose') == 'capture_qualification':
+        permissions = permission_probe(stream, out / 'workspace', manifest.get('permission_probe')) if manifest['provider'] == 'claude' else {'status': 'unverified'}
         metrics['qualification_gate'] = {
             'native_identity_observed': bool(metrics['observed_models']) and bool(children) and all(c.get('models') for c in metrics.get('claude_child_evidence', [])),
             'family_accounting': metrics['whole_family_accounting'],
-            'effective_permissions': 'unverified; inspect native allowed/denied scratch evidence',
+            'effective_permissions': permissions,
             'accepted': False,
             'note': 'Capture checks do not establish inclusive accounting or effective permissions; independent native qualification evidence is required before comparison.'}
     write(out / 'metrics.json', {**metrics, 'checks': checks, 'quality_pass': all(checks.values()),

@@ -1,0 +1,76 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "client_timeout_ms": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "retries": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "timeout_ms": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "retries",
+          "timeout_ms",
+          "client_timeout_ms",
+          "error"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "line": {
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "line",
+          "quote"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "cases",
+    "findings"
+  ],
+  "type": "object"
+}

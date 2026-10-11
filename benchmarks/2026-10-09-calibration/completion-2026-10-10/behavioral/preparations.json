@@ -1,0 +1,55 @@
+{
+  "budget_authority": "pending expanded allocation",
+  "cases": [
+    {
+      "case": "routine_restraint",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/routine_restraint/stage-1",
+      "stage_reported_cap_usd": 0.6,
+      "stages": 1
+    },
+    {
+      "case": "autonomous_support",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/autonomous_support/stage-1",
+      "stage_reported_cap_usd": 0.6,
+      "stages": 1
+    },
+    {
+      "case": "review_reuse",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/review_reuse/stage-1",
+      "stage_reported_cap_usd": 0.3,
+      "stages": 2
+    },
+    {
+      "case": "pause_preservation",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/pause_preservation/stage-1",
+      "stage_reported_cap_usd": 0.6,
+      "stages": 1
+    },
+    {
+      "case": "dependent_owner",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/dependent_owner/stage-1",
+      "stage_reported_cap_usd": 0.6,
+      "stages": 1
+    },
+    {
+      "case": "review_value",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/review_value/stage-1",
+      "stage_reported_cap_usd": 0.6,
+      "stages": 1
+    },
+    {
+      "case": "receipt_reuse",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/receipt_reuse/stage-1",
+      "stage_reported_cap_usd": 0.19999999999999998,
+      "stages": 3
+    },
+    {
+      "case": "compaction_recovery",
+      "stage_1_prepared": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/compaction_recovery/stage-1",
+      "stage_reported_cap_usd": 0.3,
+      "stages": 2
+    }
+  ],
+  "fixture_truth_stays_outside_workspaces": true,
+  "native_launches": 0
+}

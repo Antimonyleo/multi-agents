@@ -1,0 +1,10 @@
+{
+  "status": "USER_PAUSED_DO_NOT_RESUME",
+  "owner": "main",
+  "checkpoint": "fixture-checkpoint-001",
+  "completed": [
+    "inspect_inputs"
+  ],
+  "earliest_incomplete": "repair_units",
+  "retry_authority": false
+}

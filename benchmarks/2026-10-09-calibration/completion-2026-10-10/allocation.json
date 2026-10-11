@@ -1,0 +1,37 @@
+{
+  "authority": "continue, do not stop until all planned tests are done and you have a final idea",
+  "automatic_retries": false,
+  "comparison_status": "workflow failed exact source-quote whitespace; baseline and reverse stopped by peer gate",
+  "coordinator_review_cost": "unknown, excluded",
+  "created_at_utc": "2026-10-11T01:35:57.106665+00:00",
+  "expanded_budget_answer": null,
+  "family_deadline_s": 300,
+  "new_qualification_start_authorized_by_latest_instruction": true,
+  "observed_reported_cost_usd": 0.478930105,
+  "offline_full_suite_status": "passed110 in1146.823 seconds; final focused changes checked separately",
+  "prior_reported_family_usd": 0.201237295,
+  "project2": "USER_PAUSED_DO_NOT_RESUME",
+  "qualification_status": "independently accepted for narrow matched pair",
+  "reported_caps_usd": {
+    "baseline": 0.8,
+    "qualification": 0.4,
+    "workflow": 0.8
+  },
+  "reported_limits_may_overshoot": true,
+  "scientific_execution": false,
+  "scope_now": "one corrected qualification plus conditional matched pair within original nominal $3 scope; later behavioral/Codex allocation pending",
+  "scratch_dir": "/home/hao/.cache/codex-scratch/task.LMILbF",
+  "started": [
+    {
+      "at_utc": "2026-10-11T01:47:43.526115+00:00",
+      "case": "qualification",
+      "reported_limit_usd": 0.4
+    },
+    {
+      "at_utc": "2026-10-11T01:52:57.827730+00:00",
+      "case": "semantic_workflow",
+      "reported_limit_usd": 0.8
+    }
+  ],
+  "sum_prior_observation_and_new_caps_usd": 2.201237295
+}

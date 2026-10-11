@@ -4,9 +4,47 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-10, approved native qualification terminal; comparison stopped at the permission-evidence gate (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-10, corrected qualification accepted; semantic workflow arm failed exact quotes; offline validation and independent corrections review complete (branch `codex-claude-shared-workflow-20261009`; no push).
 
 Goal: a shared Codex/Claude scientific workflow skill with separate native adapters, checked against measured execution.
+
+Active continuation: [completion results](../benchmarks/2026-10-09-calibration/completion-2026-10-10/RESULTS.md) and [plan](../benchmarks/2026-10-09-calibration/COMPLETION_PLAN.md).
+The new permission probe passed independent review and one fresh native qualification:
+all seven capture checks, successful parent Read, one runtime-denied exact Bash
+attempt, one native Haiku explorer, reconciled family accounting and owned cleanup.
+The saved trace was reprocessed offline after fixing a supported plain-string
+system notification; no paid retry. Cost was $0.208085625; wall time 28.337 s.
+
+The randomized semantic order was workflow then baseline. The workflow arm
+returned all 10 outcome rows and both defect locations correctly, but both
+quotes omitted four leading spaces. Exact output failed. Cost was $0.270844480;
+wall time 29.800 s. Preserve that failure. Baseline and reverse pair stopped
+without a start or retry. No matched savings or default-change claim.
+
+All eight behavioral fixtures and their twelve stages are implemented.
+Independent review found five evaluator defects, now corrected and accepted:
+pause shell chaining, fabricated check success, conflicting native tool results,
+unaccepted predecessor stages and false rejection of required Skill loading.
+The full repository suite passed 110 tests; final affected permission tests (9)
+and behavioral tests (20) pass separately. Source/link/protected-identity checks,
+skill structure and instruction health pass. The full suite preceded the last
+focused corrections; do not add overlapping counts or repeat unchanged checks.
+
+**Required input remains pending:** the expanded live allocation question has
+no answer. Eight behavioral cases and affected Codex capture/permission and
+pause checks have not started. Proposed scope is up to $8 in Claude-reported
+family limits plus two bounded Codex checks with unmeasured dollar cost.
+A preselected option is not approval. Do not start these tests without an
+allocation answer or claim that all planned live tests are complete.
+
+Durable evidence: [completion-2026-10-10](../benchmarks/2026-10-09-calibration/completion-2026-10-10/).
+Earlier preparations are retained and may have stale source hashes; prepare fresh
+inputs after authority is resolved. No owned native or test job remains running.
+Scratch `/home/hao/.cache/codex-scratch/task.LMILbF` is retained. Native agents,
+settings, live skill policy, other jobs, old evidence and Project2's pause stay
+unchanged. The provisional idea is one capable dependent owner, direct scripts
+for exact extraction, helpers only when replacing independent work, consequential
+review reuse, valid check receipts and durable authority/checkpoint recovery.
 
 Done, with the record that proves it:
 - Shared skill, adapters, installer and rollback: `docs/consolidation.md`.
@@ -55,21 +93,21 @@ The user wants reliable long-task execution and better accepted results at reaso
 
 ### Exact starting point and checkpoints
 
-Last source checkpoint before the approved qualification: `05c6748` (reviewed telemetry corrections and refreshed preparations), following `cf4a306` (compaction telemetry and bounded retrospective). Earlier checkpoints include `61184ef` (delegation-economics interpretation), `d989d8c` (Claude's additional checks), `cc93787` (harness fixes and prepared fixture), `027d125` (reviewed test plan), `dfe47fd` (six efficiency corrections), and `5ee26a0` (Claude's restored scientific-evidence paragraph). Preserve them. This terminal record is checkpointed separately; find its identity with `git log -1 --oneline`.
+Last checkpoint before the current continuation: `2f8ff3b`. Earlier source checkpoint before the first approved qualification: `05c6748` (reviewed telemetry corrections and refreshed preparations), following `cf4a306` (compaction telemetry and bounded retrospective). Earlier checkpoints include `61184ef` (delegation-economics interpretation), `d989d8c` (Claude's additional checks), `cc93787` (harness fixes and prepared fixture), `027d125` (reviewed test plan), `dfe47fd` (six efficiency corrections), and `5ee26a0` (Claude's restored scientific-evidence paragraph). Preserve them. This terminal record is checkpointed separately; find its identity with `git log -1 --oneline`.
 
-Recheck the working tree and any active session before editing. Native-role smoke checks and independent Stage A review are complete; reuse them for unchanged inputs. The latest workflow suite passed 89 tests; the historical isolated runner suite passed 16. These passes certify their tested paths, not live permission enforcement, scientific success or savings.
+Recheck the working tree and any active session before editing. Native-role smoke checks and independent Stage A review are complete; reuse them for unchanged inputs. The earlier workflow suite passed 89 tests; the historical isolated runner suite passed 16. These passes certify their tested paths, not live permission enforcement, scientific success or savings.
 
 The shared runner is an external dependency at `/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/run.py`. Its two-file correction is checkpointed at `383b16d3998022b77d3630ed04005494c02260a9` on `workflow-runner-reliability-20261009`, with a clean recovery worktree at `/tmp/workflow-runner-checkpoint` when inspected. Corrections were also applied to the canonical runner; that repository's `dev` contains other sessions' work. Do not merge, revert or run its broad suite automatically. The absolute runner dependency and children escaping the owned process group remain limits to consider if those questions become relevant.
 
 ### Next work and completion criteria
 
-1. **Reconstruct current authority and ownership.** Inspect this repo's branch, working tree and current state. Preserve any new Claude edits and running jobs. Project2 remains paused; this workflow handoff does not authorize its execution. Do not reactivate old workers from the previous project.
-2. **Reuse the bounded retrospective before proposing more paid trials.** The [frozen sample and findings](../benchmarks/2026-10-09-calibration/retrospective/REPORT.md) are complete for two parent sessions, one per runtime. They identify compaction accounting and incomplete/oversized evidence as test targets. Token counts and task durations are available; full family cost, pure reasoning time and representative workload benefit remain unknown. The report has a testable hypothesis and two additional behavioral specifications. Expand sampling only for a concrete unanswered question; historical associations cannot establish counterfactual savings. Avoid building another reporting framework.
-3. **If a policy change is requested, stage it away from live links.** Optional opt-in is a recommendation, not an implemented or authorized settings change. Audit instruction routes as well as skill metadata. Current global Codex guidance requires this skill for substantial scientific tasks; metadata alone would not remove that route. Keep project-required gates and native agents intact. Verify affected explicit invocation and routine restraint only; reuse unchanged dispatch evidence. Do not promise zero context overhead.
-4. **Repair the missing permission test offline before proposing another native start.** The approved qualification is terminal and unqualified for comparison. Its [next-test design](../benchmarks/2026-10-09-calibration/live-approved-2026-10-10/RESULTS.md#next-permission-test-design-offline-only) requires explicit allowed and denied tool evidence, with strict negative controls. Implement and validate that narrow design before requesting a separately scoped qualification start. Unused comparison slots and reserve are not retry authority. The semantic pair remains a capture/integration diagnostic; substantial workloads and repetition need their own design and allocation.
-5. **Complete only the named checks and local checkpoint for the scoped change.** For handoff/prose-only edits, check changed links, fences, structure and whitespace. Implementation/routing changes require the repository's documented tests and checks. Do not repeat a full passing suite for unchanged code. No push without user authority.
+1. Read the active completion results and allocation before using historical paragraphs below. The corrected qualification is accepted; its failed workflow peer stops the matched comparison. Do not launch a baseline or retry.
+2. Resolve the pending live allocation. User continuation authorizes task scope, but the proposed expanded dollar limits and unmetered Codex starts still need the missing answer. Do not infer approval from elapsed time.
+3. With an approved allocation, prepare fresh behavioral inputs. Reuse the accepted fixture/capture corrections and named checks. Execute each distinct stage once, with an accepted immediate predecessor, preserve failures, and keep one native family active at a time.
+4. Repeat only affected Codex capture/permission and pause evidence within its accepted scope. Preserve native settings and all scientific pauses. Real compaction, sustained reliability and representative benefit remain separate claims.
+5. Finish the remaining live evidence review and local checkpoint. No push. The provisional operating idea is recorded; no new default or savings claim is supported.
 
-### Approved reported limits; qualification stopped
+### Historical initial pilot allocation; first qualification stopped
 
 The user answered "approve" to the explicit question about reported limits with $1 headroom and possible overshoot of $3. This resolves the budget interpretation for the existing three-family pilot. [Allocation and authority](../benchmarks/2026-10-09-calibration/live-approved-2026-10-10/allocation.json) record the scope. Claude's `--max-budget-usd` includes helper estimates but is checked after a response and may overshoot. A timeout does not enforce a dollar ceiling. Coordinator/reviewer spend is unknown and outside the recorded family scope; do not claim complete project spend.
 
@@ -103,7 +141,7 @@ Both installed skill links point directly into `skill/scientific-workflow/`, so 
 
 Suggested opening request for the next session:
 
-> Read `AGENTS.md` and `docs/STATE.md`. The retrospective is complete; the approved native qualification stopped because its fixture omitted denied-operation evidence. Implement and validate the narrow permission-test design offline before proposing another paid start. Preserve native agents/settings, other sessions and Project2's pause. Reuse unchanged checks and complete the scoped local checkpoint.
+> Read `AGENTS.md`, `docs/STATE.md` and the active completion results. Preserve the failed semantic observation and stopped comparison. Resolve the pending live allocation before starting the eight behavioral cases and affected Codex checks. Reuse accepted corrections and passing checks. Preserve native settings, other sessions and Project2's pause. Complete the remaining evidence review and local checkpoint; no push.
 
 ## Open questions
 

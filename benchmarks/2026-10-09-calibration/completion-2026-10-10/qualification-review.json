@@ -1,0 +1,14 @@
+{
+  "accepted_for_pair": true,
+  "limits": [
+    "one scoped rule only",
+    "owned process group only",
+    "billing and external review cost unknown",
+    "full required suite still pending; not waived",
+    "no savings claim"
+  ],
+  "no_launch_authority_from_review": true,
+  "reviewer": "/root/compaction_review",
+  "verdict": "continue: supports narrow qualification acceptance for matched diagnostic pair",
+  "verified": "six evidence hashes, source-version identities, raw linkage, permission and accounting recomputed independently"
+}

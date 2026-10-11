@@ -1,0 +1,14 @@
+test_allowed_read_and_parent_scope_are_required (test_permission_probe.PermissionProbeTest.test_allowed_read_and_parent_scope_are_required) ... ok
+test_altered_command_and_unrelated_error_are_unknown (test_permission_probe.PermissionProbeTest.test_altered_command_and_unrelated_error_are_unknown) ... ok
+test_conflicting_call_and_duplicate_attempt_not_accepted (test_permission_probe.PermissionProbeTest.test_conflicting_call_and_duplicate_attempt_not_accepted) ... ok
+test_exact_native_denial_and_allowed_read (test_permission_probe.PermissionProbeTest.test_exact_native_denial_and_allowed_read) ... ok
+test_malformed_shapes_leave_enforcement_unknown (test_permission_probe.PermissionProbeTest.test_malformed_shapes_leave_enforcement_unknown) ... ok
+test_missing_attempt_or_model_claim_is_unknown (test_permission_probe.PermissionProbeTest.test_missing_attempt_or_model_claim_is_unknown) ... ok
+test_native_event_origin_and_read_evidence_required (test_permission_probe.PermissionProbeTest.test_native_event_origin_and_read_evidence_required) ... ok
+test_native_system_permission_notification_does_not_erase_results (test_permission_probe.PermissionProbeTest.test_native_system_permission_notification_does_not_erase_results) ... ok
+test_success_fails_even_if_final_claims_denial (test_permission_probe.PermissionProbeTest.test_success_fails_even_if_final_claims_denial) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+OK

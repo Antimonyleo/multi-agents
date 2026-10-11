@@ -1,0 +1,31 @@
+{
+  "configured_effort": "high",
+  "configured_model": "gpt-6-astra",
+  "decision": "accepted_scoped_corrections",
+  "findings_resolved": [
+    "pause shell chaining",
+    "structured failure overrides success text; actual named check",
+    "conflicting results and wrong event origins",
+    "accepted immediate predecessor",
+    "specific workflow Skill loading permitted"
+  ],
+  "independent_role": "scientific_reviewer",
+  "limits": [
+    "corrections only; no live behavior qualification",
+    "no savings or sustained reliability claim",
+    "expanded live allocation unanswered"
+  ],
+  "reviewed_source_sha256": {
+    "scripts/behavioral_calibration.py": "4cf0c0b45d7ccad5009c7ba22532b4784adfab6344411e58831ad6125a9df871",
+    "scripts/behavioral_fixture.py": "31e0a6ca5a10fac37aafebb5b5645b8eff8461bae0d1612f26cf2bdc4247680b"
+  },
+  "seconds_observed": 0.526,
+  "semantic_failure_confirmed": {
+    "baseline_and_reverse_stopped": true,
+    "locations_correct": 2,
+    "outcome_rows_correct": 10,
+    "quotes_missing_leading_spaces": 4,
+    "saved_answer_unchanged": true
+  },
+  "tests_observed": 19
+}

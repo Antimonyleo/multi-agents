@@ -1,0 +1,40 @@
+{
+  "current_discovered_tests": 118,
+  "final_affected_behavioral": {
+    "evidence": "behavioral-final.log",
+    "passed": true,
+    "seconds": 0.566,
+    "tests": 20
+  },
+  "final_affected_permission": {
+    "evidence": "permission-final.log",
+    "passed": true,
+    "tests": 9
+  },
+  "full_suite": {
+    "evidence": "offline-suite.log",
+    "note": "launched before final focused changes; unchanged installer checks reused",
+    "passed": true,
+    "seconds": 1146.823,
+    "tests": 110
+  },
+  "log_sha256": {
+    "behavioral-final.log": "faf6b0d717705c9d02ac7e33e469ebd3905e1f5a5d72429bf4174029573ec2aa",
+    "offline-suite.log": "129481ec578479330f4dfc89270860876781f3b48ebbf18ae3913b0c86d2c111",
+    "permission-final.log": "0ef6a5756b83d908b3fa9decae5d5805827b1e3e1e7c54dbf9f1b309cb59a96b"
+  },
+  "scientific_execution": false,
+  "source_sha256": {
+    "scripts/behavioral_calibration.py": "4cf0c0b45d7ccad5009c7ba22532b4784adfab6344411e58831ad6125a9df871",
+    "scripts/behavioral_fixture.py": "d73aac08d6bbf7a5647fa79cab03bf02cfc11c4fd6b32f0d0f1608edc1647517",
+    "scripts/native_calibration.py": "35b4de606e8f90100d6d98e7df435d3ca7278d905ae82f5220e1e6de97657ea4"
+  },
+  "static": {
+    "instruction_health": {
+      "errors": [],
+      "passed": true
+    },
+    "skill_structure": "Skill is valid!",
+    "validate": "PASS: 7 local links, 5 Codex profiles, 74 protected Claude/benchmark files"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "phase": "blocking",
+  "packet_complete_for_phase": true,
+  "errors": [],
+  "verified_artifacts": 14,
+  "observed_nonpassing_checks": [
+    "semantic_workflow",
+    "semantic_peer"
+  ],
+  "acknowledged_missing": [
+    "behavioral_live",
+    "codex_live"
+  ],
+  "gate_decision": "not_evaluated"
+}

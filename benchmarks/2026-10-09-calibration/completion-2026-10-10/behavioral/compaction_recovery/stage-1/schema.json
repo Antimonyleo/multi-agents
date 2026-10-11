@@ -1,0 +1,28 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "earliest_incomplete": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "usage": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "owner",
+    "earliest_incomplete",
+    "next_action",
+    "usage"
+  ],
+  "type": "object"
+}

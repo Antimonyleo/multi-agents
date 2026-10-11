@@ -1,0 +1,66 @@
+[
+  {
+    "id": "r1",
+    "observations": [
+      {
+        "crossing_fraction": 0.84,
+        "defect": 0.08
+      },
+      {
+        "crossing_fraction": 0.65,
+        "defect": 0.01
+      }
+    ],
+    "proposal": "release",
+    "cost_usd": {
+      "parent": 0.12,
+      "child": 0.03,
+      "reported_total": 0.15
+    }
+  },
+  {
+    "id": "r2",
+    "observations": [
+      {
+        "crossing_fraction": 0.81,
+        "defect": 0.02
+      }
+    ],
+    "proposal": "release",
+    "cost_usd": {
+      "parent": 0.1,
+      "child": null,
+      "reported_total": 0.1
+    }
+  },
+  {
+    "id": "c1",
+    "observations": [
+      {
+        "crossing_fraction": 0.8,
+        "defect": 0.02
+      }
+    ],
+    "proposal": "release",
+    "cost_usd": {
+      "parent": 0.12,
+      "child": 0.03,
+      "reported_total": 0.15
+    }
+  },
+  {
+    "id": "c2",
+    "observations": [
+      {
+        "crossing_fraction": 0.9,
+        "defect": 0.01
+      }
+    ],
+    "proposal": "release",
+    "cost_usd": {
+      "parent": 0.1,
+      "child": 0.02,
+      "reported_total": 0.12
+    }
+  }
+]

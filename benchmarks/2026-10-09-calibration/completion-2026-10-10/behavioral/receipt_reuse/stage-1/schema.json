@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "command": {
+      "type": "string"
+    },
+    "log_path": {
+      "type": "string"
+    },
+    "rerun": {
+      "type": "boolean"
+    },
+    "source_digest": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "tests": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "status",
+    "command",
+    "source_digest",
+    "log_path",
+    "tests",
+    "rerun"
+  ],
+  "type": "object"
+}

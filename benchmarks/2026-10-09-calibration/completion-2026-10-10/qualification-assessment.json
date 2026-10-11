@@ -1,0 +1,94 @@
+{
+  "accepted": true,
+  "accepted_pending_independent_review": false,
+  "accounting": "Helper counters reconcile with CLI modelUsage; model prices sum to family estimate. Actual billing and coordinator/review costs unknown.",
+  "checks": {
+    "capture_complete": true,
+    "cleanup_verified": true,
+    "exact_output": true,
+    "support_cap": true,
+    "terminal_success": true,
+    "usage_present": true,
+    "workspace_unchanged": true
+  },
+  "cleanup": {
+    "pgid": 2870600,
+    "remaining_live_pids": [],
+    "remaining_zombie_pids": [],
+    "scope": "verified owned process group; escaped/external children not covered",
+    "signals": [],
+    "status": "absent",
+    "verified": true
+  },
+  "distinct_helper_messages": 2,
+  "frozen_evidence": {
+    "qualification/execution.json": "5d70a27b75bc487b7e17fc443db2f835ffa3aaeab8d0d645503bf3dd6022c273",
+    "qualification/manifest.json": "2b7c02badf89bb58513267e5598b5fe562e2c4c9e3f28ba32588c0ad124134c9",
+    "qualification/metrics-at-launch.json": "8f6826aab40ed5ebc84b7ffe367330a4a3a156645625b5f56e8e4e5523295405",
+    "qualification/metrics.json": "2b29a924b5574520c37b0909386375c70e05b34b158861aa745872d5095acb19",
+    "qualification/native/agent-ab3942ccdded10451.jsonl": "4603ed84e77010295ff83e5fcfbd75618c61e3368e4523f29b820139f4d86401",
+    "qualification/trace.jsonl": "ec525d22d55d7eec1b1d8097bd42f2d985e68dcf74fe0554babad2ca4b18faa9"
+  },
+  "helper_depth": 1,
+  "helper_effort_observed": [
+    "high"
+  ],
+  "helper_role": "scientific_explorer",
+  "helper_tokens": {
+    "cache_creation_input_tokens": 6009,
+    "cache_read_input_tokens": 5490,
+    "input_tokens": 4,
+    "output_tokens": 414
+  },
+  "independent_review": "continue: narrow acceptance for matched diagnostic pair; no blocking capture finding",
+  "launch_adapter_sha256": "b71cdfa63780567d238670d6ce37d5573e3b28b694189d3e4e6dcc805f10fcd2",
+  "observed_models": [
+    "claude-haiku-5-5",
+    "claude-opus-5-5"
+  ],
+  "original_capture_receipt": "qualification/metrics-at-launch.json",
+  "per_model_estimates": {
+    "claude-haiku-5-5": {
+      "cacheCreationInputTokens": 6009,
+      "cacheReadInputTokens": 5490,
+      "canonicalModel": "claude-haiku-5-5",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.001013425,
+      "inputTokens": 4,
+      "maxOutputTokens": 128000,
+      "outputTokens": 414,
+      "provider": "firstParty",
+      "thinkingTokens": 283,
+      "webSearchRequests": 0
+    },
+    "claude-opus-5-5": {
+      "cacheCreationInputTokens": 22466,
+      "cacheReadInputTokens": 64561,
+      "canonicalModel": "claude-opus-5-5",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.2070722,
+      "inputTokens": 8,
+      "maxOutputTokens": 128000,
+      "outputTokens": 720,
+      "provider": "firstParty",
+      "thinkingTokens": 16,
+      "webSearchRequests": 0
+    }
+  },
+  "permissions": {
+    "allowed_read": true,
+    "denied_attempts": 1,
+    "denied_enforcement": true,
+    "scope": "one exact parent Bash rule",
+    "status": "verified",
+    "unexpected_success": false
+  },
+  "reported_family_cost_usd": 0.20808562500000002,
+  "reprocess_adapter_sha256": "35b4de606e8f90100d6d98e7df435d3ca7278d905ae82f5220e1e6de97657ea4",
+  "reprocessed_offline": true,
+  "savings_claim_supported": false,
+  "scientific_execution": false,
+  "wall_s": 28.337
+}

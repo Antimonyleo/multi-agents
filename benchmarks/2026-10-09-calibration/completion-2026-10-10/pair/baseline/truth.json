@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "client_timeout_ms": null,
+      "error": "integer_parse",
+      "id": "bad_environment",
+      "retries": null,
+      "timeout_ms": null
+    },
+    {
+      "client_timeout_ms": 80,
+      "error": null,
+      "id": "cli_override",
+      "retries": 2,
+      "timeout_ms": 80
+    },
+    {
+      "client_timeout_ms": 40,
+      "error": null,
+      "id": "defaults",
+      "retries": 3,
+      "timeout_ms": 40
+    },
+    {
+      "client_timeout_ms": 20,
+      "error": null,
+      "id": "env_fallback",
+      "retries": 1,
+      "timeout_ms": 20
+    },
+    {
+      "client_timeout_ms": null,
+      "error": "retries_range",
+      "id": "negative_retry",
+      "retries": null,
+      "timeout_ms": null
+    },
+    {
+      "client_timeout_ms": 0.1,
+      "error": null,
+      "id": "remote_override",
+      "retries": 5,
+      "timeout_ms": 100
+    },
+    {
+      "client_timeout_ms": 0.04,
+      "error": null,
+      "id": "remote_units",
+      "retries": 3,
+      "timeout_ms": 40
+    },
+    {
+      "client_timeout_ms": 500,
+      "error": null,
+      "id": "timeout_high_boundary",
+      "retries": 3,
+      "timeout_ms": 500
+    },
+    {
+      "client_timeout_ms": null,
+      "error": "timeout_range",
+      "id": "timeout_low",
+      "retries": null,
+      "timeout_ms": null
+    },
+    {
+      "client_timeout_ms": 40,
+      "error": null,
+      "id": "zero_retry",
+      "retries": 4,
+      "timeout_ms": 40
+    }
+  ],
+  "findings": {
+    "remote_driver.py": "plan['timeout_ms'] / 1000",
+    "sources.py": "opts.retries or"
+  }
+}

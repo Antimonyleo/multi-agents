@@ -1,0 +1,89 @@
+[
+  {
+    "id": "cli_override",
+    "args": [
+      "--retries",
+      "2",
+      "--timeout-ms",
+      "80"
+    ],
+    "env": {
+      "TRANSPORT_RETRIES": "4",
+      "TRANSPORT_TIMEOUT_MS": "100"
+    }
+  },
+  {
+    "id": "env_fallback",
+    "args": [],
+    "env": {
+      "TRANSPORT_RETRIES": "1",
+      "TRANSPORT_TIMEOUT_MS": "20"
+    }
+  },
+  {
+    "id": "defaults",
+    "args": [],
+    "env": {}
+  },
+  {
+    "id": "zero_retry",
+    "args": [
+      "--retries",
+      "0"
+    ],
+    "env": {
+      "TRANSPORT_RETRIES": "4"
+    }
+  },
+  {
+    "id": "negative_retry",
+    "args": [
+      "--retries",
+      "-1"
+    ],
+    "env": {}
+  },
+  {
+    "id": "bad_environment",
+    "args": [],
+    "env": {
+      "TRANSPORT_TIMEOUT_MS": "bad"
+    }
+  },
+  {
+    "id": "remote_units",
+    "args": [
+      "--driver",
+      "remote"
+    ],
+    "env": {}
+  },
+  {
+    "id": "remote_override",
+    "args": [
+      "--driver",
+      "remote",
+      "--timeout-ms",
+      "100",
+      "--retries",
+      "5"
+    ],
+    "env": {}
+  },
+  {
+    "id": "timeout_low",
+    "args": [
+      "--timeout-ms",
+      "9"
+    ],
+    "env": {}
+  },
+  {
+    "id": "timeout_high_boundary",
+    "args": [
+      "--timeout-ms",
+      "500"
+    ],
+    "env": {}
+  }
+]

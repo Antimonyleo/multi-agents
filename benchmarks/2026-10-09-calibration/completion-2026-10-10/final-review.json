@@ -1,0 +1,24 @@
+{
+  "claim_limits": [
+    "scoped implementation and evidence only",
+    "no authorization of new starts",
+    "no savings, general isolation, sustained reliability or scientific acceptance"
+  ],
+  "configured_effort": "high",
+  "configured_model": "gpt-6-astra",
+  "corrections_accepted": true,
+  "decision": "accepted_scoped_checkpoint",
+  "live_tests_complete": false,
+  "native_benchmark_starts_by_reviewer": 0,
+  "read_target_delta_accepted": true,
+  "remaining_findings": [],
+  "remaining_gate": "expanded live allocation unanswered",
+  "reviewed_artifacts": 14,
+  "reviewed_packet_sha256": "edc4857350f1faae959b0ee96c3e0854300adce8977d42bbe785fe95fe51a499",
+  "reviewed_source_sha256": {
+    "scripts/behavioral_calibration.py": "4cf0c0b45d7ccad5009c7ba22532b4784adfab6344411e58831ad6125a9df871",
+    "scripts/behavioral_fixture.py": "d73aac08d6bbf7a5647fa79cab03bf02cfc11c4fd6b32f0d0f1608edc1647517"
+  },
+  "role": "scientific_reviewer",
+  "semantic_failure_and_stop_confirmed": true
+}

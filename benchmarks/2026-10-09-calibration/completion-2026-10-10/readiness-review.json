@@ -1,0 +1,14 @@
+{
+  "reviewer": "/root/compaction_review",
+  "mode": "independent read-only readiness review",
+  "first_verdict": "revise: unsupported tool-result origins, empty Read content and contradictory Read denial could pass",
+  "correction_verdict": "continue: all three false-acceptance cases return unverified; native positive control retained; eight focused tests independently passed",
+  "scope": "permission-probe offline readiness, not live qualification or behavioral completion",
+  "new_live_format_regression": "Plain-text native system permission notification supported after observed capture failure; nine permission tests pass; independent live evidence review pending",
+  "full_suite": "pending owned installer storage commit; session 48414; no terminal pass claimed",
+  "source_hashes": {
+    "scripts/native_calibration.py": "35b4de606e8f90100d6d98e7df435d3ca7278d905ae82f5220e1e6de97657ea4",
+    "scripts/behavioral_calibration.py": "70ccaccf5a4d21a59fbf3ee6634de1eb2ae0d6713b0831e50c6a27f6520c6f11",
+    "scripts/behavioral_fixture.py": "068dc18128f64e32dc78223f2888a913a56d3cdeda35c26d0b5748b9b6cf99a5"
+  }
+}

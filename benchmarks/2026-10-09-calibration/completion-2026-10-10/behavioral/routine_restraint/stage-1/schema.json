@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "malformed_lines": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "maximum": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "maximum",
+    "ids",
+    "malformed_lines"
+  ],
+  "type": "object"
+}

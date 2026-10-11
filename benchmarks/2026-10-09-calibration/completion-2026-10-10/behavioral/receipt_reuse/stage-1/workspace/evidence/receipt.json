@@ -1,0 +1,8 @@
+{
+  "command": "python -B -m unittest discover -s tests -v",
+  "source_digest": "e4406709fbceb3412dc910add4b536fb33490f9c2cc451570246369fc2c95373",
+  "exit_code": 0,
+  "log_path": "evidence/check.log",
+  "log_digest": "5b704bbd174a064e115a1d58823e13d6ca0be561cc66a8951e7defd265dc2277",
+  "tests": 1
+}

@@ -1,0 +1,9 @@
+test_conflicting_calls_are_not_silently_deduplicated (test_behavioral_calibration.BehavioralCaptureTest.test_conflicting_calls_are_not_silently_deduplicated) ... ok
+test_correlated_results_and_child_actor_preserved (test_behavioral_calibration.BehavioralCaptureTest.test_correlated_results_and_child_actor_preserved) ... ok
+test_preparation_snapshot_includes_guidance_and_skill_setup (test_behavioral_calibration.BehavioralCaptureTest.test_preparation_snapshot_includes_guidance_and_skill_setup) ... ok
+test_unlinked_wrong_role_and_nested_helpers_fail (test_behavioral_calibration.BehavioralCaptureTest.test_unlinked_wrong_role_and_nested_helpers_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.010s
+
+OK

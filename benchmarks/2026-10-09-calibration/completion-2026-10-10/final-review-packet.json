@@ -1,0 +1,131 @@
+{
+  "acknowledged_missing": [
+    "behavioral_live",
+    "codex_live"
+  ],
+  "artifacts": [
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/RESULTS.md",
+      "sha256": "147fb6f7f455d870c07033971bf502c47cfd0bbf81093e799fa41532ea74229e"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/docs/STATE.md",
+      "sha256": "0684aa47b2b581eb8ad7ba3d697af102441111d34e160964d946f314db54dde0"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/allocation.json",
+      "sha256": "88e19fab4aff46e4c569501e290db60635bee56efea2b8fc50c1c345818d316a"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/validation.json",
+      "sha256": "8e0f724f6dba38c35a953a20043276d489489197ce001f10aa5e074c9333544e"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/correction-review.json",
+      "sha256": "6b811ca6a73d79692054cb299eaf05299681462cf88a32c65ffd7f3a673d201f"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/scripts/native_calibration.py",
+      "sha256": "35b4de606e8f90100d6d98e7df435d3ca7278d905ae82f5220e1e6de97657ea4"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/scripts/behavioral_fixture.py",
+      "sha256": "d73aac08d6bbf7a5647fa79cab03bf02cfc11c4fd6b32f0d0f1608edc1647517"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/scripts/behavioral_calibration.py",
+      "sha256": "4cf0c0b45d7ccad5009c7ba22532b4784adfab6344411e58831ad6125a9df871"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/offline-suite.log",
+      "sha256": "129481ec578479330f4dfc89270860876781f3b48ebbf18ae3913b0c86d2c111"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/permission-final.log",
+      "sha256": "0ef6a5756b83d908b3fa9decae5d5805827b1e3e1e7c54dbf9f1b309cb59a96b"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral-final.log",
+      "sha256": "faf6b0d717705c9d02ac7e33e469ebd3905e1f5a5d72429bf4174029573ec2aa"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/document-checks.json",
+      "sha256": "89164a7680fbeec0e5766faef98a762ef56d2916fd9e11c39a9c2925640a5e4a"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/qualification-review.json",
+      "sha256": "517f227494184f6a6dc387183fe4906fff93629a2bfc45a7c81c1d9328d519f9"
+    },
+    {
+      "path": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/completion-2026-10-10/pair/workflow/metrics.json",
+      "sha256": "192fb724b5e550133bbe992a38ba027b73147207386277e02af204dd7162c704"
+    }
+  ],
+  "checks": [
+    {
+      "evidence": "offline-suite.log",
+      "name": "offline_suite",
+      "status": "passed"
+    },
+    {
+      "evidence": "permission-final.log",
+      "name": "permission_focus",
+      "status": "passed"
+    },
+    {
+      "evidence": "behavioral-final.log",
+      "name": "behavioral_focus",
+      "status": "passed"
+    },
+    {
+      "evidence": "validation.json",
+      "name": "static_checks",
+      "status": "passed"
+    },
+    {
+      "evidence": "document-checks.json",
+      "name": "documents",
+      "status": "passed"
+    },
+    {
+      "evidence": "qualification-review.json",
+      "name": "native_qualification",
+      "status": "passed"
+    },
+    {
+      "evidence": "pair/workflow/metrics.json",
+      "name": "semantic_workflow",
+      "status": "failed"
+    },
+    {
+      "evidence": "allocation.json",
+      "name": "semantic_peer",
+      "reason": "failed peer stops comparison",
+      "status": "skipped"
+    },
+    {
+      "name": "behavioral_live",
+      "status": "pending"
+    },
+    {
+      "name": "codex_live",
+      "status": "pending"
+    }
+  ],
+  "phase": "blocking",
+  "question": "Do the scoped corrections, stopped semantic observation and provisional recommendation match the evidence, with all unrun live tests explicit?",
+  "required_checks": [
+    "offline_suite",
+    "permission_focus",
+    "behavioral_focus",
+    "static_checks",
+    "documents",
+    "native_qualification",
+    "semantic_workflow",
+    "semantic_peer",
+    "behavioral_live",
+    "codex_live"
+  ],
+  "scope": "offline workflow-test implementation and corrected Claude qualification; no scientific acceptance or efficiency claim",
+  "stop_boundary": "remaining live tests await expanded allocation; failed semantic arm is preserved; no baseline, retry or push"
+}

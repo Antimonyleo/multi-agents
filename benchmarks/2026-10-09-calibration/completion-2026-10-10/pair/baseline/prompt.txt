@@ -1,0 +1,6 @@
+This is a synthetic read-only fixture task. Access only this workspace and, in the workflow arm, the scientific-workflow skill and native role definitions. No other projects, credentials, memory, web, scientific execution, unrelated processes or configuration changes. No background jobs. Do not write files. Direct Python/shell scripts are allowed. Use one main execution owner and direct tools. Do not invoke skills or delegates. Read contract.md and cases.json. Trace the configuration pipeline and report
+actual outcomes for all cases, sorted by id. Identify every contract violation
+present in the executed pipeline. Give each finding its implementing source
+path, line and exact nonempty source-line quote. Report only supported violations. Use the requested JSON schema.
+All inputs are in this workspace; do not read other directories or hidden keys.
+

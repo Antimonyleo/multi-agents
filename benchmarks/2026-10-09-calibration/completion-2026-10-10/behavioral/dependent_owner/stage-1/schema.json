@@ -1,0 +1,23 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "named_check": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "repaired_modules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "owner",
+    "named_check",
+    "repaired_modules"
+  ],
+  "type": "object"
+}

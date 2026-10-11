@@ -1,0 +1,125 @@
+{
+  "frozen_exceptions": [
+    {
+      "finding": "new blank line at EOF.",
+      "frozen_identity_matches": true,
+      "line": 6,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/baseline/prompt.txt",
+      "sha256": "504f9de6d1b27683f6835710f041c1b86df52615dcbdbd41bb214dc3dfca49bf"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/baseline/workspace/AGENTS.md",
+      "sha256": "991f8fdde3ba7d04975cc9a51ce2e6bdce337e94e975ca11588692bbfcda0604"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/autonomous_support/stage-1/workspace/AGENTS.md",
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/compaction_recovery/stage-1/workspace/AGENTS.md",
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/dependent_owner/stage-1/workspace/AGENTS.md",
+      "sha256": "c65b1b7b39c9445455a633ad1e9760d0b308e0360cb2a5a2c1aefaeab0e4f5f6"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/pause_preservation/stage-1/workspace/AGENTS.md",
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/receipt_reuse/stage-1/workspace/AGENTS.md",
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/review_reuse/stage-1/workspace/AGENTS.md",
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/review_value/stage-1/workspace/AGENTS.md",
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/behavioral/routine_restraint/stage-1/workspace/AGENTS.md",
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b"
+    },
+    {
+      "finding": "new blank line at EOF.",
+      "frozen_identity_matches": true,
+      "line": 6,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/pair/baseline/prompt.txt",
+      "sha256": "504f9de6d1b27683f6835710f041c1b86df52615dcbdbd41bb214dc3dfca49bf"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/pair/baseline/workspace/AGENTS.md",
+      "sha256": "991f8fdde3ba7d04975cc9a51ce2e6bdce337e94e975ca11588692bbfcda0604"
+    },
+    {
+      "finding": "new blank line at EOF.",
+      "frozen_identity_matches": true,
+      "line": 13,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/pair/workflow/prompt.txt",
+      "sha256": "00bc81ce14dea7c937387137eb14f7f00df9e837dd33561765adeb9da7c554a9"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/pair/workflow/workspace/AGENTS.md",
+      "sha256": "991f8fdde3ba7d04975cc9a51ce2e6bdce337e94e975ca11588692bbfcda0604"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/qualification/workspace/AGENTS.md",
+      "sha256": "991f8fdde3ba7d04975cc9a51ce2e6bdce337e94e975ca11588692bbfcda0604"
+    },
+    {
+      "finding": "new blank line at EOF.",
+      "frozen_identity_matches": true,
+      "line": 13,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/workflow/prompt.txt",
+      "sha256": "00bc81ce14dea7c937387137eb14f7f00df9e837dd33561765adeb9da7c554a9"
+    },
+    {
+      "finding": "trailing whitespace.",
+      "frozen_identity_matches": true,
+      "line": 1,
+      "path": "benchmarks/2026-10-09-calibration/completion-2026-10-10/workflow/workspace/AGENTS.md",
+      "sha256": "991f8fdde3ba7d04975cc9a51ce2e6bdce337e94e975ca11588692bbfcda0604"
+    }
+  ],
+  "reason": "preserve hashed prepared and executed inputs byte-for-byte; no source/doc/test exceptions",
+  "scoped_passed": true
+}
