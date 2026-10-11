@@ -1,0 +1,36 @@
+{
+  "inputs": [
+    {
+      "name": "qualification",
+      "manifest_sha256": "f3fb55db4c0b0b8b7eb4cf1c965ac53cb80c95a9091e6ea1546eccd7003d3afd",
+      "frozen_errors": []
+    },
+    {
+      "name": "baseline",
+      "manifest_sha256": "2f86cb18d42b2b6eec08bf41587724dc9943ae9235b42b51d4761927be8881b6",
+      "frozen_errors": []
+    },
+    {
+      "name": "workflow",
+      "manifest_sha256": "7a18c3298a3584240c66f6438b4e3aba0d7abd2e8f89f97611cc93b9bbc8ada7",
+      "frozen_errors": []
+    }
+  ],
+  "pair": {
+    "controls_match": true,
+    "errors": [],
+    "declared_capability_differences": [],
+    "savings_claim_supported": false,
+    "limitations": [
+      "not evidence of implementation or review benefit",
+      "scriptable extraction cannot establish helper break-even by file count",
+      "runtime context/cache may vary despite matched declared controls",
+      "local inventory excludes plugin contents, builtins and remote catalogs; effective capability validation is required before causal claims",
+      "session usage excludes unmeasured setup/coordinator/review cost"
+    ],
+    "question": "workflow use with matched capabilities"
+  },
+  "permission_and_family_accounting": "unverified until native qualification",
+  "source_checkpoint": "05c6748",
+  "storage": "Sources, resumable preparation and results are durable in this repository; task temporary files use allocated scratch."
+}

@@ -1,0 +1,71 @@
+{
+  "status": "not qualified for comparison",
+  "accepted": false,
+  "native_identity": {
+    "observed": true,
+    "parent_model": "claude-opus-5-5",
+    "helper_role": "scientific_explorer",
+    "helper_model": "claude-haiku-5-5",
+    "helper_depth": 1,
+    "helper_usage_lines": [
+      9,
+      14,
+      15
+    ],
+    "helper_efforts_observed": [
+      "high"
+    ]
+  },
+  "effective_permissions": {
+    "allowed_read_succeeded": true,
+    "workspace_unchanged": true,
+    "denied_operation_probes": 0,
+    "denied_enforcement": "unverified",
+    "reason": "The prepared qualification task asked for a read and correct integration but contained no forbidden-operation probe. Observed restraint does not prove enforcement."
+  },
+  "reported_family_accounting": {
+    "cli_cost_sum_matches_total": true,
+    "helper_transcript_counts_match_cli_model_usage": true,
+    "helper_message_count": 2,
+    "helper_tokens": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 5861,
+      "cache_read_input_tokens": 5337,
+      "output_tokens": 1119
+    },
+    "total_cost_usd_reported": 0.201237295,
+    "parent_model_cost_usd_reported": 0.1998914,
+    "helper_model_cost_usd_reported": 0.0013458950000000002,
+    "coverage": "Observed parent/helper model estimates reconcile for this family; actual billing and coordinator/external-review cost remain unknown. Do not add child totals to tree-wide CLI totals."
+  },
+  "cleanup": {
+    "pgid": 2096053,
+    "remaining_live_pids": [],
+    "remaining_zombie_pids": [],
+    "scope": "verified owned process group; escaped/external children not covered",
+    "signals": [],
+    "status": "absent",
+    "verified": true
+  },
+  "capture_checks": {
+    "capture_complete": true,
+    "cleanup_verified": true,
+    "exact_output": true,
+    "support_cap": true,
+    "terminal_success": true,
+    "usage_present": true,
+    "workspace_unchanged": true
+  },
+  "wall_seconds": 13.078,
+  "reason_for_stop": "Missing effective denied-operation evidence blocks comparison under the reviewed plan. No automatic qualification retry or comparison start.",
+  "next_work": "Prepare an explicit harmless allowed/denied permission probe offline. A new native qualification needs its own scope/start allocation; unused comparison slots and reserve do not authorize a retry.",
+  "frozen_evidence": {
+    "qualification/manifest.json": "f3fb55db4c0b0b8b7eb4cf1c965ac53cb80c95a9091e6ea1546eccd7003d3afd",
+    "qualification/trace.jsonl": "1efbe1e1331b5bebabaa42cac8da4bac228dad828f9b1db4d6bf32a1bf3f10f1",
+    "qualification/execution.json": "594421b5d0dc0db52959e404beb92cecff0019d9ac1272debce9266458860602",
+    "qualification/metrics.json": "88f9f0e613266e63f1ffe1998a5885da8164287094d5ee7bf0ea32548a6e5337",
+    "qualification/native/agent-af9c3e0f7ea51b068.jsonl": "e2d93c6b9b4d72a5afb44e9b3c6eb2e2123e23de2f78b59469b0d5e8c247234e"
+  },
+  "scientific_execution": false,
+  "savings_claim_supported": false
+}

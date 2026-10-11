@@ -1,0 +1,1 @@
+This is a synthetic read-only fixture task. Access only this workspace and, in the workflow arm, the scientific-workflow skill and native role definitions. No other projects, credentials, memory, web, scientific execution, unrelated processes or configuration changes. No background jobs. Do not write files. Direct Python/shell scripts are allowed. 

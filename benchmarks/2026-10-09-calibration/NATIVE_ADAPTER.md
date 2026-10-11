@@ -24,7 +24,7 @@ The wrapper depends on the existing host harness recorded in each manifest. No g
 
 ## Next test plan: reliability before efficiency
 
-Status: execution authorized by the user; offline stage A accepted. Native stages remain pending the budget constraint. See [execution results](TEST_RESULTS.md). Independent plan review accepted the design and limits on 2026-10-09. Based on the independent audit of `dfe47fd`; source is now `5ee26a0`, which restores scientific-evidence guidance. Preserve that later change. This plan supersedes the unlaunched prose pilot, not historical evidence. The user authorized executing this plan. Its gates, limits and conditional allocations still apply. Project2 stays paused. Native agents/settings and frozen benchmark records stay unchanged.
+Status: offline stage A accepted; reported-budget interpretation approved on 2026-10-10. One native qualification completed, but its fixture omitted denied-operation evidence. Independent review supports stopping before comparison. See [terminal qualification results](live-approved-2026-10-10/RESULTS.md) and [execution history](TEST_RESULTS.md). Independent plan review accepted the design and limits on 2026-10-09. The original plan followed the audit of `dfe47fd` and scientific-evidence restoration in `5ee26a0`; the qualification used reviewed source `05c6748`. This plan supersedes the unlaunched prose pilot, not historical evidence. Its gates, limits and conditional allocations still apply. Project2 stays paused. Native agents/settings and frozen benchmark records stay unchanged.
 
 ### Questions and order
 
@@ -81,6 +81,14 @@ Randomize which arm runs first and record cache state. Use fresh sessions; equal
 
 ### Budget, stopping and repetition
 
+Authority update, 2026-10-10: the user explicitly approved reported native limits
+with $1 headroom and possible overshoot of $3. The following limits are accepted
+native estimates for the three benchmark families, not a strict pre-request
+aggregate dollar bound. [Current allocation](live-approved-2026-10-10/allocation.json)
+records authority, starts, terminal outcomes and the unresolved qualification
+gate. Coordinator/external-review cost remains unknown and excluded. This
+approval does not permit retries or bypass qualification.
+
 The current state records a $2 target and $3 ceiling for a pilot. Before launch bind that budget to an explicit accounting scope; do not silently reinterpret it as a per-session allowance or claim it covers unmeasured coordinator/review cost. Proposed benchmark allocation: at most $0.40 for qualification and $0.80 per comparison arm, including their children, reaching the $2 target. These are spending caps, not expected prices or promises that tasks will finish. The remaining $1 is reserve, not authority for retries or another pair. If native limits cannot bound the required parent/child scope, establish an enforceable narrower allocation before starting; do not call a timeout a hard dollar cap.
 
 Initial ceiling: three parent starts and two helper starts total; one active parent at a time; each parent family has a 300-second deadline plus a bounded cleanup grace. All failures consume starts and budget. Stop on invalid capture, unexpected role/depth/tools, unresolved cleanup, changed authority, budget/deadline exhaustion or scope violation. Recovery records evidence; it does not automatically relaunch. No reviewer runs inside this pilot allocation.
@@ -110,4 +118,4 @@ Use one execution owner and native completion notifications throughout; no statu
 
 ### Completion and next action
 
-The planning checkpoint is complete when test families, scoring, boundaries, budgets and conditional stages are recorded and independently challenged. Execution is complete stage by stage only on its stated acceptance evidence; an invalid/failed pilot is a completed observation, not proof of efficiency. Keep this section as the plan and link results from `docs/STATE.md`; do not create parallel status narratives. Stage A is complete within its reviewed scope. The next action is resolving the live budget constraint, then native qualification; a passing offline gate alone does not lift another gate or the scientific pause.
+The planning checkpoint is complete when test families, scoring, boundaries, budgets and conditional stages are recorded and independently challenged. Execution is complete stage by stage only on its stated acceptance evidence; an invalid/failed pilot is a completed observation, not proof of efficiency. Keep this section as the plan and link results from `docs/STATE.md`. Stage A is complete within its reviewed scope. The reported-budget interpretation is resolved; the qualification remains unaccepted because denied-operation evidence is absent. Prepare and validate that test offline before proposing a separately scoped native start. A passing offline gate does not lift another gate or the scientific pause.

@@ -1,0 +1,33 @@
+{
+  "approved_at_utc": "2026-10-11T00:21:43.019334+00:00",
+  "authority": {
+    "user_reply": "approve",
+    "question": "May I use reported limits with $1 headroom, accepting possible overshoot of $3?",
+    "interpretation": "User approved reported native session limits and possible overshoot; no strict pre-request aggregate bound claimed."
+  },
+  "scope": "Three Claude benchmark parent families, at most two helpers; coordinator and external review cost unknown and excluded.",
+  "target_usd": 2,
+  "nominal_ceiling_usd": 3,
+  "overshoot_accepted": true,
+  "reported_limit_usd": {
+    "qualification": 0.4,
+    "baseline": 0.8,
+    "workflow": 0.8
+  },
+  "parent_start_cap": 3,
+  "helper_start_cap": 2,
+  "parents_started": 1,
+  "helpers_observed": 1,
+  "deadline_s_per_family": 300,
+  "retry_authority": false,
+  "reserve_is_retry_authority": false,
+  "scratch_dir": "/home/hao/.cache/codex-scratch/task.qO56o9",
+  "scientific_execution": false,
+  "project2_status": "USER_PAUSED_DO_NOT_RESUME",
+  "qualification_accepted": false,
+  "status": "qualification terminal; comparison stopped at permission-evidence gate",
+  "qualification_started_at_utc": "2026-10-11T00:22:08.901236+00:00",
+  "reported_cost_usd_so_far": 0.201237295,
+  "comparison_parents_started": 0,
+  "stopped_reason": "Missing effective denied-operation evidence blocks comparison under the reviewed plan. No automatic qualification retry or comparison start."
+}

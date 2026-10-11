@@ -14,7 +14,7 @@ The regression families cover provider-specific telemetry, permitted helper iden
 
 The small corpus can qualify dispatch, integration and accounting. It does not establish substantial context isolation or long-task savings. Six stage-D behavioral case specifications are prepared only; they have not been executed and are not counted as test passes.
 
-## Native launch gate
+## Native launch gate before approval (historical)
 
 Zero benchmark parent or helper starts. Claude version at preflight: `2.1.296`.
 
@@ -28,7 +28,7 @@ The proposed $0.40 qualification and two $0.80 arms remain launch estimates. No 
 
 Both semantic preparations passed the matched-pair preflight with no errors. Qualification and comparison commands are prepared only, not launched. Budget clarification was requested; a preselected answer is not approval. The live stages remain pending until that constraint is resolved.
 
-Next action: resolve the budget constraint without silently weakening it, then qualify one native family before running either comparison arm. Use the same fixed controls and the plan's three-parent/two-helper maximum. Conditional repetition and later workloads remain outside that initial allocation.
+At that checkpoint, the next action was budget clarification, then one qualification before either comparison arm. The terminal update below records the later approval and stop. Conditional repetition and later workloads remain outside that initial allocation.
 
 ## Interpretation and next evaluation after Claude-side checks
 
@@ -52,7 +52,7 @@ Prioritized evaluation:
 2. Verify explicit invocation and routine non-invocation only if the policy changes. Reuse Claude's dispatch/accounting evidence; do not repeat five-role smoke calls. The prepared semantic pair remains a small integration/control diagnostic, not a long-task-benefit test.
 3. Compare representative substantial independent retrieval and dependent implementation separately. Freeze accepted-result criteria, the capable single-owner/direct-tool baseline, allowed helper lane, source versions, review gates, accounting and budget before launches. Judge accepted quality, drift and recovery first, then cost/time per accepted outcome and their tradeoffs. Initial small comparisons are diagnostic; general defaults require held-out cases and justified repetition.
 
-Proposed admission criterion: optional orchestration needs substantial independent work, useful isolation of irrelevant context, or a consequential review requirement. Duration alone is insufficient: hours waiting for a solver may need no helper, while a short independent investigation may benefit. Keep one capable owner for interdependent steps. Do not run another broad model matrix or an hours-long campaign merely to force a favorable savings result. Further live allocation and the unresolved budget constraint remain as recorded above.
+Proposed admission criterion: optional orchestration needs substantial independent work, useful isolation of irrelevant context, or a consequential review requirement. Duration alone is insufficient: hours waiting for a solver may need no helper, while a short independent investigation may benefit. Keep one capable owner for interdependent steps. Do not run another broad model matrix or an hours-long campaign merely to force a favorable savings result. Current live authority and gates are recorded in the terminal update below.
 
 ## Bounded retrospective and capture extension, 2026-10-10
 
@@ -78,3 +78,33 @@ unknown; frozen source inputs and parent arithmetic are unchanged.
 checks and matched-pair preflight. No benchmark starts occurred. The budget
 choice remains unanswered, so native qualification and comparison remain
 unexecuted. Review/coordinator cost is unknown and outside family estimates.
+
+## Approved qualification terminal, 2026-10-10
+
+The user explicitly approved reported limits with $1 headroom and possible
+overshoot of $3. [Allocation](live-approved-2026-10-10/allocation.json) records
+the exact question, answer, scope and starts. New preparations use a durable
+experiment directory; disposable launch files use the configured TMPDIR
+fallback. Existing preparations and frozen historical records were preserved.
+
+One qualification family ran under reviewed source `05c6748` and Claude CLI
+`2.1.296`: an Opus parent called one native Haiku `scientific_explorer` at high
+effort. Exact output, unchanged workspace, terminal success, usage presence,
+helper boundary, capture and owned-process cleanup checks all passed. The
+observation took 13.078 seconds and reported $0.201237295 for the family. Child
+token counts match CLI model usage; model estimates sum to the family estimate.
+Actual billing and coordinator/review cost remain unknown.
+
+The fixture contained zero denied-operation probes. A successful permitted
+read and unchanged workspace do not establish enforcement. The qualification
+remains unaccepted; independent review agrees that the comparison must stop.
+No comparison arm or retry ran. [Results](live-approved-2026-10-10/RESULTS.md),
+[assessment](live-approved-2026-10-10/qualification-assessment.json) and
+[independent review](live-approved-2026-10-10/review.json) preserve the evidence
+and a narrow offline design for the missing test. A further qualification
+requires its own start allocation; unused arms and reserve are not retries.
+No efficiency/default or scientific claim follows.
+
+Production code is unchanged since the 89-test pass. This terminal evidence
+and handoff update reuse that pass; scoped artifact and documentation checks
+are recorded in the experiment's validation record.

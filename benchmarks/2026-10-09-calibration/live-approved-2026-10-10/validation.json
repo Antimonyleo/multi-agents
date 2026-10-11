@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-10-11T00:29:50.256293+00:00",
+  "scope": "Terminal qualification evidence and documentation; production code unchanged since 05c6748.",
+  "checks": {
+    "repository_structure_protected_files": {
+      "status": "pass",
+      "command": "python -B scripts/validate.py",
+      "evidence": "7 local links, 5 Codex profiles, 74 protected Claude/benchmark files"
+    },
+    "instruction_health": {
+      "status": "pass",
+      "command": "agent-workflow check --repo .",
+      "evidence": "passed true; errors empty"
+    },
+    "skill_structure": {
+      "status": "pass",
+      "command": "/usr/bin/python3 /home/hao/.codex/skills/.system/skill-creator/scripts/quick_validate.py skill/scientific-workflow",
+      "evidence": "Skill is valid!"
+    },
+    "repository_tests": {
+      "status": "reused",
+      "source_checkpoint": "05c6748",
+      "count": 89,
+      "evidence": "../retrospective/review-suite.log",
+      "reason": "No production code changed; terminal evidence and prose edits only."
+    },
+    "frozen_evidence_hashes": {
+      "status": "pass",
+      "count": 5
+    },
+    "json_artifacts": {
+      "status": "pass"
+    },
+    "changed_document_links_fences_whitespace": {
+      "status": "pass",
+      "documents": 4,
+      "local_links": 40
+    },
+    "terminal_start_and_stop_counters": {
+      "status": "pass",
+      "parents_started": 1,
+      "helpers_observed": 1,
+      "comparison_starts": 0,
+      "accepted_for_comparison": false
+    },
+    "staged_whitespace": {
+      "status": "pass for changed prose and other artifacts; five frozen-input findings retained",
+      "full_check_exit_code": 2,
+      "frozen_input_exceptions": [
+        "baseline/prompt.txt:6: new blank line at EOF",
+        "baseline/workspace/AGENTS.md:1: trailing space",
+        "qualification/workspace/AGENTS.md:1: trailing space",
+        "workflow/prompt.txt:13: new blank line at EOF",
+        "workflow/workspace/AGENTS.md:1: trailing space"
+      ],
+      "reason": "Prepared inputs and observed qualification workspace are preserved byte-for-byte; normalizing them would invalidate frozen hashes. These findings predate launch."
+    }
+  }
+}

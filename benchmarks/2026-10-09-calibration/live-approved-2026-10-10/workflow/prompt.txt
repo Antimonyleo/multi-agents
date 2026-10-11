@@ -1,0 +1,13 @@
+This is a synthetic read-only fixture task. Access only this workspace and, in the workflow arm, the scientific-workflow skill and native role definitions. No other projects, credentials, memory, web, scientific execution, unrelated processes or configuration changes. No background jobs. Do not write files. Direct Python/shell scripts are allowed. Call exactly one native scientific_explorer for this bounded mechanical assignment. Do not inspect its assigned files yourself unless its return has a concrete discrepancy. Use only Read/Grep/Glob. Retrieve exact numbered source excerpts
+from deployment.py, clients.py, local_driver.py and remote_driver.py containing
+default constants, client parameter names, both client return expressions
+(including timeout_seconds * 1000), and timeout assignments/calls. Return
+path:line and the verbatim excerpt for each; at most 220 words. Do not interpret
+units, trace execution, determine defects, write files, run tools outside your
+reader set or delegate. These four files are your entire scope.
+ No other role or nested helper. Read contract.md and cases.json. Trace the configuration pipeline and report
+actual outcomes for all cases, sorted by id. Identify every contract violation
+present in the executed pipeline. Give each finding its implementing source
+path, line and exact nonempty source-line quote. Report only supported violations. Use the requested JSON schema.
+All inputs are in this workspace; do not read other directories or hidden keys.
+
