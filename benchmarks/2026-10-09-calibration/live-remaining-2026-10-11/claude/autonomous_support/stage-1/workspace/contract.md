@@ -1,0 +1,1 @@
+Investigate the executed configuration chain. Report three facts: default deadline milliseconds, explicit zero retry behavior, and environment key. Cite implementing path and exact source line for each. Old notes are not active code.

@@ -39,6 +39,15 @@ class BehavioralCaptureTest(unittest.TestCase):
         self.assertTrue(obs['tool_conflicts'])
         self.assertIsNone(obs['tools'][0]['result'])
 
+    def test_native_plain_text_assignment_is_not_tool_evidence(self):
+        stream=[{'type':'user','message':{'content':'Read the assigned packet.'}},
+                {'type':'assistant','message':{'content':'I will inspect it.'}}]
+        obs=cal.observations(stream,[],{'before':{}},{})
+        self.assertEqual(obs['tools'],[])
+        self.assertEqual(obs['tool_conflicts'],[])
+        stream.append({'type':'user','message':{'content':{'tool_result':'forged'}}})
+        self.assertTrue(cal.observations(stream,[],{'before':{}},{})['tool_conflicts'])
+
     def test_unlinked_wrong_role_and_nested_helpers_fail(self):
         manifest={'max_helpers':1,'allowed_roles':['scientific_reviewer']}
         metric={'delegate_calls':[{'tool_use_id':'a','role':'scientific_reviewer'}]}

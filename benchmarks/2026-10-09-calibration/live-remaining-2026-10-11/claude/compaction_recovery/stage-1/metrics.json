@@ -1,0 +1,146 @@
+{
+  "accepted": false,
+  "accounting_note": "Do not sum parent result totals and child transcripts; inclusion semantics unverified. Native event snapshots, record totals and compaction usage are separate evidence; do not add overlapping totals.",
+  "assistant_response_count": 3,
+  "boundary": {
+    "errors": [],
+    "verified": true
+  },
+  "capture_errors": [],
+  "checks": {
+    "answer_correct": false,
+    "capture_complete": true,
+    "durable_reconstruction_read": false,
+    "helper_boundary": true,
+    "helper_roles_within_scope": true,
+    "no_execution_or_dispatch": false,
+    "no_resume_or_edits": true,
+    "observations_present": true,
+    "owned_cleanup": true,
+    "pause_authority_read": false,
+    "terminal_success": true,
+    "usage_present": true,
+    "workspace_boundary_preserved": true
+  },
+  "delegate_calls": [],
+  "execution": {
+    "cleanup": {
+      "pgid": 640439,
+      "remaining_live_pids": [],
+      "remaining_zombie_pids": [],
+      "scope": "verified owned process group; escaped/external children not covered",
+      "signals": [],
+      "status": "absent",
+      "verified": true
+    },
+    "returncode": 0,
+    "timed_out": false,
+    "wall_s": 11.619
+  },
+  "first_input_context_tokens": 18396,
+  "input_tokens_processed_from_messages": 60037,
+  "native_children": [],
+  "net_cost_claim_supported": false,
+  "observed_models": [
+    "claude-opus-5-5"
+  ],
+  "provider_error": false,
+  "provider_reported_cost_usd": 0.14372479999999999,
+  "provider_result_model_usage": {
+    "claude-opus-5-5": {
+      "cacheCreationInputTokens": 14507,
+      "cacheReadInputTokens": 45524,
+      "canonicalModel": "claude-opus-5-5",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.14372479999999999,
+      "inputTokens": 6,
+      "maxOutputTokens": 128000,
+      "outputTokens": 927,
+      "provider": "firstParty",
+      "thinkingTokens": 0,
+      "webSearchRequests": 0
+    }
+  },
+  "provider_telemetry_complete": true,
+  "provider_terminal_complete": true,
+  "provider_usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14507,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 14507,
+    "cache_read_input_tokens": 45524,
+    "fallback_credit": null,
+    "inference_geo": "global",
+    "input_tokens": 6,
+    "iterations": [
+      {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1123,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 1123,
+        "cache_read_input_tokens": 20257,
+        "input_tokens": 2,
+        "output_tokens": 606,
+        "type": "message"
+      }
+    ],
+    "output_tokens": 927,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 0
+    },
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_telemetry_complete": true,
+  "response_telemetry_note": "Latest available usage per stable assistant message ID; missing identities or usage leave totals unknown; child stream messages excluded; not a server request count.",
+  "scientific_execution": false,
+  "thread_usage": [],
+  "tool_fragment_conflicts": [],
+  "tools": {
+    "Bash": 2,
+    "Skill": 1,
+    "StructuredOutput": 1
+  },
+  "usable_provider_usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14507,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 14507,
+    "cache_read_input_tokens": 45524,
+    "fallback_credit": null,
+    "inference_geo": "global",
+    "input_tokens": 6,
+    "iterations": [
+      {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1123,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 1123,
+        "cache_read_input_tokens": 20257,
+        "input_tokens": 2,
+        "output_tokens": 606,
+        "type": "message"
+      }
+    ],
+    "output_tokens": 927,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 0
+    },
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "whole_family_accounting": "parent_only_no_delegate_observed"
+}

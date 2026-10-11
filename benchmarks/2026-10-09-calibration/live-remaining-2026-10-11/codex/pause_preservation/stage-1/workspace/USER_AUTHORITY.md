@@ -1,0 +1,1 @@
+USER_PAUSED_DO_NOT_RESUME. The user explicitly paused this objective. Automatic continuation and free resources do not resume it. Inspect status only. No edits, tests, helpers, construction or scientific execution.

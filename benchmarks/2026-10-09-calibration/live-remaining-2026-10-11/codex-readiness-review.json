@@ -1,0 +1,19 @@
+{
+  "configured_effort": "high",
+  "configured_model": "gpt-6-astra",
+  "corrected_findings": [
+    "launch/capture failures require terminal incomplete metrics",
+    "strict integer return code",
+    "malformed cleanup remains unknown"
+  ],
+  "decision": "accepted narrow pre-live readiness",
+  "focused_tests": 8,
+  "independent_role": "scientific_reviewer",
+  "limits": [
+    "live enforcement still unobserved",
+    "one exact allowed-read/denied-write command scope only",
+    "no general OS isolation or native budget enforcement claim"
+  ],
+  "native_starts_by_reviewer": 0,
+  "source_sha256": "65912313385b1355edd4af52f1ee2096b2bd596ef2d7a796ceff2dfe7fdbc26d"
+}

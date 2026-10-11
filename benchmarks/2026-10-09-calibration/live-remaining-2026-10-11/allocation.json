@@ -1,0 +1,107 @@
+{
+  "approved_remaining_claude_reported_limit_usd": 4.8,
+  "authority": "go ahead",
+  "automatic_retries": false,
+  "case_stages": {
+    "autonomous_support": 1,
+    "compaction_recovery": 2,
+    "dependent_owner": 1,
+    "pause_preservation": 1,
+    "receipt_reuse": 3,
+    "review_reuse": 2,
+    "review_value": 1,
+    "routine_restraint": 1
+  },
+  "claude_case_limit_usd": 0.6,
+  "codex_two_checks_dollar_cost": "unmeasured, user accepted",
+  "coordinator_and_review_cost": "unknown, excluded",
+  "created_at_utc": "2026-10-11T21:25:50.596162+00:00",
+  "deadline_s": 300,
+  "earlier_checkpoint": "633e97d",
+  "failed_semantic_pair": "stopped; no baseline or reverse retry",
+  "native_config_changes": false,
+  "one_native_family_at_a_time": true,
+  "project2": "USER_PAUSED_DO_NOT_RESUME",
+  "reported_limits_may_overshoot": true,
+  "scientific_execution": false,
+  "scratch": "/home/hao/.cache/codex-scratch/task.LMILbF",
+  "started": [
+    {
+      "at_utc": "2026-10-11T21:26:06.907174+00:00",
+      "case": "routine_restraint",
+      "limit_usd": 0.6,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:27:02.756641+00:00",
+      "case": "autonomous_support",
+      "limit_usd": 0.6,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:28:42.197866+00:00",
+      "case": "review_reuse",
+      "limit_usd": 0.3,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:30:49.056924+00:00",
+      "case": "pause_preservation",
+      "limit_usd": 0.6,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:32:47.590344+00:00",
+      "case": "dependent_owner",
+      "limit_usd": 0.6,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:34:10.353305+00:00",
+      "case": "review_reuse",
+      "limit_usd": 0.3,
+      "provider": "claude",
+      "stage": 2
+    },
+    {
+      "at_utc": "2026-10-11T21:35:05.220215+00:00",
+      "case": "review_value",
+      "limit_usd": 0.6,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:36:12.387042+00:00",
+      "case": "receipt_reuse",
+      "limit_usd": 0.2,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:37:17.267258+00:00",
+      "case": "compaction_recovery",
+      "limit_usd": 0.3,
+      "provider": "claude",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:38:18.472192+00:00",
+      "case": "permission_capture",
+      "dollar_cost": "unmeasured, user accepted",
+      "provider": "codex",
+      "stage": 1
+    },
+    {
+      "at_utc": "2026-10-11T21:42:05.078856+00:00",
+      "case": "pause_preservation",
+      "dollar_cost": "unmeasured, user accepted",
+      "provider": "codex",
+      "stage": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "current_parser_sha256": "04acea954e99490af37899cc61085b4ce38ff4e188d93ce545234e5e55a98737",
+  "execution_sha256": "baacf2355158ebddcd46b37134180d1743dce0c19fb114fa69040fc46c551cd0",
+  "independent_acceptance": "accepted; native user assignment text; six hashes and unchanged tool evidence verified",
+  "launch_manifest_sha256": "e6034467457c249195a29dd5de07286802c455c37cd7b126c2ac6888192a221c",
+  "metrics_at_launch_sha256": "7b7f48b6ec2439a2e84f761396005a7fa049aa65db7f5f197b295b33f9777a50",
+  "paid_retry": false,
+  "raw_trace_sha256": "4554356eaa4904d6ec50839b2426f8fecafe1f4950abd3995b8db37efa23ac8a",
+  "reason": "native child initial user.content is plain text, not malformed tool evidence",
+  "reprocessed_metrics_sha256": "f2adc25199a04e09ca5a535b770f148cdbbd67ea07ec5d7916a64ad8a6862b35"
+}

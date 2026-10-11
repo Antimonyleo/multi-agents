@@ -1,0 +1,30 @@
+{
+  "cli_trace_sha256": "8f18dbf651aa20b3e77fc83b014853ce45181790715da5d2b6ab0aea92895104",
+  "execution_sha256": "38d7f334a6e2d396152104dcdaf9a5c1bf66688493ebbbfb0847cfd7db76e3a2",
+  "independent_acceptance": {
+    "accepted": true,
+    "focused_tests": 11,
+    "parent_evidence_lines": [
+      18,
+      20
+    ],
+    "reviewer": "/root/compaction_review",
+    "scope": "exact allowed read and exact denied write in frozen owned native parent; not general isolation"
+  },
+  "metrics_at_launch_sha256": "cfe01b355861cd8a926c925097671f3d1f5c476e8cf24aad6ff4c14d67ce0a83",
+  "paid_retry": false,
+  "parent_id": "01a12ce7-6a66-7660-86a7-59bb53447f7c",
+  "parent_sha256": "1f03c9aafa96f2a8e73baf022e78ec9307d0c0a0f4fee3e9c46f362018c439aa",
+  "parser_sha256": "657e14129a8218c1c7995a2079368f66ee0a41c3b3071d7065cc56fd42a92962",
+  "permission_evidence": {
+    "allowed_read_observed": true,
+    "conflicts": [],
+    "probe_attempts": 1,
+    "runtime_denial_observed": true,
+    "scope": "one exact write command in this read-only workspace; not general OS isolation",
+    "source": "owned native calls",
+    "status": "verified",
+    "unexpected_success": false
+  },
+  "reason": "frontend omitted denied call; owned native code-call and correlated exit_code1/output prove read-only denial"
+}

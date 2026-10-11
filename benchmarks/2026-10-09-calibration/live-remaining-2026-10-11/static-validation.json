@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "name": "structure",
+      "chunk_id": "461e04",
+      "wall_time_seconds": 1.007085824,
+      "exit_code": 0,
+      "original_token_count": 19,
+      "output": "PASS: 7 local links, 5 Codex profiles, 74 protected Claude/benchmark files\n"
+    },
+    {
+      "name": "instruction-health",
+      "chunk_id": "2166b8",
+      "wall_time_seconds": 0.000021412,
+      "exit_code": 0,
+      "original_token_count": 51,
+      "output": "[\n  {\n    \"repo\": \"/home/hao/githubrepo/scientific-workflow-skill\",\n    \"staged\": false,\n    \"sizes\": {\n      \"AGENTS.md\": 1527,\n      \"CLAUDE.md\": 11\n    },\n    \"passed\": true,\n    \"errors\": []\n  }\n]\n"
+    },
+    {
+      "name": "source-skill",
+      "chunk_id": "29f56d",
+      "wall_time_seconds": 0.000014201,
+      "exit_code": 0,
+      "original_token_count": 4,
+      "output": "Skill is valid!\n"
+    },
+    {
+      "name": "staged-skill",
+      "chunk_id": "ecb43c",
+      "wall_time_seconds": 0.000014883,
+      "exit_code": 0,
+      "original_token_count": 4,
+      "output": "Skill is valid!\n"
+    }
+  ],
+  "scope": "Current code and staged skill; native starts not repeated."
+}

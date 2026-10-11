@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": "Local Markdown links and balanced fences",
+  "paths": [
+    "docs/STATE.md",
+    "benchmarks/2026-10-09-calibration/COMPLETION_PLAN.md",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/RESULTS.md",
+    "staging/receipt-evidence-2026-10-11/README.md"
+  ]
+}

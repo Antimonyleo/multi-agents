@@ -1,0 +1,18 @@
+{
+  "clean_controls": [
+    "c1",
+    "c2"
+  ],
+  "decision": "hold",
+  "findings": [
+    {
+      "defect": "no_same_observation_pass",
+      "packet": "r1"
+    },
+    {
+      "defect": "unknown_child_cost",
+      "packet": "r2"
+    }
+  ],
+  "packet_digest": "1409c399d9ea9b0edf8fd990b223aac87ac2c6ffbcd2d3689c324d1eaf19b3be"
+}

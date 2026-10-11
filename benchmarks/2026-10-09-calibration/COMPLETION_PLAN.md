@@ -46,7 +46,7 @@ controls. It does not claim general OS isolation.
 7. Persist results in the calibration directory, update the rolling STATE,
    complete the required local Git checkpoint and verify the working tree.
 
-## Allocation under clarification
+## Allocation history and approved remainder
 
 The former $3 nominal pilot allocation does not authorize the eight later
 behavioral cases. A budget question is pending while offline work proceeds.
@@ -75,3 +75,20 @@ then failed receipt (three), and paused context-loss reconstruction then explici
 user resume of one synthetic repair (two). These are distinct planned stages,
 not retries. Shared stage caps sum to each case's $0.60 proposed family envelope.
 The same-session persistence/actual-compaction distinction remains a limit.
+
+Resolved 2026-10-11: the user answered “go ahead” to the final remaining
+allocation question: $4.80 in Claude-reported limits, possible overshoot, plus
+two bounded Codex checks with unmeasured dollar cost. This supersedes the
+unanswered $8 proposal. The semantic first arm failed exact quotes; its baseline
+and reverse pair are stopped. Each of eight remaining cases has $0.60 split
+across its listed stages; an unaccepted predecessor stops later stages without
+a model retry. Run one native family at a time and preserve all terminal results.
+See `live-remaining-2026-10-11/allocation.json`.
+
+Closed 2026-10-11: nine Claude stages and two Codex parents reached terminal
+outcomes. Receipt stages 2–3 and recovery stage 2 remain unstarted because their
+immediate predecessors failed strict acceptance. No model retry, baseline or
+reverse pair. See [final results](live-remaining-2026-10-11/RESULTS.md). This closes
+the authorized diagnostic allocation; it does not establish full qualification,
+real compaction, scientific success or savings. Skill improvements are staged
+away from live links and checkpointed separately.

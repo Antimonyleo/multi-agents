@@ -1,0 +1,36 @@
+{
+  "component": "component-000",
+  "notes": "synthetic inventory; no scientific data",
+  "records": [
+    {
+      "enabled": true,
+      "label": "ineligible-pending",
+      "outcome": "pending",
+      "revision": 5
+    },
+    {
+      "enabled": true,
+      "label": "older",
+      "outcome": "ready",
+      "revision": 2
+    },
+    {
+      "enabled": false,
+      "label": "disabled",
+      "outcome": "ready",
+      "revision": 6
+    },
+    {
+      "enabled": true,
+      "label": "label-00000",
+      "outcome": "ready",
+      "revision": 3
+    },
+    {
+      "enabled": true,
+      "label": "wrong-case",
+      "outcome": "READY",
+      "revision": 4
+    }
+  ]
+}

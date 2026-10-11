@@ -1,0 +1,10 @@
+{
+  "automatic_retry": false,
+  "predecessor_metrics_sha256": "1a756558e68374c8cf65f28b4fa16d07a5c24a01f3639622e2c3a0b934662039",
+  "raw_answer_preserved": true,
+  "reason": "immediate predecessor failed strict acceptance; no retry or scientific resume",
+  "stages": [
+    2
+  ],
+  "status": "skipped_by_predecessor_gate"
+}

@@ -1,0 +1,159 @@
+{
+  "accepted": false,
+  "accounting_note": "Do not sum parent result totals and child transcripts; inclusion semantics unverified. Native event snapshots, record totals and compaction usage are separate evidence; do not add overlapping totals.",
+  "assistant_response_count": 4,
+  "boundary": {
+    "errors": [],
+    "verified": true
+  },
+  "capture_errors": [],
+  "checks": {
+    "answer_correct": true,
+    "capture_complete": false,
+    "helper_boundary": true,
+    "helper_roles_within_scope": true,
+    "input_review_observed": true,
+    "native_review_completed": true,
+    "observations_present": true,
+    "one_required_review_only": true,
+    "owned_cleanup": true,
+    "packet_unchanged": true,
+    "terminal_success": true,
+    "usage_present": true,
+    "workspace_boundary_preserved": true
+  },
+  "delegate_calls": [
+    {
+      "input": {
+        "description": "Review release packets gate",
+        "prompt": "Consequential review gate (synthetic fixture, read-only). Independently assess the packets against the original requirements. No preferred verdict. No scientific execution; no shell needed.\n\nFiles (in /home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_reuse/stage-1/workspace/):\n- acceptance.md (original requirements)\n- packets.json (packets under review)\n- packet.sha256 (precomputed SHA256 provenance digest of packets.json; use it as packet_digest)\n\nRead all three. For each packet, check whether it meets acceptance. Use defect codes no_same_observation_pass (no single observation meets both thresholds) and unknown_child_cost (child cost unknown/null, so total cannot be accepted) where supported; only report supported findings. Packets with no defect are clean_controls.\n\nReturn only JSON: {\"packet_digest\": \"<sha256 from packet.sha256>\", \"decision\": \"hold\" or \"release\", \"findings\": [{\"packet\": \"...\", \"defect\": \"...\"}], \"clean_controls\": [\"...\"]}",
+        "run_in_background": false,
+        "subagent_type": "scientific_reviewer"
+      },
+      "parent_tool_use_id": null,
+      "role": "scientific_reviewer",
+      "tool_use_id": "toolu_01UPzNBHe3tnHs8V9peEXx4k"
+    }
+  ],
+  "execution": {
+    "cleanup": {
+      "pgid": 500156,
+      "remaining_live_pids": [],
+      "remaining_zombie_pids": [],
+      "scope": "verified owned process group; escaped/external children not covered",
+      "signals": [],
+      "status": "absent",
+      "verified": true
+    },
+    "returncode": 0,
+    "timed_out": false,
+    "wall_s": 21.578
+  },
+  "first_input_context_tokens": 20879,
+  "input_tokens_processed_from_messages": 94959,
+  "native_children": [],
+  "net_cost_claim_supported": false,
+  "observed_models": [
+    "claude-opus-5-5"
+  ],
+  "provider_error": false,
+  "provider_reported_cost_usd": 0.296873,
+  "provider_result_model_usage": {
+    "claude-opus-5-5": {
+      "cacheCreationInputTokens": 32710,
+      "cacheReadInputTokens": 74760,
+      "canonicalModel": "claude-opus-5-5",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.296873,
+      "inputTokens": 12,
+      "maxOutputTokens": 128000,
+      "outputTokens": 2043,
+      "provider": "firstParty",
+      "thinkingTokens": 301,
+      "webSearchRequests": 0
+    }
+  },
+  "provider_telemetry_complete": true,
+  "provider_terminal_complete": true,
+  "provider_usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 25821,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 25821,
+    "cache_read_input_tokens": 69130,
+    "fallback_credit": null,
+    "inference_geo": "global",
+    "input_tokens": 8,
+    "iterations": [
+      {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 923,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 923,
+        "cache_read_input_tokens": 24898,
+        "input_tokens": 2,
+        "output_tokens": 309,
+        "type": "message"
+      }
+    ],
+    "output_tokens": 1410,
+    "output_tokens_details": {
+      "thinking_tokens": 173
+    },
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 0
+    },
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_telemetry_complete": true,
+  "response_telemetry_note": "Latest available usage per stable assistant message ID; missing identities or usage leave totals unknown; child stream messages excluded; not a server request count.",
+  "scientific_execution": false,
+  "thread_usage": [],
+  "tool_fragment_conflicts": [],
+  "tools": {
+    "Agent": 1,
+    "Read": 7,
+    "Skill": 1,
+    "StructuredOutput": 1
+  },
+  "usable_provider_usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 25821,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 25821,
+    "cache_read_input_tokens": 69130,
+    "fallback_credit": null,
+    "inference_geo": "global",
+    "input_tokens": 8,
+    "iterations": [
+      {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 923,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 923,
+        "cache_read_input_tokens": 24898,
+        "input_tokens": 2,
+        "output_tokens": 309,
+        "type": "message"
+      }
+    ],
+    "output_tokens": 1410,
+    "output_tokens_details": {
+      "thinking_tokens": 173
+    },
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 0
+    },
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "whole_family_accounting": "unverified"
+}

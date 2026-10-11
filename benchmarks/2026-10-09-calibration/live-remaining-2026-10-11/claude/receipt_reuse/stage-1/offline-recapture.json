@@ -1,0 +1,15 @@
+{
+  "execution_sha256": "dc015ca0259540fc4b3301f33010a38222a6ad07e96e2101273c8f546fc8bc2d",
+  "fixture_sha256": "b44e04fdeb64ecbc4621413c861e4a5add053135650cb1c4b43ed9379f560d01",
+  "independent_acceptance": {
+    "accepted": true,
+    "reviewer": "/root/compaction_review",
+    "scope": "StructuredOutput communication is not execution; strict answer/read failures remain; later stages stopped"
+  },
+  "metrics_at_launch_sha256": "6db57723d79f0dc04b9f9e17b4e09ea29eb298faa0927f052a7c686e99c24982",
+  "paid_retry": false,
+  "parser_sha256": "04acea954e99490af37899cc61085b4ce38ff4e188d93ce545234e5e55a98737",
+  "raw_trace_sha256": "bf87405f130b6d135c31171206978fb09adb07134950c473eea2b2eb19638478",
+  "reason": "native StructuredOutput is output communication, not a test rerun; preserves strict answer/read failures",
+  "reprocessed_metrics_sha256": "a1c816f84c1a8edc125e4032a13b0262c1b341e9cc33b96fe35e788b85eaacd9"
+}

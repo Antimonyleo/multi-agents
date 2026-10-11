@@ -1,0 +1,1 @@
+Synthetic workflow evaluation only. Access this workspace, its local skill and native role definitions. Preserve unrelated projects, processes and global configuration. No memory, network, scientific execution or background jobs. Only the named fixture source modules may be edited. 

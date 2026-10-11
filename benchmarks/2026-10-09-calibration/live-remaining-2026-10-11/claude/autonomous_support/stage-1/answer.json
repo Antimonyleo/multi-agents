@@ -1,0 +1,26 @@
+{
+  "delegation": "direct",
+  "facts": [
+    {
+      "line": 1,
+      "name": "default_deadline_ms",
+      "path": "config/defaults.py",
+      "quote": "DEADLINE_MS = 125",
+      "value": 125
+    },
+    {
+      "line": 2,
+      "name": "environment_key",
+      "path": "config/defaults.py",
+      "quote": "RETRY_ENV = \"BEACON_RETRY_LIMIT\"",
+      "value": "BEACON_RETRY_LIMIT"
+    },
+    {
+      "line": 4,
+      "name": "explicit_zero_retry_behavior",
+      "path": "config/resolve.py",
+      "quote": "if retries is None:",
+      "value": "An explicit retries=0 is kept as 0. Only None falls back to the env value or the default of 2."
+    }
+  ]
+}

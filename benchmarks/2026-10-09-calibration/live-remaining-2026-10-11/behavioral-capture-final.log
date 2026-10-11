@@ -1,0 +1,12 @@
+test_conflicting_calls_are_not_silently_deduplicated (test_behavioral_calibration.BehavioralCaptureTest.test_conflicting_calls_are_not_silently_deduplicated) ... ok
+test_conflicting_results_and_spoofed_origins_fail_capture (test_behavioral_calibration.BehavioralCaptureTest.test_conflicting_results_and_spoofed_origins_fail_capture) ... ok
+test_correlated_results_and_child_actor_preserved (test_behavioral_calibration.BehavioralCaptureTest.test_correlated_results_and_child_actor_preserved) ... ok
+test_native_plain_text_assignment_is_not_tool_evidence (test_behavioral_calibration.BehavioralCaptureTest.test_native_plain_text_assignment_is_not_tool_evidence) ... ok
+test_preparation_snapshot_includes_guidance_and_skill_setup (test_behavioral_calibration.BehavioralCaptureTest.test_preparation_snapshot_includes_guidance_and_skill_setup) ... ok
+test_stage_requires_accepted_immediate_predecessor (test_behavioral_calibration.BehavioralCaptureTest.test_stage_requires_accepted_immediate_predecessor) ... ok
+test_unlinked_wrong_role_and_nested_helpers_fail (test_behavioral_calibration.BehavioralCaptureTest.test_unlinked_wrong_role_and_nested_helpers_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.033s
+
+OK

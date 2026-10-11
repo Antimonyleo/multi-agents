@@ -394,6 +394,9 @@ def _named_check_observed(tool, command):
 
 def _passive_tool(tool):
     name = tool.get('name', '').lower()
+    if name == 'structuredoutput':
+        # Native schema handback is communication, not task execution.
+        return True
     if name == 'skill':
         inp = tool.get('input', {})
         return isinstance(inp, dict) and inp.get('skill') == 'scientific-workflow'
@@ -422,6 +425,8 @@ def _passive_tool(tool):
 
 
 def _runs_check(tool):
+    if not tool.get('name', '').lower().endswith(('bash', 'exec_command')):
+        return False
     if _passive_tool(tool):
         return False
     text = _input_text(tool).lower()

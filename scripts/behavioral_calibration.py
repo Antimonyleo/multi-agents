@@ -145,10 +145,13 @@ def observations(stream, children, manifest, after):
                 conflicts.append('unsupported message shape')
                 continue
             content = message.get('content', [])
+            origin = event.get('type') or message.get('role')
+            if isinstance(content, str) and origin in ('user', 'assistant'):
+                # Native transcript assignment/text messages carry no tool data.
+                continue
             if not isinstance(content, list):
                 conflicts.append('unsupported content shape')
                 continue
-            origin = event.get('type') or message.get('role')
             for block in content:
                 if not isinstance(block, dict):
                     continue
@@ -235,6 +238,15 @@ def run(out):
         legacy.run(out, manifest)
     except Exception as exc:
         launch_failure = f'{type(exc).__name__}: {exc}'
+    capture(out, launch_failure)
+
+
+def capture(out, launch_failure=None):
+    """Assess saved terminal evidence without starting or retrying a model."""
+    out = Path(out).resolve()
+    manifest = json.loads((out / 'manifest.json').read_text())
+    if not (out / 'execution.json').is_file() and not launch_failure:
+        raise ValueError('capture requires terminal execution evidence')
     stream, children, traces = [], [], []
     capture_errors = [launch_failure] if launch_failure else []
     try:

@@ -1,0 +1,14 @@
+{
+  "cleanup": {
+    "pgid": 707364,
+    "remaining_live_pids": [],
+    "remaining_zombie_pids": [],
+    "scope": "verified owned process group; escaped/external children not covered",
+    "signals": [],
+    "status": "absent",
+    "verified": true
+  },
+  "returncode": 0,
+  "timed_out": false,
+  "wall_s": 36.745
+}

@@ -1,0 +1,104 @@
+{
+  "accepted": false,
+  "accounting_note": "Do not sum parent result totals and child transcripts; inclusion semantics unverified. Native event snapshots, record totals and compaction usage are separate evidence; do not add overlapping totals.",
+  "assistant_response_count": null,
+  "capture_errors": [],
+  "checks": {
+    "answer_correct": true,
+    "capture_complete": true,
+    "effective_permissions": false,
+    "no_helpers": true,
+    "owned_cleanup": true,
+    "terminal_success": true,
+    "usage_present": true,
+    "workspace_unchanged": true
+  },
+  "delegate_calls": [],
+  "effective_permissions": {
+    "allowed_read_observed": true,
+    "conflicts": [],
+    "probe_attempts": 0,
+    "runtime_denial_observed": false,
+    "scope": "one exact write command in this read-only workspace; not general OS isolation",
+    "status": "unverified",
+    "unexpected_success": false
+  },
+  "execution": {
+    "cleanup": {
+      "pgid": 658763,
+      "remaining_live_pids": [],
+      "remaining_zombie_pids": [],
+      "scope": "verified owned process group; escaped/external children not covered",
+      "signals": [],
+      "status": "absent",
+      "verified": true
+    },
+    "returncode": 0,
+    "timed_out": false,
+    "wall_s": 111.028
+  },
+  "first_input_context_tokens": null,
+  "input_tokens_processed_from_messages": null,
+  "native_children": [],
+  "net_cost_claim_supported": false,
+  "observed_models": [
+    "gpt-6.1-sol"
+  ],
+  "provider_error": false,
+  "provider_reported_cost_usd": null,
+  "provider_result_model_usage": null,
+  "provider_telemetry_complete": true,
+  "provider_terminal_complete": true,
+  "provider_usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 64768,
+    "input_tokens": 83030,
+    "output_tokens": 416,
+    "reasoning_output_tokens": 0
+  },
+  "response_telemetry_complete": false,
+  "response_telemetry_note": "Latest available usage per stable assistant message ID; missing identities or usage leave totals unknown; child stream messages excluded; not a server request count.",
+  "scientific_execution": false,
+  "thread_usage": [
+    {
+      "compaction_response_usage": null,
+      "compaction_usage_complete": null,
+      "id": "01a12ce7-6a66-7660-86a7-59bb53447f7c",
+      "model_contexts": [
+        {
+          "effort": "high",
+          "model": "gpt-6.1-sol"
+        }
+      ],
+      "usage_last_cumulative": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 64768,
+        "input_tokens": 83030,
+        "output_tokens": 416,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 83446
+      },
+      "usage_last_record_cumulative": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 64768,
+        "input_tokens": 83030,
+        "output_tokens": 416,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 83446
+      }
+    }
+  ],
+  "tool_fragment_conflicts": [],
+  "tools": {
+    "agent_message": 2,
+    "command_execution": 3
+  },
+  "usable_provider_usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 64768,
+    "input_tokens": 83030,
+    "output_tokens": 416,
+    "reasoning_output_tokens": 0
+  },
+  "whole_family_accounting": "parent_only_no_delegate_observed"
+}

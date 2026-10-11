@@ -1,0 +1,95 @@
+{
+  "source_and_staged_whitespace": "pass",
+  "frozen_fixture_exceptions": [
+    {
+      "path": "claude/autonomous_support/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/compaction_recovery/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/dependent_owner/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "c65b1b7b39c9445455a633ad1e9760d0b308e0360cb2a5a2c1aefaeab0e4f5f6",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/pause_preservation/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/receipt_reuse/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/review_reuse/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/review_reuse/stage-2/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/review_value/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "claude/routine_restraint/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "codex/pause_preservation/stage-1/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "5da54a0c6102145811b84c53cfd68ec665e800d2eef330e4519538d9f1e1b33b",
+      "manifest_before_match": true
+    },
+    {
+      "path": "codex/permission_capture/workspace/AGENTS.md",
+      "lines": [
+        1
+      ],
+      "sha256": "991f8fdde3ba7d04975cc9a51ce2e6bdce337e94e975ca11588692bbfcda0604",
+      "manifest_before_match": true
+    }
+  ],
+  "preserved": true,
+  "reason": "Existing launch-hashed fixture whitespace is evidence; no rewrite."
+}

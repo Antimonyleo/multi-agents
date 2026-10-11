@@ -153,6 +153,13 @@ class BehavioralFixtureTests(unittest.TestCase):
                         'cat --help records.jsonl', 'sha256sum --version records.jsonl'):
             self.assertFalse(fixture._read_observed([self.checktool(command)],'records.jsonl'),command)
 
+    def test_schema_handback_is_not_check_execution(self):
+        tool={'id':'output','name':'StructuredOutput','input':{'command':fixture.NAMED_CHECK,'rerun':False},
+              'result':{'content':'Structured output provided successfully'}}
+        self.assertTrue(fixture._passive_tool(tool))
+        self.assertFalse(fixture._runs_check(tool))
+        self.assertFalse(fixture._named_check_observed(tool,fixture.NAMED_CHECK))
+
     def test_hidden_checker_requires_three_real_repairs(self):
         root, packet = self.build('dependent_owner')
         truth = packet['truth']
