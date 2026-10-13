@@ -1,0 +1,34 @@
+[
+  {
+    "name": "structure",
+    "chunk_id": "518c19",
+    "wall_time_seconds": 2.8204843139999998,
+    "exit_code": 0,
+    "original_token_count": 19,
+    "output": "PASS: 7 local links, 5 Codex profiles, 74 protected Claude/benchmark files\n"
+  },
+  {
+    "name": "installed-links",
+    "chunk_id": "2adf16",
+    "wall_time_seconds": 0.122785488,
+    "exit_code": 0,
+    "original_token_count": 10,
+    "output": "check passed: both (12 destinations)\n"
+  },
+  {
+    "name": "instruction-health",
+    "chunk_id": "4bd545",
+    "wall_time_seconds": 0.098746755,
+    "exit_code": 0,
+    "original_token_count": 51,
+    "output": "[\n  {\n    \"repo\": \"/home/hao/githubrepo/scientific-workflow-skill\",\n    \"staged\": false,\n    \"sizes\": {\n      \"AGENTS.md\": 1527,\n      \"CLAUDE.md\": 11\n    },\n    \"passed\": true,\n    \"errors\": []\n  }\n]\n"
+  },
+  {
+    "name": "skill-structure",
+    "chunk_id": "241a69",
+    "wall_time_seconds": 0.090312396,
+    "exit_code": 0,
+    "original_token_count": 4,
+    "output": "Skill is valid!\n"
+  }
+]

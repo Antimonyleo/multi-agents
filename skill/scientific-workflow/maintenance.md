@@ -28,6 +28,8 @@ Prepare both arms with the same task, runtime, budget and source version. Run `c
 
 Inventory and the existing template-based prose fixture are scriptable extraction controls. Use them for correctness, context and non-delegation overhead, not as proof of implementation/review benefit or helper savings by file count. A helper-benefit task must have an independent lane that removes owner work and a return/check cheaper than repeating it. Implementation and major-phase review need their own representative fixtures; preserve required gates in both arms. Do not launch another panel merely because a prior task produced no delegation.
 
+If acceptance requires exact names, enum values or source quotes, state them in the prompt/schema before freezing the fixture. Preserve source whitespace when exact quotes are required. Test native text and output-tool representations; unsupported syntax is missing evidence, not an observed behavioral violation. Keep literal-format scores separate from semantic and execution evidence.
+
 Review the experimental design against the original question before costly runs: workload relevance, changed versus held-fixed variables, command-level tools/permissions, exact truth, caching/order, cost scope and limits. Hashes and passing tests alone do not answer these questions. Count parent, child, integration, failed attempts and required review in recurring task cost. Record one-time setup/evaluation separately and include it for total project spend. Unavailable usage prevents complete-cost claims; a single pair stays descriptive. Use existing traces/offline checks first and the current task record for evidence; avoid another reporting framework.
 
 ## Review packet check

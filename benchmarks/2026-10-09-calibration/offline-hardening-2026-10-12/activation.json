@@ -1,0 +1,19 @@
+{
+  "authority": "User go ahead on activating reviewed candidate and offline evaluator hardening; no new model benchmark allocation.",
+  "candidate_checkpoint": "59c9ab7",
+  "files": {
+    "maintenance.md": {
+      "after_sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af",
+      "before_sha256": "3f893f033a0b6d4b5e057ac0df8607209e827acb641427c4afc2d5453eceb424"
+    },
+    "references/coordination.md": {
+      "after_sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065",
+      "before_sha256": "dbfe0d97bb84770dae46ceb38a29fd895c6e096b44e19fc2ae1268bf9fedaa6a"
+    }
+  },
+  "independent_review": "live-remaining-2026-10-11/final-review.json",
+  "protected_files": {
+    "/home/hao/.claude/settings.json": "897d0f3a4e6ceefadf7740b7e685a6274d7919122beb2fdc239c22172844af18",
+    "/home/hao/.codex/config.toml": "40649a2d1d5c168b31d2cabda1e34ca8faf53d8c3a2f23578268029a3ad89061"
+  }
+}

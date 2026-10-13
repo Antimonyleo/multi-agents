@@ -20,7 +20,7 @@ Before relaunch after timeout, inspect owned terminal/process evidence. A timed-
 
 ## Validate and account for the whole task
 
-Run affected checks and required project checks once per relevant change. Repeat a passing check only when changed inputs/code or a concrete unresolved concern warrants it. Batch independent deterministic reads/checks; filter output to failures, counts and evidence paths before loading it into context.
+Run required checks with a preserved full log and verified exit status. Record the result before filtering a display copy; a pipeline or truncated summary alone is not a passing receipt. Run affected checks and required project checks once per relevant change. Repeat a passing check only when changed inputs/code or a concrete unresolved concern warrants it. Batch independent deterministic reads/checks; filter output to failures, counts and evidence paths before loading it into context.
 
 Record versions, parameters, commands, relevant units/randomness, failures and skipped checks. Preserve scientific reference/control checks and evidence even when reducing narration. Static checks and successful execution do not promote scientific claims.
 

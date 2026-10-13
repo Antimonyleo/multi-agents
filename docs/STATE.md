@@ -4,7 +4,14 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-11, authorized bounded diagnostics terminal; skill improvement staged (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-12, reviewed receipt/acceptance guidance activated; offline evaluator hardening in progress (branch `codex-claude-shared-workflow-20261009`; no push).
+
+Current authorized work: user approved the recommended activation and offline
+evaluator hardening. The exact reviewed two-file candidate is now live. Current
+phase evidence is [offline-hardening-2026-10-12](../benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/).
+Finish affected/full checks, installed-link/instruction checks, independent
+completion review and separate local checkpoints. No new paid benchmark is
+allocated. Earlier live results below remain historical and unchanged.
 
 Goal: a shared Codex/Claude scientific workflow skill with separate native adapters, checked against measured execution.
 
