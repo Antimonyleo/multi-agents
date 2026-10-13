@@ -1,0 +1,13 @@
+{
+  "scripts/implementation_fixture.py": "668a43c0246f5c202a293b7847f7182e35210e63345e831f62e842234eb6cb3c",
+  "tests/test_implementation_fixture.py": "0d76d52064df0bba938a3e755420b4a34fde579504619cc7a658074f324c319c",
+  "staging/contract-boundary-2026-10-13/scientific-workflow/maintenance.md": "6b4ea813c231c57632776907d5fa0bc6a048868cb34d9b562fb1de45029d3501",
+  "docs/contract-boundary-maintenance-2026-10-13/validation.json": "62ec8dff85aaec690569819cdfb157e22956d009d8bb183ac248e71e41169ed7",
+  "docs/contract-boundary-maintenance-2026-10-13/full-suite.log": "ca42fb7ae6432d0e3c50c10c056a7a0e51074dbc7d70c5ca9c0e95d8861b5fdd",
+  "docs/contract-boundary-maintenance-2026-10-13/regression-before.json": "5c4d7e1d878fbeb11b94627426066fd5d17c0168d83e28d691d40a1da52304bf",
+  "docs/contract-boundary-maintenance-2026-10-13/regression-before.log": "6b3572043b4680ad6d9eea9ac335116fbc33bd6981574f48893835d6b32f6114",
+  "docs/contract-boundary-maintenance-2026-10-13/preservation-before.json": "e09a2538d39be2d7985f19b6c0f8a2dae582d10762e112ebe236f452fcfec281",
+  "docs/contract-boundary-maintenance-2026-10-13/preservation-after.json": "d24e3f92a78c8d13a17326ca377894b0a6b0ec33fbe4104f753fe144c53f8de6",
+  "docs/contract-boundary-maintenance-2026-10-13/RESULTS.md": "17d04bf1eaf860a975fbe8090578a5c5dae6ca622dacf6dc67e5acb06bef37b9",
+  "docs/contract-boundary-maintenance-2026-10-13/plan-review.json": "2c5d2df231b79d90b95710d8b49952d5bf5d27f7abb223371e67adaa26dbb912"
+}

@@ -152,6 +152,70 @@ class ImplementationFixtureTests(unittest.TestCase):
         self.assertFalse(checks['normalize_api_unknown'])
         self.assertFalse(checks['normalize_api_invalid_0'])
 
+    def test_unordered_internal_rows_pass_but_report_order_remains_required(self):
+        workspace, _ = self.workspace()
+        fixture.install_reference(workspace)
+        path = workspace / 'attempts.py'
+        path.write_text(path.read_text().replace(
+            'return sorted(groups.values(), key=lambda row: row["job"])',
+            'return list(reversed(sorted(groups.values(), key=lambda row: row["job"])))'))
+        report = workspace / 'report.py'
+        report.write_text(report.read_text().replace(
+            'rows = summarize(payload["attempts"])',
+            'rows = sorted(summarize(payload["attempts"]), key=lambda row: row["job"])'))
+        checks = fixture.validate(workspace)
+        self.assertTrue(all(checks.values()), checks)
+        # A facade that fails its disclosed R1 ordering must still fail.
+        report.write_text(report.read_text().replace(
+            'rows = sorted(summarize(payload["attempts"]), key=lambda row: row["job"])',
+            'rows = summarize(payload["attempts"])'))
+        checks = fixture.validate(workspace)
+        self.assertTrue(checks['summarize_api_mixed_units_zero_unknown_final'])
+        self.assertFalse(checks['mixed_units_zero_unknown_final'])
+        self.assertFalse(checks['generate_api_mixed_units_zero_unknown_final'])
+
+    def test_unordered_row_comparison_preserves_identity_multiplicity_and_values(self):
+        rows = copy.deepcopy(fixture.ORACLES[1][2]['jobs'])
+        self.assertTrue(fixture._job_rows_equal(list(reversed(rows)), rows))
+        for actual in (rows[:-1], rows + [rows[0]], [rows[0], rows[0], rows[2]],
+                       {'jobs': rows}, [None] + rows[1:]):
+            self.assertFalse(fixture._job_rows_equal(actual, rows), actual)
+        for key, value in [('job', ' alpha '), ('attempts', True),
+                           ('duration_ms', 0), ('known_duration_ms', 124),
+                           ('unexpected', 1)]:
+            actual = copy.deepcopy(rows)
+            actual[0][key] = value
+            self.assertFalse(fixture._job_rows_equal(actual, rows), (key, value))
+
+    def test_every_probe_binds_disclosed_requirements_at_its_api_boundary(self):
+        workspace, _ = self.workspace()
+        fixture.install_reference(workspace)
+        evidence = self.root / 'mapped-probes.json'
+        fixture.validate(workspace, evidence_path=evidence)
+        probes = json.loads(evidence.read_text())['probes']
+        self.assertEqual(len(probes), 65)
+        for probe in probes:
+            with self.subTest(probe=probe['name']):
+                self.assertTrue(probe['requirements'])
+                for requirement in probe['requirements']:
+                    content = (workspace / requirement['path']).read_text()
+                    self.assertIn(requirement['section'], content)
+                    self.assertIn(requirement['excerpt'], content)
+                    self.assertEqual(requirement['source_sha256'],
+                                     hashlib.sha256(content.encode()).hexdigest())
+                expected_mode = ('job_rows_unordered' if probe['entrypoint'] == 'attempts.summarize'
+                                 and isinstance(probe['expected'], list) else 'exact')
+                self.assertEqual(probe['comparison'], expected_mode)
+
+    def test_normative_input_drift_prevents_probe_acceptance(self):
+        workspace, _ = self.workspace()
+        fixture.install_reference(workspace)
+        path = workspace / 'docs/attempts.md'
+        path.write_text(path.read_text() + '\nUndisclosed evaluator change.\n')
+        with self.assertRaisesRegex(ValueError, 'normative input differs'):
+            fixture.validate(workspace, evidence_path=self.root / 'invalid-mapping.json')
+        self.assertFalse((self.root / 'invalid-mapping.json').exists())
+
     def test_import_probes_reject_output_and_stdin_consumption(self):
         for side_effect in ('print("unexpected")', 'import sys;sys.stdin.read()'):
             with self.subTest(side_effect=side_effect):

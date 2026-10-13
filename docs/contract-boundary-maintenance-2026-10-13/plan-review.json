@@ -1,0 +1,12 @@
+{
+  "reviewer": "/root/final_evidence_review",
+  "disposition": "continue with bounded plan",
+  "scope": "Offline API-boundary comparator and requirement provenance; staged maintenance guidance. No paid run or re-score of closed trial.",
+  "controls": [
+    "Unique exact job identities; retain row type, multiplicity and value checks.",
+    "Order independence only for valid summarize results; exact error and report/CLI comparisons.",
+    "Bind relevant source sections and hashes to actual normative inputs; drift prevents acceptance.",
+    "Fresh synthetic controls; preserve original score, candidate and owner stop."
+  ],
+  "completion_gate": "Exact-version independent review and required checks before guidance activation and local checkpoint."
+}

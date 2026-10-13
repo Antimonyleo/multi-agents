@@ -362,6 +362,58 @@ def _equal(actual, expected):
     return actual == expected
 
 
+def _job_rows_equal(actual, expected):
+    """summarize has no disclosed row order; preserve identity and multiplicity."""
+    if not isinstance(actual, list) or len(actual) != len(expected):
+        return False
+    indexed = {}
+    for row in actual:
+        if not isinstance(row, dict) or type(row.get('job')) is not str:
+            return False
+        job = row['job']
+        if job in indexed:
+            return False
+        indexed[job] = row
+    return (set(indexed) == {row['job'] for row in expected}
+            and all(_equal(indexed[row['job']], row) for row in expected))
+
+
+# These are disclosed sections, not evaluator expectations. Review still has to
+# assess whether each assertion follows from these sections at its API boundary.
+REQUIREMENT_SECTIONS = {
+    'E': ('CONTRACT.md', '## Entrypoints'),
+    'D1': ('docs/durations.md', '## D1: Duration values'),
+    'D2': ('docs/durations.md', '## D2: Arithmetic'),
+    'A1': ('docs/attempts.md', '## A1: Attempt identity'),
+    'A2': ('docs/attempts.md', '## A2: Final state'),
+    'A3': ('docs/attempts.md', '## A3: Unknown duration'),
+    'R1': ('docs/report.md', '## R1: Stable report'),
+    'R2': ('docs/report.md', '## R2: Invalid input'),
+}
+ORACLE_REQUIREMENTS = {
+    'empty': ('A1', 'A3', 'R1'),
+    'mixed_units_zero_unknown_final': ('D1', 'D2', 'A1', 'A2', 'A3', 'R1'),
+    'known_retry_work': ('D1', 'D2', 'A1', 'A2', 'A3', 'R1'),
+    'large_integer_ms': ('D1', 'D2', 'A1', 'A2', 'A3', 'R1'),
+    'large_integer_seconds': ('D1', 'D2', 'A1', 'A2', 'A3', 'R1'),
+    'exact_identity_and_ignored_keys': ('D1', 'D2', 'A1', 'A2', 'A3', 'R1'),
+    'all_unknown': ('D1', 'D2', 'A1', 'A2', 'A3', 'R1'),
+}
+
+
+def _requirements(workspace):
+    """Bind citations to the actual frozen normative inputs, fail on drift."""
+    result = {}
+    for key, (path, section) in REQUIREMENT_SECTIONS.items():
+        content = (Path(workspace) / path).read_text()
+        if content != FILES[path]:
+            raise ValueError('normative input differs: ' + path)
+        excerpt = section + content.split(section, 1)[1].split('\n## ', 1)[0]
+        result[key] = {'path': path, 'section': section, 'excerpt': excerpt,
+                       'source_sha256': hashlib.sha256(content.encode()).hexdigest()}
+    return result
+
+
 def _probe(workspace, payload, *, raw=False, entrypoint="cli"):
     prefix = 'import sys,json;sys.path.insert(0,sys.argv[1]);'
     if entrypoint == "cli":
@@ -431,32 +483,39 @@ def validate(workspace, *, evidence_path=None):
         target = Path(evidence_path).resolve()
         if target == Path(workspace).resolve() or Path(workspace).resolve() in target.parents:
             raise ValueError('hidden evidence must remain outside workspace')
+    requirements = _requirements(workspace)
     results, probes = {}, []
 
-    def check(name, payload, expected, *, raw=False, entrypoint='cli'):
+    def check(name, payload, expected, requires, *, raw=False, entrypoint='cli'):
+        references = [requirements[key] for key in ('E', *requires)]
+        unordered = entrypoint == 'attempts.summarize' and isinstance(expected, list)
         record = _probe(workspace, payload, raw=raw, entrypoint=entrypoint)
         passed = (record['returncode'] == 0 and record['error'] is None
-                  and _equal(record['actual'], expected))
-        record.update(name=name, expected=expected, passed=passed)
+                  and (_job_rows_equal(record['actual'], expected) if unordered
+                       else _equal(record['actual'], expected)))
+        record.update(name=name, expected=expected, passed=passed,
+                      comparison='job_rows_unordered' if unordered else 'exact',
+                      requirements=references)
         probes.append(record)
         results[name] = passed
 
     for name, payload, expected in ORACLES:
-        check(name, payload, expected)
+        check(name, payload, expected, ORACLE_REQUIREMENTS[name])
     error = {'error': 'invalid_input'}
     for n, record in enumerate(INVALID_RECORDS):
         payload = {'attempts': [{'job': 'valid', 'attempt': 1, 'status': 'success', 'duration': {'value': 1, 'unit': 'ms'}}, record]}
-        check('invalid_record_' + str(n), payload, error)
+        check('invalid_record_' + str(n), payload, error,
+              ('D1', 'R2') if n < 9 else ('A1', 'R2'))
     row = {'job': 'j', 'attempt': 1, 'status': 'success'}
-    check('duplicate_identity', {'attempts': [row, row]}, error)
+    check('duplicate_identity', {'attempts': [row, row]}, error, ('A1', 'R2'))
     for n, payload in enumerate((None, [], {}, {'attempts': None}, {'attempts': {}})):
-        check('invalid_payload_' + str(n), payload, error)
-    check('invalid_json', '{bad', error, raw=True)
+        check('invalid_payload_' + str(n), payload, error, ('R2',))
+    check('invalid_json', '{bad', error, (), raw=True)
     check('normalization_overflow', {'attempts': [
-        {'job': 'j', 'attempt': 1, 'status': 'success', 'duration': {'value': 1e308, 'unit': 's'}}]}, error)
+        {'job': 'j', 'attempt': 1, 'status': 'success', 'duration': {'value': 1e308, 'unit': 's'}}]}, error, ('D1', 'R2'))
     check('sum_overflow', {'attempts': [
         {'job': 'j', 'attempt': 1, 'status': 'success', 'duration': {'value': 1e308, 'unit': 'ms'}},
-        {'job': 'k', 'attempt': 1, 'status': 'success', 'duration': {'value': 1e308, 'unit': 'ms'}}]}, error)
+        {'job': 'k', 'attempt': 1, 'status': 'success', 'duration': {'value': 1e308, 'unit': 'ms'}}]}, error, ('D2', 'R2'))
     for name, value, expected in [
         ('zero', {'value': 0, 'unit': 'ms'}, 0),
         ('fraction', {'value': .125, 'unit': 'ms'}, .125),
@@ -464,19 +523,20 @@ def validate(workspace, *, evidence_path=None):
         ('unknown', None, None),
         ('large_ms', {'value': 9007199254740993, 'unit': 'ms'}, 9007199254740993),
         ('large_seconds', {'value': 9007199254740993, 'unit': 's'}, 9007199254740993000)]:
-        check('normalize_api_' + name, value, expected, entrypoint='durations.normalize')
+        check('normalize_api_' + name, value, expected, ('D1', 'D2'), entrypoint='durations.normalize')
     for n, record in enumerate(INVALID_RECORDS[:9]):
-        check('normalize_api_invalid_' + str(n), record['duration'], {'raised': 'ValueError'},
+        check('normalize_api_invalid_' + str(n), record['duration'], {'raised': 'ValueError'}, ('D1',),
               entrypoint='durations.normalize')
     for name, payload, expected in ORACLES:
-        check('summarize_api_' + name, payload['attempts'], expected['jobs'], entrypoint='attempts.summarize')
-    check('summarize_api_duplicate', [row, row], {'raised': 'ValueError'}, entrypoint='attempts.summarize')
-    check('summarize_api_invalid', [INVALID_RECORDS[0]], {'raised': 'ValueError'}, entrypoint='attempts.summarize')
-    check('summarize_api_not_list', {}, {'raised': 'ValueError'}, entrypoint='attempts.summarize')
+        check('summarize_api_' + name, payload['attempts'], expected['jobs'],
+              ORACLE_REQUIREMENTS[name], entrypoint='attempts.summarize')
+    check('summarize_api_duplicate', [row, row], {'raised': 'ValueError'}, ('A1',), entrypoint='attempts.summarize')
+    check('summarize_api_invalid', [INVALID_RECORDS[0]], {'raised': 'ValueError'}, ('D1', 'A1'), entrypoint='attempts.summarize')
+    check('summarize_api_not_list', {}, {'raised': 'ValueError'}, ('A1',), entrypoint='attempts.summarize')
     for name, payload, expected in ORACLES:
-        check('generate_api_' + name, payload, expected, entrypoint='report.generate')
-    check('generate_api_invalid', {'attempts': [INVALID_RECORDS[0]]}, error, entrypoint='report.generate')
-    check('imports_silent', None, {'import_silent': True}, entrypoint='imports')
+        check('generate_api_' + name, payload, expected, ORACLE_REQUIREMENTS[name], entrypoint='report.generate')
+    check('generate_api_invalid', {'attempts': [INVALID_RECORDS[0]]}, error, ('D1', 'R2'), entrypoint='report.generate')
+    check('imports_silent', None, {'import_silent': True}, (), entrypoint='imports')
     if evidence_path is not None:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps({'checks': results, 'probes': probes,

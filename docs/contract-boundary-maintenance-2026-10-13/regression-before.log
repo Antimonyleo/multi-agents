@@ -1,0 +1,684 @@
+test_build_metadata_and_hidden_material_separation (test_implementation_fixture.ImplementationFixtureTests.test_build_metadata_and_hidden_material_separation) ... ok
+test_correct_cli_facade_does_not_mask_broken_documented_normalize_api (test_implementation_fixture.ImplementationFixtureTests.test_correct_cli_facade_does_not_mask_broken_documented_normalize_api) ... ok
+test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) ... 
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='empty') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='mixed_units_zero_unknown_final') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='known_retry_work') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='large_integer_ms') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='large_integer_seconds') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='exact_identity_and_ignored_keys') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='all_unknown') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_0') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_1') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_2') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_3') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_4') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_5') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_6') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_7') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_8') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_9') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_10') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_11') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_12') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_13') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_14') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='duplicate_identity') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_0') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_1') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_2') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_3') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_4') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_json') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalization_overflow') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='sum_overflow') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_zero') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_fraction') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_seconds') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_unknown') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_large_ms') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_large_seconds') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_0') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_1') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_2') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_3') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_4') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_5') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_6') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_7') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_8') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_empty') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_mixed_units_zero_unknown_final') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_known_retry_work') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_large_integer_ms') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_large_integer_seconds') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_exact_identity_and_ignored_keys') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_all_unknown') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_duplicate') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_invalid') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_not_list') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_empty') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_mixed_units_zero_unknown_final') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_known_retry_work') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_large_integer_ms') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_large_integer_seconds') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_exact_identity_and_ignored_keys') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_all_unknown') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_invalid') ... ERROR
+  test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='imports_silent') ... ERROR
+test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output (test_implementation_fixture.ImplementationFixtureTests.test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output) ... ok
+test_import_probes_reject_output_and_stdin_consumption (test_implementation_fixture.ImplementationFixtureTests.test_import_probes_reject_output_and_stdin_consumption) ... ok
+test_independent_reference_passes_all_explicit_oracles_and_public_tests (test_implementation_fixture.ImplementationFixtureTests.test_independent_reference_passes_all_explicit_oracles_and_public_tests) ... ok
+test_initial_broken_modules_fail_public_and_hidden_checks (test_implementation_fixture.ImplementationFixtureTests.test_initial_broken_modules_fail_public_and_hidden_checks) ... ok
+test_large_integer_oracles_are_literal_and_reference_preserves_precision (test_implementation_fixture.ImplementationFixtureTests.test_large_integer_oracles_are_literal_and_reference_preserves_precision) ... ok
+test_module_mutants_fail_meaningful_hidden_cases (test_implementation_fixture.ImplementationFixtureTests.test_module_mutants_fail_meaningful_hidden_cases) ... ok
+test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace (test_implementation_fixture.ImplementationFixtureTests.test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace) ... ok
+test_unordered_internal_rows_pass_but_report_order_remains_required (test_implementation_fixture.ImplementationFixtureTests.test_unordered_internal_rows_pass_but_report_order_remains_required) ... FAIL
+test_unordered_row_comparison_preserves_identity_multiplicity_and_values (test_implementation_fixture.ImplementationFixtureTests.test_unordered_row_comparison_preserves_identity_multiplicity_and_values) ... ERROR
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='empty')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='mixed_units_zero_unknown_final')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='known_retry_work')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='large_integer_ms')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='large_integer_seconds')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='exact_identity_and_ignored_keys')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='all_unknown')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_6')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_7')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_8')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_9')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_10')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_11')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_12')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_13')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_record_14')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='duplicate_identity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_payload_4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='invalid_json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalization_overflow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='sum_overflow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_zero')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_fraction')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_seconds')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_unknown')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_large_ms')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_large_seconds')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_6')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_7')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='normalize_api_invalid_8')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_empty')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_mixed_units_zero_unknown_final')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_known_retry_work')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_large_integer_ms')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_large_integer_seconds')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_exact_identity_and_ignored_keys')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_all_unknown')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_duplicate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='summarize_api_not_list')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_empty')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_mixed_units_zero_unknown_final')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_known_retry_work')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_large_integer_ms')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_large_integer_seconds')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_exact_identity_and_ignored_keys')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_all_unknown')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='generate_api_invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) (probe='imports_silent')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 199, in test_every_probe_binds_disclosed_requirements_at_its_api_boundary
+    self.assertTrue(probe['requirements'])
+                    ~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'requirements'
+
+======================================================================
+ERROR: test_unordered_row_comparison_preserves_identity_multiplicity_and_values (test_implementation_fixture.ImplementationFixtureTests.test_unordered_row_comparison_preserves_identity_multiplicity_and_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 179, in test_unordered_row_comparison_preserves_identity_multiplicity_and_values
+    self.assertTrue(fixture._job_rows_equal(list(reversed(rows)), rows))
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'implementation_fixture' has no attribute '_job_rows_equal'
+
+======================================================================
+FAIL: test_unordered_internal_rows_pass_but_report_order_remains_required (test_implementation_fixture.ImplementationFixtureTests.test_unordered_internal_rows_pass_but_report_order_remains_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 167, in test_unordered_internal_rows_pass_but_report_order_remains_required
+    self.assertTrue(all(checks.values()), checks)
+AssertionError: False is not true : {'empty': True, 'mixed_units_zero_unknown_final': True, 'known_retry_work': True, 'large_integer_ms': True, 'large_integer_seconds': True, 'exact_identity_and_ignored_keys': True, 'all_unknown': True, 'invalid_record_0': True, 'invalid_record_1': True, 'invalid_record_2': True, 'invalid_record_3': True, 'invalid_record_4': True, 'invalid_record_5': True, 'invalid_record_6': True, 'invalid_record_7': True, 'invalid_record_8': True, 'invalid_record_9': True, 'invalid_record_10': True, 'invalid_record_11': True, 'invalid_record_12': True, 'invalid_record_13': True, 'invalid_record_14': True, 'duplicate_identity': True, 'invalid_payload_0': True, 'invalid_payload_1': True, 'invalid_payload_2': True, 'invalid_payload_3': True, 'invalid_payload_4': True, 'invalid_json': True, 'normalization_overflow': True, 'sum_overflow': True, 'normalize_api_zero': True, 'normalize_api_fraction': True, 'normalize_api_seconds': True, 'normalize_api_unknown': True, 'normalize_api_large_ms': True, 'normalize_api_large_seconds': True, 'normalize_api_invalid_0': True, 'normalize_api_invalid_1': True, 'normalize_api_invalid_2': True, 'normalize_api_invalid_3': True, 'normalize_api_invalid_4': True, 'normalize_api_invalid_5': True, 'normalize_api_invalid_6': True, 'normalize_api_invalid_7': True, 'normalize_api_invalid_8': True, 'summarize_api_empty': True, 'summarize_api_mixed_units_zero_unknown_final': False, 'summarize_api_known_retry_work': True, 'summarize_api_large_integer_ms': True, 'summarize_api_large_integer_seconds': True, 'summarize_api_exact_identity_and_ignored_keys': False, 'summarize_api_all_unknown': True, 'summarize_api_duplicate': True, 'summarize_api_invalid': True, 'summarize_api_not_list': True, 'generate_api_empty': True, 'generate_api_mixed_units_zero_unknown_final': True, 'generate_api_known_retry_work': True, 'generate_api_large_integer_ms': True, 'generate_api_large_integer_seconds': True, 'generate_api_exact_identity_and_ignored_keys': True, 'generate_api_all_unknown': True, 'generate_api_invalid': True, 'imports_silent': True}
+
+----------------------------------------------------------------------
+Ran 12 tests in 22.695s
+
+FAILED (failures=1, errors=66)

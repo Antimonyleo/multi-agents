@@ -1,0 +1,54 @@
+{
+  "checks": {
+    "activated-structure": {
+      "command": [
+        "python",
+        "scripts/validate.py"
+      ],
+      "returncode": 0,
+      "wall_s": 0.027133469004184008,
+      "log": "activated-structure.log",
+      "log_sha256": "e2148b041b6e6b6bc092df7fe1519c7084ab18564830b808bac1a7fa6dd156a6"
+    },
+    "activated-skill": {
+      "command": [
+        "python",
+        "/home/hao/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skill/scientific-workflow"
+      ],
+      "returncode": 0,
+      "wall_s": 0.02242989419028163,
+      "log": "activated-skill.log",
+      "log_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0"
+    },
+    "installed-links": {
+      "command": [
+        "bash",
+        "scripts/install.sh",
+        "--target",
+        "both",
+        "--check"
+      ],
+      "returncode": 0,
+      "wall_s": 0.03012905130162835,
+      "log": "installed-links.log",
+      "log_sha256": "067b15adfe34f5f5106ccdae0806a136c3232af7092204c22381934c4af012e9"
+    },
+    "instruction-health": {
+      "command": [
+        "agent-workflow",
+        "check",
+        "--repo",
+        "/home/hao/githubrepo/scientific-workflow-skill"
+      ],
+      "returncode": 0,
+      "wall_s": 0.023288723081350327,
+      "log": "instruction-health.log",
+      "log_sha256": "ee900333109196a86f940632487e8f0f5177784f4bb77e17efa95c6a8a61c847"
+    }
+  },
+  "review_input_sha256": "8be04d790c11f5e4b06717971ae26d92237563a3f201a14cc2ccc8be7994f025",
+  "completion_review_sha256": "e1eb1d2e66293546015bad84b7a1e7bd6e86411e7098aa10b4aed71dd57c8adb",
+  "maintenance_sha256": "6b4ea813c231c57632776907d5fa0bc6a048868cb34d9b562fb1de45029d3501",
+  "matches_reviewed_candidate": true
+}

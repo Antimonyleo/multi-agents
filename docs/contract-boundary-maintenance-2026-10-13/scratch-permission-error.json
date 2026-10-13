@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_implementation_fixture.py",
+    "-v"
+  ],
+  "returncode": 1,
+  "log_sha256": "99e1db45e960de0703fc1e80c4dfe08c8670652c56836d7c349709c3afce2794"
+}

@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "structure": {
+      "command": [
+        "python",
+        "scripts/validate.py"
+      ],
+      "returncode": 0,
+      "wall_s": 0.030642210971564054,
+      "log": "structure.log",
+      "log_sha256": "e2148b041b6e6b6bc092df7fe1519c7084ab18564830b808bac1a7fa6dd156a6"
+    },
+    "full-suite": {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_s": 30.353383891750127,
+      "log": "full-suite.log",
+      "log_sha256": "ca42fb7ae6432d0e3c50c10c056a7a0e51074dbc7d70c5ca9c0e95d8861b5fdd"
+    },
+    "staged-skill": {
+      "command": [
+        "python",
+        "/home/hao/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "staging/contract-boundary-2026-10-13/scientific-workflow"
+      ],
+      "returncode": 0,
+      "wall_s": 0.024809406138956547,
+      "log": "staged-skill.log",
+      "log_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0"
+    }
+  },
+  "source_sha256": {
+    "scripts/implementation_fixture.py": "668a43c0246f5c202a293b7847f7182e35210e63345e831f62e842234eb6cb3c",
+    "tests/test_implementation_fixture.py": "0d76d52064df0bba938a3e755420b4a34fde579504619cc7a658074f324c319c",
+    "staging/contract-boundary-2026-10-13/scientific-workflow/maintenance.md": "6b4ea813c231c57632776907d5fa0bc6a048868cb34d9b562fb1de45029d3501"
+  },
+  "sources_unchanged": true
+}

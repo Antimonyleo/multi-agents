@@ -4,9 +4,27 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-12, approved fresh implementation comparison closed on invalid first measurement (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-13, offline contract-boundary maintenance complete (branch `codex-claude-shared-workflow-20261009`; no push).
 
-Current authorized work is terminal: [live results](../benchmarks/2026-10-12-implementation-pair/live/RESULTS.md).
+The user authorized offline continuation after the trial closure. Future
+`attempts.summarize` checks now compare rows by unique exact identity without
+imposing report ordering. Report/CLI sorting and row/value checks remain strict.
+All 65 new probe receipts bind comparisons to disclosed sections, excerpts and
+normative input hashes; input drift prevents acceptance. Four added regressions
+cover the boundary and provenance. The full suite passed 179 tests; required
+structure and staged skill checks passed. Independent exact-version review
+accepted completion with no blocker. The byte-identical maintenance paragraph
+is active; installed links, instruction health, structure and active skill checks
+pass. All 1,418 checked historical/configuration files remain unchanged.
+Evidence: [maintenance results](contract-boundary-maintenance-2026-10-13/RESULTS.md).
+The local Git checkpoint completes this maintenance. No new paid allocation,
+old-trial re-score, settings/profile edit or scientific execution is authorized.
+Practical recommendation remains one capable dependent owner, useful independent
+support and consequential review; qualify hidden checks at their disclosed API
+boundary before another separately authorized comparison. No efficiency or
+runtime/scientific qualification claim.
+
+The prior approved allocation is terminal: [live results](../benchmarks/2026-10-12-implementation-pair/live/RESULTS.md).
 The user approved two sequential Claude families at $1.50 reported limit each
 ($3 nominal, possible overshoot). Support ended in 189.030 s at reported family
 cost $0.869703600; one native Opus/high reviewer, no explorer. Public tests passed

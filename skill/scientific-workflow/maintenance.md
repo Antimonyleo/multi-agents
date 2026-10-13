@@ -30,6 +30,15 @@ Inventory and the existing template-based prose fixture are scriptable extractio
 
 If acceptance requires exact names, enum values or source quotes, state them in the prompt/schema before freezing the fixture. Preserve source whitespace when exact quotes are required. Test native text and output-tool representations; unsupported syntax is missing evidence, not an observed behavioral violation. Keep literal-format scores separate from semantic and execution evidence.
 
+Before freezing hidden checks, map each assertion to its disclosed requirement
+and exact API boundary. Preserve the source section, excerpt and hash in the
+evaluator receipt. Enforce ordering only at boundaries that require it; compare
+unordered job rows by exact identity while retaining duplicate and value checks.
+Review the mapping against the contract: a source citation alone does not prove
+that an assertion follows from it. An undisclosed requirement invalidates the
+measurement; preserve the frozen score and stop conditional arms without repair
+or a favorable re-score.
+
 Review the experimental design against the original question before costly runs: workload relevance, changed versus held-fixed variables, command-level tools/permissions, exact truth, caching/order, cost scope and limits. Hashes and passing tests alone do not answer these questions. Count parent, child, integration, failed attempts and required review in recurring task cost. Record one-time setup/evaluation separately and include it for total project spend. Unavailable usage prevents complete-cost claims; a single pair stays descriptive. Use existing traces/offline checks first and the current task record for evidence; avoid another reporting framework.
 
 ## Review packet check

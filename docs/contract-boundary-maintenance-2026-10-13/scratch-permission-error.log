@@ -1,0 +1,149 @@
+test_build_metadata_and_hidden_material_separation (test_implementation_fixture.ImplementationFixtureTests.test_build_metadata_and_hidden_material_separation) ... ERROR
+test_correct_cli_facade_does_not_mask_broken_documented_normalize_api (test_implementation_fixture.ImplementationFixtureTests.test_correct_cli_facade_does_not_mask_broken_documented_normalize_api) ... ERROR
+test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary) ... ERROR
+test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output (test_implementation_fixture.ImplementationFixtureTests.test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output) ... ERROR
+test_import_probes_reject_output_and_stdin_consumption (test_implementation_fixture.ImplementationFixtureTests.test_import_probes_reject_output_and_stdin_consumption) ... ERROR
+test_independent_reference_passes_all_explicit_oracles_and_public_tests (test_implementation_fixture.ImplementationFixtureTests.test_independent_reference_passes_all_explicit_oracles_and_public_tests) ... ERROR
+test_initial_broken_modules_fail_public_and_hidden_checks (test_implementation_fixture.ImplementationFixtureTests.test_initial_broken_modules_fail_public_and_hidden_checks) ... ERROR
+test_large_integer_oracles_are_literal_and_reference_preserves_precision (test_implementation_fixture.ImplementationFixtureTests.test_large_integer_oracles_are_literal_and_reference_preserves_precision) ... ERROR
+test_module_mutants_fail_meaningful_hidden_cases (test_implementation_fixture.ImplementationFixtureTests.test_module_mutants_fail_meaningful_hidden_cases) ... ERROR
+test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace (test_implementation_fixture.ImplementationFixtureTests.test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace) ... ERROR
+test_unordered_internal_rows_pass_but_report_order_remains_required (test_implementation_fixture.ImplementationFixtureTests.test_unordered_internal_rows_pass_but_report_order_remains_required) ... ERROR
+test_unordered_row_comparison_preserves_identity_multiplicity_and_values (test_implementation_fixture.ImplementationFixtureTests.test_unordered_row_comparison_preserves_identity_multiplicity_and_values) ... ERROR
+
+======================================================================
+ERROR: test_build_metadata_and_hidden_material_separation (test_implementation_fixture.ImplementationFixtureTests.test_build_metadata_and_hidden_material_separation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.3d7pq909'
+
+======================================================================
+ERROR: test_correct_cli_facade_does_not_mask_broken_documented_normalize_api (test_implementation_fixture.ImplementationFixtureTests.test_correct_cli_facade_does_not_mask_broken_documented_normalize_api)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.57hl5stl'
+
+======================================================================
+ERROR: test_every_probe_binds_disclosed_requirements_at_its_api_boundary (test_implementation_fixture.ImplementationFixtureTests.test_every_probe_binds_disclosed_requirements_at_its_api_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.ocbnld33'
+
+======================================================================
+ERROR: test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output (test_implementation_fixture.ImplementationFixtureTests.test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.3vz9k6mk'
+
+======================================================================
+ERROR: test_import_probes_reject_output_and_stdin_consumption (test_implementation_fixture.ImplementationFixtureTests.test_import_probes_reject_output_and_stdin_consumption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.ciehjfu8'
+
+======================================================================
+ERROR: test_independent_reference_passes_all_explicit_oracles_and_public_tests (test_implementation_fixture.ImplementationFixtureTests.test_independent_reference_passes_all_explicit_oracles_and_public_tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.e6u7zc39'
+
+======================================================================
+ERROR: test_initial_broken_modules_fail_public_and_hidden_checks (test_implementation_fixture.ImplementationFixtureTests.test_initial_broken_modules_fail_public_and_hidden_checks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.p0flgpqr'
+
+======================================================================
+ERROR: test_large_integer_oracles_are_literal_and_reference_preserves_precision (test_implementation_fixture.ImplementationFixtureTests.test_large_integer_oracles_are_literal_and_reference_preserves_precision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.oyl6mt7d'
+
+======================================================================
+ERROR: test_module_mutants_fail_meaningful_hidden_cases (test_implementation_fixture.ImplementationFixtureTests.test_module_mutants_fail_meaningful_hidden_cases)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.mv5m_yb7'
+
+======================================================================
+ERROR: test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace (test_implementation_fixture.ImplementationFixtureTests.test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.o5ghk4nz'
+
+======================================================================
+ERROR: test_unordered_internal_rows_pass_but_report_order_remains_required (test_implementation_fixture.ImplementationFixtureTests.test_unordered_internal_rows_pass_but_report_order_remains_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.z_3x4o08'
+
+======================================================================
+ERROR: test_unordered_row_comparison_preserves_identity_multiplicity_and_values (test_implementation_fixture.ImplementationFixtureTests.test_unordered_row_comparison_preserves_identity_multiplicity_and_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_implementation_fixture.py", line 21, in setUp
+    self.root = Path(tempfile.mkdtemp(prefix='task.', dir=scratch))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+OSError: [Errno 30] Read-only file system: '/home/hao/.cache/codex-scratch/task.mh79hpa5'
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.004s
+
+FAILED (errors=12)
