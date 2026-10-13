@@ -72,9 +72,17 @@ Claude busy-waiting was 34% of weighted Claude usage, but 94% of it came from
 one session (2026-09-12); elsewhere it was 4%. 22% of Codex parent calls only
 waited, mostly with timeouts of 60 s or less, which the current coordination
 rule allows. In 12 to 14 of 27 sessions (two coders) the user had to say "do
-not stop" after the agent stopped part-way through assigned work. Next: the
-user fills in `labels.csv` (Step 2, with the new `stop_wanted` and
-`helpers_useful` columns). The comparisons are fixed in PLAN.md, Amendment 1.
+not stop" after the agent stopped part-way through assigned work.
+
+Step 2 is done with agent labels
+([STEP2.md](../benchmarks/2026-10-13-long-task-retrospective/STEP2.md)).
+Two blind Sonnet labellers coded each session, and an Opus reviewer adjudicated
+their differences. The method was committed before any label existed. Session
+length tracks Codex outcome more strongly (Spearman −0.67) than any workflow
+signal. Among sessions of 10 h or more, reactive stops and wait-only calls are
+higher in the 2 failed sessions: a lead only. Helpers were labelled useful in
+24 of 25 sessions that had them. `stop_wanted` and `worth_cost` remain optional
+user labels.
 
 ## Historical execution records
 

@@ -1,0 +1,343 @@
+[
+ {
+  "session": "01a0591d",
+  "labels": [
+   "outcome",
+   "on_track"
+  ],
+  "A": {
+   "outcome": {
+    "value": "partial",
+    "confidence": "medium",
+    "evidence": "P3/P10/P25: 512-nt and 156-nt runs unverified, native comparison never run; handoff P26 pauses. Later 208bc0d (09-11) got 2/10 at 512 nt under a new Gate v2. 68-nt control was verified."
+   },
+   "on_track": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "All prompts target scale quality and NUPACK comparison; 156-nt and extra targets were user-directed (P8, P11). Falsified variants (b007e03 revert) are search steps, not wandering."
+   }
+  },
+  "B": {
+   "outcome": {
+    "value": "failed",
+    "confidence": "high",
+    "evidence": "512 nt failed quality gate (p3); 156 nt 0/3 verified (p10); 208 nt below gate (p23); p2 falsifier failed, session ended paused with no verified scale design and no NUPACK comparison (p26)."
+   },
+   "on_track": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "Efficiency goal came first, but sessions went to 156/208 nt repairs and approval disputes. Found targets were crossing (p11), not planar. Mixed direction."
+   }
+  },
+  "objective_A": "Test the sequence-design algorithm on 500+ nt targets and show better time/compute efficiency than NUPACK design (later broadened to a universal, scalable optimizer)",
+  "objective_B": "Test the sequence-design algorithm on 500 nt+ targets and verify it beats native NUPACK design on time and compute cost."
+ },
+ {
+  "session": "01a06a13",
+  "labels": [
+   "on_track",
+   "rework",
+   "helpers_useful"
+  ],
+  "A": {
+   "on_track": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "Prompts 3-9 kept returning to missing algorithm/objective alignment and positive controls; audit-heavy plan was corrected at P8-9 on user push, then executed toward goal."
+   },
+   "rework": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "Later sessions 1ef22ddd/01a093b8 re-planned; Sep 12 commits revert S1 handoff after failed pilot (30ef0d1). Harness and findings did carry forward, so partial redo."
+   },
+   "helpers_useful": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "212 helpers (145 luna impl, 45 sol review); P10-11 reports cite Sol reviewer GO and defect finds, implementation built on them; no helper texts to confirm."
+   }
+  },
+  "B": {
+   "on_track": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "Prompts 3,5,9: user said gains not enough, no positive controls, plan too audit-heavy. Work was on the goal but misdirected until redirected to objective and algorithm."
+   },
+   "rework": {
+    "value": "major",
+    "confidence": "medium",
+    "evidence": "Sept 11-13 sessions rebuilt the stage plan: Gate v2 ranking, native_nupack fan-out, restart of 156-nt calibration (commits 6897620, 7f85aad). Frozen objective was found mismatched."
+   },
+   "helpers_useful": {
+    "value": "some",
+    "confidence": "low",
+    "evidence": "145 Luna and 45 Sol helpers did implementation and reviews. Reviewers caught the harness defect (prompt 11), but the stopped result limits what was built on it. Cost large."
+   }
+  },
+  "objective_A": "Review plan and progress for 156+ nt sequence design, rebuild the algorithm and keep going until it designs reliably and faster than NUPACK.",
+  "objective_B": "Review and advance the sequence-design optimizer toward reliably designing sequences faster than native NUPACK, using positive controls and a recovered algorithm plan."
+ },
+ {
+  "session": "01a06a15",
+  "labels": [
+   "outcome"
+  ],
+  "A": {
+   "outcome": {
+    "value": "achieved",
+    "confidence": "medium",
+    "evidence": "Found the copy still arriving and unusable (366 files, no git, 0 symlinks), made no changes. Repo later has 'Reinitialize git history after directory copy' (09-06) and a restoration plan, so the diagnosis held."
+   }
+  },
+  "B": {
+   "outcome": {
+    "value": "partial",
+    "confidence": "low",
+    "evidence": "Audit found transfer still arriving (366 files, 24 GB, git empty, no symlinks) and froze changes; the rest of the long prompt is truncated so full objective is uncertain. Project was complete by 09-06 logs."
+   }
+  },
+  "objective_A": "Audit an incomplete copy of the RNA design project (symlink loss, missing files), understand the plans and judge whether the work could continue",
+  "objective_B": "Read logs/plans, check whether transferred RNA project lost symlinks or files, and restate goals/plan"
+ },
+ {
+  "session": "01a07fbe",
+  "labels": [
+   "outcome"
+  ],
+  "A": {
+   "outcome": {
+    "value": "achieved",
+    "confidence": "medium",
+    "evidence": "Review, execution reports, failure_process_review and SOL_EXECUTION_PLAN.md plus AGENTS.md rules delivered (P4). Folding itself not improved (P2: no improved full-fold yield); planning/review objective met."
+   }
+  },
+  "B": {
+   "outcome": {
+    "value": "partial",
+    "confidence": "medium",
+    "evidence": "Review, 309 M-step campaigns and SOL_EXECUTION_PLAN done (prompts 2-5). Restarts folded 6/16 vs 2/16 (p=0.125); no yield gain established. Plan and AGENTS token rules written."
+   }
+  },
+  "objective_A": "Audit recent nucleic acid folding progress/failures, plan fixes, execute with subagents, then diagnose failures and token burn and write a Sol plan plus AGENTS.md rules.",
+  "objective_B": "Audit recent folding progress and failures, research fixes, plan and run the campaigns, then review why runs failed and tokens burned, and write a Sol plan."
+ },
+ {
+  "session": "01a08f22",
+  "labels": [
+   "rework"
+  ],
+  "A": {
+   "rework": {
+    "value": "major",
+    "confidence": "medium",
+    "evidence": "P33: user agreed the guard wrongly stopped folding, redesigned it; P44-46 partner-exchange procedure called bad. ac23eed6 retired this session's NUPACK admission table; P27 'full process' run was mislabeled."
+   }
+  },
+  "B": {
+   "rework": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "Guard needed redesign (p33); 'full process' rerun (p27); ac23eed6 and fold_repair_2026-09-22 note legacy guard regression; ac23eed6 retired this session's admission table."
+   }
+  },
+  "objective_A": "Fold a full 500+ nt DNA origami target in oxDNA end to end (DPOW520/576), finding relaxation and procedure that complete folding; final goal: at least one fully folded structure",
+  "objective_B": "Fold complete DNA targets in oxDNA (DPOW576) and learn the correct relaxation/folding procedure, aiming for at least one fully folded structure."
+ },
+ {
+  "session": "01a08f31",
+  "labels": [
+   "outcome"
+  ],
+  "A": {
+   "outcome": {
+    "value": "partial",
+    "confidence": "low",
+    "evidence": "Audit and failure-lessons doc done (P2,P27), but zero accepted designs after 43 prompts (P42, last report). Capacity gates only, no coordinates or model screening; ambiguous partial/failed."
+   }
+  },
+  "B": {
+   "outcome": {
+    "value": "failed",
+    "confidence": "high",
+    "evidence": "P42 and final: zero accepted designs, zero model calls after 11 days; all constructions rejected (clashes, angles). Later codex_direc commits through 10-13 still checkpoint failed children."
+   }
+  },
+  "objective_A": "Audit that all RNA designs are motif-assembled and pass NUPACK/Vienna/Boltz and physical filters, then execute iterative plans to produce a legitimate RNA structure design",
+  "objective_B": "Produce legitimate motif-assembled RNA structure designs that pass physical, NUPACK, ViennaRNA and Boltz filters, excluding stretched or random structures"
+ },
+ {
+  "session": "01a0c7b0",
+  "labels": [
+   "outcome"
+  ],
+  "A": {
+   "outcome": {
+    "value": "partial",
+    "confidence": "low",
+    "evidence": "No whole-structure fold: P19 pilot no better method, P22 progress lost. Gains: controller regression repaired, mistakes documented, new HANDOFF. HANDOFF 2026-10-10 shows systematic screen replaced this line."
+   }
+  },
+  "B": {
+   "outcome": {
+    "value": "failed",
+    "confidence": "medium",
+    "evidence": "Prompts 5,10,19-22: folds 9-13/27, no exchange arm formed the pair, order pilot no clear gain, 22-domain progress lost. Handoff written but folding goal unmet. Screens still running 10-13."
+   }
+  },
+  "objective_A": "Fix and rerun DPOW576 folding experiments to find a procedure that folds the whole structure.",
+  "objective_B": "Find and run a procedure that folds the whole DPOW576 DNA structure in oxDNA (cooling vs constant, exchange arms, domain-001 ordering), then document mistakes in a handoff."
+ },
+ {
+  "session": "01a0c7be",
+  "labels": [
+   "rework",
+   "helpers_useful"
+  ],
+  "A": {
+   "rework": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "P9-P19: wrong passes (0.000435 monomer, 477/1200 contacts) needed an acceptance fix and a policy-regression fix (b50943c). Later T1-T4 work centres on repairing native designs."
+   },
+   "helpers_useful": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "P15, P30, P37, P39: parallel agents ran the trials and reviews; found a shortlisting bug. Plans and results are in committed docs the later sessions follow."
+   }
+  },
+  "B": {
+   "rework": {
+    "value": "major",
+    "confidence": "medium",
+    "evidence": "P9-P19: runs wrongly called passing, acceptance rewritten, protocol regression fixed; later 10-06..10-12 pre-JAX tests and investigation plan reopen the same efficiency question."
+   },
+   "helpers_useful": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "38 helpers ran parallel trials and reviews; reviews caught issues (P15,P24) and results fed handoff ab025a0, though most trials were null."
+   }
+  },
+  "objective_A": "Improve sequence-design pipeline: directed off-target repair, larger targets (1332/2478 nt), design efficiency, and a systematic investigation of speed-ups versus native NUPACK",
+  "objective_B": "Proceed with crossing-design work: rebuild post-search repair, scale designs to 1332/2478 nt, and find a quality-preserving speedup"
+ },
+ {
+  "session": "01a0caf9",
+  "labels": [
+   "on_track"
+  ],
+  "A": {
+   "on_track": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "Steps (observed-arm closure, geometry fixes, validation, nick staggering) all aim at a valid square; some detours into validation methods but user-driven and relevant."
+   }
+  },
+  "B": {
+   "on_track": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "Prompt 20 asks if this is pipeline or fine-tuning; agent said mostly refining one design. Prompt 29 routing test found no solution. Direction was still to the square."
+   }
+  },
+  "objective_A": "Produce a valid designed RNA square/3D structure with the target-general pipeline, evaluate with Boltz, geometry and oxRNA checks.",
+  "objective_B": "Get a first valid designed RNA structure (square) from the target-general pipeline, with sound validation (geometry, energy, secondary, Boltz, oxRNA)."
+ },
+ {
+  "session": "01a0f41e",
+  "labels": [
+   "helpers_useful"
+  ],
+  "A": {
+   "helpers_useful": {
+    "value": "some",
+    "confidence": "low",
+    "evidence": "8 helpers (3 sol, 3 auto-review); used for evaluations and review of corrected audit (final report). Texts unavailable, small share of work."
+   }
+  },
+  "B": {
+   "helpers_useful": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "3 Sol helpers ran the parallel evaluations; the parent reported and kept their results (22:57-23:09 reports)."
+   }
+  },
+  "objective_A": "Prune/update Codex skills for Sol 6.1 and Astra, fix AGENTS.md truncation, separate handoffs from lessons, and optimise workflow setup.",
+  "objective_B": "Prune global skills for Sol/Astra, check workflow setup against OpenAI guidance, then cut AGENTS.md and handoff size and test the workflow."
+ },
+ {
+  "session": "01a121d6",
+  "labels": [
+   "rework",
+   "helpers_useful"
+  ],
+  "A": {
+   "rework": {
+    "value": "some",
+    "confidence": "low",
+    "evidence": "The 10-09 plan was followed by 10-11 and 10-12 plans (jax_reliable_search_plan). That is planned iteration; the E1 search result was negative, not this session's fault."
+   },
+   "helpers_useful": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "Four reviewers plus a researcher and explorer; the reviewed plan, tier B revision and CPU-owner patches were committed and used. Helper texts unavailable."
+   }
+  },
+  "B": {
+   "rework": {
+    "value": "none",
+    "confidence": "high",
+    "evidence": "Later JAX CPU docs (10-12/13) build on this plan; no evidence of redoing. Initial push was refused then redone by approval, minor."
+   },
+   "helpers_useful": {
+    "value": "some",
+    "confidence": "low",
+    "evidence": "Codex helpers (explorer, researcher, 4 reviewers) shaped plan and patches per reports; task texts unavailable so use is inferred."
+   }
+  },
+  "objective_A": "Research and plan how to probe a JAX sequence optimizer, then prepare an isolated JAX branch for another server without disturbing running dev work",
+  "objective_B": "Research and plan a JAX gradient-based sequence optimizer (no implementation) and prepare branch/rules for parallel CPU and JAX development"
+ },
+ {
+  "session": "01a1248e",
+  "labels": [
+   "outcome"
+  ],
+  "A": {
+   "outcome": {
+    "value": "partial",
+    "confidence": "low",
+    "evidence": "Still running at freeze. P2/P6/P11: no new passing RNA design (0/5 predictions, B026 overlap 0.405 vs 0.4 A, 216 proposals no shortlist). Git to 10-13 shows construction checkpoints only."
+   }
+  },
+  "B": {
+   "outcome": {
+    "value": "failed",
+    "confidence": "medium",
+    "evidence": "No new passing design across p2, p6, p11 and final reports (13 Oct). Many complete children built and physically passing, but 0/5 prediction passes. Session still running."
+   }
+  },
+  "objective_A": "Resume implementation and run until planned items finish and produce passing RNA nanostructure designs (tetrahedron/bipyramid; 3D-conditioned sequence design)",
+  "objective_B": "Resume RNA structure construction until passing tetrahedron/bipyramid RNA designs are produced and evaluated."
+ },
+ {
+  "session": "272da152",
+  "labels": [
+   "on_track"
+  ],
+  "A": {
+   "on_track": {
+    "value": "some",
+    "confidence": "medium",
+    "evidence": "Most prompts address fold failure causes. The last days went to I/O ledger fixes, snapshot isolation and review rounds, which the agent calls partly its fault (P104-105)."
+   }
+  },
+  "B": {
+   "on_track": {
+    "value": "yes",
+    "confidence": "medium",
+    "evidence": "Almost all prompts steer toward folding; I/O audit, MPS and kinetic-model worktree (P74,P90-92,P99-105) are side work but serve the campaign."
+   }
+  },
+  "objective_A": "Get the 576-nt DPOW oxDNA target to fold fully (all 27 domains): cooling, displacement, annealing, accept/give-up controller and systematic screening",
+  "objective_B": "Fold the 576-nt DNA origami (DPOW576) to all 27 domains in oxDNA by finding a working combination of annealing/ordering/displacement strategies"
+ }
+]

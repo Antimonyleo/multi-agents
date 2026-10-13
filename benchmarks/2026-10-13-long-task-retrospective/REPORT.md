@@ -178,9 +178,10 @@ Redo after a helper (Claude, planned measure):
 
 ## Next
 
-Step 2: the user fills in `labels.csv`. The comparisons are fixed in PLAN.md
-(Amendment 1). With 7 Claude and 20 Codex sessions, any pattern is a lead to
-check, not a conclusion.
+Step 2 is done with agent labels: see [STEP2.md](STEP2.md). Session length
+explains outcome better than any workflow signal; two leads remain among long
+sessions. The user may still add `stop_wanted` and `worth_cost` in
+`labels.csv`.
 
 Two cheap checks need no paid benchmark:
 

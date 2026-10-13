@@ -126,6 +126,18 @@ def main():
         res['reactive_vs_stop_wanted'] = by_label(rs, 'reactive_per_prompt_c1', 'stop_wanted', ('yes', 'some', 'no', 'none'))
         if any(v['n'] for v in res['reactive_vs_stop_wanted'].values()):
             print(f"- reactive_per_prompt_c1 by stop_wanted — {fmt(res['reactive_vs_stop_wanted'])}")
+        # Post-hoc confound check (added after the labels were seen): session length.
+        pairs = [(r['active_h'], outcome_rank[r['labels']['outcome']]) for r in rs
+                 if r['labels'].get('outcome') in outcome_rank]
+        res['posthoc_active_h_by_outcome'] = by_label(rs, 'active_h', 'outcome', OUTCOMES)
+        res['posthoc_spearman_active_h'] = spearman([a for a, _ in pairs], [b for _, b in pairs])
+        print(f"- POST-HOC active_h by outcome — {fmt(res['posthoc_active_h_by_outcome'])}"
+              + (f"; Spearman {res['posthoc_spearman_active_h']:+.2f}" if res['posthoc_spearman_active_h'] is not None else ''))
+        long_rs = [r for r in rs if r['active_h'] >= 10]
+        res['posthoc_sessions_10h_plus'] = {s: by_label(long_rs, s, 'outcome', OUTCOMES) for s in sigs}
+        print(f"- POST-HOC sessions with >= 10 active h (n={len(long_rs)}):")
+        for s in sigs:
+            print(f"  {s} — {fmt(res['posthoc_sessions_10h_plus'][s])}")
         result['groups'][g] = res
     (ROOT / 'compare.json').write_text(json.dumps(result, indent=1) + '\n')
 

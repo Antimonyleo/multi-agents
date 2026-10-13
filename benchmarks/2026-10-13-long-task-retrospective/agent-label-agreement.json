@@ -1,0 +1,9 @@
+{
+ "sessions": 27,
+ "exact_agreement": {
+  "outcome": 21,
+  "on_track": 23,
+  "rework": 23,
+  "helpers_useful": 23
+ }
+}

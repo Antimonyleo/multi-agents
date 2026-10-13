@@ -1,0 +1,49 @@
+
+## claude (n=7, live at freeze 3)
+
+Label counts: {"outcome": {"partial": 7}, "on_track": {"yes": 5, "some": 2}, "rework": {"some": 6, "major": 1}, "helpers_useful": {"yes": 5, "none": 2}, "stop_wanted": {"blank": 7}, "worth_cost": {"blank": 7}}
+- helper_share_new by outcome — achieved: n=0; partial: n=5, median 0.69 [0.545–0.864]; failed: n=0
+- reactive_per_prompt_c1 by outcome — achieved: n=0; partial: n=7, median 0 [0–0.0667]; failed: n=0
+- reactive_per_prompt_c2 by outcome — achieved: n=0; partial: n=7, median 0 [0–0.0667]; failed: n=0
+- polling_share by outcome — achieved: n=0; partial: n=7, median 0.000596 [0–0.706]; failed: n=0
+- helper_share_new by helpers_useful — yes: n=5, median 0.69 [0.545–0.864]; some: n=0; no: n=0
+- POST-HOC active_h by outcome — achieved: n=0; partial: n=7, median 14.7 [3.65–64.2]; failed: n=0
+- POST-HOC sessions with >= 10 active h (n=4):
+  helper_share_new — achieved: n=0; partial: n=4, median 0.652 [0.545–0.789]; failed: n=0
+  reactive_per_prompt_c1 — achieved: n=0; partial: n=4, median 0.00472 [0–0.0156]; failed: n=0
+  reactive_per_prompt_c2 — achieved: n=0; partial: n=4, median 0 [0–0.0156]; failed: n=0
+  polling_share — achieved: n=0; partial: n=4, median 0.00126 [0.000205–0.706]; failed: n=0
+
+## codex (n=20, live at freeze 1)
+
+Label counts: {"outcome": {"partial": 11, "failed": 3, "achieved": 5, "unsure": 1}, "on_track": {"some": 12, "yes": 8}, "rework": {"some": 15, "none": 3, "major": 2}, "helpers_useful": {"yes": 14, "some": 5, "unsure": 1}, "stop_wanted": {"blank": 20}, "worth_cost": {"blank": 20}}
+- helper_share_new by outcome — achieved: n=5, median 0.451 [0.183–0.801]; partial: n=11, median 0.689 [0.508–0.79]; failed: n=3, median 0.752 [0.571–0.824]; Spearman with outcome rank -0.27 (n=19)
+- reactive_per_prompt_c1 by outcome — achieved: n=5, median 0 [0–0]; partial: n=11, median 0.0282 [0–0.25]; failed: n=3, median 0.0833 [0–0.093]; Spearman with outcome rank -0.59 (n=19)
+- reactive_per_prompt_c2 by outcome — achieved: n=5, median 0 [0–0]; partial: n=11, median 0.0286 [0–0.25]; failed: n=3, median 0.0833 [0–0.093]; Spearman with outcome rank -0.54 (n=19)
+- wait_only_share by outcome — achieved: n=5, median 0.0336 [0–0.22]; partial: n=11, median 0.193 [0.034–0.641]; failed: n=3, median 0.226 [0.14–0.285]; Spearman with outcome rank -0.47 (n=19)
+- compactions_per_h by outcome — achieved: n=5, median 1.21 [0.693–2.17]; partial: n=11, median 0.719 [0.22–1.35]; failed: n=3, median 0.911 [0.602–1.16]; Spearman with outcome rank +0.37 (n=19)
+- orchestration_per_h by outcome — achieved: n=5, median 7.78 [0–80.1]; partial: n=11, median 28.4 [7.9–53.7]; failed: n=3, median 51.6 [32.5–74.7]; Spearman with outcome rank -0.32 (n=19)
+- helper_share_new by helpers_useful — yes: n=14, median 0.688 [0.319–0.824]; some: n=5, median 0.722 [0.552–0.801]; no: n=0
+- POST-HOC active_h by outcome — achieved: n=5, median 1.65 [0.462–11.1]; partial: n=11, median 30.4 [6.24–106]; failed: n=3, median 67.5 [6.65–69.2]; Spearman -0.67
+- POST-HOC sessions with >= 10 active h (n=14):
+  helper_share_new — achieved: n=1, median 0.794 [0.794–0.794]; partial: n=10, median 0.688 [0.508–0.79]; failed: n=2, median 0.788 [0.752–0.824]
+  reactive_per_prompt_c1 — achieved: n=1, median 0 [0–0]; partial: n=10, median 0.0241 [0–0.0556]; failed: n=2, median 0.0882 [0.0833–0.093]
+  reactive_per_prompt_c2 — achieved: n=1, median 0 [0–0]; partial: n=10, median 0.0284 [0–0.2]; failed: n=2, median 0.0882 [0.0833–0.093]
+  wait_only_share — achieved: n=1, median 0.17 [0.17–0.17]; partial: n=10, median 0.207 [0.034–0.641]; failed: n=2, median 0.256 [0.226–0.285]
+  compactions_per_h — achieved: n=1, median 1.26 [1.26–1.26]; partial: n=10, median 0.688 [0.22–1.35]; failed: n=2, median 1.03 [0.911–1.16]
+  orchestration_per_h — achieved: n=1, median 53.8 [53.8–53.8]; partial: n=10, median 24.9 [7.9–53.7]; failed: n=2, median 63.2 [51.6–74.7]
+
+## claude without 1ef22ddd (n=6, live at freeze 3)
+
+Label counts: {"outcome": {"partial": 6}, "on_track": {"yes": 4, "some": 2}, "rework": {"some": 5, "major": 1}, "helpers_useful": {"yes": 4, "none": 2}, "stop_wanted": {"blank": 6}, "worth_cost": {"blank": 6}}
+- helper_share_new by outcome — achieved: n=0; partial: n=4, median 0.652 [0.545–0.864]; failed: n=0
+- reactive_per_prompt_c1 by outcome — achieved: n=0; partial: n=6, median 0 [0–0.0667]; failed: n=0
+- reactive_per_prompt_c2 by outcome — achieved: n=0; partial: n=6, median 0 [0–0.0667]; failed: n=0
+- polling_share by outcome — achieved: n=0; partial: n=6, median 0.0004 [0–0.325]; failed: n=0
+- helper_share_new by helpers_useful — yes: n=4, median 0.652 [0.545–0.864]; some: n=0; no: n=0
+- POST-HOC active_h by outcome — achieved: n=0; partial: n=6, median 11.7 [3.65–64.2]; failed: n=0
+- POST-HOC sessions with >= 10 active h (n=3):
+  helper_share_new — achieved: n=0; partial: n=3, median 0.614 [0.545–0.69]; failed: n=0
+  reactive_per_prompt_c1 — achieved: n=0; partial: n=3, median 0 [0–0.00943]; failed: n=0
+  reactive_per_prompt_c2 — achieved: n=0; partial: n=3, median 0 [0–0]; failed: n=0
+  polling_share — achieved: n=0; partial: n=3, median 0.000596 [0.000205–0.00192]; failed: n=0

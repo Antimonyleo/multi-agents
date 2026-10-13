@@ -1,0 +1,1091 @@
+{
+ "label_sources": {
+  "outcome:agent": 27,
+  "on_track:agent": 27,
+  "rework:agent": 27,
+  "helpers_useful:agent": 27
+ },
+ "groups": {
+  "claude": {
+   "n": 7,
+   "live": 3,
+   "label_counts": {
+    "outcome": {
+     "partial": 7
+    },
+    "on_track": {
+     "yes": 5,
+     "some": 2
+    },
+    "rework": {
+     "some": 6,
+     "major": 1
+    },
+    "helpers_useful": {
+     "yes": 5,
+     "none": 2
+    },
+    "stop_wanted": {
+     "blank": 7
+    },
+    "worth_cost": {
+     "blank": 7
+    }
+   },
+   "by_outcome": {
+    "helper_share_new": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 5,
+      "median": 0.689967869110622,
+      "min": 0.5447881360620068,
+      "max": 0.8637123150339201
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 7,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.06666666666666667
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 7,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.06666666666666667
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "polling_share": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 7,
+      "median": 0.000595758117755001,
+      "min": 0.0,
+      "max": 0.7060578866497156
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   },
+   "by_worth_cost": {
+    "helper_share_new": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "polling_share": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   },
+   "spearman_outcome": {
+    "helper_share_new": null,
+    "reactive_per_prompt_c1": null,
+    "reactive_per_prompt_c2": null,
+    "polling_share": null
+   },
+   "helpers_vs_useful": {
+    "yes": {
+     "n": 5,
+     "median": 0.689967869110622,
+     "min": 0.5447881360620068,
+     "max": 0.8637123150339201
+    },
+    "some": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "no": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "reactive_vs_stop_wanted": {
+    "yes": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "some": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "no": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "none": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "posthoc_active_h_by_outcome": {
+    "achieved": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "partial": {
+     "n": 7,
+     "median": 14.70079361111111,
+     "min": 3.6486305555555556,
+     "max": 64.18135555555556
+    },
+    "failed": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "posthoc_spearman_active_h": null,
+   "posthoc_sessions_10h_plus": {
+    "helper_share_new": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 4,
+      "median": 0.6517361717109352,
+      "min": 0.5447881360620068,
+      "max": 0.7888108440550037
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 4,
+      "median": 0.0047169811320754715,
+      "min": 0.0,
+      "max": 0.015625
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 4,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.015625
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "polling_share": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 4,
+      "median": 0.001259190656024182,
+      "min": 0.00020485560339093646,
+      "max": 0.7060578866497156
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   }
+  },
+  "codex": {
+   "n": 20,
+   "live": 1,
+   "label_counts": {
+    "outcome": {
+     "partial": 11,
+     "failed": 3,
+     "achieved": 5,
+     "unsure": 1
+    },
+    "on_track": {
+     "some": 12,
+     "yes": 8
+    },
+    "rework": {
+     "some": 15,
+     "none": 3,
+     "major": 2
+    },
+    "helpers_useful": {
+     "yes": 14,
+     "some": 5,
+     "unsure": 1
+    },
+    "stop_wanted": {
+     "blank": 20
+    },
+    "worth_cost": {
+     "blank": 20
+    }
+   },
+   "by_outcome": {
+    "helper_share_new": {
+     "achieved": {
+      "n": 5,
+      "median": 0.45072396279451327,
+      "min": 0.18297207503482074,
+      "max": 0.801083526104334
+     },
+     "partial": {
+      "n": 11,
+      "median": 0.6889803472513502,
+      "min": 0.5082991999650224,
+      "max": 0.7896164701863696
+     },
+     "failed": {
+      "n": 3,
+      "median": 0.7519342847054142,
+      "min": 0.5708240677676428,
+      "max": 0.8241373312325948
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "achieved": {
+      "n": 5,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "partial": {
+      "n": 11,
+      "median": 0.028169014084507043,
+      "min": 0.0,
+      "max": 0.25
+     },
+     "failed": {
+      "n": 3,
+      "median": 0.08333333333333333,
+      "min": 0.0,
+      "max": 0.09302325581395349
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "achieved": {
+      "n": 5,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "partial": {
+      "n": 11,
+      "median": 0.02857142857142857,
+      "min": 0.0,
+      "max": 0.25
+     },
+     "failed": {
+      "n": 3,
+      "median": 0.08333333333333333,
+      "min": 0.0,
+      "max": 0.09302325581395349
+     }
+    },
+    "wait_only_share": {
+     "achieved": {
+      "n": 5,
+      "median": 0.03355704697986577,
+      "min": 0.0,
+      "max": 0.22
+     },
+     "partial": {
+      "n": 11,
+      "median": 0.19289428076256498,
+      "min": 0.034026465028355386,
+      "max": 0.6406779661016949
+     },
+     "failed": {
+      "n": 3,
+      "median": 0.22620996025251344,
+      "min": 0.1402936378466558,
+      "max": 0.28515969648844186
+     }
+    },
+    "compactions_per_h": {
+     "achieved": {
+      "n": 5,
+      "median": 1.2124637229170125,
+      "min": 0.6931770963504611,
+      "max": 2.1651882240224025
+     },
+     "partial": {
+      "n": 11,
+      "median": 0.7193347289548844,
+      "min": 0.2195339477234787,
+      "max": 1.3508397519440098
+     },
+     "failed": {
+      "n": 3,
+      "median": 0.9105863358161224,
+      "min": 0.6015065985900435,
+      "max": 1.1551859530967845
+     }
+    },
+    "orchestration_per_h": {
+     "achieved": {
+      "n": 5,
+      "median": 7.775419113988831,
+      "min": 0.0,
+      "max": 80.11196428882889
+     },
+     "partial": {
+      "n": 11,
+      "median": 28.363560125339163,
+      "min": 7.903222118045233,
+      "max": 53.74412441662954
+     },
+     "failed": {
+      "n": 3,
+      "median": 51.643253617000084,
+      "min": 32.48135632386235,
+      "max": 74.70202496692539
+     }
+    }
+   },
+   "by_worth_cost": {
+    "helper_share_new": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "wait_only_share": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "compactions_per_h": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "orchestration_per_h": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   },
+   "spearman_outcome": {
+    "helper_share_new": -0.2671513257071124,
+    "reactive_per_prompt_c1": -0.5890723768936682,
+    "reactive_per_prompt_c2": -0.5355695416036628,
+    "wait_only_share": -0.47295679143703606,
+    "compactions_per_h": 0.3660962611541911,
+    "orchestration_per_h": -0.32058159084853494
+   },
+   "helpers_vs_useful": {
+    "yes": {
+     "n": 14,
+     "median": 0.6882694454082718,
+     "min": 0.3190214254184917,
+     "max": 0.8241373312325948
+    },
+    "some": {
+     "n": 5,
+     "median": 0.721644257851456,
+     "min": 0.5522636175369565,
+     "max": 0.801083526104334
+    },
+    "no": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "reactive_vs_stop_wanted": {
+    "yes": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "some": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "no": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "none": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "posthoc_active_h_by_outcome": {
+    "achieved": {
+     "n": 5,
+     "median": 1.6495338888888889,
+     "min": 0.4618536111111111,
+     "max": 11.071409166666665
+    },
+    "partial": {
+     "n": 11,
+     "median": 30.4413275,
+     "min": 6.2404013888888885,
+     "max": 105.65317777777778
+    },
+    "failed": {
+     "n": 3,
+     "median": 67.52159666666667,
+     "min": 6.6499686111111105,
+     "max": 69.18619083333334
+    }
+   },
+   "posthoc_spearman_active_h": -0.6748044597490765,
+   "posthoc_sessions_10h_plus": {
+    "helper_share_new": {
+     "achieved": {
+      "n": 1,
+      "median": 0.794339188741755,
+      "min": 0.794339188741755,
+      "max": 0.794339188741755
+     },
+     "partial": {
+      "n": 10,
+      "median": 0.6882694454082718,
+      "min": 0.5082991999650224,
+      "max": 0.7896164701863696
+     },
+     "failed": {
+      "n": 2,
+      "median": 0.7880358079690045,
+      "min": 0.7519342847054142,
+      "max": 0.8241373312325948
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "achieved": {
+      "n": 1,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "partial": {
+      "n": 10,
+      "median": 0.02408450704225352,
+      "min": 0.0,
+      "max": 0.05555555555555555
+     },
+     "failed": {
+      "n": 2,
+      "median": 0.0881782945736434,
+      "min": 0.08333333333333333,
+      "max": 0.09302325581395349
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "achieved": {
+      "n": 1,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "partial": {
+      "n": 10,
+      "median": 0.028370221327967807,
+      "min": 0.0,
+      "max": 0.2
+     },
+     "failed": {
+      "n": 2,
+      "median": 0.0881782945736434,
+      "min": 0.08333333333333333,
+      "max": 0.09302325581395349
+     }
+    },
+    "wait_only_share": {
+     "achieved": {
+      "n": 1,
+      "median": 0.16979219462747086,
+      "min": 0.16979219462747086,
+      "max": 0.16979219462747086
+     },
+     "partial": {
+      "n": 10,
+      "median": 0.20748748008404258,
+      "min": 0.034026465028355386,
+      "max": 0.6406779661016949
+     },
+     "failed": {
+      "n": 2,
+      "median": 0.2556848283704777,
+      "min": 0.22620996025251344,
+      "max": 0.28515969648844186
+     }
+    },
+    "compactions_per_h": {
+     "achieved": {
+      "n": 1,
+      "median": 1.2645183453386055,
+      "min": 1.2645183453386055,
+      "max": 1.2645183453386055
+     },
+     "partial": {
+      "n": 10,
+      "median": 0.6881681501281336,
+      "min": 0.2195339477234787,
+      "max": 1.3508397519440098
+     },
+     "failed": {
+      "n": 2,
+      "median": 1.0328861444564534,
+      "min": 0.9105863358161224,
+      "max": 1.1551859530967845
+     }
+    },
+    "orchestration_per_h": {
+     "achieved": {
+      "n": 1,
+      "median": 53.83235241584349,
+      "min": 53.83235241584349,
+      "max": 53.83235241584349
+     },
+     "partial": {
+      "n": 10,
+      "median": 24.872826771837712,
+      "min": 7.903222118045233,
+      "max": 53.74412441662954
+     },
+     "failed": {
+      "n": 2,
+      "median": 63.17263929196274,
+      "min": 51.643253617000084,
+      "max": 74.70202496692539
+     }
+    }
+   }
+  },
+  "claude without 1ef22ddd": {
+   "n": 6,
+   "live": 3,
+   "label_counts": {
+    "outcome": {
+     "partial": 6
+    },
+    "on_track": {
+     "yes": 4,
+     "some": 2
+    },
+    "rework": {
+     "some": 5,
+     "major": 1
+    },
+    "helpers_useful": {
+     "yes": 4,
+     "none": 2
+    },
+    "stop_wanted": {
+     "blank": 6
+    },
+    "worth_cost": {
+     "blank": 6
+    }
+   },
+   "by_outcome": {
+    "helper_share_new": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 4,
+      "median": 0.6517361717109352,
+      "min": 0.5447881360620068,
+      "max": 0.8637123150339201
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 6,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.06666666666666667
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 6,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.06666666666666667
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "polling_share": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 6,
+      "median": 0.00040030686057296875,
+      "min": 0.0,
+      "max": 0.32534958973095335
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   },
+   "by_worth_cost": {
+    "helper_share_new": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "polling_share": {
+     "yes": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "no": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   },
+   "spearman_outcome": {
+    "helper_share_new": null,
+    "reactive_per_prompt_c1": null,
+    "reactive_per_prompt_c2": null,
+    "polling_share": null
+   },
+   "helpers_vs_useful": {
+    "yes": {
+     "n": 4,
+     "median": 0.6517361717109352,
+     "min": 0.5447881360620068,
+     "max": 0.8637123150339201
+    },
+    "some": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "no": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "reactive_vs_stop_wanted": {
+    "yes": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "some": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "no": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "none": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "posthoc_active_h_by_outcome": {
+    "achieved": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "partial": {
+     "n": 6,
+     "median": 11.675730277777777,
+     "min": 3.6486305555555556,
+     "max": 64.18135555555556
+    },
+    "failed": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    }
+   },
+   "posthoc_spearman_active_h": null,
+   "posthoc_sessions_10h_plus": {
+    "helper_share_new": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 3,
+      "median": 0.6135044743112484,
+      "min": 0.5447881360620068,
+      "max": 0.689967869110622
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c1": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 3,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.009433962264150943
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "reactive_per_prompt_c2": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 3,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    },
+    "polling_share": {
+     "achieved": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     },
+     "partial": {
+      "n": 3,
+      "median": 0.000595758117755001,
+      "min": 0.00020485560339093646,
+      "max": 0.0019226231942933627
+     },
+     "failed": {
+      "n": 0,
+      "median": null,
+      "min": null,
+      "max": null
+     }
+    }
+   }
+  }
+ }
+}

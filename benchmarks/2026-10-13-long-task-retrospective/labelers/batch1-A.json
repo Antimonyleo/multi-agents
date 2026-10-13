@@ -1,0 +1,137 @@
+[
+  {
+    "session": "01a0591d",
+    "objective": "Test the sequence-design algorithm on 500+ nt targets and show better time/compute efficiency than NUPACK design (later broadened to a universal, scalable optimizer)",
+    "outcome": "partial",
+    "on_track": "yes",
+    "rework": "some",
+    "helpers_useful": "yes",
+    "confidence": {"outcome": "medium", "on_track": "medium", "rework": "medium", "helpers_useful": "low"},
+    "evidence": {
+      "outcome": "P3/P10/P25: 512-nt and 156-nt runs unverified, native comparison never run; handoff P26 pauses. Later 208bc0d (09-11) got 2/10 at 512 nt under a new Gate v2. 68-nt control was verified.",
+      "on_track": "All prompts target scale quality and NUPACK comparison; 156-nt and extra targets were user-directed (P8, P11). Falsified variants (b007e03 revert) are search steps, not wandering.",
+      "rework": "Revert b007e03 of coordinate tournament; 09-11 stage plan froze new Gate v2, feasible init, new reconciliation budget (commits 5ba752d, fe12696), superseding this session's gates and bundles.",
+      "helpers_useful": "34 spawns plus 16 guardians; commits (18170e2, audited v4 fix 42078e7, handoff ae36eb2) report subagent audits. Helper texts not in packet, so use is inferred only."
+    }
+  },
+  {
+    "session": "01a08f22",
+    "objective": "Fold a full 500+ nt DNA origami target in oxDNA end to end (DPOW520/576), finding relaxation and procedure that complete folding; final goal: at least one fully folded structure",
+    "outcome": "partial",
+    "on_track": "some",
+    "rework": "major",
+    "helpers_useful": "yes",
+    "confidence": {"outcome": "medium", "on_track": "medium", "rework": "medium", "helpers_useful": "medium"},
+    "evidence": {
+      "outcome": "P43: best 20/27 domains, 199/232 contacts; no full fold. P49 goal 'one fully folded' unmet at session end. Oct HANDOFF.md: hybrid_mps all 'does_not_improve'; no full fold recorded.",
+      "on_track": "P20-21: user asked if it drifted and chased rabbit holes; agent admitted overengineering. Later work (P25-P47) folded whole loose strands as asked and stayed on goal.",
+      "rework": "P33: user agreed the guard wrongly stopped folding, redesigned it; P44-46 partner-exchange procedure called bad. ac23eed6 retired this session's NUPACK admission table; P27 'full process' run was mislabeled.",
+      "helpers_useful": "41 helpers (Sol, Luna, Astra); P16/P18 Astra reviewer verified results, P34-P40 review-driven guard redesign; reviewed plans (P47-49). Texts absent, so use inferred from reports."
+    }
+  },
+  {
+    "session": "01a092d6",
+    "objective": "Explain the RFOptimization paper in plain language, consult GPT-6 Pro for how to improve the project's optimization architecture, and produce a reviewed plan with verification tests",
+    "outcome": "achieved",
+    "on_track": "yes",
+    "rework": "none",
+    "helpers_useful": "unsure",
+    "confidence": {"outcome": "high", "on_track": "high", "rework": "medium", "helpers_useful": "low"},
+    "evidence": {
+      "outcome": "P0-P4: paper explained, GPT-6 Pro consulted, docs/next_phase/oracle_plan_verification.md written with per-section tests; found and reproduced Pareto 0.80-vs-0.90 and MFE-rounding bugs.",
+      "on_track": "Every prompt concerns the paper, architecture ideas or the plan; no side work. Final report states no code or runs were changed.",
+      "rework": "01a093b8 (next session) reviewed and finalized this plan as the execution plan (759c1b2) and 1ef22ddd executed it; that is normal revision. No redo of this session's findings seen.",
+      "helpers_useful": "Only 1 spawn (astra) and 1 guardian; packet gives no helper text. Final reports do not cite helper output, so contribution cannot be judged."
+    }
+  },
+  {
+    "session": "01a093b8",
+    "objective": "Review the Sep-11 plan with subagents and research, finalize a milestone-tested parallel execution plan, execute it, then evaluate lab reference sequences and hand off view-1 optimization work",
+    "outcome": "achieved",
+    "on_track": "yes",
+    "rework": "some",
+    "helpers_useful": "yes",
+    "confidence": {"outcome": "medium", "on_track": "medium", "rework": "medium", "helpers_useful": "medium"},
+    "evidence": {
+      "outcome": "P2 plan committed 759c1b2; P5 executed through X3; P11 handoff crossing_view1_followup_handoff_2026-09-12.md with reference evaluation. 1ef22ddd then executed it. X3 p02 stayed unverified.",
+      "on_track": "Prompts follow review, plan, execution, then clarifying crossing-contact and view concepts and the reference-sequence study the user asked for. No unrequested tangents seen.",
+      "rework": "P7: 'all crossing contacts proved' was overstated and retracted; view-1 framing corrected at P11; 4/10 count recomputed to 6/10 within session. 1ef22ddd later corrected further view-1 and scoring ideas.",
+      "helpers_useful": "35 helpers (Sol reviewers, Astra executors); P1 three reviewers shaped revised plan, P4 notes X1/A1 passed. Handoff and plan were consumed by 1ef22ddd. Helper texts absent."
+    }
+  },
+  {
+    "session": "01a1248e",
+    "objective": "Resume implementation and run until planned items finish and produce passing RNA nanostructure designs (tetrahedron/bipyramid; 3D-conditioned sequence design)",
+    "outcome": "partial",
+    "on_track": "some",
+    "rework": "some",
+    "helpers_useful": "yes",
+    "confidence": {"outcome": "low", "on_track": "medium", "rework": "low", "helpers_useful": "medium"},
+    "evidence": {
+      "outcome": "Still running at freeze. P2/P6/P11: no new passing RNA design (0/5 predictions, B026 overlap 0.405 vs 0.4 A, 216 proposals no shortlist). Git to 10-13 shows construction checkpoints only.",
+      "on_track": "Work stays on RNA design, but P4 was disk cleanup, and P11-12 user complains of a repeated cycle of closing experiments, gap-finding and new plans with no designs; agent agrees it was strategy error.",
+      "rework": "Failed S112/S199 attempts redone as S112RB; repeated reconstruction children (git: 'after 25 complete children'). P11 bug fix of process enumeration. No later session in sample, so redo is low-confidence.",
+      "helpers_useful": "Astra reviews approved plans (P3, P11); sol workers built and audited candidates; commit e275fd844 records Astra review; 'S112RB adopted' follows worker output. 64 guardians were mostly approval checks."
+    }
+  },
+  {
+    "session": "0f1dc278",
+    "objective": "Diagnose why no RNA structures have been designed, revise AGENTS.md to keep Codex on goal, then run three epochs to build and evaluate RNA candidates",
+    "outcome": "partial",
+    "on_track": "yes",
+    "rework": "some",
+    "helpers_useful": "none",
+    "confidence": {"outcome": "medium", "on_track": "high", "rework": "medium", "helpers_useful": "high"},
+    "evidence": {
+      "outcome": "P1-P5 diagnosis and AGENTS.md rules done (cb31d367). P10-11 three epochs built two structures but zero pass acceptance bar. Later: codex_direc still reports no new passing RNA design on 10-13.",
+      "on_track": "Diagnosis, goal-discipline rules, then building candidates per user orders; P11-12 asks for validation and corner-motif cause; P13-14 monitoring Codex. All aimed at producing RNA designs.",
+      "rework": "01a1248e P11-12 repeats the same stop-and-replan cycle despite the new rules; the 9-29 best square candidate was set aside (final report). Epoch 1 C5 pentagon failed; later V14-V56 work followed.",
+      "helpers_useful": "Packet shows 0 helpers."
+    }
+  },
+  {
+    "session": "1ef22ddd",
+    "objective": "Execute the crossing (500+ nt) design plan with subagents, benchmark versus native NUPACK, scale to 796/1332 nt with a goal-driven stop rule, parallelism and post-search optimization",
+    "outcome": "partial",
+    "on_track": "yes",
+    "rework": "some",
+    "helpers_useful": "yes",
+    "confidence": {"outcome": "medium", "on_track": "medium", "rework": "medium", "helpers_useful": "high"},
+    "evidence": {
+      "outcome": "P22: native beats ours on quality at matched constraints; P24 gap closed at 520/592; P50 1,332 nt composite_verified; P62 17/17 repaired; P63 handoff. But 5 branches unmerged, post-search moves negative.",
+      "on_track": "Followed user steering on benchmark, crosstalk, stop rule, parallelism and post-search optimization. Long crosstalk/orthogonality exchanges were user-driven questions; P17 model_errors doc was requested.",
+      "rework": "Many in-session corrections (P8 view-1 error, P17-18 11 errors, P23 not resource-matched). Later 738c036/b53e996 (09-25/26) retract success framing and rewrite its handoff, though for 09-23 rows, not these.",
+      "helpers_useful": "67 helpers (opus, inherited); results drive nearly every step: finalist-leak fix, reserve fix, stop-rule calibration, native rows, repair; final handoff cites them. Two stopped by user at end."
+    }
+  },
+  {
+    "session": "ac23eed6",
+    "objective": "Find the halted Codex folding process and plan, then run the DPOW576 temperature-tiered and isothermal folding comparison and 20C guard screening",
+    "outcome": "partial",
+    "on_track": "some",
+    "rework": "major",
+    "helpers_useful": "none",
+    "confidence": {"outcome": "medium", "on_track": "medium", "rework": "medium", "helpers_useful": "high"},
+    "evidence": {
+      "outcome": "P1 status found; P2 review; P25-26 ladder built. P34/P37: first fold void (no isothermal arm), second confounded (stopped on ladder_exhausted); screening unrun. Handoff P38 says neither fold usable.",
+      "on_track": "P22-23: user says ViennaRNA/Tm estimation was a minor setup step that ate the session; P3-4 VMMC tangent withdrawn. Main line of fold and screen still pursued.",
+      "rework": "P34-35 two driver bugs voided the run; P18 selection rules broke; P16 budget breach 169M vs 13M; P38 handoff says fold not re-run after fix. Admission-table approach retired in P9 and later.",
+      "helpers_useful": "Packet shows 0 helpers."
+    }
+  },
+  {
+    "session": "bf134f2c",
+    "objective": "Set up a safe parallel kinetic-model worktree, then build a helix-level stochastic kinetic folding model, test it on real DPOW576 runs, give critical feedback and plan the next stage",
+    "outcome": "partial",
+    "on_track": "yes",
+    "rework": "some",
+    "helpers_useful": "yes",
+    "confidence": {"outcome": "medium", "on_track": "medium", "rework": "low", "helpers_useful": "medium"},
+    "evidence": {
+      "outcome": "Running model built (K0-K4), tests scored: S3 fail, S4 blind test fails (4/22 arms within 2 domains, need 12). Next-stage plan written (P25). Still running at freeze, fit and fixes pending.",
+      "on_track": "P1-P10 worktree safety was user-requested; P11-21 plan and design match the kinetic-model goal. Memory incident (P26-31) was a self-caused detour but needed.",
+      "rework": "kinetic_k3_fit.py hit 90 GB and stalled server (P26-28); fixed via byte-limited caches and guard c44061b. Row-fix to add sticky contacts (final reports) then refit planned. All within the session.",
+      "helpers_useful": "15 helpers (sonnet workers, opus reviewers); reports use their results: K4 runner review, memory fixes, speed-up, sticky-contact row fix, batch diagnosis. Texts not shown; checked via reports."
+    }
+  }
+]
