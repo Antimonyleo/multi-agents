@@ -1,10 +1,17 @@
-parent 2 of 5055 responses; processed share 0.0%, uncached+output share 0.0%
-helper 11164 of 31844 responses; processed share 53.7%, uncached+output share 1.7%
-  child 3314 / 3416 1335 M Steps 3b and 4b post-repair rerun
-  child 2497 / 2614 1083 M Add the missing multimer term
-  child 2261 / 2443 980 M Test NUPACK threading and search width
-  child 1615 / 1779 686 M Architecture: objective and stop rule
-  child 603 / 871 235 M Diagnose NED plateau, one search intervention
-  child 319 / 498 99 M Parallelize proposal evaluation
-  child 220 / 1022 53 M Static test: is the dimer breakable
-  child 184 / 325 49 M Run O2 matched-arm pilot
+helper: 11181 of 31844 responses; processed share 53.8%, new-token share 1.7%; parts {'sleep': 2538, 'echo': 4983, 'true': 17, 'date': 3313, ':': 1, 'read': 2870}; rules {'bash only': 8311, 'read only': 2870}
+helper without 1ef22ddd: 635 of 13685 responses; processed share 9.0%, new-token share 0.2%; parts {'sleep': 5, 'echo': 611, 'true': 17, 'date': 2, ':': 1, 'read': 5}; rules {'bash only': 630, 'read only': 5}
+parent: 2 of 5055 responses; processed share 0.0%, new-token share 0.0%; parts {'sleep': 2, 'echo': 2}; rules {'bash only': 2}
+parent without 1ef22ddd: 0 of 4208 responses; processed share 0.0%, new-token share 0.0%; parts {}; rules {}
+ family 1ef22ddd {'polling_responses': 10548, 'responses': 19006, 'polling_processed': 4313791676}
+ family 1bdedbac {'polling_responses': 626, 'responses': 3233, 'polling_processed': 238153170}
+ family bf134f2c {'polling_responses': 3, 'responses': 2006, 'polling_processed': 991279}
+ family 272da152 {'polling_responses': 3, 'responses': 9467, 'polling_processed': 463194}
+ family fcde68e6 {'polling_responses': 3, 'responses': 2774, 'polling_processed': 351896}
+  1ef22ddd helper opus 3317 / 3416 1336 M {'sleep': 26, 'echo': 12, 'date': 3308} Steps 3b and 4b post-repair rerun
+  1ef22ddd helper opus 2497 / 2614 1083 M {'sleep': 2494, 'echo': 2496} Add the missing multimer term
+  1ef22ddd helper None 2261 / 2443 980 M {'read': 2261} Test NUPACK threading and search width
+  1ef22ddd helper opus 1618 / 1779 687 M {'echo': 1618} Architecture: objective and stop rule
+  1bdedbac helper opus 606 / 871 236 M {'echo': 605, 'date': 1, 'true': 1} Diagnose NED plateau, one search intervention
+  1ef22ddd helper None 319 / 498 99 M {'read': 319} Parallelize proposal evaluation
+  1ef22ddd helper None 220 / 1022 53 M {'read': 220} Static test: is the dimer breakable
+  1ef22ddd helper None 185 / 325 49 M {'echo': 185} Run O2 matched-arm pilot

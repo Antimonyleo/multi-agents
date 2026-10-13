@@ -52,3 +52,50 @@ the user's Step 2 labels.
 `sample.json` (frozen identities), `extract.py`, `summary.json` (aggregates
 only, no transcript text beyond short prompt excerpts), `labels.csv` (Step 2
 sheet), `REPORT.md`. Raw transcripts stay at their host paths.
+
+## Amendment 1 (2026-10-13, after the first report; before any labels)
+
+An independent review (methods, recomputation and code) found departures from
+this plan. The sample is unchanged. The sections above stay as first written.
+
+**Added after extraction (post-hoc), so exploratory only:** polling-shaped
+responses (`polling.py`); price-ratio weighting (`weighted.py`); prompt
+categories and their hand codes (`signals.py`, `prompt-coding.csv`); Codex
+wait-only calls, exec waits and `wait_agent` timeouts; results without session
+`1ef22ddd`.
+
+**Definition fixes:** Codex tokens sum each counter segment (the cumulative
+counter reset in 105 files); repeated `token_count` events are not model calls;
+`wait` is an exec-cell wait, not orchestration; the redo window opens when the
+helper's result reaches the parent (foreground result or background
+notification), not at launch.
+
+**Selection note:** the rule counted raw `token_count` events. After
+de-duplication, 01a0f41e has 98 model calls and 01a06a15 has 100. Both stay in
+the sample.
+
+### Step 2 analysis, fixed before labelling
+
+Labels: `outcome`, `on_track`, `rework`, `worth_cost`, `stop_wanted`,
+`helpers_useful` (see [LABELING.md](LABELING.md)). `unsure` rows are dropped
+per comparison; `abandoned` is dropped from outcome comparisons.
+
+Signals, per session, normalised by active hours or as shares:
+
+1. Helper share of new tokens.
+2. Reactive stop prompts per prompt (both coders' counts).
+3. Polling share of Claude family tokens; wait-only share of Codex parent calls.
+4. Compactions per active hour (Codex).
+5. Orchestration calls per active hour (Codex).
+
+Comparisons, within each runtime only:
+
+- For each signal, the median and range by `outcome` (achieved / partial /
+  failed) and by `worth_cost`.
+- Signal 1 against `helpers_useful`.
+- Signal 2 against `stop_wanted`. Stops the user wanted are not stalls.
+- `on_track` is reported alone. It is not compared with signal 2, because both
+  measure user steering.
+- Spearman rank correlation only for groups of at least 10 labelled sessions.
+  All results are descriptive leads, not tests. Claude polling is shown with
+  and without `1ef22ddd`. Sessions live at freeze are flagged.

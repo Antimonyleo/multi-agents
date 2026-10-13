@@ -3,43 +3,50 @@
 | Session | RT | Project | Start | Active h | Prompts | Compactions | Max ctx | Helpers | Helper share (all / uncached+out) | Orchestration calls | Auto wake-ups | Correction cand. | Interrupts | Repeat cmds |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1bdedbac | claude | githubrepo-sequence-design | 2026-09-11 | 8.5 | 7 | 0 | 457k | 23 | 94% / 86% | 0 | 59 | 0 | 0 | 6 |
-| 1ef22ddd | claude | githubrepo-sequence-design | 2026-09-12 | 48.1 | 66 | 2 | 756k | 67 | 95% / 79% | 0 | 185 | 1 | 1 | 0 |
+| 1ef22ddd | claude | githubrepo-sequence-design | 2026-09-12 | 48.1 | 64 | 2 | 756k | 67 | 95% / 79% | 0 | 187 | 1 | 1 | 0 |
 | ac23eed6 | claude | folding-origamifolder7 | 2026-09-17 | 8.7 | 39 | 0 | 686k | 0 | 0% / 0% | 0 | 1 | 1 | 0 | 0 |
 | 0f1dc278 | claude | AI-codex-direc | 2026-09-26 | 3.6 | 15 | 0 | 334k | 0 | 0% / 0% | 0 | 4 | 0 | 0 | 0 |
-| 272da152 | claude | folding-origamifolder7 | 2026-09-28 | 64.2 | 108 | 3 | 965k | 141 | 61% / 61% | 0 | 155 | 0 | 0 | 17 |
+| 272da152 | claude | folding-origamifolder7 | 2026-09-28 | 64.2 | 106 | 3 | 965k | 141 | 61% / 61% | 0 | 157 | 0 | 0 | 17 |
 | fcde68e6 | claude | githubrepo-sequence-design | 2026-10-06 | 32.2 | 54 | 6 | 890k | 37 | 29% / 54% | 0 | 134 | 1 | 0 | 0 |
 | bf134f2c | claude | folding-origamifolder7-kinetic | 2026-10-09 | 14.7 | 33 | 2 | 440k | 15 | 83% / 69% | 0 | 19 | 0 | 0 | 0 |
-| 01a0591d | codex | sequence_design | 2026-08-31 | 31.1 | 29 | 42 | 239k | 50 | 49% / 66% | 1695 | 0 | 1 | 1 | 134 |
-| 01a06010 | codex | origamifolder7 | 2026-09-02 | 33.1 | 21 | 26 | 231k | 44 | 43% / 70% | 1055 | 0 | 0 | 2 | 1906 |
-| 01a069f2 | codex | origamifolder7 | 2026-09-04 | 16.2 | 18 | 14 | 230k | 70 | 48% / 74% | 814 | 0 | 1 | 1 | 569 |
-| 01a06a13 | codex | sequence_design | 2026-09-04 | 67.5 | 12 | 78 | 233k | 212 | 51% / 76% | 5069 | 0 | 0 | 0 | 154 |
-| 01a06a15 | codex | codex_direc | 2026-09-04 | 0.5 | 1 | 1 | 229k | 8 | 73% / 80% | 37 | 0 | 0 | 0 | 2 |
+| 01a0591d | codex | sequence_design | 2026-08-31 | 31.1 | 27 | 42 | 239k | 50 | 54% / 69% | 1671 | 0 | 1 | 1 | 134 |
+| 01a06010 | codex | origamifolder7 | 2026-09-02 | 33.1 | 20 | 26 | 231k | 44 | 43% / 69% | 963 | 0 | 0 | 2 | 1906 |
+| 01a069f2 | codex | origamifolder7 | 2026-09-04 | 16.2 | 18 | 14 | 230k | 70 | 54% / 76% | 810 | 0 | 1 | 1 | 569 |
+| 01a06a13 | codex | sequence_design | 2026-09-04 | 67.5 | 12 | 78 | 233k | 212 | 62% / 82% | 5044 | 0 | 0 | 0 | 154 |
+| 01a06a15 | codex | codex_direc | 2026-09-04 | 0.5 | 1 | 1 | 229k | 8 | 74% / 80% | 37 | 0 | 0 | 0 | 2 |
 | 01a07fba | codex | codex_direc | 2026-09-08 | 6.2 | 4 | 5 | 218k | 8 | 72% / 71% | 177 | 0 | 1 | 0 | 2 |
-| 01a07fbe | codex | origamifolder7 | 2026-09-08 | 13.7 | 5 | 3 | 216k | 6 | 47% / 55% | 805 | 0 | 1 | 0 | 16 |
-| 01a08f22 | codex | origamifolder7 | 2026-09-11 | 42.6 | 50 | 21 | 231k | 41 | 68% / 79% | 1799 | 0 | 2 | 1 | 108 |
-| 01a08f31 | codex | codex_direc | 2026-09-11 | 69.2 | 43 | 63 | 239k | 163 | 62% / 75% | 3608 | 0 | 2 | 0 | 330 |
-| 01a092d6 | codex | sequence_design | 2026-09-11 | 1.6 | 5 | 2 | 210k | 2 | 7% / 18% | 5 | 0 | 0 | 1 | 40 |
-| 01a093b8 | codex | sequence_design | 2026-09-12 | 11.1 | 12 | 14 | 222k | 35 | 52% / 79% | 633 | 0 | 1 | 0 | 72 |
+| 01a07fbe | codex | origamifolder7 | 2026-09-08 | 13.7 | 5 | 3 | 216k | 6 | 47% / 55% | 108 | 0 | 1 | 0 | 16 |
+| 01a08f22 | codex | origamifolder7 | 2026-09-11 | 42.6 | 50 | 21 | 231k | 41 | 69% / 79% | 1632 | 0 | 2 | 1 | 108 |
+| 01a08f31 | codex | codex_direc | 2026-09-11 | 69.2 | 43 | 63 | 239k | 163 | 62% / 75% | 3573 | 0 | 2 | 0 | 330 |
+| 01a092d6 | codex | sequence_design | 2026-09-11 | 1.6 | 5 | 2 | 210k | 2 | 7% / 18% | 0 | 0 | 0 | 1 | 40 |
+| 01a093b8 | codex | sequence_design | 2026-09-12 | 11.1 | 12 | 14 | 222k | 35 | 52% / 79% | 596 | 0 | 1 | 0 | 72 |
 | 01a0c7b0 | codex | origamifolder7 | 2026-09-22 | 6.6 | 23 | 4 | 231k | 15 | 49% / 57% | 216 | 0 | 0 | 0 | 2 |
-| 01a0c7be | codex | sequence_design | 2026-09-22 | 40.7 | 54 | 19 | 226k | 38 | 51% / 67% | 1363 | 0 | 1 | 4 | 373 |
-| 01a0caf9 | codex | codex_direc | 2026-09-23 | 12.8 | 34 | 10 | 240k | 49 | 65% / 67% | 175 | 0 | 1 | 0 | 14 |
-| 01a0efc4 | codex | codex_direc | 2026-09-30 | 105.7 | 55 | 76 | 224k | 163 | 69% / 72% | 2231 | 0 | 0 | 6 | 367 |
+| 01a0c7be | codex | sequence_design | 2026-09-22 | 40.7 | 54 | 19 | 226k | 38 | 51% / 67% | 543 | 0 | 1 | 4 | 373 |
+| 01a0caf9 | codex | codex_direc | 2026-09-23 | 12.8 | 34 | 10 | 240k | 49 | 65% / 67% | 157 | 0 | 1 | 0 | 14 |
+| 01a0efc4 | codex | codex_direc | 2026-09-30 | 105.7 | 52 | 76 | 224k | 163 | 69% / 72% | 2185 | 0 | 0 | 6 | 367 |
 | 01a0f41e | codex | sequence_design | 2026-09-30 | 1.4 | 6 | 1 | 231k | 8 | 24% / 32% | 10 | 0 | 0 | 0 | 0 |
-| 01a0f499 | codex | sequence_design | 2026-09-30 | 30.4 | 72 | 20 | 233k | 70 | 52% / 51% | 393 | 0 | 1 | 3 | 8 |
+| 01a0f499 | codex | sequence_design | 2026-09-30 | 30.4 | 71 | 20 | 233k | 70 | 52% / 51% | 282 | 0 | 1 | 3 | 8 |
 | 01a113d6 | codex | codex_direc | 2026-10-07 | 18.6 | 35 | 12 | 212k | 65 | 71% / 72% | 656 | 0 | 0 | 0 | 3 |
 | 01a121d6 | codex | sequence_design | 2026-10-09 | 2.6 | 12 | 3 | 227k | 11 | 40% / 45% | 20 | 0 | 0 | 0 | 0 |
-| 01a1248e | codex | codex_direc | 2026-10-10 | 24.4 | 14 | 29 | 215k | 91 | 69% / 69% | 753 | 0 | 1 | 0 | 10 |
+| 01a1248e | codex | codex_direc | 2026-10-10 | 24.4 | 14 | 29 | 215k | 91 | 69% / 69% | 747 | 0 | 1 | 0 | 10 |
 
 ## Totals by runtime
 
-- **claude**: 7 families, 179.9 active h, 322 prompts, 283 helper/guardian sessions, 0 orchestration calls, 557 automated wake-ups, 13 compactions. Tokens processed 10.35G (parent 1.88G, helpers 8.47G = 82%). Uncached input + output 238.1M, helpers 66%. Cached share of input 98%.
-- **codex**: 20 families, 536.1 active h, 505 prompts, 1149 helper/guardian sessions, 21514 orchestration calls, 0 automated wake-ups, 443 compactions. Tokens processed 18.68G (parent 7.75G, helpers 10.92G = 58%). Uncached input + output 555.1M, helpers 72%. Cached share of input 97%.
+- **claude**: 7 families, 179.9 active h, 318 prompts, 5055 parent model calls, 283 helper/guardian sessions, 0 parent orchestration calls (+0 by helpers), 0 exec waits, 0 wait-only parent calls (0 wait_agent only), 561 automated wake-ups, 13 compactions (0.07/h), 0 counter resets, 100 tool errors, 1 interrupts, 23 repeated commands, 0 unchanged rereads, 1 post-compaction rereads, 3 correction-regex prompts. Tokens processed 10.35G (parent 1.88G, helpers 8.47G = 82%). Uncached input + output 238.1M, helpers 66%. Cached share of input 98%.
+- **claude without 1ef22ddd**: 6 families, 131.9 active h, 254 prompts, 4208 parent model calls, 216 helper/guardian sessions, 0 parent orchestration calls (+0 by helpers), 0 exec waits, 0 wait-only parent calls (0 wait_agent only), 374 automated wake-ups, 11 compactions (0.08/h), 0 counter resets, 80 tool errors, 0 interrupts, 23 repeated commands, 0 unchanged rereads, 1 post-compaction rereads, 2 correction-regex prompts. Tokens processed 4.24G (parent 1.56G, helpers 2.68G = 63%). Uncached input + output 163.5M, helpers 59%. Cached share of input 96%.
+- **codex**: 20 families, 536.1 active h, 498 prompts, 61687 parent model calls, 1149 helper/guardian sessions, 19427 parent orchestration calls (+15386 by helpers), 3708 exec waits, 13347 wait-only parent calls (7908 wait_agent only), 0 automated wake-ups, 443 compactions (0.83/h), 105 counter resets, 0 tool errors, 19 interrupts, 4110 repeated commands, 0 unchanged rereads, 0 post-compaction rereads, 13 correction-regex prompts. Tokens processed 19.91G (parent 7.79G, helpers 12.12G = 61%). Uncached input + output 594.6M, helpers 73%. Cached share of input 97%.
+  - Wait-only parent calls carried 22.1% of parent input tokens. Repeated commands: 3633 contain an inspection or wait word, 477 do not. wait_agent timeouts: <=5min 840, <=60s 6857, >5min 209, unknown 2
+
+## Per-session distribution (median [min–max])
+
+- **claude** (n=7): active h 14.70 [3.65–64.18]; helper share processed 0.83 [0.29–0.95] (sessions with helpers: 5); helper share new 0.69 [0.54–0.86]; mean context per call 302.70 [205.16–476.88] k; prompts/h 1.68 [0.83–4.51]; compactions/h 0.04 [0.00–0.19]; orchestration/h 0.00 [0.00–0.00]
+- **codex** (n=20): active h 17.41 [0.46–105.65]; helper share processed 0.54 [0.07–0.74] (sessions with helpers: 20); helper share new 0.69 [0.18–0.82]; mean context per call 122.82 [99.36–134.31] k; prompts/h 1.14 [0.18–4.67]; compactions/h 0.79 [0.22–2.17]; orchestration/h 29.81 [0.00–80.11]
 
 ## Helpers by role
 
 | Runtime | Kind | Role | Sessions | Processed | Uncached in | Output | Processed per session |
 |---|---|---|---|---|---|---|---|
-| codex | spawn | unspecified | 657 | 9.36G | 258.4M | 37.4M | 14.2M |
+| codex | spawn | unspecified | 657 | 10.56G | 291.5M | 42.7M | 16.1M |
 | claude | agent | general-purpose | 212 | 7.65G | 117.9M | 8.6M | 36.1M |
 | claude | agent | scientific_worker | 12 | 483.3M | 8.9M | 279k | 40.3M |
 | codex | guardian | unspecified | 351 | 467.4M | 69.0M | 488k | 1.3M |
@@ -62,8 +69,14 @@
 ## Codex spawned helpers: starting context (median of first 10 calls)
 
 - forked: n=359, median 59k, upper quartile 69k
-- fresh: n=377, median 54k, upper quartile 63k
+- fresh: n=377, median 55k, upper quartile 63k
 
-## Claude redo-after-helper
+## Claude helpers by main model (most responses)
 
-- Helpers that read files and returned to a locatable parent call: 142; parent re-read at least one of the same files within 30 calls in 2 (1%).
+- opus: 238 sessions, 84% of helper new tokens
+- sonnet: 44 sessions, 16% of helper new tokens
+- haiku: 1 sessions, 0% of helper new tokens
+
+## Claude redo-after-helper (planned measure, window opens at helper return)
+
+- {'helpers': 283, 'depth2': 6, 'background': 92, 'return_located': 210, 'located_with_reads': 112, 'reread_any': 0}

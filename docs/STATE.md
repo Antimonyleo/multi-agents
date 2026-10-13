@@ -63,14 +63,18 @@ records added:
 Next evidence comes from long real tasks, starting offline from existing
 transcripts. No paid micro-benchmark is planned.
 
-Long-task retrospective Step 1 is done ([report](../benchmarks/2026-10-13-long-task-retrospective/REPORT.md)).
+Long-task retrospective Step 1 is done and revised after an independent review
+([report, revision 2](../benchmarks/2026-10-13-long-task-retrospective/REPORT.md)).
 It covers 27 long sessions and 1,432 helper or guardian sessions, offline.
-Helpers took most new tokens: Claude 66%, Codex 72%. Claude helpers ran mostly
-on Opus. Re-reading cached context dominated weighted usage. Busy-waiting Claude
-helpers were 34% of weighted Claude usage, mostly in one 2026-09-12 session.
-In 19 of 27 sessions the user had to tell the agent to stop pausing. Next:
-the user fills in `labels.csv` (Step 2), then labels are compared with these
-signals.
+Helpers took most new tokens: Claude 66%, Codex 73%. Claude helpers ran mostly
+on Opus. Under assumed price ratios, cached re-reads were the largest cost.
+Claude busy-waiting was 34% of weighted Claude usage, but 94% of it came from
+one session (2026-09-12); elsewhere it was 4%. 22% of Codex parent calls only
+waited, mostly with timeouts of 60 s or less, which the current coordination
+rule allows. In 12 to 14 of 27 sessions (two coders) the user had to say "do
+not stop" after the agent stopped part-way through assigned work. Next: the
+user fills in `labels.csv` (Step 2, with the new `stop_wanted` and
+`helpers_useful` columns). The comparisons are fixed in PLAN.md, Amendment 1.
 
 ## Historical execution records
 

@@ -1,4 +1,9 @@
-claude weighted units 1366M; helpers 78%; components: uncached_in 20%, cached_in 74%, output 6%
-   helper polling responses weight 461M = 34% of all Claude weight, 43% of helper weight
-codex weighted units 2818M; helpers 62%; components: uncached_in 17%, cached_in 64%, output 18%
-   guardian 4% of family weight; Luna helpers 14%
+claude: 1366M units; helpers 78% (other helper 78%, parent 22%); components: uncached_in 20%, cached_in 74%, output 6%
+   cached share by cache-read ratio: 0.05x -> 59%; 0.1x -> 74%; 0.25x -> 88%
+   polling responses (parent + helper) weight 462M = 34% of Claude weight
+claude without 1ef22ddd: 642M units; helpers 61% (other helper 61%, parent 39%); components: uncached_in 30%, cached_in 64%, output 6%
+   cached share by cache-read ratio: 0.05x -> 47%; 0.1x -> 64%; 0.25x -> 81%
+   polling without 1ef22ddd: 24M = 4% of that weight
+   1ef22ddd carries 53% of Claude weight
+codex: 3015M units; helpers 64% (guardian 4%, luna 17%, other helper 44%, parent 36%); components: uncached_in 17%, cached_in 64%, output 19%
+   cached share by cache-read ratio: 0.05x -> 47%; 0.1x -> 64%; 0.25x -> 82%

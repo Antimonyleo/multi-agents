@@ -33,6 +33,7 @@
    "helper_share": 0.9440901583557768,
    "helper_share_uncached_out": 0.8637123150339201,
    "orch": 0,
+   "helper_orch": 0,
    "wake": 59,
    "corrections": 0,
    "interrupts": 0,
@@ -40,7 +41,13 @@
    "rereads": 0,
    "post_compact_rereads": 0,
    "repeats": 6,
-   "errors": 5
+   "errors": 5,
+   "exec_waits": 0,
+   "wait_only": null,
+   "wait_agent_only": null,
+   "counter_resets": 0,
+   "ctx_mean": 245604.15060240965,
+   "live": false
   },
   {
    "session": "1ef22ddd",
@@ -48,7 +55,7 @@
    "project": "githubrepo-sequence-design",
    "start": "2026-09-12",
    "active_h": 48.070933611111116,
-   "prompts": 66,
+   "prompts": 64,
    "responses": 847,
    "compactions": 2,
    "ctx_max": 755901,
@@ -75,14 +82,21 @@
    "helper_share": 0.9482995946690587,
    "helper_share_uncached_out": 0.7888108440550037,
    "orch": 0,
-   "wake": 185,
+   "helper_orch": 0,
+   "wake": 187,
    "corrections": 1,
    "interrupts": 1,
    "tool_calls": 665,
    "rereads": 0,
    "post_compact_rereads": 0,
    "repeats": 0,
-   "errors": 20
+   "errors": 20,
+   "exec_waits": 0,
+   "wait_only": null,
+   "wait_agent_only": null,
+   "counter_resets": 0,
+   "ctx_mean": 371810.961038961,
+   "live": false
   },
   {
    "session": "fcde68e6",
@@ -117,6 +131,7 @@
    "helper_share": 0.2893707151495879,
    "helper_share_uncached_out": 0.5447881360620068,
    "orch": 0,
+   "helper_orch": 0,
    "wake": 134,
    "corrections": 1,
    "interrupts": 0,
@@ -124,7 +139,13 @@
    "rereads": 0,
    "post_compact_rereads": 0,
    "repeats": 0,
-   "errors": 27
+   "errors": 27,
+   "exec_waits": 0,
+   "wait_only": null,
+   "wait_agent_only": null,
+   "counter_resets": 0,
+   "ctx_mean": 302699.8545586107,
+   "live": true
   },
   {
    "session": "272da152",
@@ -132,7 +153,7 @@
    "project": "folding-origamifolder7",
    "start": "2026-09-28",
    "active_h": 64.18135555555556,
-   "prompts": 108,
+   "prompts": 106,
    "responses": 1830,
    "compactions": 3,
    "ctx_max": 964896,
@@ -159,14 +180,21 @@
    "helper_share": 0.6133213913824744,
    "helper_share_uncached_out": 0.6135044743112484,
    "orch": 0,
-   "wake": 155,
+   "helper_orch": 0,
+   "wake": 157,
    "corrections": 0,
    "interrupts": 0,
    "tool_calls": 1414,
    "rereads": 0,
    "post_compact_rereads": 0,
    "repeats": 17,
-   "errors": 25
+   "errors": 25,
+   "exec_waits": 0,
+   "wait_only": null,
+   "wait_agent_only": null,
+   "counter_resets": 0,
+   "ctx_mean": 476875.287431694,
+   "live": true
   },
   {
    "session": "ac23eed6",
@@ -201,6 +229,7 @@
    "helper_share": 0.0,
    "helper_share_uncached_out": 0.0,
    "orch": 0,
+   "helper_orch": 0,
    "wake": 1,
    "corrections": 1,
    "interrupts": 0,
@@ -208,7 +237,13 @@
    "rereads": 0,
    "post_compact_rereads": 0,
    "repeats": 0,
-   "errors": 3
+   "errors": 3,
+   "exec_waits": 0,
+   "wait_only": null,
+   "wait_agent_only": null,
+   "counter_resets": 0,
+   "ctx_mean": 415801.53515625,
+   "live": false
   },
   {
    "session": "bf134f2c",
@@ -243,6 +278,7 @@
    "helper_share": 0.8303399400737482,
    "helper_share_uncached_out": 0.689967869110622,
    "orch": 0,
+   "helper_orch": 0,
    "wake": 19,
    "corrections": 0,
    "interrupts": 0,
@@ -250,7 +286,13 @@
    "rereads": 0,
    "post_compact_rereads": 1,
    "repeats": 0,
-   "errors": 12
+   "errors": 12,
+   "exec_waits": 0,
+   "wait_only": null,
+   "wait_agent_only": null,
+   "counter_resets": 0,
+   "ctx_mean": 208760.0215827338,
+   "live": true
   },
   {
    "session": "0f1dc278",
@@ -285,6 +327,7 @@
    "helper_share": 0.0,
    "helper_share_uncached_out": 0.0,
    "orch": 0,
+   "helper_orch": 0,
    "wake": 4,
    "corrections": 0,
    "interrupts": 0,
@@ -292,7 +335,13 @@
    "rereads": 0,
    "post_compact_rereads": 0,
    "repeats": 0,
-   "errors": 8
+   "errors": 8,
+   "exec_waits": 0,
+   "wait_only": null,
+   "wait_agent_only": null,
+   "counter_resets": 0,
+   "ctx_mean": 205161.52866242037,
+   "live": false
   },
   {
    "session": "01a0591d",
@@ -300,33 +349,34 @@
    "project": "sequence_design",
    "start": "2026-08-31",
    "active_h": 31.09177083333333,
-   "prompts": 29,
-   "responses": 6105,
+   "prompts": 27,
+   "responses": 5770,
    "compactions": 42,
    "ctx_max": 239210,
    "helpers": 50,
    "helpers_missing_usage": 0,
    "parent": [
-    761080505,
-    12284643,
-    746957056,
-    1838806
+    763933525,
+    12433703,
+    749629952,
+    1869870
    ],
    "helper": [
-    732398456,
-    24869675,
-    704423552,
-    3105229
+    879338069,
+    27757507,
+    847861632,
+    3718930
    ],
    "total": [
-    1493478961,
-    37154318,
-    1451380608,
-    4944035
+    1643271594,
+    40191210,
+    1597491584,
+    5588800
    ],
-   "helper_share": 0.49039757179411647,
-   "helper_share_uncached_out": 0.6645130273861307,
-   "orch": 1695,
+   "helper_share": 0.5351142636498346,
+   "helper_share_uncached_out": 0.6875585435651936,
+   "orch": 1671,
+   "helper_orch": 526,
    "wake": 0,
    "corrections": 1,
    "interrupts": 1,
@@ -334,7 +384,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 134,
-   "errors": null
+   "errors": null,
+   "exec_waits": 24,
+   "wait_only": 1113,
+   "wait_agent_only": 900,
+   "counter_resets": 10,
+   "ctx_mean": 132073.42374350087,
+   "live": false
   },
   {
    "session": "01a06010",
@@ -342,33 +398,34 @@
    "project": "origamifolder7",
    "start": "2026-09-02",
    "active_h": 33.13288444444444,
-   "prompts": 21,
-   "responses": 5865,
+   "prompts": 20,
+   "responses": 5694,
    "compactions": 26,
    "ctx_max": 230947,
    "helpers": 44,
    "helpers_missing_usage": 0,
    "parent": [
-    732995539,
-    8176915,
-    723513984,
-    1304640
+    738766221,
+    8537638,
+    728878208,
+    1350375
    ],
    "helper": [
-    554704095,
-    19945435,
-    532939648,
-    1819012
+    556002792,
+    20068986,
+    534098560,
+    1835246
    ],
    "total": [
-    1287699634,
-    28122350,
-    1256453632,
-    3123652
+    1294769013,
+    28606624,
+    1262976768,
+    3185621
    ],
-   "helper_share": 0.43077133855891114,
-   "helper_share_uncached_out": 0.6965514180022135,
-   "orch": 1055,
+   "helper_share": 0.42942238068528754,
+   "helper_share_uncached_out": 0.6889803472513502,
+   "orch": 963,
+   "helper_orch": 270,
    "wake": 0,
    "corrections": 0,
    "interrupts": 2,
@@ -376,7 +433,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 1906,
-   "errors": null
+   "errors": null,
+   "exec_waits": 92,
+   "wait_only": 788,
+   "wait_agent_only": 608,
+   "counter_resets": 4,
+   "ctx_mean": 129507.52476290833,
+   "live": false
   },
   {
    "session": "01a069f2",
@@ -385,32 +448,33 @@
    "start": "2026-09-04",
    "active_h": 16.230425,
    "prompts": 18,
-   "responses": 2412,
+   "responses": 2355,
    "compactions": 14,
    "ctx_max": 230114,
    "helpers": 70,
    "helpers_missing_usage": 0,
    "parent": [
-    285952289,
-    3981532,
-    281503104,
-    467653
+    313418258,
+    4571665,
+    308313600,
+    532993
    ],
    "helper": [
-    268021279,
-    11736092,
-    255147904,
-    1137283
+    366764782,
+    14810307,
+    350313472,
+    1641003
    ],
    "total": [
-    553973568,
-    15717624,
-    536651008,
-    1604936
+    680183040,
+    19381972,
+    658627072,
+    2173996
    ],
-   "helper_share": 0.4838160058206965,
-   "helper_share_uncached_out": 0.7431566119557387,
-   "orch": 814,
+   "helper_share": 0.5392148295846954,
+   "helper_share_uncached_out": 0.763190500190017,
+   "orch": 810,
+   "helper_orch": 90,
    "wake": 0,
    "corrections": 1,
    "interrupts": 1,
@@ -418,7 +482,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 569,
-   "errors": null
+   "errors": null,
+   "exec_waits": 4,
+   "wait_only": 523,
+   "wait_agent_only": 409,
+   "counter_resets": 23,
+   "ctx_mean": 132859.98513800424,
+   "live": false
   },
   {
    "session": "01a06a13",
@@ -427,7 +497,7 @@
    "start": "2026-09-04",
    "active_h": 67.52159666666667,
    "prompts": 12,
-   "responses": 11778,
+   "responses": 11334,
    "compactions": 78,
    "ctx_max": 232897,
    "helpers": 212,
@@ -439,20 +509,21 @@
     3041448
    ],
    "helper": [
-    1567836692,
-    60994686,
-    1500206208,
-    6635798
+    2493696958,
+    87222447,
+    2395824384,
+    10650127
    ],
    "total": [
-    3088969785,
-    78838267,
-    3000454272,
-    9677246
+    4014830051,
+    105066028,
+    3896072448,
+    13691575
    ],
-   "helper_share": 0.5075597371050361,
-   "helper_share_uncached_out": 0.7640523305784829,
-   "orch": 5069,
+   "helper_share": 0.6211214239015868,
+   "helper_share_uncached_out": 0.8241373312325948,
+   "orch": 5044,
+   "helper_orch": 933,
    "wake": 0,
    "corrections": 0,
    "interrupts": 0,
@@ -460,7 +531,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 154,
-   "errors": null
+   "errors": null,
+   "exec_waits": 25,
+   "wait_only": 3232,
+   "wait_agent_only": 2574,
+   "counter_resets": 60,
+   "ctx_mean": 133941.383889183,
+   "live": false
   },
   {
    "session": "01a06a15",
@@ -469,7 +546,7 @@
    "start": "2026-09-04",
    "active_h": 0.4618536111111111,
    "prompts": 1,
-   "responses": 104,
+   "responses": 100,
    "compactions": 1,
    "ctx_max": 229044,
    "helpers": 8,
@@ -481,20 +558,21 @@
     35093
    ],
    "helper": [
-    30428137,
-    1568724,
-    28756096,
-    103317
+    30498431,
+    1585374,
+    28806400,
+    106657
    ],
    "total": [
-    41408028,
-    1953778,
-    39315840,
-    138410
+    41478322,
+    1970428,
+    39366144,
+    141750
    ],
-   "helper_share": 0.7348366601761378,
-   "helper_share_uncached_out": 0.7991829606134822,
+   "helper_share": 0.7352860368845201,
+   "helper_share_uncached_out": 0.801083526104334,
    "orch": 37,
+   "helper_orch": 4,
    "wake": 0,
    "corrections": 0,
    "interrupts": 0,
@@ -502,7 +580,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 2,
-   "errors": null
+   "errors": null,
+   "exec_waits": 0,
+   "wait_only": 22,
+   "wait_agent_only": 15,
+   "counter_resets": 1,
+   "ctx_mean": 109447.98,
+   "live": false
   },
   {
    "session": "01a07fba",
@@ -511,7 +595,7 @@
    "start": "2026-09-08",
    "active_h": 6.2404013888888885,
    "prompts": 4,
-   "responses": 713,
+   "responses": 572,
    "compactions": 5,
    "ctx_max": 218244,
    "helpers": 8,
@@ -537,6 +621,7 @@
    "helper_share": 0.7166725345939724,
    "helper_share_uncached_out": 0.7138912936707523,
    "orch": 177,
+   "helper_orch": 364,
    "wake": 0,
    "corrections": 1,
    "interrupts": 0,
@@ -544,7 +629,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 2,
-   "errors": null
+   "errors": null,
+   "exec_waits": 50,
+   "wait_only": 56,
+   "wait_agent_only": 0,
+   "counter_resets": 0,
+   "ctx_mean": 110085.44755244756,
+   "live": false
   },
   {
    "session": "01a07fbe",
@@ -553,7 +644,7 @@
    "start": "2026-09-08",
    "active_h": 13.6653125,
    "prompts": 5,
-   "responses": 1269,
+   "responses": 1180,
    "compactions": 3,
    "ctx_max": 216064,
    "helpers": 6,
@@ -578,7 +669,8 @@
    ],
    "helper_share": 0.46983991815289133,
    "helper_share_uncached_out": 0.5522636175369565,
-   "orch": 805,
+   "orch": 108,
+   "helper_orch": 224,
    "wake": 0,
    "corrections": 1,
    "interrupts": 0,
@@ -586,7 +678,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 16,
-   "errors": null
+   "errors": null,
+   "exec_waits": 754,
+   "wait_only": 756,
+   "wait_agent_only": 0,
+   "counter_resets": 0,
+   "ctx_mean": 99360.21355932203,
+   "live": false
   },
   {
    "session": "01a08f22",
@@ -595,7 +693,7 @@
    "start": "2026-09-11",
    "active_h": 42.60587916666667,
    "prompts": 50,
-   "responses": 3775,
+   "responses": 3507,
    "compactions": 21,
    "ctx_max": 230595,
    "helpers": 41,
@@ -607,20 +705,21 @@
     1230216
    ],
    "helper": [
-    939834348,
-    28766909,
-    907229952,
-    3837487
+    967350732,
+    29481177,
+    933892352,
+    3977203
    ],
    "total": [
-    1373267063,
-    36451264,
-    1331748096,
-    5067703
+    1400783447,
+    37165532,
+    1358410496,
+    5207419
    ],
-   "helper_share": 0.68437842377641,
-   "helper_share_uncached_out": 0.785289190841381,
-   "orch": 1799,
+   "helper_share": 0.6905783574696968,
+   "helper_share_uncached_out": 0.7896164701863696,
+   "orch": 1632,
+   "helper_orch": 1467,
    "wake": 0,
    "corrections": 2,
    "interrupts": 1,
@@ -628,7 +727,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 108,
-   "errors": null
+   "errors": null,
+   "exec_waits": 167,
+   "wait_only": 1100,
+   "wait_agent_only": 847,
+   "counter_resets": 7,
+   "ctx_mean": 123239.94838893642,
+   "live": false
   },
   {
    "session": "01a08f31",
@@ -637,7 +742,7 @@
    "start": "2026-09-11",
    "active_h": 69.18619083333334,
    "prompts": 43,
-   "responses": 9206,
+   "responses": 8554,
    "compactions": 63,
    "ctx_max": 239048,
    "helpers": 163,
@@ -662,7 +767,8 @@
    ],
    "helper_share": 0.6239608791692705,
    "helper_share_uncached_out": 0.7519342847054142,
-   "orch": 3608,
+   "orch": 3573,
+   "helper_orch": 1580,
    "wake": 0,
    "corrections": 2,
    "interrupts": 0,
@@ -670,7 +776,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 330,
-   "errors": null
+   "errors": null,
+   "exec_waits": 69,
+   "wait_only": 1935,
+   "wait_agent_only": 1569,
+   "counter_resets": 0,
+   "ctx_mean": 132205.5323825111,
+   "live": false
   },
   {
    "session": "01a092d6",
@@ -679,7 +791,7 @@
    "start": "2026-09-11",
    "active_h": 1.6495338888888889,
    "prompts": 5,
-   "responses": 151,
+   "responses": 149,
    "compactions": 2,
    "ctx_max": 210238,
    "helpers": 2,
@@ -704,7 +816,8 @@
    ],
    "helper_share": 0.07040504065636836,
    "helper_share_uncached_out": 0.18297207503482074,
-   "orch": 5,
+   "orch": 0,
+   "helper_orch": 0,
    "wake": 0,
    "corrections": 0,
    "interrupts": 1,
@@ -712,7 +825,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 40,
-   "errors": null
+   "errors": null,
+   "exec_waits": 5,
+   "wait_only": 5,
+   "wait_agent_only": 0,
+   "counter_resets": 0,
+   "ctx_mean": 121059.8255033557,
+   "live": false
   },
   {
    "session": "01a093b8",
@@ -721,7 +840,7 @@
    "start": "2026-09-12",
    "active_h": 11.071409166666665,
    "prompts": 12,
-   "responses": 2162,
+   "responses": 1973,
    "compactions": 14,
    "ctx_max": 221860,
    "helpers": 35,
@@ -746,7 +865,8 @@
    ],
    "helper_share": 0.5169082601564186,
    "helper_share_uncached_out": 0.794339188741755,
-   "orch": 633,
+   "orch": 596,
+   "helper_orch": 386,
    "wake": 0,
    "corrections": 1,
    "interrupts": 0,
@@ -754,7 +874,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 72,
-   "errors": null
+   "errors": null,
+   "exec_waits": 62,
+   "wait_only": 335,
+   "wait_agent_only": 194,
+   "counter_resets": 0,
+   "ctx_mean": 134314.10288900151,
+   "live": false
   },
   {
    "session": "01a0c7b0",
@@ -763,7 +889,7 @@
    "start": "2026-09-22",
    "active_h": 6.6499686111111105,
    "prompts": 23,
-   "responses": 691,
+   "responses": 613,
    "compactions": 4,
    "ctx_max": 231029,
    "helpers": 15,
@@ -789,6 +915,7 @@
    "helper_share": 0.4875233470768078,
    "helper_share_uncached_out": 0.5708240677676428,
    "orch": 216,
+   "helper_orch": 171,
    "wake": 0,
    "corrections": 0,
    "interrupts": 0,
@@ -796,7 +923,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 2,
-   "errors": null
+   "errors": null,
+   "exec_waits": 1,
+   "wait_only": 86,
+   "wait_agent_only": 67,
+   "counter_resets": 0,
+   "ctx_mean": 122393.99347471452,
+   "live": false
   },
   {
    "session": "01a0c7be",
@@ -805,7 +938,7 @@
    "start": "2026-09-22",
    "active_h": 40.71984444444445,
    "prompts": 54,
-   "responses": 4115,
+   "responses": 3760,
    "compactions": 19,
    "ctx_max": 225651,
    "helpers": 38,
@@ -830,7 +963,8 @@
    ],
    "helper_share": 0.5062030495728217,
    "helper_share_uncached_out": 0.6707202109927143,
-   "orch": 1363,
+   "orch": 543,
+   "helper_orch": 987,
    "wake": 0,
    "corrections": 1,
    "interrupts": 4,
@@ -838,7 +972,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 373,
-   "errors": null
+   "errors": null,
+   "exec_waits": 1209,
+   "wait_only": 1277,
+   "wait_agent_only": 48,
+   "counter_resets": 0,
+   "ctx_mean": 119034.31409574467,
+   "live": false
   },
   {
    "session": "01a0caf9",
@@ -847,7 +987,7 @@
    "start": "2026-09-23",
    "active_h": 12.78234111111111,
    "prompts": 34,
-   "responses": 1158,
+   "responses": 1058,
    "compactions": 10,
    "ctx_max": 240226,
    "helpers": 49,
@@ -872,7 +1012,8 @@
    ],
    "helper_share": 0.648901940640274,
    "helper_share_uncached_out": 0.6666204033015884,
-   "orch": 175,
+   "orch": 157,
+   "helper_orch": 249,
    "wake": 0,
    "corrections": 1,
    "interrupts": 0,
@@ -880,7 +1021,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 14,
-   "errors": null
+   "errors": null,
+   "exec_waits": 21,
+   "wait_only": 36,
+   "wait_agent_only": 5,
+   "counter_resets": 0,
+   "ctx_mean": 127361.9281663516,
+   "live": false
   },
   {
    "session": "01a0efc4",
@@ -888,8 +1035,8 @@
    "project": "codex_direc",
    "start": "2026-09-30",
    "active_h": 105.65317777777778,
-   "prompts": 55,
-   "responses": 11123,
+   "prompts": 52,
+   "responses": 9199,
    "compactions": 76,
    "ctx_max": 223896,
    "helpers": 163,
@@ -914,7 +1061,8 @@
    ],
    "helper_share": 0.6889247726683845,
    "helper_share_uncached_out": 0.7200595814014,
-   "orch": 2231,
+   "orch": 2185,
+   "helper_orch": 5909,
    "wake": 0,
    "corrections": 0,
    "interrupts": 6,
@@ -922,7 +1070,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 367,
-   "errors": null
+   "errors": null,
+   "exec_waits": 868,
+   "wait_only": 1260,
+   "wait_agent_only": 274,
+   "counter_resets": 0,
+   "ctx_mean": 120501.99478204153,
+   "live": false
   },
   {
    "session": "01a0f41e",
@@ -931,7 +1085,7 @@
    "start": "2026-09-30",
    "active_h": 1.4426327777777779,
    "prompts": 6,
-   "responses": 110,
+   "responses": 98,
    "compactions": 1,
    "ctx_max": 231468,
    "helpers": 8,
@@ -957,6 +1111,7 @@
    "helper_share": 0.23952671487955718,
    "helper_share_uncached_out": 0.3190214254184917,
    "orch": 10,
+   "helper_orch": 14,
    "wake": 0,
    "corrections": 0,
    "interrupts": 0,
@@ -964,7 +1119,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 0,
-   "errors": null
+   "errors": null,
+   "exec_waits": 0,
+   "wait_only": 0,
+   "wait_agent_only": 0,
+   "counter_resets": 0,
+   "ctx_mean": 128053.8163265306,
+   "live": false
   },
   {
    "session": "01a0f499",
@@ -972,8 +1133,8 @@
    "project": "sequence_design",
    "start": "2026-09-30",
    "active_h": 30.4413275,
-   "prompts": 72,
-   "responses": 2081,
+   "prompts": 71,
+   "responses": 1800,
    "compactions": 20,
    "ctx_max": 232967,
    "helpers": 70,
@@ -998,7 +1159,8 @@
    ],
    "helper_share": 0.5176718516780874,
    "helper_share_uncached_out": 0.5082991999650224,
-   "orch": 393,
+   "orch": 282,
+   "helper_orch": 438,
    "wake": 0,
    "corrections": 1,
    "interrupts": 3,
@@ -1006,7 +1168,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 8,
-   "errors": null
+   "errors": null,
+   "exec_waits": 265,
+   "wait_only": 295,
+   "wait_agent_only": 17,
+   "counter_resets": 0,
+   "ctx_mean": 118345.65833333334,
+   "live": false
   },
   {
    "session": "01a113d6",
@@ -1015,7 +1183,7 @@
    "start": "2026-10-07",
    "active_h": 18.581507499999997,
    "prompts": 35,
-   "responses": 1682,
+   "responses": 1406,
    "compactions": 12,
    "ctx_max": 212176,
    "helpers": 65,
@@ -1041,6 +1209,7 @@
    "helper_share": 0.7055300725132594,
    "helper_share_uncached_out": 0.721644257851456,
    "orch": 656,
+   "helper_orch": 536,
    "wake": 0,
    "corrections": 0,
    "interrupts": 0,
@@ -1048,7 +1217,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 3,
-   "errors": null
+   "errors": null,
+   "exec_waits": 75,
+   "wait_only": 314,
+   "wait_agent_only": 218,
+   "counter_resets": 0,
+   "ctx_mean": 104453.78378378379,
+   "live": false
   },
   {
    "session": "01a121d6",
@@ -1057,7 +1232,7 @@
    "start": "2026-10-09",
    "active_h": 2.5722086111111113,
    "prompts": 12,
-   "responses": 170,
+   "responses": 154,
    "compactions": 3,
    "ctx_max": 227239,
    "helpers": 11,
@@ -1083,6 +1258,7 @@
    "helper_share": 0.4010966989100283,
    "helper_share_uncached_out": 0.45072396279451327,
    "orch": 20,
+   "helper_orch": 14,
    "wake": 0,
    "corrections": 0,
    "interrupts": 0,
@@ -1090,7 +1266,13 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 0,
-   "errors": null
+   "errors": null,
+   "exec_waits": 0,
+   "wait_only": 1,
+   "wait_agent_only": 1,
+   "counter_resets": 0,
+   "ctx_mean": 129560.3961038961,
+   "live": false
   },
   {
    "session": "01a1248e",
@@ -1099,7 +1281,7 @@
    "start": "2026-10-10",
    "active_h": 24.449213888888888,
    "prompts": 14,
-   "responses": 2917,
+   "responses": 2411,
    "compactions": 29,
    "ctx_max": 214936,
    "helpers": 91,
@@ -1124,7 +1306,8 @@
    ],
    "helper_share": 0.69267288343422,
    "helper_share_uncached_out": 0.6930812611903774,
-   "orch": 753,
+   "orch": 747,
+   "helper_orch": 1224,
    "wake": 0,
    "corrections": 1,
    "interrupts": 0,
@@ -1132,22 +1315,37 @@
    "rereads": null,
    "post_compact_rereads": null,
    "repeats": 10,
-   "errors": null
+   "errors": null,
+   "exec_waits": 17,
+   "wait_only": 213,
+   "wait_agent_only": 162,
+   "counter_resets": 0,
+   "ctx_mean": 100595.90128577354,
+   "live": true
   }
  ],
  "by_runtime": {
   "claude": {
    "families": 7,
    "active_s": 647726.2359999999,
-   "prompts": 322,
+   "prompts": 318,
+   "responses": 5055,
    "compactions": 13,
    "helpers": 283,
    "orch": 0,
-   "wake": 557,
+   "helper_orch": 0,
+   "exec_waits": 0,
+   "wait_only": 0,
+   "wait_agent_only": 0,
+   "wake": 561,
    "tool_calls": 4265,
+   "tool_errors": 100,
    "repeats": 23,
+   "unchanged_rereads": 0,
+   "post_compact_rereads": 1,
    "corrections": 3,
    "interrupts": 1,
+   "counter_resets": 0,
    "parent_processed": 1877642719,
    "helper_processed": 8470679066,
    "parent_uncached": 76831773,
@@ -1157,26 +1355,73 @@
    "parent_output": 5227089,
    "helper_output": 10056589
   },
+  "claude without 1ef22ddd": {
+   "families": 6,
+   "active_s": 474670.87500000006,
+   "prompts": 254,
+   "responses": 4208,
+   "compactions": 11,
+   "helpers": 216,
+   "orch": 0,
+   "helper_orch": 0,
+   "exec_waits": 0,
+   "wait_only": 0,
+   "wait_agent_only": 0,
+   "wake": 374,
+   "tool_calls": 3600,
+   "tool_errors": 80,
+   "repeats": 23,
+   "unchanged_rereads": 0,
+   "post_compact_rereads": 1,
+   "corrections": 2,
+   "interrupts": 0,
+   "counter_resets": 0,
+   "parent_processed": 1561769499,
+   "helper_processed": 2676866724,
+   "parent_uncached": 62037493,
+   "helper_uncached": 93611688,
+   "parent_cached": 1495454253,
+   "helper_cached": 2579644302,
+   "parent_output": 4277753,
+   "helper_output": 3610734
+  },
   "codex": {
    "families": 20,
    "active_s": 1930138.1269999999,
-   "prompts": 505,
+   "prompts": 498,
+   "responses": 61687,
    "compactions": 443,
    "helpers": 1149,
-   "orch": 21514,
+   "orch": 19427,
+   "helper_orch": 15386,
+   "exec_waits": 3708,
+   "wait_only": 13347,
+   "wait_agent_only": 7908,
    "wake": 0,
    "tool_calls": 61240,
+   "tool_errors": 0,
    "repeats": 4110,
+   "unchanged_rereads": 0,
+   "post_compact_rereads": 0,
    "corrections": 13,
    "interrupts": 19,
-   "parent_processed": 7754660736,
-   "helper_processed": 10921653741,
-   "parent_uncached": 135131146,
-   "helper_uncached": 355559828,
-   "parent_cached": 7597430528,
-   "helper_cached": 10523830784,
-   "parent_output": 22099062,
-   "helper_output": 42263129
+   "counter_resets": 105,
+   "repeats_other": 477,
+   "repeats_inspect_or_wait": 3633,
+   "wait_agent_timeout <=60s": 6857,
+   "wait_agent_timeout <=5min": 840,
+   "wait_only_input": 1717144782,
+   "parent_input": 7768509206,
+   "parent_processed": 7790750407,
+   "helper_processed": 12122082498,
+   "parent_uncached": 136231062,
+   "helper_uncached": 388604105,
+   "parent_cached": 7632278144,
+   "helper_cached": 11685924224,
+   "parent_output": 22241201,
+   "helper_output": 47554169,
+   "wait_agent_timeout >5min": 209,
+   "wait_agent_timeout unknown": 2
   }
  },
  "helpers_by_role": [
@@ -1285,10 +1530,10 @@
    "kind": "spawn",
    "role": "unspecified",
    "sessions": 657,
-   "processed": 9357323731,
-   "uncached": 258434120,
-   "cached": 9061509248,
-   "output": 37380363
+   "processed": 10557752488,
+   "uncached": 291478397,
+   "cached": 10223602688,
+   "output": 42671403
   },
   {
    "runtime": "codex",
@@ -1374,16 +1619,33 @@
  "codex_spawn_start_context": {
   "forked": {
    "n": 359,
-   "median": 59028.5
+   "median": 59193.5
   },
   "fresh": {
    "n": 377,
-   "median": 54445.0
+   "median": 54783.0
+  }
+ },
+ "claude_helpers_by_model": {
+  "opus": {
+   "sessions": 238,
+   "new_tokens": 130822061
+  },
+  "sonnet": {
+   "sessions": 44,
+   "new_tokens": 25140101
+  },
+  "haiku": {
+   "sessions": 1,
+   "new_tokens": 64108
   }
  },
  "claude_redo": {
-  "helpers": 142,
-  "with_reads": 142,
-  "reread_any": 2
+  "helpers": 283,
+  "depth2": 6,
+  "background": 92,
+  "return_located": 210,
+  "located_with_reads": 112,
+  "reread_any": 0
  }
 }

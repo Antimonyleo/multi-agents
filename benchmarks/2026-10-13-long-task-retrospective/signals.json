@@ -6,28 +6,19 @@
    "prompts": 7,
    "categories": {
     "status_check": 1,
-    "continue_no_pause": 1
-   },
-   "redo": {
-    "helpers": 20,
-    "any_overlap": 19,
-    "overlap_ge3": 11
+    "continue_broad": 1
    }
   },
   {
    "session": "1ef22ddd",
    "runtime": "claude",
-   "prompts": 66,
+   "prompts": 64,
    "categories": {
     "overengineering": 1,
     "status_check": 3,
     "continue_no_pause": 1,
+    "continue_broad": 1,
     "repeat_request": 4
-   },
-   "redo": {
-    "helpers": 63,
-    "any_overlap": 63,
-    "overlap_ge3": 61
    }
   },
   {
@@ -38,27 +29,18 @@
     "status_check": 10,
     "repeat_request": 3,
     "disagreement": 2
-   },
-   "redo": {
-    "helpers": 36,
-    "any_overlap": 35,
-    "overlap_ge3": 30
    }
   },
   {
    "session": "272da152",
    "runtime": "claude",
-   "prompts": 108,
+   "prompts": 106,
    "categories": {
     "status_check": 15,
+    "continue_no_pause": 5,
     "repeat_request": 8,
     "overengineering": 1,
-    "continue_no_pause": 2
-   },
-   "redo": {
-    "helpers": 141,
-    "any_overlap": 139,
-    "overlap_ge3": 126
+    "continue_broad": 2
    }
   },
   {
@@ -70,11 +52,6 @@
     "overengineering": 1,
     "disagreement": 1,
     "repeat_request": 1
-   },
-   "redo": {
-    "helpers": 0,
-    "any_overlap": 0,
-    "overlap_ge3": 0
    }
   },
   {
@@ -84,12 +61,8 @@
    "categories": {
     "status_check": 2,
     "continue_no_pause": 1,
+    "continue_broad": 1,
     "repeat_request": 2
-   },
-   "redo": {
-    "helpers": 15,
-    "any_overlap": 15,
-    "overlap_ge3": 14
    }
   },
   {
@@ -97,54 +70,32 @@
    "runtime": "claude",
    "prompts": 15,
    "categories": {
+    "drift": 1,
     "continue_no_pause": 2,
+    "continue_broad": 2,
     "status_check": 4
-   },
-   "redo": {
-    "helpers": 0,
-    "any_overlap": 0,
-    "overlap_ge3": 0
    }
   },
   {
    "session": "01a0591d",
    "runtime": "codex",
-   "prompts": 29,
+   "prompts": 27,
    "categories": {
-    "status_check": 5,
+    "status_check": 3,
     "overengineering": 2,
-    "continue_no_pause": 1,
+    "continue_broad": 1,
     "repeat_request": 1
-   },
-   "parent_model_calls": 6105,
-   "orchestration_calls": {
-    "spawn_agent": 24,
-    "list_agents": 189,
-    "send_message": 176,
-    "wait_agent": 900,
-    "followup_task": 365,
-    "interrupt_agent": 17,
-    "wait": 24
    }
   },
   {
    "session": "01a06010",
    "runtime": "codex",
-   "prompts": 21,
+   "prompts": 20,
    "categories": {
     "status_check": 2,
-    "continue_no_pause": 2,
+    "continue_no_pause": 1,
+    "continue_broad": 2,
     "overengineering": 1
-   },
-   "parent_model_calls": 5865,
-   "orchestration_calls": {
-    "spawn_agent": 35,
-    "list_agents": 88,
-    "wait_agent": 608,
-    "send_message": 61,
-    "followup_task": 166,
-    "wait": 92,
-    "interrupt_agent": 5
    }
   },
   {
@@ -154,17 +105,8 @@
    "categories": {
     "overengineering": 2,
     "status_check": 1,
-    "continue_no_pause": 2
-   },
-   "parent_model_calls": 2412,
-   "orchestration_calls": {
-    "spawn_agent": 65,
-    "list_agents": 110,
-    "wait_agent": 409,
-    "followup_task": 89,
-    "send_message": 119,
-    "interrupt_agent": 18,
-    "wait": 4
+    "continue_broad": 2,
+    "continue_no_pause": 1
    }
   },
   {
@@ -174,17 +116,8 @@
    "categories": {
     "overengineering": 1,
     "status_check": 2,
-    "continue_no_pause": 1
-   },
-   "parent_model_calls": 11778,
-   "orchestration_calls": {
-    "spawn_agent": 185,
-    "list_agents": 633,
-    "wait_agent": 2574,
-    "send_message": 802,
-    "followup_task": 675,
-    "interrupt_agent": 175,
-    "wait": 25
+    "continue_no_pause": 1,
+    "continue_broad": 1
    }
   },
   {
@@ -193,14 +126,6 @@
    "prompts": 1,
    "categories": {
     "status_check": 1
-   },
-   "parent_model_calls": 104,
-   "orchestration_calls": {
-    "spawn_agent": 8,
-    "list_agents": 7,
-    "wait_agent": 15,
-    "send_message": 4,
-    "followup_task": 3
    }
   },
   {
@@ -209,14 +134,8 @@
    "prompts": 4,
    "categories": {
     "status_check": 1,
-    "continue_no_pause": 1
-   },
-   "parent_model_calls": 713,
-   "orchestration_calls": {
-    "spawn_agent": 7,
-    "send_message": 145,
-    "list_agents": 6,
-    "followup_task": 19
+    "continue_no_pause": 1,
+    "continue_broad": 1
    }
   },
   {
@@ -225,15 +144,8 @@
    "prompts": 5,
    "categories": {
     "status_check": 1,
-    "continue_no_pause": 1
-   },
-   "parent_model_calls": 1269,
-   "orchestration_calls": {
-    "spawn_agent": 3,
-    "send_message": 41,
-    "followup_task": 62,
-    "wait": 697,
-    "list_agents": 2
+    "continue_no_pause": 1,
+    "continue_broad": 1
    }
   },
   {
@@ -244,18 +156,10 @@
     "status_check": 4,
     "overengineering": 2,
     "continue_no_pause": 1,
+    "continue_broad": 1,
+    "drift": 1,
     "disagreement": 2,
     "repeat_request": 2
-   },
-   "parent_model_calls": 3775,
-   "orchestration_calls": {
-    "spawn_agent": 35,
-    "followup_task": 340,
-    "send_message": 315,
-    "wait_agent": 847,
-    "list_agents": 86,
-    "interrupt_agent": 9,
-    "wait": 167
    }
   },
   {
@@ -265,29 +169,16 @@
    "categories": {
     "status_check": 2,
     "overengineering": 3,
-    "continue_no_pause": 7,
+    "continue_no_pause": 4,
+    "continue_broad": 7,
     "repeat_request": 1
-   },
-   "parent_model_calls": 9206,
-   "orchestration_calls": {
-    "spawn_agent": 158,
-    "send_message": 804,
-    "wait": 35,
-    "list_agents": 297,
-    "wait_agent": 1569,
-    "interrupt_agent": 79,
-    "followup_task": 666
    }
   },
   {
    "session": "01a092d6",
    "runtime": "codex",
    "prompts": 5,
-   "categories": {},
-   "parent_model_calls": 151,
-   "orchestration_calls": {
-    "wait": 5
-   }
+   "categories": {}
   },
   {
    "session": "01a093b8",
@@ -296,16 +187,6 @@
    "categories": {
     "repeat_request": 1,
     "status_check": 1
-   },
-   "parent_model_calls": 2162,
-   "orchestration_calls": {
-    "spawn_agent": 23,
-    "send_message": 166,
-    "followup_task": 129,
-    "list_agents": 79,
-    "wait_agent": 194,
-    "wait": 37,
-    "interrupt_agent": 5
    }
   },
   {
@@ -314,14 +195,6 @@
    "prompts": 23,
    "categories": {
     "repeat_request": 2
-   },
-   "parent_model_calls": 691,
-   "orchestration_calls": {
-    "spawn_agent": 16,
-    "send_message": 72,
-    "followup_task": 43,
-    "wait_agent": 67,
-    "list_agents": 18
    }
   },
   {
@@ -330,17 +203,9 @@
    "prompts": 54,
    "categories": {
     "continue_no_pause": 1,
+    "continue_broad": 1,
     "status_check": 1,
     "repeat_request": 1
-   },
-   "parent_model_calls": 4115,
-   "orchestration_calls": {
-    "spawn_agent": 38,
-    "followup_task": 247,
-    "send_message": 190,
-    "list_agents": 20,
-    "wait_agent": 48,
-    "wait": 820
    }
   },
   {
@@ -349,69 +214,40 @@
    "prompts": 34,
    "categories": {
     "status_check": 2,
-    "continue_no_pause": 2
-   },
-   "parent_model_calls": 1158,
-   "orchestration_calls": {
-    "wait": 18,
-    "spawn_agent": 16,
-    "list_agents": 10,
-    "wait_agent": 5,
-    "send_message": 88,
-    "followup_task": 38
+    "continue_no_pause": 1,
+    "continue_broad": 2
    }
   },
   {
    "session": "01a0efc4",
    "runtime": "codex",
-   "prompts": 55,
+   "prompts": 52,
    "categories": {
-    "continue_no_pause": 6,
+    "continue_no_pause": 4,
+    "continue_broad": 6,
     "overengineering": 1,
     "repeat_request": 1,
+    "drift": 2,
     "status_check": 3
-   },
-   "parent_model_calls": 11123,
-   "orchestration_calls": {
-    "spawn_agent": 20,
-    "send_message": 1204,
-    "followup_task": 563,
-    "list_agents": 118,
-    "wait_agent": 274,
-    "wait": 46,
-    "interrupt_agent": 6
    }
   },
   {
    "session": "01a0f41e",
    "runtime": "codex",
    "prompts": 6,
-   "categories": {},
-   "parent_model_calls": 110,
-   "orchestration_calls": {
-    "spawn_agent": 3,
-    "send_message": 4,
-    "followup_task": 3
-   }
+   "categories": {}
   },
   {
    "session": "01a0f499",
    "runtime": "codex",
-   "prompts": 72,
+   "prompts": 71,
    "categories": {
     "status_check": 3,
+    "drift": 1,
     "continue_no_pause": 2,
+    "continue_broad": 2,
     "repeat_request": 1,
     "disagreement": 1
-   },
-   "parent_model_calls": 2081,
-   "orchestration_calls": {
-    "spawn_agent": 22,
-    "send_message": 119,
-    "followup_task": 111,
-    "list_agents": 13,
-    "wait_agent": 17,
-    "wait": 111
    }
   },
   {
@@ -419,32 +255,19 @@
    "runtime": "codex",
    "prompts": 35,
    "categories": {
-    "continue_no_pause": 3,
+    "continue_broad": 3,
+    "continue_no_pause": 2,
     "disagreement": 2,
     "repeat_request": 1,
     "status_check": 2
-   },
-   "parent_model_calls": 1682,
-   "orchestration_calls": {
-    "spawn_agent": 26,
-    "list_agents": 21,
-    "followup_task": 83,
-    "send_message": 306,
-    "wait_agent": 218,
-    "interrupt_agent": 2
    }
   },
   {
    "session": "01a121d6",
    "runtime": "codex",
    "prompts": 12,
-   "categories": {},
-   "parent_model_calls": 170,
-   "orchestration_calls": {
-    "spawn_agent": 7,
-    "send_message": 8,
-    "wait_agent": 1,
-    "followup_task": 4
+   "categories": {
+    "drift": 1
    }
   },
   {
@@ -452,563 +275,184 @@
    "runtime": "codex",
    "prompts": 14,
    "categories": {
-    "continue_no_pause": 3,
+    "continue_no_pause": 2,
+    "continue_broad": 3,
     "status_check": 3,
     "repeat_request": 1
-   },
-   "parent_model_calls": 2917,
-   "orchestration_calls": {
-    "spawn_agent": 27,
-    "send_message": 408,
-    "wait_agent": 162,
-    "list_agents": 34,
-    "followup_task": 116,
-    "wait": 6
    }
   }
  ],
- "examples": {
-  "status_check": [
-   {
-    "session": "1bdedbac",
-    "text": "evaluate the status of the project and in plain language, tell me where we are and how to proceed."
+ "totals": {
+  "continue_no_pause": {
+   "prompts": 31,
+   "sessions": 17
+  },
+  "continue_broad": {
+   "prompts": 40,
+   "sessions": 19
+  },
+  "overengineering": {
+   "prompts": 15,
+   "sessions": 10
+  },
+  "drift": {
+   "prompts": 6,
+   "sessions": 5
+  },
+  "disagreement": {
+   "prompts": 8,
+   "sessions": 5
+  },
+  "status_check": {
+   "prompts": 69,
+   "sessions": 23
+  },
+  "repeat_request": {
+   "prompts": 30,
+   "sessions": 15
+  }
+ },
+ "precision": {
+  "continue_no_pause": {
+   "matches": 31,
+   "agreement": 27,
+   "genuine_agreement": 31,
+   "code": {
+    "codes": {
+     "reactive": 17,
+     "other": 4,
+     "upfront": 9,
+     "dup": 1
+    },
+    "genuine": 26,
+    "genuine_sessions": 17,
+    "reactive": 17,
+    "reactive_sessions": 13
    },
-   {
-    "session": "1ef22ddd",
-    "text": "summarize the status of the project with concise and plain language, and what are we planning - make sure to not overengineer"
-   },
-   {
-    "session": "1ef22ddd",
-    "text": "was the longer 1300+nt target still running? do we have the current design pipeline established for that design?"
-   },
-   {
-    "session": "1ef22ddd",
-    "text": "is the design still running?"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "check again the half finished work, examine how to complete them and work on them with subagents. summarize the overall progress and results\u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "symmarize the status of the project and what we did or not yet done in terms of fixing the search process"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "summarize the progress and conclusion with asd-ste100 style language. notw you will always use asd-ste100 style language as the output, aka \u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "what is the status of the tests launched?"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "status now?"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "I assume all the design process are still running? any additional design trials or tests or analysis to run right now, or should we wait unt\u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "summarize the status of the project in asd-ste100 style, how are we doing in last few implementations? do we see an overall algorithmic impr\u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "do a concise summary on the progress."
-   },
-   {
-    "session": "fcde68e6",
-    "text": "not sure about your question on GC limits. how was als the status of the designs? summarize all design trials concisely with asd-ste100 styl\u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "how are the status? we can get started on running all tests besides P2 and use multiple CPUS to do it?"
-   },
-   {
-    "session": "272da152",
-    "text": "read the handoff, determine what status we are at in this project and how we can proceed"
-   },
-   {
-    "session": "272da152",
-    "text": "are the simulation still running and being actively monitored?"
-   },
-   {
-    "session": "272da152",
-    "text": "all simulation finished? summarize this process and analzye why less than 20 domains folded"
-   },
-   {
-    "session": "272da152",
-    "text": "summarize how are the simulations status now"
-   },
-   {
-    "session": "272da152",
-    "text": "are all jobs done now? summarize the status with concise and asd-ste100 style langugae. what are the lessons?"
-   },
-   {
-    "session": "272da152",
-    "text": "what is the status now? are we just waiting for the runs?"
-   },
-   {
-    "session": "272da152",
-    "text": "1. we will accept them in the score, report domain folding and base pairing percentage. think hard, what would be the best way to do this? 2\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "is the run and analysis still running?"
-   },
-   {
-    "session": "272da152",
-    "text": "do all needed analysis to check the simulation progress, assemble one or few more set of tests to run the simulation on after the analysi to\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "what was the decision you needed from me? what was found from the deep analysis and what does the best set up look like? what are the additi\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "in addition I am trying to start the work for kinectic model implementation and now trying to solve the issue of concurrent development, the\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "did all simulation finish? or they are still running? do we need to simulate and test more conditions?"
-   },
-   {
-    "session": "272da152",
-    "text": "what is the status today?"
-   },
-   {
-    "session": "272da152",
-    "text": "<pasted_content id=\"3a6c\"> > The server has intermittent slow login and response. Our read-only audit found that simulation families dominat\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "what is the status right now?"
-   },
-   {
-    "session": "ac23eed6",
-    "text": "check the status of the project, codex was in the process of implementation butt stopped due to limit reached - find the halted process, the\u2026"
-   },
-   {
-    "session": "ac23eed6",
-    "text": "fix the problems. then write an handoff for all the work we have done and the progress of this work for it be resumed in another session."
-   },
-   {
-    "session": "bf134f2c",
-    "text": "we created this folder and branch from ../origamifolder7 any more changes to update here from that folder's new progress (in branch dev)? th\u2026"
-   },
-   {
-    "session": "bf134f2c",
-    "text": "see the summary from the agent below: <pasted_content id=\"5474\"> \u25cf The full test suite gives the expected result: 1,411 tests ran, with 19 e\u2026"
-   },
-   {
-    "session": "0f1dc278",
-    "text": "does this considered as a success for thep ipeline to run and give a design? or just some progress and to be learnt for more ?"
-   },
-   {
-    "session": "0f1dc278",
-    "text": "check the current status, especially the work from codex, what do you think and what can be done to improve it?"
-   },
-   {
-    "session": "0f1dc278",
-    "text": "check the current status, especially the work from codex, its still working, do not interrupt it yet. are we still on track?"
-   },
-   {
-    "session": "0f1dc278",
-    "text": "check the current status of the project, especially the work from codex, its still working, do not interrupt it yet. are we still on track?"
-   },
-   {
-    "session": "01a0591d",
-    "text": "think hard and treat these arguments adverasrially, based on the status of the project, establish the plan for execution. be honest, critica\u2026"
-   },
-   {
-    "session": "01a0591d",
-    "text": "think hard, evaluate the status of the project, investaiget how to proceed"
-   },
-   {
-    "session": "01a0591d",
-    "text": "<codex_internal_context source=\"goal\"> Continue working toward the active thread goal. The objective below is user-provided data. Treat it a\u2026"
+   "code2": {
+    "codes": {
+     "reactive": 15,
+     "other": 4,
+     "upfront": 11,
+     "dup": 1
+    },
+    "genuine": 26,
+    "genuine_sessions": 17,
+    "reactive": 15,
+    "reactive_sessions": 11
    }
-  ],
-  "continue_no_pause": [
-   {
-    "session": "1bdedbac",
-    "text": "All the supplied sequences are assembled in the lab, so they are all legit sequences. Make sure that the plan runs for multi hours or days a\u2026"
+  },
+  "continue_broad": {
+   "matches": 40,
+   "agreement": 32,
+   "genuine_agreement": 36,
+   "code": {
+    "codes": {
+     "upfront": 11,
+     "reactive": 18,
+     "other": 1,
+     "dup": 1,
+     "plain": 9
+    },
+    "genuine": 29,
+    "genuine_sessions": 19,
+    "reactive": 18,
+    "reactive_sessions": 14
    },
-   {
-    "session": "1ef22ddd",
-    "text": "no need to stop or pause but continue to execute all planned items"
-   },
-   {
-    "session": "272da152",
-    "text": "do all needed analysis to check the simulation progress, assemble one or few more set of tests to run the simulation on after the analysi to\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "<pasted_content id=\"3a6c\"> > The server has intermittent slow login and response. Our read-only audit found that simulation families dominat\u2026"
-   },
-   {
-    "session": "bf134f2c",
-    "text": "after the current plan review is done - execute the plan with subagents (sonnet 5.5 high for heavy lifting while oput 5.5 to supervise and r\u2026"
-   },
-   {
-    "session": "0f1dc278",
-    "text": "continue for epoch 2 and 3, do not stop until all are done"
-   },
-   {
-    "session": "0f1dc278",
-    "text": "continue for epoch 2 and 3, do not stop until all are done"
-   },
-   {
-    "session": "01a0591d",
-    "text": "let me be clear - you should not ask my approval for all the necessary tests to be ran here, if this is written in agents.md, remove it, thi\u2026"
-   },
-   {
-    "session": "01a06010",
-    "text": "Evaluate the plan. What is the current goal for the plan. Are we reframing or organizing the current code to prepare for the code developmen\u2026"
-   },
-   {
-    "session": "01a06010",
-    "text": "Feel free to use the CPUs and GPUs in this server as long as you don't break the server for the iterations of the algorithms as we should no\u2026"
-   },
-   {
-    "session": "01a069f2",
-    "text": "ignore the sparse A/T annotations in .dnajson files, and leave 44p_3turn for now.continue for the execution."
-   },
-   {
-    "session": "01a069f2",
-    "text": "no need to stop in the middle, go ahead and continue the execution through all steps for relxations (biased and unbiased) trials and eventua\u2026"
-   },
-   {
-    "session": "01a06a13",
-    "text": "proceed, no need to stop but continue execution and planning until the algorithm can reliably design the sequences while being more efficien\u2026"
-   },
-   {
-    "session": "01a07fba",
-    "text": "no need to stop and pause in middle, continue and execute all planned items"
-   },
-   {
-    "session": "01a07fbe",
-    "text": "no need to stop and pause in middle, continue and execute all planned items"
-   },
-   {
-    "session": "01a08f22",
-    "text": "continue, no need to pause in every single section but continue to execute the planned items and fold the targets"
-   },
-   {
-    "session": "01a08f31",
-    "text": "continue, no need to stop in the middle but proceed to complete all planned items"
-   },
-   {
-    "session": "01a08f31",
-    "text": "continue, no need to stop in the middle but proceed to complete all planned items"
-   },
-   {
-    "session": "01a08f31",
-    "text": "continue, do not pause or stop in the middle, continue and execue all planned items"
-   },
-   {
-    "session": "01a08f31",
-    "text": "sounds good, now continue the execution with sol medium and luna max (for easier tasks and heavy lifting) subagents"
-   },
-   {
-    "session": "01a08f31",
-    "text": "continue the execution with luna max (for simpler tasks) and sol medium subagents."
-   },
-   {
-    "session": "01a08f31",
-    "text": "continue, make sure the execution is still following the plan"
-   },
-   {
-    "session": "01a08f31",
-    "text": "no need to pause, continue the execution until all planned items are fully executed. this is an override."
-   },
-   {
-    "session": "01a0c7be",
-    "text": "no need to stop and ask, try all possible combinations and determine whether any optimizations proposed possible can improve the design proc\u2026"
-   },
-   {
-    "session": "01a0caf9",
-    "text": "no need to stop or pause, continue until at least a design passing or failing without any chance to be rescued is concluded"
-   },
-   {
-    "session": "01a0caf9",
-    "text": "continue until all planned items are done."
-   },
-   {
-    "session": "01a0efc4",
-    "text": "go ahead and implement all planned items, do not stop or pause in between"
-   },
-   {
-    "session": "01a0efc4",
-    "text": "go ahead and implement all planned items, do not stop or pause in between. only stop until one valid rna structure comes out"
-   },
-   {
-    "session": "01a0efc4",
-    "text": "try it out for at least 2 3d shapes, do not stop until passing rna designs are repoted or its concluded those are hopeless, and if the latte\u2026"
-   },
-   {
-    "session": "01a0efc4",
-    "text": "continue until no more optimization and improvement to the design pipeline itself is not possible"
-   },
-   {
-    "session": "01a0efc4",
-    "text": "execute the plan with subagents and do not stop until all planned items are executed"
-   },
-   {
-    "session": "01a0efc4",
-    "text": "continue, until you exhausted all improvment methods"
-   },
-   {
-    "session": "01a0f499",
-    "text": "no need to stop at every single step and summary, do all the necessary tests and then do the summary"
-   },
-   {
-    "session": "01a0f499",
-    "text": "as I said, do all you needed to finally give a summary on whether jax related techniques on gpu can be helpful in our case, do not stop or p\u2026"
-   },
-   {
-    "session": "01a113d6",
-    "text": "use $scientific-workflow, continue until all planned items are executed."
-   },
-   {
-    "session": "01a113d6",
-    "text": "execute the plan with the scientific workflow, do not stop until all planned items are executed."
-   },
-   {
-    "session": "01a113d6",
-    "text": "i am said many times, i will highlight again, DO NOT STOP UNTIL ALL PLANNED WORKS ARE DONE."
-   },
-   {
-    "session": "01a1248e",
-    "text": "resume the implementation and do not stop until all planned items are executed to produce passing rna designs"
-   },
-   {
-    "session": "01a1248e",
-    "text": "continue the execution of the plan"
-   },
-   {
-    "session": "01a1248e",
-    "text": "execue the plan with 6.1 sol medium subagents. use astra 6 high subagents to review the progress after super major milestones or when you ar\u2026"
+   "code2": {
+    "codes": {
+     "upfront": 16,
+     "reactive": 17,
+     "other": 1,
+     "dup": 1,
+     "plain": 5
+    },
+    "genuine": 33,
+    "genuine_sessions": 19,
+    "reactive": 17,
+    "reactive_sessions": 12
    }
-  ],
-  "overengineering": [
-   {
-    "session": "1ef22ddd",
-    "text": "summarize the status of the project with concise and plain language, and what are we planning - make sure to not overengineer"
+  },
+  "overengineering": {
+   "matches": 15,
+   "agreement": 12,
+   "genuine_agreement": 15,
+   "code": {
+    "codes": {
+     "preventive": 8,
+     "reactive": 4,
+     "question": 3
+    },
+    "genuine": 15,
+    "genuine_sessions": 10,
+    "reactive": 4,
+    "reactive_sessions": 4
    },
-   {
-    "session": "272da152",
-    "text": "prepare a summary html slides summarize the project briefly and all the efforts we have tries and how did they work, as well as what we are \u2026"
-   },
-   {
-    "session": "ac23eed6",
-    "text": "so you propose to use vmmc to understand the melting temp for each domains, i see the point but just worry this is overengineer and complica\u2026"
-   },
-   {
-    "session": "01a0591d",
-    "text": "do not be so defensive and overengineer the safty measures in all these small steps. you have my permission to test different design targets\u2026"
-   },
-   {
-    "session": "01a0591d",
-    "text": "check claude's evaluation file as written, evaluate the progress you had and assess whether the implementation is still on track for produci\u2026"
-   },
-   {
-    "session": "01a06010",
-    "text": "Feel free to use the CPUs and GPUs in this server as long as you don't break the server for the iterations of the algorithms as we should no\u2026"
-   },
-   {
-    "session": "01a069f2",
-    "text": "read the logs and plans and the recent handoffs, understand what we are up to and how to proceed. assemble a reviewer team independantly rev\u2026"
-   },
-   {
-    "session": "01a069f2",
-    "text": "1. are designs from pyfurnance in RNA? how did you simulate it with oxDNA? 2. are you being too defensive or overengineering? is this part o\u2026"
-   },
-   {
-    "session": "01a06a13",
-    "text": "read the logs and plans and the recent handoffs, understand what we are up to and how to proceed. assemble a reviewer team independantly rev\u2026"
-   },
-   {
-    "session": "01a08f22",
-    "text": "do not overengineer or be too defensive in implementation. act as the orchestrator and supervisor, spawn sol medium and luna max (for simple\u2026"
-   },
-   {
-    "session": "01a08f22",
-    "text": "1. revise the plan, avoid overengineering and being too defensive and make sure all execution will be closely following this plan 2. is pony\u2026"
-   },
-   {
-    "session": "01a08f31",
-    "text": "do not overengineer or be too defensive in implementation. act as the orchestrator and supervisor, spawn sol medium and luna max (for simple\u2026"
-   },
-   {
-    "session": "01a08f31",
-    "text": "1. check whether we are still on track and whether we are being too defensive or overengineering. 2. evaluate the progree and assess how man\u2026"
-   },
-   {
-    "session": "01a08f31",
-    "text": "revise the plan, avoid overengineering"
-   },
-   {
-    "session": "01a0efc4",
-    "text": "Think hard and review the design process for these 2 3d structures, any issues or mistakes we made, are we being too defensive or overengine\u2026"
+   "code2": {
+    "codes": {
+     "preventive": 10,
+     "question": 4,
+     "reactive": 1
+    },
+    "genuine": 15,
+    "genuine_sessions": 10,
+    "reactive": 1,
+    "reactive_sessions": 1
    }
-  ],
-  "repeat_request": [
-   {
-    "session": "1ef22ddd",
-    "text": "1. there should not be obvious budget cap for each computation, the ultimate goal is still to get better designed sequence (not endless opti\u2026"
+  },
+  "drift": {
+   "matches": 6,
+   "agreement": 5,
+   "genuine_agreement": 5,
+   "code": {
+    "codes": {
+     "reactive": 2,
+     "question": 3,
+     "other": 1
+    },
+    "genuine": 5,
+    "genuine_sessions": 4,
+    "reactive": 2,
+    "reactive_sessions": 2
    },
-   {
-    "session": "1ef22ddd",
-    "text": "so you mean - in computing the MFE, ensemble terms are established which included the interactions between all domains, and from these data \u2026"
-   },
-   {
-    "session": "1ef22ddd",
-    "text": "the tertiary sequestration is the tertiary domain cross-talk validation? I thought you mentioned our method was better and enough? how did y\u2026"
-   },
-   {
-    "session": "1ef22ddd",
-    "text": "1. I do not understand why each design uses 1 cpu and we give it 3. and yes, we should evaluate the algorithms again, without changing the d\u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "check again the half finished work, examine how to complete them and work on them with subagents. summarize the overall progress and results\u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "1. we can try it out to find the correct native time caps, run parallel raplicas to find the correct timing. 2. vienna should be used in the\u2026"
-   },
-   {
-    "session": "fcde68e6",
-    "text": "explain wider GC limits again, and by loosef you mean higher limit for f by viennaRNA? it seems generally the sequence repair works pretty w\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "how was the folding order determined? I thought we are folding through both Tm (high to low) and physical distance (close to further) combin\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "1. not surprised to see lower accessibility means lower folding rate as the current system is designed so. and when I said we need to downpl\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "1. we will not run separate cpu runs like vmmc to determine the melting temp, no need, just use the previously established method to calucla\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "the fact that the junction didn't stay is due to not long enough steps? not perfect temperatures? or sth else? analyze and explain these fir\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "what do you mean by \"coils?\" use asd-ste100 style to reformulate the explaination again, note we should always use asd-ste100 style language\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "we should do the kinetic model, the model should also support both dna and rna. for project cleaness, should we do it from another session a\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "what does 2x2 test solve? how about option 2? my main question and confusion is, why the controller stop at 1 or few wrong base pairs rather\u2026"
-   },
-   {
-    "session": "272da152",
-    "text": "1. we will accept them in the score, report domain folding and base pairing percentage. think hard, what would be the best way to do this? 2\u2026"
-   },
-   {
-    "session": "ac23eed6",
-    "text": "you are suggesting basically individual folds at 60, 50, 40, 30, 20c, what ever stays stays, and whatever dissociates disscoiates to be fold\u2026"
-   },
-   {
-    "session": "bf134f2c",
-    "text": "I killed it as it was run for long time, no output and grabbed all memory so I can not even do anything here. Think hard and check again, wh\u2026"
-   },
-   {
-    "session": "bf134f2c",
-    "text": "be very careful, triple check and make sure that and similar issue cause memory surging or super super high i/o use will not appear again"
-   },
-   {
-    "session": "01a0591d",
-    "text": "check claude's evaluation file as written, evaluate the progress you had and assess whether the implementation is still on track for produci\u2026"
-   },
-   {
-    "session": "01a08f22",
-    "text": "1. why would just few off-binding base pairs somewhat persistently kill the folding system? why such mis-base pairs not coming off after the\u2026"
-   },
-   {
-    "session": "01a08f22",
-    "text": "again the domain folding should be based on the melting temperature for each domain and it they are not stable at the simulation temperature\u2026"
-   },
-   {
-    "session": "01a08f31",
-    "text": "consult again to gpt6pro through oracle with all the implementation results and established plan for follow up implementations, ask for crit\u2026"
-   },
-   {
-    "session": "01a093b8",
-    "text": "what are view 2 and 3, how were they different than views 1? and the screening in 10 trials, its should be noted we are not trying to make 1\u2026"
-   },
-   {
-    "session": "01a0c7b0",
-    "text": "think hard, how should we proceed without making these mistakes again?"
-   },
-   {
-    "session": "01a0c7b0",
-    "text": "what else needs to be done before we run the simulation again."
-   },
-   {
-    "session": "01a0c7be",
-    "text": "check again how the designs are running now"
-   },
-   {
-    "session": "01a0efc4",
-    "text": "think hard and independantly evaluate these arguments again, verify that they can be indeed beneficial to the current pipeline. for those do\u2026"
-   },
-   {
-    "session": "01a0f499",
-    "text": "as I said, do all you needed to finally give a summary on whether jax related techniques on gpu can be helpful in our case, do not stop or p\u2026"
-   },
-   {
-    "session": "01a113d6",
-    "text": "i am said many times, i will highlight again, DO NOT STOP UNTIL ALL PLANNED WORKS ARE DONE."
-   },
-   {
-    "session": "01a1248e",
-    "text": "document this mistake and make sure we do not make it again. look at all the plans we made and comapre our progress to it, any planned but s\u2026"
+   "code2": {
+    "codes": {
+     "other": 2,
+     "question": 3,
+     "reactive": 1
+    },
+    "genuine": 4,
+    "genuine_sessions": 3,
+    "reactive": 1,
+    "reactive_sessions": 1
    }
-  ],
-  "disagreement": [
-   {
-    "session": "fcde68e6",
-    "text": "I do not believe the lab profile is 0.15 to 0.9, in the native design code we specified that the GC is 0.4 to 0.8 sth like this so its not g\u2026"
+  },
+  "disagreement": {
+   "matches": 8,
+   "agreement": 7,
+   "genuine_agreement": 7,
+   "code": {
+    "codes": {
+     "yes": 3,
+     "dup": 1,
+     "no": 4
+    },
+    "genuine": 3,
+    "genuine_sessions": 3,
+    "reactive": 0,
+    "reactive_sessions": 0
    },
-   {
-    "session": "fcde68e6",
-    "text": "<pasted_content id=\"c6fd\"> I do not believe the lab profile is 0.15 to 0.9, in the native design code we specified that the GC is 0.4 to 0.8\u2026"
-   },
-   {
-    "session": "ac23eed6",
-    "text": "take one setp back, how are the failure rate defined? incorrectly bound domains divided to all doamins? and check whether its persistent? al\u2026"
-   },
-   {
-    "session": "01a08f22",
-    "text": "ok, I do want to point out that after examining the folding strands in oxview for /home/hao/folding/origamifolder7/validation/dna_dpow576_wh\u2026"
-   },
-   {
-    "session": "01a08f22",
-    "text": "we need to use the thermal annealing while folding process, which could resolve the curren ttrap process. This is what was intended and just\u2026"
-   },
-   {
-    "session": "01a0f499",
-    "text": "sound right. lets first do a repo-wide evaluation, and see whether there are stale files and outdated incorrectly set failed tests or codes \u2026"
-   },
-   {
-    "session": "01a113d6",
-    "text": "check whether we have the scientific workflow updated, we tried to do it from a side conversation, the main problem now is luna is incorrect\u2026"
-   },
-   {
-    "session": "01a113d6",
-    "text": "think hard ,evaluate both the codex and claude set up and agent hierechy, do they make sense and avoid all the issues we spotted or not yet \u2026"
+   "code2": {
+    "codes": {
+     "yes": 4,
+     "dup": 1,
+     "no": 3
+    },
+    "genuine": 4,
+    "genuine_sessions": 3,
+    "reactive": 0,
+    "reactive_sessions": 0
    }
-  ]
+  }
  }
 }

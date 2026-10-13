@@ -1,0 +1,101 @@
+session,runtime,i,of,category,code,code2,prompt
+1bdedbac,claude,2,7,continue_broad,upfront,upfront,"All the supplied sequences are assembled in the lab, so they are all legit sequences. Make sure that the plan runs for multi hours or days and it will ask the e…"
+1ef22ddd,claude,3,64,overengineering,preventive,preventive,"summarize the status of the project with concise and plain language, and what are we planning - make sure to not overengineer"
+1ef22ddd,claude,5,64,continue_no_pause,reactive,reactive,no need to stop or pause but continue to execute all planned items
+1ef22ddd,claude,5,64,continue_broad,reactive,reactive,no need to stop or pause but continue to execute all planned items
+fcde68e6,claude,43,54,disagreement,yes,yes,"I do not believe the lab profile is 0.15 to 0.9, in the native design code we specified that the GC is 0.4 to 0.8 sth like this so its not going to 0.15 to 0.9.…"
+fcde68e6,claude,44,54,disagreement,dup,dup,"<pasted_content id=""c6fd""> I do not believe the lab profile is 0.15 to 0.9, in the native design code we specified that the GC is 0.4 to 0.8 sth like this so it…"
+272da152,claude,12,106,continue_no_pause,other,other,how was the folding order determined? I thought we are folding through both Tm (high to low) and physical distance (close to further) combined orders? The curre…
+272da152,claude,13,106,continue_no_pause,other,other,1. explain enclosure risk and how was the weights determined for the historical controller. what does accessibility mean - so with 4/5 base free for the domain …
+272da152,claude,19,106,overengineering,preventive,preventive,"prepare a summary html slides summarize the project briefly and all the efforts we have tries and how did they work, as well as what we are doing now and possib…"
+272da152,claude,79,106,continue_no_pause,other,other,"1. we will accept them in the score, report domain folding and base pairing percentage. think hard, what would be the best way to do this? 2. case A, if its jus…"
+272da152,claude,83,106,continue_no_pause,reactive,upfront,"do all needed analysis to check the simulation progress, assemble one or few more set of tests to run the simulation on after the analysi to take advantage of t…"
+272da152,claude,83,106,continue_broad,reactive,upfront,"do all needed analysis to check the simulation progress, assemble one or few more set of tests to run the simulation on after the analysi to take advantage of t…"
+272da152,claude,99,106,continue_no_pause,other,other,"<pasted_content id=""3a6c""> > The server has intermittent slow login and response. Our read-only audit found that simulation families dominate measured writes to…"
+272da152,claude,99,106,continue_broad,other,other,"<pasted_content id=""3a6c""> > The server has intermittent slow login and response. Our read-only audit found that simulation families dominate measured writes to…"
+ac23eed6,claude,3,39,overengineering,reactive,question,"so you propose to use vmmc to understand the melting temp for each domains, i see the point but just worry this is overengineer and complicating the process. ho…"
+ac23eed6,claude,10,39,disagreement,no,no,"take one setp back, how are the failure rate defined? incorrectly bound domains divided to all doamins? and check whether its persistent? also I do not understa…"
+bf134f2c,claude,21,33,continue_no_pause,upfront,upfront,after the current plan review is done - execute the plan with subagents (sonnet 5.5 high for heavy lifting while oput 5.5 to supervise and review the work) do n…
+bf134f2c,claude,21,33,continue_broad,upfront,upfront,after the current plan review is done - execute the plan with subagents (sonnet 5.5 high for heavy lifting while oput 5.5 to supervise and review the work) do n…
+0f1dc278,claude,2,15,drift,reactive,other,summarize the analyzed patterns and update agents.md so codex will stick to the goal of designing and generating the RNA structure and do not drift away from th…
+0f1dc278,claude,7,15,continue_no_pause,reactive,reactive,"continue for epoch 2 and 3, do not stop until all are done"
+0f1dc278,claude,7,15,continue_broad,reactive,reactive,"continue for epoch 2 and 3, do not stop until all are done"
+0f1dc278,claude,8,15,continue_no_pause,dup,dup,"continue for epoch 2 and 3, do not stop until all are done"
+0f1dc278,claude,8,15,continue_broad,dup,dup,"continue for epoch 2 and 3, do not stop until all are done"
+01a0591d,codex,19,27,overengineering,reactive,reactive,do not be so defensive and overengineer the safty measures in all these small steps. you have my permission to test different design targets at different condit…
+01a0591d,codex,21,27,continue_broad,reactive,reactive,"let me be clear - you should not ask my approval for all the necessary tests to be ran here, if this is written in agents.md, remove it, this is a override. con…"
+01a0591d,codex,23,27,overengineering,preventive,preventive,"check claude's evaluation file as written, evaluate the progress you had and assess whether the implementation is still on track for producing the algorithm. Al…"
+01a06010,codex,9,20,continue_no_pause,upfront,upfront,Evaluate the plan. What is the current goal for the plan. Are we reframing or organizing the current code to prepare for the code development or the algorithm d…
+01a06010,codex,9,20,continue_broad,upfront,upfront,Evaluate the plan. What is the current goal for the plan. Are we reframing or organizing the current code to prepare for the code development or the algorithm d…
+01a06010,codex,10,20,continue_broad,upfront,upfront,Feel free to use the CPUs and GPUs in this server as long as you don't break the server for the iterations of the algorithms as we should not just write the cod…
+01a06010,codex,10,20,overengineering,preventive,preventive,Feel free to use the CPUs and GPUs in this server as long as you don't break the server for the iterations of the algorithms as we should not just write the cod…
+01a069f2,codex,0,18,overengineering,preventive,preventive,"read the logs and plans and the recent handoffs, understand what we are up to and how to proceed. assemble a reviewer team independantly review the recent imple…"
+01a069f2,codex,9,18,continue_broad,plain,plain,"ignore the sparse A/T annotations in .dnajson files, and leave 44p_3turn for now.continue for the execution."
+01a069f2,codex,14,18,continue_no_pause,reactive,reactive,"no need to stop in the middle, go ahead and continue the execution through all steps for relxations (biased and unbiased) trials and eventual full folding proce…"
+01a069f2,codex,14,18,continue_broad,reactive,reactive,"no need to stop in the middle, go ahead and continue the execution through all steps for relxations (biased and unbiased) trials and eventual full folding proce…"
+01a069f2,codex,15,18,overengineering,question,question,1. are designs from pyfurnance in RNA? how did you simulate it with oxDNA? 2. are you being too defensive or overengineering? is this part of the trials to run?…
+01a06a13,codex,0,12,overengineering,preventive,preventive,"read the logs and plans and the recent handoffs, understand what we are up to and how to proceed. assemble a reviewer team independantly review the recent imple…"
+01a06a13,codex,10,12,continue_no_pause,reactive,reactive,"proceed, no need to stop but continue execution and planning until the algorithm can reliably design the sequences while being more efficient and faster than th…"
+01a06a13,codex,10,12,continue_broad,reactive,reactive,"proceed, no need to stop but continue execution and planning until the algorithm can reliably design the sequences while being more efficient and faster than th…"
+01a07fba,codex,2,4,continue_no_pause,reactive,reactive,"no need to stop and pause in middle, continue and execute all planned items"
+01a07fba,codex,2,4,continue_broad,reactive,reactive,"no need to stop and pause in middle, continue and execute all planned items"
+01a07fbe,codex,2,5,continue_no_pause,upfront,reactive,"no need to stop and pause in middle, continue and execute all planned items"
+01a07fbe,codex,2,5,continue_broad,upfront,reactive,"no need to stop and pause in middle, continue and execute all planned items"
+01a08f22,codex,3,50,overengineering,preventive,preventive,"do not overengineer or be too defensive in implementation. act as the orchestrator and supervisor, spawn sol medium and luna max (for simpler tasks) subagents t…"
+01a08f22,codex,8,50,continue_no_pause,reactive,reactive,"continue, no need to pause in every single section but continue to execute the planned items and fold the targets"
+01a08f22,codex,8,50,continue_broad,reactive,reactive,"continue, no need to pause in every single section but continue to execute the planned items and fold the targets"
+01a08f22,codex,20,50,drift,question,question,"be independant and critical, any over engineering exsit in the past implementation process? why so slow and seems not producing any results? did you get confuse…"
+01a08f22,codex,21,50,overengineering,reactive,preventive,"1. revise the plan, avoid overengineering and being too defensive and make sure all execution will be closely following this plan 2. is ponytail skill in use? u…"
+01a08f22,codex,33,50,disagreement,no,yes,"ok, I do want to point out that after examining the folding strands in oxview for /home/hao/folding/origamifolder7/validation/dna_dpow576_whole_target_2026-09-1…"
+01a08f22,codex,46,50,disagreement,yes,yes,"we need to use the thermal annealing while folding process, which could resolve the curren ttrap process. This is what was intended and just an annealing withou…"
+01a08f31,codex,2,43,overengineering,preventive,preventive,"do not overengineer or be too defensive in implementation. act as the orchestrator and supervisor, spawn sol medium and luna max (for simpler tasks) subagents t…"
+01a08f31,codex,5,43,continue_no_pause,reactive,reactive,"continue, no need to stop in the middle but proceed to complete all planned items"
+01a08f31,codex,5,43,continue_broad,reactive,reactive,"continue, no need to stop in the middle but proceed to complete all planned items"
+01a08f31,codex,7,43,continue_no_pause,reactive,reactive,"continue, no need to stop in the middle but proceed to complete all planned items"
+01a08f31,codex,7,43,continue_broad,reactive,reactive,"continue, no need to stop in the middle but proceed to complete all planned items"
+01a08f31,codex,10,43,continue_no_pause,reactive,reactive,"continue, do not pause or stop in the middle, continue and execue all planned items"
+01a08f31,codex,10,43,continue_broad,reactive,reactive,"continue, do not pause or stop in the middle, continue and execue all planned items"
+01a08f31,codex,14,43,continue_broad,plain,plain,"sounds good, now continue the execution with sol medium and luna max (for easier tasks and heavy lifting) subagents"
+01a08f31,codex,16,43,continue_broad,plain,plain,continue the execution with luna max (for simpler tasks) and sol medium subagents.
+01a08f31,codex,17,43,overengineering,question,question,1. check whether we are still on track and whether we are being too defensive or overengineering. 2. evaluate the progree and assess how many more steps are nee…
+01a08f31,codex,18,43,overengineering,reactive,preventive,"revise the plan, avoid overengineering"
+01a08f31,codex,35,43,continue_broad,plain,plain,"continue, make sure the execution is still following the plan"
+01a08f31,codex,36,43,continue_no_pause,reactive,reactive,"no need to pause, continue the execution until all planned items are fully executed. this is an override."
+01a08f31,codex,36,43,continue_broad,reactive,reactive,"no need to pause, continue the execution until all planned items are fully executed. this is an override."
+01a0c7be,codex,29,54,continue_no_pause,reactive,upfront,"no need to stop and ask, try all possible combinations and determine whether any optimizations proposed possible can improve the design process."
+01a0c7be,codex,29,54,continue_broad,reactive,upfront,"no need to stop and ask, try all possible combinations and determine whether any optimizations proposed possible can improve the design process."
+01a0caf9,codex,17,34,continue_no_pause,reactive,reactive,"no need to stop or pause, continue until at least a design passing or failing without any chance to be rescued is concluded"
+01a0caf9,codex,17,34,continue_broad,reactive,reactive,"no need to stop or pause, continue until at least a design passing or failing without any chance to be rescued is concluded"
+01a0caf9,codex,22,34,continue_broad,plain,reactive,continue until all planned items are done.
+01a0efc4,codex,2,52,continue_no_pause,upfront,upfront,"go ahead and implement all planned items, do not stop or pause in between"
+01a0efc4,codex,2,52,continue_broad,upfront,upfront,"go ahead and implement all planned items, do not stop or pause in between"
+01a0efc4,codex,3,52,continue_no_pause,upfront,upfront,"go ahead and implement all planned items, do not stop or pause in between. only stop until one valid rna structure comes out"
+01a0efc4,codex,3,52,continue_broad,upfront,upfront,"go ahead and implement all planned items, do not stop or pause in between. only stop until one valid rna structure comes out"
+01a0efc4,codex,5,52,continue_no_pause,reactive,upfront,"try it out for at least 2 3d shapes, do not stop until passing rna designs are repoted or its concluded those are hopeless, and if the latter, why, how to solve…"
+01a0efc4,codex,5,52,continue_broad,reactive,upfront,"try it out for at least 2 3d shapes, do not stop until passing rna designs are repoted or its concluded those are hopeless, and if the latter, why, how to solve…"
+01a0efc4,codex,6,52,overengineering,question,question,"Think hard and review the design process for these 2 3d structures, any issues or mistakes we made, are we being too defensive or overengineering and whether th…"
+01a0efc4,codex,16,52,continue_broad,plain,upfront,continue until no more optimization and improvement to the design pipeline itself is not possible
+01a0efc4,codex,20,52,continue_no_pause,upfront,upfront,execute the plan with subagents and do not stop until all planned items are executed
+01a0efc4,codex,20,52,continue_broad,upfront,upfront,execute the plan with subagents and do not stop until all planned items are executed
+01a0efc4,codex,21,52,continue_broad,plain,upfront,"continue, until you exhausted all improvment methods"
+01a0efc4,codex,30,52,drift,question,question,"evaluate the progress for the past long 50hours+ implementation trials, be independant and critical, did we make any positive progress? were we on track in stru…"
+01a0efc4,codex,31,52,drift,reactive,reactive,"record the reason and behavior why it went off track so we do not make such mistake and stay on track even at long time executions. in the means time, establish…"
+01a0f499,codex,34,71,drift,question,question,"undertand it better now, remember to use this simplified technical english in all future outputs, bonus to be concise. for the strategy, this could be helpful b…"
+01a0f499,codex,51,71,continue_no_pause,reactive,reactive,"no need to stop at every single step and summary, do all the necessary tests and then do the summary"
+01a0f499,codex,51,71,continue_broad,reactive,reactive,"no need to stop at every single step and summary, do all the necessary tests and then do the summary"
+01a0f499,codex,52,71,continue_no_pause,reactive,reactive,"as I said, do all you needed to finally give a summary on whether jax related techniques on gpu can be helpful in our case, do not stop or pause until you are d…"
+01a0f499,codex,52,71,continue_broad,reactive,reactive,"as I said, do all you needed to finally give a summary on whether jax related techniques on gpu can be helpful in our case, do not stop or pause until you are d…"
+01a0f499,codex,64,71,disagreement,no,no,"sound right. lets first do a repo-wide evaluation, and see whether there are stale files and outdated incorrectly set failed tests or codes to remove. then we c…"
+01a113d6,codex,4,35,continue_broad,plain,upfront,"use $scientific-workflow, continue until all planned items are executed."
+01a113d6,codex,8,35,continue_no_pause,upfront,upfront,"execute the plan with the scientific workflow, do not stop until all planned items are executed."
+01a113d6,codex,8,35,continue_broad,upfront,upfront,"execute the plan with the scientific workflow, do not stop until all planned items are executed."
+01a113d6,codex,11,35,disagreement,yes,yes,"check whether we have the scientific workflow updated, we tried to do it from a side conversation, the main problem now is luna is incorrectly used for all exec…"
+01a113d6,codex,14,35,continue_no_pause,reactive,reactive,"i am said many times, i will highlight again, DO NOT STOP UNTIL ALL PLANNED WORKS ARE DONE."
+01a113d6,codex,14,35,continue_broad,reactive,reactive,"i am said many times, i will highlight again, DO NOT STOP UNTIL ALL PLANNED WORKS ARE DONE."
+01a113d6,codex,21,35,disagreement,no,no,"think hard ,evaluate both the codex and claude set up and agent hierechy, do they make sense and avoid all the issues we spotted or not yet identified so far fo…"
+01a121d6,codex,8,12,drift,other,other,"the active dev working agents wrote following summary, any more we should do? 3. Additions to Codex's branch rules ┌────────────────────────────────────────────…"
+01a1248e,codex,1,14,continue_no_pause,upfront,upfront,resume the implementation and do not stop until all planned items are executed to produce passing rna designs
+01a1248e,codex,1,14,continue_broad,upfront,upfront,resume the implementation and do not stop until all planned items are executed to produce passing rna designs
+01a1248e,codex,5,14,continue_broad,plain,plain,continue the execution of the plan
+01a1248e,codex,13,14,continue_no_pause,upfront,upfront,execue the plan with 6.1 sol medium subagents. use astra 6 high subagents to review the progress after super major milestones or when you are very confused to r…
+01a1248e,codex,13,14,continue_broad,upfront,upfront,execue the plan with 6.1 sol medium subagents. use astra 6 high subagents to review the progress after super major milestones or when you are very confused to r…
