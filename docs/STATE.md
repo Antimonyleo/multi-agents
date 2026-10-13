@@ -44,6 +44,25 @@ support and consequential review; qualify hidden checks at their disclosed API
 boundary before another separately authorized comparison. No efficiency or
 runtime/scientific qualification claim.
 
+Claude-session workflow check, 2026-10-13 (offline, no model calls): at
+`922754c`, 179 tests, structure, skill checker, both-runtime install check and
+instruction health pass; live links and agents match the repository. Two
+records added:
+
+- Settings drift provenance (inferred, not proven): `runtime-drift.json`
+  records `~/.claude/settings.json` modified at 2026-10-12 22:58:08 MDT. At that
+  moment the user ran `/model`, which reported "Set model to Opus 5.5 and saved
+  as your default". The current hash `b556b1f8…` equals the hash recorded on
+  2026-10-09. The frozen drift record is left unchanged.
+- Spend: Claude CLI-reported estimates for 2026-10-09 to 2026-10-12 total about
+  $4.57: first pilot pair $0.578, Claude-side checks $0.554, qualification and
+  semantic runs $0.680, behavioral stages $1.886, implementation arm $0.870.
+  Codex and coordinator costs are unmeasured. The original "$2 target, at most
+  $3" was exceeded across separately approved allocations.
+
+Next evidence comes from long real tasks, starting offline from existing
+transcripts. No paid micro-benchmark is planned.
+
 ## Historical execution records
 
 The prior approved allocation is terminal: [live results](../benchmarks/2026-10-12-implementation-pair/live/RESULTS.md).

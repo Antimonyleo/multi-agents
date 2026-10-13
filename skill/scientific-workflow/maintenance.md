@@ -14,7 +14,7 @@
 
 ## Validate a change
 
-Run `python scripts/validate.py` and `python -m unittest discover -s tests -v` from the repository root. These check structure, local references, native profile parsing, protected historical/Claude identities and installer behavior in temporary homes. They do not establish live model routing, scientific success or token savings.
+Run `python scripts/validate.py` and `python -m unittest discover -s tests -v` from the repository root. These check structure, local references, native profile parsing, protected historical/Claude identities and installer behavior in temporary homes. They do not establish live model routing, scientific success or token savings. The skill structure checker (`~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skill/scientific-workflow`) needs a Python with PyYAML; on this host `/usr/bin/python3` has it and the miniforge `python` does not.
 
 Use an isolated staging copy because edits here are immediately visible through live skill links. Obtain user authority for workflow changes; an explicit request to implement the proposed change is authority for that scoped work, without repeated routine approval. It does not authorize unrelated native-agent edits or new scientific work. Archive conflicting prior sources and keep consolidation and routing improvements in separate commits.
 
@@ -98,11 +98,16 @@ Claude Code docs: sub-agents, costs, best-practices, model-config. Platform docs
 
 - 2026-10-09: Restored a short "Keep scientific evidence" paragraph in `SKILL.md` (versions, parameters, randomness, units, numerical and statistical controls, literature conditions, exploratory versus confirmatory evidence, negative results, resume point). The 841 to 429 word cut had removed it without relocating it. Entrypoint is now 484 words in total. Static change only; no model-backed run.
 
+- 2026-10-10 to 2026-10-12: Live Claude diagnostics (Opus/high main), recorded under `benchmarks/2026-10-09-calibration/` and `benchmarks/2026-10-12-implementation-pair/`. Three of nine behavioral stages passed strict acceptance. Five of the six failures came from the scorer: undisclosed names, values or whitespace, `pass` versus `passed`, and native read syntax the scorer could not parse. The one behavior gap was a dependent owner that repaired the code but saved no full check log and exit receipt. The implementation support arm passed 4/4 public tests and its reviewer accepted, but 2 of 65 hidden probes required an undisclosed ordering, so the measurement was invalid and the owner arm never started. Optional helpers were never chosen. The seeded reviewer found 2 of 2 defects and cleared both clean controls. Claude CLI-reported estimates for 2026-10-09 to 2026-10-12 total about $4.57; Codex and coordinator costs are unmeasured.
+- 2026-10-12: Activated guidance to keep a full check log and verified exit before filtering output (`references/coordination.md`), and to disclose exact names, enums and quote whitespace before freezing acceptance (this file). The model-backed effect is untested.
+- 2026-10-13: Hidden checks must map to a disclosed requirement at its exact API boundary (this file). Evaluation rule only; routing unchanged. Full offline check at `922754c`: 179 tests, structure, skill checker, both-runtime install check and instruction health pass.
+
 ## Open questions
 
-- Can the reviewer run at medium effort (the Opus 5.5 default) and still find what high finds? Its cost was 3 to 5 times a whole small task.
-- Does the workflow help on a long task (tens of turns, large context)? Not tested; the benchmark tasks were all under $0.40.
-- Does `scientific_explorer` ever pay? It was never invoked in 38 runs.
+- Can the reviewer run at medium effort (the Opus 5.5 default) and still find what high finds? Its cost was 3 to 5 times a whole small task. In the 2026-10-12 implementation arm it produced 9,524 of 20,636 output tokens.
+- Does the workflow help on a long task (tens of turns, large context)? Still not tested. Each live family from 2026-10-10 to 2026-10-12 finished in under 200 seconds.
+- Does `scientific_explorer` ever pay? When it was optional it was never chosen: 0 of 14 runs on 2026-10-08, the 2026-10-11 optional-support case and the 2026-10-12 implementation support arm. It ran once, in a 2026-10-10 qualification that required it.
+- Do the 2026-10-12 receipt rules change owner behavior? Not yet observed.
 - Is medium enough for worker and researcher on real tasks? Run a sweep on two or three real tasks.
 - Does Haiku/high do mechanical lookups without errors? Spot-check the first few results against the files.
 - Does the concurrency cap or depth cap limit Workflow-tool agents?
