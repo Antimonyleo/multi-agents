@@ -1,0 +1,96 @@
+{
+ "parent": {
+  "polling_responses": 2,
+  "responses": 5055,
+  "polling_tokens": {
+   "input_tokens": 4,
+   "cache_creation_input_tokens": 2030,
+   "cache_read_input_tokens": 216384,
+   "output_tokens": 597
+  },
+  "all_tokens": {
+   "input_tokens": 29755,
+   "cache_creation_input_tokens": 76802018,
+   "cache_read_input_tokens": 1795583857,
+   "output_tokens": 5227089
+  },
+  "polling_share_processed": 0.00011664359666712504,
+  "polling_share_uncached_and_output": 3.20623505600163e-05
+ },
+ "helper": {
+  "polling_responses": 11164,
+  "responses": 31844,
+  "polling_tokens": {
+   "input_tokens": 22328,
+   "cache_creation_input_tokens": 1694104,
+   "cache_read_input_tokens": 4546926932,
+   "output_tokens": 887314
+  },
+  "all_tokens": {
+   "input_tokens": 63970,
+   "cache_creation_input_tokens": 145905711,
+   "cache_read_input_tokens": 8314652796,
+   "output_tokens": 10056589
+  },
+  "polling_share_processed": 0.5370916124376751,
+  "polling_share_uncached_and_output": 0.016687869292779992
+ },
+ "sessions_with_100_plus_polling_responses": [
+  {
+   "role": "child",
+   "description": "Steps 3b and 4b post-repair rerun",
+   "polling_responses": 3314,
+   "responses": 3416,
+   "polling_processed": 1335378991
+  },
+  {
+   "role": "child",
+   "description": "Add the missing multimer term",
+   "polling_responses": 2497,
+   "responses": 2614,
+   "polling_processed": 1082516942
+  },
+  {
+   "role": "child",
+   "description": "Test NUPACK threading and search width",
+   "polling_responses": 2261,
+   "responses": 2443,
+   "polling_processed": 979541809
+  },
+  {
+   "role": "child",
+   "description": "Architecture: objective and stop rule",
+   "polling_responses": 1615,
+   "responses": 1779,
+   "polling_processed": 685894532
+  },
+  {
+   "role": "child",
+   "description": "Diagnose NED plateau, one search intervention",
+   "polling_responses": 603,
+   "responses": 871,
+   "polling_processed": 235293931
+  },
+  {
+   "role": "child",
+   "description": "Parallelize proposal evaluation",
+   "polling_responses": 319,
+   "responses": 498,
+   "polling_processed": 99355717
+  },
+  {
+   "role": "child",
+   "description": "Static test: is the dimer breakable",
+   "polling_responses": 220,
+   "responses": 1022,
+   "polling_processed": 52924867
+  },
+  {
+   "role": "child",
+   "description": "Run O2 matched-arm pilot",
+   "polling_responses": 184,
+   "responses": 325,
+   "polling_processed": 49046213
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+claude weighted units 1366M; helpers 78%; components: uncached_in 20%, cached_in 74%, output 6%
+   helper polling responses weight 461M = 34% of all Claude weight, 43% of helper weight
+codex weighted units 2818M; helpers 62%; components: uncached_in 17%, cached_in 64%, output 18%
+   guardian 4% of family weight; Luna helpers 14%

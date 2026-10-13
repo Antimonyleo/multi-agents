@@ -1,0 +1,66 @@
+[
+ {
+  "session": "1ef22ddd-ca1d-49dd-acf9-05f15b9c311c",
+  "text": "no need to stop or pause but continue to execute all planned items"
+ },
+ {
+  "session": "fcde68e6-6c2f-430f-80c3-ca958efc1535",
+  "text": "I do not believe the lab profile is 0.15 to 0.9, in the native design code we specified that the GC is 0.4 to 0.8 sth li\u2026"
+ },
+ {
+  "session": "ac23eed6-9756-4c15-9e67-adcc12b2888a",
+  "text": "no need to extend the temperature, just extend the incubation time and see how it works. in the mean time launch simulat\u2026"
+ },
+ {
+  "session": "01a0591d-6ff1-7220-a068-ec1fb6bfaa1d",
+  "text": "do not be so defensive and overengineer the safty measures in all these small steps. you have my permission to test diff\u2026"
+ },
+ {
+  "session": "01a069f2-b7f4-7752-aec1-e4c2af6feddd",
+  "text": "no need to stop in the middle, go ahead and continue the execution through all steps for relxations (biased and unbiased\u2026"
+ },
+ {
+  "session": "01a07fba-bc06-7df3-a520-652774ebae8f",
+  "text": "no need to stop and pause in middle, continue and execute all planned items"
+ },
+ {
+  "session": "01a07fbe-0b05-7680-a767-a33fe2e19952",
+  "text": "no need to stop and pause in middle, continue and execute all planned items"
+ },
+ {
+  "session": "01a08f22-a4da-7202-8c3a-aa8e4d73a62b",
+  "text": "do not overengineer or be too defensive in implementation. act as the orchestrator and supervisor, spawn sol medium and \u2026"
+ },
+ {
+  "session": "01a08f22-a4da-7202-8c3a-aa8e4d73a62b",
+  "text": "again the domain folding should be based on the melting temperature for each domain and it they are not stable at the si\u2026"
+ },
+ {
+  "session": "01a08f31-29c0-7713-8465-13ed892efc65",
+  "text": "do not overengineer or be too defensive in implementation. act as the orchestrator and supervisor, spawn sol medium and \u2026"
+ },
+ {
+  "session": "01a08f31-29c0-7713-8465-13ed892efc65",
+  "text": "no need to pause, continue the execution until all planned items are fully executed. this is an override."
+ },
+ {
+  "session": "01a093b8-f9e6-70a0-a642-e89f3e30ccf0",
+  "text": "do not go for 2478nt until we are satisfied with the 500+ targets. when you sat crossing contacts, what do you mean? als\u2026"
+ },
+ {
+  "session": "01a0c7be-a157-79c0-bbd4-919909803219",
+  "text": "no need to stop and ask, try all possible combinations and determine whether any optimizations proposed possible can imp\u2026"
+ },
+ {
+  "session": "01a0caf9-c0b4-7241-8411-403cc7ec3364",
+  "text": "no need to stop or pause, continue until at least a design passing or failing without any chance to be rescued is conclu\u2026"
+ },
+ {
+  "session": "01a0f499-f39a-7ee3-bd48-c82176a4edc0",
+  "text": "no need to stop at every single step and summary, do all the necessary tests and then do the summary"
+ },
+ {
+  "session": "01a1248e-6668-7602-86a3-61c68f981a53",
+  "text": "do not start it now, this server has almost full storage and we need to free up more space. in the mean time, check this\u2026"
+ }
+]

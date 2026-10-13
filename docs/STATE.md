@@ -63,6 +63,15 @@ records added:
 Next evidence comes from long real tasks, starting offline from existing
 transcripts. No paid micro-benchmark is planned.
 
+Long-task retrospective Step 1 is done ([report](../benchmarks/2026-10-13-long-task-retrospective/REPORT.md)).
+It covers 27 long sessions and 1,432 helper or guardian sessions, offline.
+Helpers took most new tokens: Claude 66%, Codex 72%. Claude helpers ran mostly
+on Opus. Re-reading cached context dominated weighted usage. Busy-waiting Claude
+helpers were 34% of weighted Claude usage, mostly in one 2026-09-12 session.
+In 19 of 27 sessions the user had to tell the agent to stop pausing. Next:
+the user fills in `labels.csv` (Step 2), then labels are compared with these
+signals.
+
 ## Historical execution records
 
 The prior approved allocation is terminal: [live results](../benchmarks/2026-10-12-implementation-pair/live/RESULTS.md).

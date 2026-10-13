@@ -1,0 +1,10 @@
+parent 2 of 5055 responses; processed share 0.0%, uncached+output share 0.0%
+helper 11164 of 31844 responses; processed share 53.7%, uncached+output share 1.7%
+  child 3314 / 3416 1335 M Steps 3b and 4b post-repair rerun
+  child 2497 / 2614 1083 M Add the missing multimer term
+  child 2261 / 2443 980 M Test NUPACK threading and search width
+  child 1615 / 1779 686 M Architecture: objective and stop rule
+  child 603 / 871 235 M Diagnose NED plateau, one search intervention
+  child 319 / 498 99 M Parallelize proposal evaluation
+  child 220 / 1022 53 M Static test: is the dimer breakable
+  child 184 / 325 49 M Run O2 matched-arm pilot

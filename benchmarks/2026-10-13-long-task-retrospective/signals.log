@@ -1,0 +1,29 @@
+1bdedbac claude 7 {'status_check': 1, 'continue_no_pause': 1} {'helpers': 20, 'any_overlap': 19, 'overlap_ge3': 11}
+1ef22ddd claude 66 {'overengineering': 1, 'status_check': 3, 'continue_no_pause': 1, 'repeat_request': 4} {'helpers': 63, 'any_overlap': 63, 'overlap_ge3': 61}
+fcde68e6 claude 54 {'status_check': 10, 'repeat_request': 3, 'disagreement': 2} {'helpers': 36, 'any_overlap': 35, 'overlap_ge3': 30}
+272da152 claude 108 {'status_check': 15, 'repeat_request': 8, 'overengineering': 1, 'continue_no_pause': 2} {'helpers': 141, 'any_overlap': 139, 'overlap_ge3': 126}
+ac23eed6 claude 39 {'status_check': 2, 'overengineering': 1, 'disagreement': 1, 'repeat_request': 1} {'helpers': 0, 'any_overlap': 0, 'overlap_ge3': 0}
+bf134f2c claude 33 {'status_check': 2, 'continue_no_pause': 1, 'repeat_request': 2} {'helpers': 15, 'any_overlap': 15, 'overlap_ge3': 14}
+0f1dc278 claude 15 {'continue_no_pause': 2, 'status_check': 4} {'helpers': 0, 'any_overlap': 0, 'overlap_ge3': 0}
+01a0591d codex 29 {'status_check': 5, 'overengineering': 2, 'continue_no_pause': 1, 'repeat_request': 1}  6105 1695
+01a06010 codex 21 {'status_check': 2, 'continue_no_pause': 2, 'overengineering': 1}  5865 1055
+01a069f2 codex 18 {'overengineering': 2, 'status_check': 1, 'continue_no_pause': 2}  2412 814
+01a06a13 codex 12 {'overengineering': 1, 'status_check': 2, 'continue_no_pause': 1}  11778 5069
+01a06a15 codex 1 {'status_check': 1}  104 37
+01a07fba codex 4 {'status_check': 1, 'continue_no_pause': 1}  713 177
+01a07fbe codex 5 {'status_check': 1, 'continue_no_pause': 1}  1269 805
+01a08f22 codex 50 {'status_check': 4, 'overengineering': 2, 'continue_no_pause': 1, 'disagreement': 2, 'repeat_request': 2}  3775 1799
+01a08f31 codex 43 {'status_check': 2, 'overengineering': 3, 'continue_no_pause': 7, 'repeat_request': 1}  9206 3608
+01a092d6 codex 5 {}  151 5
+01a093b8 codex 12 {'repeat_request': 1, 'status_check': 1}  2162 633
+01a0c7b0 codex 23 {'repeat_request': 2}  691 216
+01a0c7be codex 54 {'continue_no_pause': 1, 'status_check': 1, 'repeat_request': 1}  4115 1363
+01a0caf9 codex 34 {'status_check': 2, 'continue_no_pause': 2}  1158 175
+01a0efc4 codex 55 {'continue_no_pause': 6, 'overengineering': 1, 'repeat_request': 1, 'status_check': 3}  11123 2231
+01a0f41e codex 6 {}  110 10
+01a0f499 codex 72 {'status_check': 3, 'continue_no_pause': 2, 'repeat_request': 1, 'disagreement': 1}  2081 393
+01a113d6 codex 35 {'continue_no_pause': 3, 'disagreement': 2, 'repeat_request': 1, 'status_check': 2}  1682 656
+01a121d6 codex 12 {}  170 20
+01a1248e codex 14 {'continue_no_pause': 3, 'status_check': 3, 'repeat_request': 1}  2917 753
+TOTAL {'status_check': 71, 'continue_no_pause': 40, 'overengineering': 15, 'repeat_request': 30, 'disagreement': 8} families with continue_no_pause: 19 of 27
+exit 0
