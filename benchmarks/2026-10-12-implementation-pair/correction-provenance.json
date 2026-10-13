@@ -1,0 +1,34 @@
+{
+  "archived_sources": [
+    {
+      "original_path": "../../scripts/implementation_fixture.py",
+      "archived_path": "before-corrections/implementation_fixture.py",
+      "matches_original_hash": true
+    },
+    {
+      "original_path": "../../scripts/implementation_pair.py",
+      "archived_path": "before-corrections/implementation_pair.py",
+      "matches_original_hash": true
+    },
+    {
+      "original_path": "../../tests/test_implementation_fixture.py",
+      "archived_path": "before-corrections/test_implementation_fixture.py",
+      "matches_original_hash": true
+    },
+    {
+      "original_path": "../../tests/test_implementation_pair.py",
+      "archived_path": "before-corrections/test_implementation_pair.py",
+      "matches_original_hash": true
+    },
+    {
+      "original_path": "validation-driver.py",
+      "archived_path": "before-corrections/validation-driver.py",
+      "matches_original_hash": true
+    }
+  ],
+  "frozen_initial_pair": "prepared",
+  "current_pair": "prepared-final",
+  "original_order_retained": true,
+  "initial_native_starts": 0,
+  "current_native_starts": 0
+}

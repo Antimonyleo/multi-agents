@@ -1,0 +1,9 @@
+test_duration_zero_and_units (test_public.PublicContract.test_duration_zero_and_units) ... ok
+test_invalid_duration_is_whole_input_error (test_public.PublicContract.test_invalid_duration_is_whole_input_error) ... ok
+test_largest_attempt_controls_state (test_public.PublicContract.test_largest_attempt_controls_state) ... ok
+test_unknown_is_separate_from_known_zero (test_public.PublicContract.test_unknown_is_separate_from_known_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

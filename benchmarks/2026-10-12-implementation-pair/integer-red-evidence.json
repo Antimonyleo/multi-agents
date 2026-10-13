@@ -1,0 +1,53 @@
+{
+  "source": "preserved initial offline-controls/reference/workspace",
+  "probes": [
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 9007199254740993,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/offline-controls/reference/workspace"
+      ],
+      "actual": 9007199254740992.0,
+      "returncode": 0,
+      "stdout": "9007199254740992.0\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "expected": 9007199254740993,
+      "passed": false
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 9007199254740993,
+        "unit": "s"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/offline-controls/reference/workspace"
+      ],
+      "actual": 9.007199254740992e+18,
+      "returncode": 0,
+      "stdout": "9.007199254740992e+18\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "expected": 9007199254740993000,
+      "passed": false
+    }
+  ]
+}

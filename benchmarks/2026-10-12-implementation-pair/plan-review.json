@@ -1,0 +1,8 @@
+{
+  "reviewer": "/root/compaction_review",
+  "phase": "plan",
+  "disposition": "revise accounting detail then continue offline preparation",
+  "finding": "Same-model per-model cost sum cannot prove reviewer inclusion. Reconcile owned unique response usage and terminal counters, or mark inclusion unknown and stop before arm two.",
+  "correction": "PROTOCOL.md now specifies stable response-ID deduplication, exclusion of child echoes, four-category per-model token reconciliation and unknown/stop on conflict or mismatch.",
+  "readiness_certified": false
+}

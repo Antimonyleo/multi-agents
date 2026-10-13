@@ -1,0 +1,14 @@
+{
+  "no_start_marker": true,
+  "order": [
+    "support",
+    "owner"
+  ],
+  "preflight": {
+    "errors": [],
+    "native_start_authorized": false,
+    "prepared_inputs_valid": true
+  },
+  "seal_sha256": "e4d97de7e5a3087a5112a5d89b7ca56c8138d773c8dbbcc1f08970931c1ac5b6",
+  "unapproved_launch_refusal": "new exact allocation is not approved"
+}

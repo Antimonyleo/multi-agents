@@ -1,0 +1,11 @@
+{
+  "reviewer": "/root/final_evidence_review",
+  "disposition": "revise",
+  "verified_artifacts": 91,
+  "findings": [
+    "Reference float coercion rounds integer durations despite unchanged-ms contract.",
+    "Oracle lacks exact job identity and allowed extra-key positive cases; add literal case and mutants."
+  ],
+  "launch_boundaries": "no additional blocker for explicit manual-review scope",
+  "next": "Correct targeted fixture cases, retain old evidence, validate and provide final packet."
+}

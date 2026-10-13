@@ -1,0 +1,1 @@
+Synthetic implementation evaluation only. Work in this workspace; no network, memory, scientific work, background jobs or unrelated paths. Do not read evaluator files outside the workspace. Edit only durations.py, attempts.py, report.py and receipts/. Use scientific-workflow. No nested delegation.

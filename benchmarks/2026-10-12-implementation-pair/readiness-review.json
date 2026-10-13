@@ -1,0 +1,18 @@
+{
+  "reviewer": "/root/final_evidence_review",
+  "phase": "readiness",
+  "disposition": "continue / accept readiness to request fresh allocation",
+  "remaining_blockers": [],
+  "packet": "review-packet-reconciled.json",
+  "packet_sha256": "ab916262c99a27f57a44c89a460660295d9a7ab7e2c011c8b409d0b457d36487",
+  "verified_artifacts": 187,
+  "accepted_scope": "Corrected offline preparation only;175 bound tests;65/65 reference;allocation unapproved and zero native starts.",
+  "preservation_exception": "Failed Claude-settings preservation check retained; provenance and exact field differences unknown. Both arms bind current settings. Further drift blocks launch; no equivalence to older runtime settings claimed.",
+  "continuing_requirements": [
+    "New explicit $3 nominal reported allocation with possible overshoot",
+    "Independent native reviewer inclusion and final-version binding",
+    "Independent continuation assessment before arm two",
+    "No retry, scientific resume, push or savings claim"
+  ],
+  "review_operations": "Read-only inspection and hash checks; no native calls or edits."
+}

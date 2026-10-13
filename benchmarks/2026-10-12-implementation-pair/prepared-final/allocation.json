@@ -1,0 +1,13 @@
+{
+  "approved": false,
+  "authority": null,
+  "limits": {
+    "children": 3,
+    "nominal_total_usd": 3.0,
+    "parents": 2,
+    "per_family_reported_usd": 1.5,
+    "retry": false,
+    "timeout_s": 300
+  },
+  "seal_sha256": "4a17bdccf1207eeaa3c7ed32028079272b2bc3341b5a3bdc9c9c3edee3057f5b"
+}

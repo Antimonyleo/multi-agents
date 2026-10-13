@@ -1,0 +1,30 @@
+{
+  "boundary": "Retain both hashes and the failed preservation check. Do not restore or edit global settings. Any further drift refuses launch. Fresh allocation refers only to prepared-final and its current control identity.",
+  "changed_frozen_control_fields": [
+    "native_config_sha256"
+  ],
+  "current_matches_final_pair": true,
+  "current_matches_historical_runtime_refresh": true,
+  "current_model": "opus",
+  "current_model_settings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "current_sha256": "b556b1f89acb60b68e763b54144141726ee7658e6743138c967e6aed2dfa7a8a",
+  "material_effect": "Current pair freezes identical current settings in both arms. Native file inventory/runtime version and explicit Opus/high command controls are unchanged. Other semantic differences from the earlier settings are unknown; do not claim global settings preservation or causal equivalence to older trials.",
+  "native_agent_and_skill_inventory_unchanged": true,
+  "old_sha256": "897d0f3a4e6ceefadf7740b7e685a6274d7919122beb2fdc239c22172844af18",
+  "preflight_now": {
+    "errors": [],
+    "native_start_authorized": false,
+    "prepared_inputs_valid": true
+  },
+  "prepared_final_sha256": "b556b1f89acb60b68e763b54144141726ee7658e6743138c967e6aed2dfa7a8a",
+  "provenance": "Unknown. This task issued no settings-edit command; do not attribute the change to another actor or exclude CLI side effects without evidence. Only the earlier hash was retained, so exact changed fields cannot be recovered from this baseline.",
+  "runtime_version_unchanged": true,
+  "settings_mtime_utc": "2026-10-13T04:58:08.091886+00:00"
+}

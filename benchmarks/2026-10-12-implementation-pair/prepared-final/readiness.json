@@ -1,0 +1,8 @@
+{
+  "accepted": true,
+  "reviewer": "/root/final_evidence_review",
+  "seal_sha256": "4a17bdccf1207eeaa3c7ed32028079272b2bc3341b5a3bdc9c9c3edee3057f5b",
+  "review_record": "../readiness-review.json",
+  "review_sha256": "db0637ce290f9cb8415bc7d38b0eeabf549d95f1eb73aad9d6e6f577dbf505fd",
+  "paid_start_authorized": false
+}

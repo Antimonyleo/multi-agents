@@ -1,0 +1,39 @@
+{
+  "command": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    ".",
+    ":(exclude)benchmarks/2026-10-12-implementation-pair/prepared/owner/prompt.txt",
+    ":(exclude)benchmarks/2026-10-12-implementation-pair/prepared/owner/workspace/AGENTS.md",
+    ":(exclude)benchmarks/2026-10-12-implementation-pair/prepared/support/prompt.txt",
+    ":(exclude)benchmarks/2026-10-12-implementation-pair/prepared/support/workspace/AGENTS.md"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "exceptions": [
+    {
+      "path": "benchmarks/2026-10-12-implementation-pair/prepared/owner/prompt.txt",
+      "sha256": "6880467eb8b74194c8e5de4fd09f0b8bebad035eba641bffb7abbb92acf1f4f0",
+      "reason": "One trailing space in superseded sealed input retained for original evidence identity; current preparation has no trailing space."
+    },
+    {
+      "path": "benchmarks/2026-10-12-implementation-pair/prepared/owner/workspace/AGENTS.md",
+      "sha256": "0bc46aecbc6c463c13287e2a58a01975db42a6a91b7e27e0110c2b31faab3713",
+      "reason": "One trailing space in superseded sealed input retained for original evidence identity; current preparation has no trailing space."
+    },
+    {
+      "path": "benchmarks/2026-10-12-implementation-pair/prepared/support/prompt.txt",
+      "sha256": "ec389dfd8f23c10d8aa8f6eb22448b8c21dd89b652645284d5f7732c5bdbde52",
+      "reason": "One trailing space in superseded sealed input retained for original evidence identity; current preparation has no trailing space."
+    },
+    {
+      "path": "benchmarks/2026-10-12-implementation-pair/prepared/support/workspace/AGENTS.md",
+      "sha256": "0bc46aecbc6c463c13287e2a58a01975db42a6a91b7e27e0110c2b31faab3713",
+      "reason": "One trailing space in superseded sealed input retained for original evidence identity; current preparation has no trailing space."
+    }
+  ]
+}

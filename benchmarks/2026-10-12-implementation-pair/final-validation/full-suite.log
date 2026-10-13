@@ -1,0 +1,218 @@
+test_conflicting_calls_are_not_silently_deduplicated (test_behavioral_calibration.BehavioralCaptureTest.test_conflicting_calls_are_not_silently_deduplicated) ... ok
+test_conflicting_results_and_spoofed_origins_fail_capture (test_behavioral_calibration.BehavioralCaptureTest.test_conflicting_results_and_spoofed_origins_fail_capture) ... ok
+test_correlated_results_and_child_actor_preserved (test_behavioral_calibration.BehavioralCaptureTest.test_correlated_results_and_child_actor_preserved) ... ok
+test_future_capture_uses_owned_native_calls_omitted_by_frontend (test_behavioral_calibration.BehavioralCaptureTest.test_future_capture_uses_owned_native_calls_omitted_by_frontend) ... ok
+test_native_plain_text_assignment_is_not_tool_evidence (test_behavioral_calibration.BehavioralCaptureTest.test_native_plain_text_assignment_is_not_tool_evidence) ... ok
+test_owned_calls_replace_frontend_and_preserve_denied_attempt (test_behavioral_calibration.BehavioralCaptureTest.test_owned_calls_replace_frontend_and_preserve_denied_attempt) ... ok
+test_preparation_snapshot_includes_guidance_and_skill_setup (test_behavioral_calibration.BehavioralCaptureTest.test_preparation_snapshot_includes_guidance_and_skill_setup) ... ok
+test_replay_parent_identity_is_corroborated_and_inventory_order_independent (test_behavioral_calibration.BehavioralCaptureTest.test_replay_parent_identity_is_corroborated_and_inventory_order_independent) ... ok
+test_replay_with_missing_codex_owned_record_cannot_accept (test_behavioral_calibration.BehavioralCaptureTest.test_replay_with_missing_codex_owned_record_cannot_accept) ... ok
+test_stage_requires_accepted_immediate_predecessor (test_behavioral_calibration.BehavioralCaptureTest.test_stage_requires_accepted_immediate_predecessor) ... ok
+test_supplemental_replay_preserves_original_artifacts (test_behavioral_calibration.BehavioralCaptureTest.test_supplemental_replay_preserves_original_artifacts) ... ok
+test_unlinked_wrong_role_and_nested_helpers_fail (test_behavioral_calibration.BehavioralCaptureTest.test_unlinked_wrong_role_and_nested_helpers_fail) ... ok
+test_arbitrary_javascript_missing_output_and_conflicts_remain_unknown (test_behavioral_evidence.EvidenceGrammarTests.test_arbitrary_javascript_missing_output_and_conflicts_remain_unknown) ... ok
+test_hidden_writes_substitution_and_exec_flags_never_supported (test_behavioral_evidence.EvidenceGrammarTests.test_hidden_writes_substitution_and_exec_flags_never_supported) ... ok
+test_literal_allsettled_preserves_order_and_rejected_member (test_behavioral_evidence.EvidenceGrammarTests.test_literal_allsettled_preserves_order_and_rejected_member) ... ok
+test_literal_native_command_denied_call_survives_frontend_omission (test_behavioral_evidence.EvidenceGrammarTests.test_literal_native_command_denied_call_survives_frontend_omission) ... ok
+test_literal_recovery_loop_is_bounded_and_not_evaluated (test_behavioral_evidence.EvidenceGrammarTests.test_literal_recovery_loop_is_bounded_and_not_evaluated) ... ok
+test_observed_compound_reads_and_listing_pipelines (test_behavioral_evidence.EvidenceGrammarTests.test_observed_compound_reads_and_listing_pipelines) ... ok
+test_quoted_display_metacharacters_do_not_establish_a_violation (test_behavioral_evidence.EvidenceGrammarTests.test_quoted_display_metacharacters_do_not_establish_a_violation) ... ok
+test_reads_accept_native_shapes_but_conflicted_exits_do_not (test_behavioral_evidence.EvidenceGrammarTests.test_reads_accept_native_shapes_but_conflicted_exits_do_not) ... ok
+test_real_unquoted_read_chains_remain_supported (test_behavioral_evidence.EvidenceGrammarTests.test_real_unquoted_read_chains_remain_supported) ... ok
+test_terminal_results_require_exit_and_reject_conflicts (test_behavioral_evidence.EvidenceGrammarTests.test_terminal_results_require_exit_and_reject_conflicts) ... ok
+test_comment_text_and_skipped_reads_do_not_supply_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_comment_text_and_skipped_reads_do_not_supply_evidence) ... ok
+test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown (test_behavioral_fixture.BehavioralFixtureTests.test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown) ... ok
+test_conditional_read_completion_cannot_be_masked_by_later_echo (test_behavioral_fixture.BehavioralFixtureTests.test_conditional_read_completion_cannot_be_masked_by_later_echo) ... ok
+test_diagnostics_separate_literal_mismatch_unknown_and_violation (test_behavioral_fixture.BehavioralFixtureTests.test_diagnostics_separate_literal_mismatch_unknown_and_violation) ... ok
+test_eight_unique_synthetic_cases_and_no_hidden_keys (test_behavioral_fixture.BehavioralFixtureTests.test_eight_unique_synthetic_cases_and_no_hidden_keys) ... ok
+test_evidence_requires_a_read_target_not_an_echo_or_pattern (test_behavioral_fixture.BehavioralFixtureTests.test_evidence_requires_a_read_target_not_an_echo_or_pattern) ... ok
+test_explicit_recovery_resume_stops_after_remaining_synthetic_step (test_behavioral_fixture.BehavioralFixtureTests.test_explicit_recovery_resume_stops_after_remaining_synthetic_step) ... ok
+test_future_prompts_disclose_canonical_forms_without_hidden_truth (test_behavioral_fixture.BehavioralFixtureTests.test_future_prompts_disclose_canonical_forms_without_hidden_truth) ... ok
+test_hidden_checker_requires_three_real_repairs (test_behavioral_fixture.BehavioralFixtureTests.test_hidden_checker_requires_three_real_repairs) ... ok
+test_missing_observations_unsupported_claim_and_result_failure (test_behavioral_fixture.BehavioralFixtureTests.test_missing_observations_unsupported_claim_and_result_failure) ... ok
+test_named_check_rejects_masked_pipeline_and_fake_summary (test_behavioral_fixture.BehavioralFixtureTests.test_named_check_rejects_masked_pipeline_and_fake_summary) ... ok
+test_named_check_requires_actual_command_and_success (test_behavioral_fixture.BehavioralFixtureTests.test_named_check_requires_actual_command_and_success) ... ok
+test_pause_allows_only_explicit_workflow_skill_load (test_behavioral_fixture.BehavioralFixtureTests.test_pause_allows_only_explicit_workflow_skill_load) ... ok
+test_pause_and_simulated_recovery_preserve_authority (test_behavioral_fixture.BehavioralFixtureTests.test_pause_and_simulated_recovery_preserve_authority) ... ok
+test_pause_rejects_shell_execution_hidden_after_read (test_behavioral_fixture.BehavioralFixtureTests.test_pause_rejects_shell_execution_hidden_after_read) ... ok
+test_quoted_or_escaped_separator_text_is_not_file_read_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_quoted_or_escaped_separator_text_is_not_file_read_evidence) ... ok
+test_review_reuse_stages_require_real_first_result (test_behavioral_fixture.BehavioralFixtureTests.test_review_reuse_stages_require_real_first_result) ... ok
+test_review_truth_defects_and_clean_controls_independently (test_behavioral_fixture.BehavioralFixtureTests.test_review_truth_defects_and_clean_controls_independently) ... ok
+test_routine_full_truth_ties_malformed_and_strict_types (test_behavioral_fixture.BehavioralFixtureTests.test_routine_full_truth_ties_malformed_and_strict_types) ... ok
+test_saved_receipt_source_change_and_failed_exit_stages (test_behavioral_fixture.BehavioralFixtureTests.test_saved_receipt_source_change_and_failed_exit_stages) ... ok
+test_schema_handback_is_not_check_execution (test_behavioral_fixture.BehavioralFixtureTests.test_schema_handback_is_not_check_execution) ... ok
+test_support_direct_or_one_explorer_and_precise_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_support_direct_or_one_explorer_and_precise_evidence) ... ok
+test_zero_count_headers_do_not_prove_file_content_reads (test_behavioral_fixture.BehavioralFixtureTests.test_zero_count_headers_do_not_prove_file_content_reads) ... ok
+test_actual_read_and_native_denial_verified (test_codex_permission_check.CodexPermissionTest.test_actual_read_and_native_denial_verified) ... ok
+test_altered_command_wrong_read_and_stable_duplicate (test_codex_permission_check.CodexPermissionTest.test_altered_command_wrong_read_and_stable_duplicate) ... ok
+test_boolean_return_code_is_not_success (test_codex_permission_check.CodexPermissionTest.test_boolean_return_code_is_not_success) ... ok
+test_claim_missing_read_or_unrelated_error_unverified (test_codex_permission_check.CodexPermissionTest.test_claim_missing_read_or_unrelated_error_unverified) ... ok
+test_launch_failure_has_incomplete_terminal_receipt (test_codex_permission_check.CodexPermissionTest.test_launch_failure_has_incomplete_terminal_receipt) ... ok
+test_malformed_cleanup_stays_unknown_with_terminal_receipt (test_codex_permission_check.CodexPermissionTest.test_malformed_cleanup_stays_unknown_with_terminal_receipt) ... ok
+test_malformed_post_run_data_retained_and_recorded (test_codex_permission_check.CodexPermissionTest.test_malformed_post_run_data_retained_and_recorded) ... ok
+test_native_missing_unlinked_or_conflicting_reply_is_unknown (test_codex_permission_check.CodexPermissionTest.test_native_missing_unlinked_or_conflicting_reply_is_unknown) ... ok
+test_native_text_claim_and_unsupported_wrapper_do_not_prove_denial (test_codex_permission_check.CodexPermissionTest.test_native_text_claim_and_unsupported_wrapper_do_not_prove_denial) ... ok
+test_owned_code_call_denial_missing_from_frontend_is_verified (test_codex_permission_check.CodexPermissionTest.test_owned_code_call_denial_missing_from_frontend_is_verified) ... ok
+test_parser_dependency_drift_refuses_start (test_codex_permission_check.CodexPermissionTest.test_parser_dependency_drift_refuses_start) ... ok
+test_success_duplicate_attempt_and_conflict_rejected (test_codex_permission_check.CodexPermissionTest.test_success_duplicate_attempt_and_conflict_rejected) ... ok
+test_build_metadata_and_hidden_material_separation (test_implementation_fixture.ImplementationFixtureTests.test_build_metadata_and_hidden_material_separation) ... ok
+test_correct_cli_facade_does_not_mask_broken_documented_normalize_api (test_implementation_fixture.ImplementationFixtureTests.test_correct_cli_facade_does_not_mask_broken_documented_normalize_api) ... ok
+test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output (test_implementation_fixture.ImplementationFixtureTests.test_hidden_validation_preserves_workspace_and_bool_is_not_numeric_output) ... ok
+test_import_probes_reject_output_and_stdin_consumption (test_implementation_fixture.ImplementationFixtureTests.test_import_probes_reject_output_and_stdin_consumption) ... ok
+test_independent_reference_passes_all_explicit_oracles_and_public_tests (test_implementation_fixture.ImplementationFixtureTests.test_independent_reference_passes_all_explicit_oracles_and_public_tests) ... ok
+test_initial_broken_modules_fail_public_and_hidden_checks (test_implementation_fixture.ImplementationFixtureTests.test_initial_broken_modules_fail_public_and_hidden_checks) ... ok
+test_large_integer_oracles_are_literal_and_reference_preserves_precision (test_implementation_fixture.ImplementationFixtureTests.test_large_integer_oracles_are_literal_and_reference_preserves_precision) ... ok
+test_module_mutants_fail_meaningful_hidden_cases (test_implementation_fixture.ImplementationFixtureTests.test_module_mutants_fail_meaningful_hidden_cases) ... ok
+test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace (test_implementation_fixture.ImplementationFixtureTests.test_raw_probe_receipts_preserve_evidence_and_stay_outside_workspace) ... ok
+test_authorized_fake_launch_records_terminal_without_self_accepting (test_implementation_pair.PairTests.test_authorized_fake_launch_records_terminal_without_self_accepting) ... ok
+test_budget_or_seal_changes_invalidate_allocation (test_implementation_pair.PairTests.test_budget_or_seal_changes_invalidate_allocation) ... ok
+test_corrected_preparation_can_retain_original_order (test_implementation_pair.PairTests.test_corrected_preparation_can_retain_original_order) ... ok
+test_equal_workspaces_tools_budget_and_distinct_sessions (test_implementation_pair.PairTests.test_equal_workspaces_tools_budget_and_distinct_sessions) ... ok
+test_loader_failure_leaves_terminal_and_cannot_retry (test_implementation_pair.PairTests.test_loader_failure_leaves_terminal_and_cannot_retry) ... ok
+test_readiness_is_bound_to_exact_inputs (test_implementation_pair.PairTests.test_readiness_is_bound_to_exact_inputs) ... ok
+test_repeat_and_out_of_order_refuse_before_runner (test_implementation_pair.PairTests.test_repeat_and_out_of_order_refuse_before_runner) ... ok
+test_runtime_drift (test_implementation_pair.PairTests.test_runtime_drift) ... ok
+test_second_requires_terminal_checks_and_frozen_peer_evidence (test_implementation_pair.PairTests.test_second_requires_terminal_checks_and_frozen_peer_evidence) ... ok
+test_source_prompt_and_extra_workspace_file_drift (test_implementation_pair.PairTests.test_source_prompt_and_extra_workspace_file_drift) ... ok
+test_unapproved_start_never_imports_runner (test_implementation_pair.PairTests.test_unapproved_start_never_imports_runner) ... ok
+test_aliasing_runtime_homes_is_rejected (test_install.InstallTests.test_aliasing_runtime_homes_is_rejected) ... ok
+test_backup_drift_blocks_rollback (test_install.InstallTests.test_backup_drift_blocks_rollback) ... ok
+test_both_and_idempotence (test_install.InstallTests.test_both_and_idempotence) ... ok
+test_broken_symlink_conflict_can_restore (test_install.InstallTests.test_broken_symlink_conflict_can_restore) ... ok
+test_codex_does_not_touch_claude (test_install.InstallTests.test_codex_does_not_touch_claude) ... ok
+test_codex_uninstall_requires_receipt (test_install.InstallTests.test_codex_uninstall_requires_receipt) ... ok
+test_default_claude_preserves_settings (test_install.InstallTests.test_default_claude_preserves_settings) ... ok
+test_destination_overlap_rejected (test_install.InstallTests.test_destination_overlap_rejected) ... ok
+test_drift_blocks_rollback_without_partial_restoration (test_install.InstallTests.test_drift_blocks_rollback_without_partial_restoration) ... ok
+test_dry_run_has_no_writes (test_install.InstallTests.test_dry_run_has_no_writes) ... ok
+test_failure_recovery_preserves_intervening_backup_edit (test_install.InstallTests.test_failure_recovery_preserves_intervening_backup_edit) ... failed installation preserved concurrent changes; recovery required; receipt: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-jobonbfq/state/transactions/c1ecf9c737164960a58b030b5faf63ac/receipt.json
+error: injected later failure
+ok
+test_failure_recovery_preserves_intervening_destination_edit (test_install.InstallTests.test_failure_recovery_preserves_intervening_destination_edit) ... failed installation preserved concurrent changes; recovery required; receipt: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-i69wm0fu/state/transactions/4ae74d391c3a4a07baa4ebd675eb926a/receipt.json
+error: injected later failure
+ok
+test_injected_partial_copy_failure_restores_all (test_install.InstallTests.test_injected_partial_copy_failure_restores_all) ... failed installation restored; receipt: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-3ni8ztpw/state/transactions/6cb9360531fd42b7a6ea172577057d69/receipt.json
+error: injected I/O failure
+ok
+test_late_conflict_blocks_every_destination (test_install.InstallTests.test_late_conflict_blocks_every_destination) ... ok
+test_legacy_manual_requires_codex (test_install.InstallTests.test_legacy_manual_requires_codex) ... ok
+test_migration_and_full_rollback (test_install.InstallTests.test_migration_and_full_rollback) ... ok
+test_missing_source_blocks_install (test_install.InstallTests.test_missing_source_blocks_install) ... ok
+test_parent_file_blocks_before_any_mutation (test_install.InstallTests.test_parent_file_blocks_before_any_mutation) ... ok
+test_profile_drift_is_detected (test_install.InstallTests.test_profile_drift_is_detected) ... ok
+test_rollback_does_not_remove_preexisting_matching_profiles (test_install.InstallTests.test_rollback_does_not_remove_preexisting_matching_profiles) ... ok
+test_uninstall_preserves_unrelated_files (test_install.InstallTests.test_uninstall_preserves_unrelated_files) ... ok
+test_children_never_count_as_zero (test_native_calibration.CalibrationTest.test_children_never_count_as_zero) ... ok
+test_codex_compaction_usage_kept_separate_from_event_snapshot (test_native_calibration.CalibrationTest.test_codex_compaction_usage_kept_separate_from_event_snapshot) ... ok
+test_codex_conflicting_or_invalid_compaction_usage_is_unknown (test_native_calibration.CalibrationTest.test_codex_conflicting_or_invalid_compaction_usage_is_unknown) ... ok
+test_codex_cumulative_snapshots_not_added (test_native_calibration.CalibrationTest.test_codex_cumulative_snapshots_not_added) ... ok
+test_codex_invalid_cache_write_counts_are_unknown (test_native_calibration.CalibrationTest.test_codex_invalid_cache_write_counts_are_unknown) ... ok
+test_codex_invalid_earlier_compaction_usage_stays_unknown (test_native_calibration.CalibrationTest.test_codex_invalid_earlier_compaction_usage_stays_unknown) ... ok
+test_codex_latest_invalid_record_does_not_reuse_earlier_total (test_native_calibration.CalibrationTest.test_codex_latest_invalid_record_does_not_reuse_earlier_total) ... ok
+test_codex_legacy_trace_does_not_imply_zero_compaction_cost (test_native_calibration.CalibrationTest.test_codex_legacy_trace_does_not_imply_zero_compaction_cost) ... ok
+test_codex_missing_compaction_record_is_unknown (test_native_calibration.CalibrationTest.test_codex_missing_compaction_record_is_unknown) ... ok
+test_independent_raw_truth (test_native_calibration.CalibrationTest.test_independent_raw_truth) ... ok
+test_later_fragment_completes_same_response (test_native_calibration.CalibrationTest.test_later_fragment_completes_same_response) ... ok
+test_malformed_trace_rejected (test_native_calibration.CalibrationTest.test_malformed_trace_rejected) ... ok
+test_missing_response_identity_or_usage_is_unknown (test_native_calibration.CalibrationTest.test_missing_response_identity_or_usage_is_unknown) ... ok
+test_parent_child_relationship (test_native_calibration.CalibrationTest.test_parent_child_relationship) ... ok
+test_partial_response_telemetry_never_reports_complete_total (test_native_calibration.CalibrationTest.test_partial_response_telemetry_never_reports_complete_total) ... ok
+test_prose_fixture_raw_truth (test_native_calibration.CalibrationTest.test_prose_fixture_raw_truth) ... ok
+test_repeated_message_fragments_do_not_multiply_context_or_tools (test_native_calibration.CalibrationTest.test_repeated_message_fragments_do_not_multiply_context_or_tools) ... ok
+test_sqlite_source_string_does_not_hide_child (test_native_calibration.CollectorTest.test_sqlite_source_string_does_not_hide_child) ... ok
+test_codex_pair_and_unequal_budget (test_native_calibration.PairControlTest.test_codex_pair_and_unequal_budget) ... ok
+test_command_drift_rejects_even_when_summary_fields_match (test_native_calibration.PairControlTest.test_command_drift_rejects_even_when_summary_fields_match) ... ok
+test_deployment_difference_is_declared_not_instruction_effect (test_native_calibration.PairControlTest.test_deployment_difference_is_declared_not_instruction_effect) ... ok
+test_fixture_drift_is_caught_before_inference (test_native_calibration.PairControlTest.test_fixture_drift_is_caught_before_inference) ... ok
+test_global_skill_addition_and_change_are_detected (test_native_calibration.PairControlTest.test_global_skill_addition_and_change_are_detected) ... ok
+test_identical_command_tampering_cannot_bypass_declared_controls (test_native_calibration.PairControlTest.test_identical_command_tampering_cannot_bypass_declared_controls) ... ok
+test_legacy_pair_cannot_certify_matched_routing (test_native_calibration.PairControlTest.test_legacy_pair_cannot_certify_matched_routing) ... ok
+test_new_native_agent_is_detected (test_native_calibration.PairControlTest.test_new_native_agent_is_detected) ... ok
+test_peer_missing_usage_stops_before_runner_import (test_native_calibration.PairControlTest.test_peer_missing_usage_stops_before_runner_import) ... ok
+test_prose_fixture_keeps_its_existing_reference (test_native_calibration.PairControlTest.test_prose_fixture_keeps_its_existing_reference) ... ok
+test_routing_keeps_tool_and_skill_availability_equal (test_native_calibration.PairControlTest.test_routing_keeps_tool_and_skill_availability_equal) ... ok
+test_run_requires_peer_before_importing_runner (test_native_calibration.PairControlTest.test_run_requires_peer_before_importing_runner) ... ok
+test_codex_repeated_start_conflicts_fail_boundary (test_native_reliability.BoundaryTest.test_codex_repeated_start_conflicts_fail_boundary) ... ok
+test_role_identity_unique_and_depth (test_native_reliability.BoundaryTest.test_role_identity_unique_and_depth) ... ok
+test_cross_cwd_descendants_and_missing_capture (test_native_reliability.DiscoveryTest.test_cross_cwd_descendants_and_missing_capture) ... ok
+test_non_object_jsonl_rejected (test_native_reliability.DiscoveryTest.test_non_object_jsonl_rejected) ... ok
+test_missing_malformed_duplicate_and_string_source (test_native_reliability.MissingDiscoveryTest.test_missing_malformed_duplicate_and_string_source) ... ok
+test_empty_telemetry_blocks_continuation (test_native_reliability.RunReliabilityTest.test_empty_telemetry_blocks_continuation) ... ok
+test_every_failed_peer_gate_blocks_before_import (test_native_reliability.RunReliabilityTest.test_every_failed_peer_gate_blocks_before_import) ... ok
+test_fake_runner_complete_zero_usage (test_native_reliability.RunReliabilityTest.test_fake_runner_complete_zero_usage) ... ok
+test_fake_runner_native_role_and_linkage (test_native_reliability.RunReliabilityTest.test_fake_runner_native_role_and_linkage) ... ok
+test_malformed_peer_receipt_blocks_before_import (test_native_reliability.RunReliabilityTest.test_malformed_peer_receipt_blocks_before_import) ... ok
+test_malformed_trace_leaves_incomplete_receipt (test_native_reliability.RunReliabilityTest.test_malformed_trace_leaves_incomplete_receipt) ... ok
+test_missing_child_capture_fails_native_reconciliation (test_native_reliability.RunReliabilityTest.test_missing_child_capture_fails_native_reconciliation) ... ok
+test_missing_receipt_leaves_incomplete_record (test_native_reliability.RunReliabilityTest.test_missing_receipt_leaves_incomplete_record) ... ok
+test_qualification_requires_frozen_purpose_and_one_helper (test_native_reliability.RunReliabilityTest.test_qualification_requires_frozen_purpose_and_one_helper) ... ok
+test_semantic_fixture_version_bound (test_native_reliability.RunReliabilityTest.test_semantic_fixture_version_bound) ... ok
+test_invalid_provider_counts_are_unknown (test_native_reliability.TelemetryTest.test_invalid_provider_counts_are_unknown) ... ok
+test_zero_totals_valid_and_message_completeness_separate (test_native_reliability.TelemetryTest.test_zero_totals_valid_and_message_completeness_separate) ... ok
+test_unauthorized_requested_and_observed_role (test_native_reliability.UnauthorizedRunTest.test_unauthorized_requested_and_observed_role) ... ok
+test_allowed_read_and_parent_scope_are_required (test_permission_probe.PermissionProbeTest.test_allowed_read_and_parent_scope_are_required) ... ok
+test_altered_command_and_unrelated_error_are_unknown (test_permission_probe.PermissionProbeTest.test_altered_command_and_unrelated_error_are_unknown) ... ok
+test_conflicting_call_and_duplicate_attempt_not_accepted (test_permission_probe.PermissionProbeTest.test_conflicting_call_and_duplicate_attempt_not_accepted) ... ok
+test_exact_native_denial_and_allowed_read (test_permission_probe.PermissionProbeTest.test_exact_native_denial_and_allowed_read) ... ok
+test_malformed_shapes_leave_enforcement_unknown (test_permission_probe.PermissionProbeTest.test_malformed_shapes_leave_enforcement_unknown) ... ok
+test_missing_attempt_or_model_claim_is_unknown (test_permission_probe.PermissionProbeTest.test_missing_attempt_or_model_claim_is_unknown) ... ok
+test_native_event_origin_and_read_evidence_required (test_permission_probe.PermissionProbeTest.test_native_event_origin_and_read_evidence_required) ... ok
+test_native_system_permission_notification_does_not_erase_results (test_permission_probe.PermissionProbeTest.test_native_system_permission_notification_does_not_erase_results) ... ok
+test_success_fails_even_if_final_claims_denial (test_permission_probe.PermissionProbeTest.test_success_fails_even_if_final_claims_denial) ... ok
+test_acknowledgement_does_not_certify_readiness (test_review_packet.PacketTests.test_acknowledgement_does_not_certify_readiness) ... ok
+test_bad_json_cli_reports_incomplete (test_review_packet.PacketTests.test_bad_json_cli_reports_incomplete) ... ok
+test_blocking_review_explicitly_acknowledges_missing_results (test_review_packet.PacketTests.test_blocking_review_explicitly_acknowledges_missing_results) ... ok
+test_changed_artifact_is_detected (test_review_packet.PacketTests.test_changed_artifact_is_detected) ... ok
+test_cli_is_read_only_and_returns_nonzero_for_incomplete_packet (test_review_packet.PacketTests.test_cli_is_read_only_and_returns_nonzero_for_incomplete_packet) ... ok
+test_complete_packet_binds_exact_evidence (test_review_packet.PacketTests.test_complete_packet_binds_exact_evidence) ... ok
+test_directory_cannot_be_an_artifact (test_review_packet.PacketTests.test_directory_cannot_be_an_artifact) ... ok
+test_duplicate_names_and_unknown_status_rejected (test_review_packet.PacketTests.test_duplicate_names_and_unknown_status_rejected) ... ok
+test_failure_evidence_is_complete_but_not_accepted (test_review_packet.PacketTests.test_failure_evidence_is_complete_but_not_accepted) ... ok
+test_invalid_structure_reports_errors (test_review_packet.PacketTests.test_invalid_structure_reports_errors) ... ok
+test_missing_artifact_is_detected (test_review_packet.PacketTests.test_missing_artifact_is_detected) ... ok
+test_missing_required_check_blocks_review (test_review_packet.PacketTests.test_missing_required_check_blocks_review) ... ok
+test_missing_terminal_result_blocks_completion (test_review_packet.PacketTests.test_missing_terminal_result_blocks_completion) ... ok
+test_nonstring_status_reports_error (test_review_packet.PacketTests.test_nonstring_status_reports_error) ... ok
+test_planning_does_not_require_experiment_already_run (test_review_packet.PacketTests.test_planning_does_not_require_experiment_already_run) ... ok
+test_skip_requires_reason_and_evidence (test_review_packet.PacketTests.test_skip_requires_reason_and_evidence) ... ok
+test_terminal_evidence_cannot_be_unbound_file (test_review_packet.PacketTests.test_terminal_evidence_cannot_be_unbound_file) ... ok
+test_manual_outcomes_match_executable_behavior (test_semantic_fixture.SemanticFixtureTest.test_manual_outcomes_match_executable_behavior) ... ok
+test_no_answer_key_written_to_workspace (test_semantic_fixture.SemanticFixtureTest.test_no_answer_key_written_to_workspace) ... ok
+test_wrong_unsupported_or_missing_claims_rejected (test_semantic_fixture.SemanticFixtureTest.test_wrong_unsupported_or_missing_claims_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 175 tests in 103.534s
+
+OK
+{"checks": {"answer_correct": false, "effective_permissions": false, "workspace_unchanged": true, "terminal_success": false, "capture_complete": false, "usage_present": false, "no_helpers": false, "owned_cleanup": true}, "wall_s": null, "dollar_cost": "unmeasured"}
+{"checks": {"answer_correct": false, "effective_permissions": false, "workspace_unchanged": true, "terminal_success": false, "capture_complete": false, "usage_present": false, "no_helpers": false, "owned_cleanup": false}, "wall_s": null, "dollar_cost": "unmeasured"}
+{"checks": {"answer_correct": false, "effective_permissions": false, "workspace_unchanged": true, "terminal_success": false, "capture_complete": false, "usage_present": false, "no_helpers": false, "owned_cleanup": false}, "wall_s": null, "dollar_cost": "unmeasured"}
+{"checks": {"answer_correct": false, "effective_permissions": false, "workspace_unchanged": true, "terminal_success": false, "capture_complete": false, "usage_present": false, "no_helpers": false, "owned_cleanup": true}, "wall_s": null, "dollar_cost": "unmeasured"}
+backup and install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-jobonbfq/agents/skills/scientific-workflow
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-jobonbfq/codex/agents/scientific_analyst.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-jobonbfq/codex/agents/scientific_explorer.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-jobonbfq/codex/agents/scientific_researcher.toml
+backup and install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-jobonbfq/codex/agents/scientific_reviewer.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-jobonbfq/codex/agents/scientific_worker.toml
+backup and install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-i69wm0fu/agents/skills/scientific-workflow
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-i69wm0fu/codex/agents/scientific_analyst.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-i69wm0fu/codex/agents/scientific_explorer.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-i69wm0fu/codex/agents/scientific_researcher.toml
+backup and install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-i69wm0fu/codex/agents/scientific_reviewer.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-i69wm0fu/codex/agents/scientific_worker.toml
+backup and install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-3ni8ztpw/agents/skills/scientific-workflow
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-3ni8ztpw/codex/agents/scientific_analyst.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-3ni8ztpw/codex/agents/scientific_explorer.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-3ni8ztpw/codex/agents/scientific_researcher.toml
+backup and install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-3ni8ztpw/codex/agents/scientific_reviewer.toml
+install: /home/hao/.cache/codex-scratch/task.01mj5gt7/workflow-install-test-3ni8ztpw/codex/agents/scientific_worker.toml
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpaiw2vj2p/claude-routing-inventory-baseline", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": false, "support_cap": true, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.096, "delegates": 0, "observed_models": [], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpkg80t8k6/claude-routing-inventory-baseline", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": true, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.08, "delegates": 0, "observed_models": [], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpsa_o5s4m/claude-routing-inventory-baseline", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": true, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.086, "delegates": 0, "observed_models": [], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpsa_o5s4m/claude-routing-inventory-workflow", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": true, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.078, "delegates": 0, "observed_models": [], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpacctynta/claude-routing-inventory-workflow", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": true, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.102, "delegates": 1, "observed_models": ["native-explorer-model"], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpacctynta/claude-routing-inventory-workflow", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": false, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.102, "delegates": 1, "observed_models": ["native-explorer-model"], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpeag1vr10/claude-routing-inventory-baseline", "checks": {"exact_output": false, "workspace_unchanged": true, "terminal_success": false, "usage_present": false, "support_cap": true, "cleanup_verified": true, "capture_complete": false}, "wall_s": 0.085, "delegates": 0, "observed_models": [], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpnrb4_unc/claude-routing-inventory-workflow", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": false, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.084, "delegates": 1, "observed_models": [], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpldiebmvv/claude-routing-inventory-baseline", "checks": {"exact_output": false, "workspace_unchanged": true, "terminal_success": false, "usage_present": false, "support_cap": true, "cleanup_verified": false, "capture_complete": false}, "wall_s": null, "delegates": 0, "observed_models": [], "cost_usd_reported": null}
+{"output": "/home/hao/.cache/codex-scratch/task.01mj5gt7/tmpgqa3g923/claude-routing-inventory-workflow", "checks": {"exact_output": true, "workspace_unchanged": true, "terminal_success": true, "usage_present": true, "support_cap": false, "cleanup_verified": true, "capture_complete": true}, "wall_s": 0.093, "delegates": 1, "observed_models": ["reviewer-native"], "cost_usd_reported": null}

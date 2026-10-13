@@ -1,0 +1,802 @@
+{
+  "phase": "readiness",
+  "question": "Are the corrected preservation disclosure and bound current-runtime controls sufficient for scoped readiness to request fresh allocation? Fixture/code corrections already accepted. Global Claude settings changed with unknown provenance and exact field differences; retain the failed preservation result, never restore settings. Current pair matches current config; any new drift blocks launch.",
+  "scope": "Fresh synthetic implementation pair preparation only. All 175 tests pass on final source; no live skill or native settings changes.",
+  "stop_boundary": "No paid start before new explicit $3 nominal reported allocation. No old retry, scientific resume or push. Manual accounting/native-review/continuation gates remain required.",
+  "artifacts": [
+    {
+      "path": "PROTOCOL.md",
+      "sha256": "ec881d2067d96ab71525d2c7fb3757f6298c4d430d32d6d0f4afff25e7d9c4e3"
+    },
+    {
+      "path": "before-corrections/implementation_fixture.py",
+      "sha256": "40ac0e770042c47c1270aabdeb50bc6bad1b75809330bd01776e83aa79abb240"
+    },
+    {
+      "path": "before-corrections/implementation_pair.py",
+      "sha256": "fa196720b6c5dd4679f61f76ae11deaf36b2365e3d46707471dc2c2425f6ed51"
+    },
+    {
+      "path": "before-corrections/provenance.json",
+      "sha256": "44d630f5e681cad155dae85b95be07694f79b941d8a3671cf35d71517c4d92b6"
+    },
+    {
+      "path": "before-corrections/test_implementation_fixture.py",
+      "sha256": "79cf27a25ec875d2adf426f7135f5dbd5269c0e4dd79caaa647cc3c94a8725a3"
+    },
+    {
+      "path": "before-corrections/test_implementation_pair.py",
+      "sha256": "60bae05e8817b8f352911e4405887cae8ecbb698d3e089aa22ac674e570a8d78"
+    },
+    {
+      "path": "before-corrections/validation-driver.py",
+      "sha256": "d8a956339d12a34350858446371e447398ee8f1ac3cd3eeaf14528c5cfadae44"
+    },
+    {
+      "path": "correction-provenance.json",
+      "sha256": "1d0383977034d81872a3f214fe0bb20271eed9027fa8d23be83aef4179e4be93"
+    },
+    {
+      "path": "final-validation/full-suite.log",
+      "sha256": "fe891534c1f12fd9fca64218922ac02724814cd2144325ea5189392ee05a9038"
+    },
+    {
+      "path": "final-validation/skill-structure.log",
+      "sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0"
+    },
+    {
+      "path": "final-validation/structure.log",
+      "sha256": "e2148b041b6e6b6bc092df7fe1519c7084ab18564830b808bac1a7fa6dd156a6"
+    },
+    {
+      "path": "final-validation/validation.json",
+      "sha256": "980db79b2b6a7c9b741e92be77c860490c8744714342b3e1d5b7f200728e0301"
+    },
+    {
+      "path": "full-suite.log",
+      "sha256": "68ead94ee414caebb478913e6df2e0e36de2771227743be6fc12bf4f871e30e0"
+    },
+    {
+      "path": "initial-readiness-review.json",
+      "sha256": "ec094491994431bf29eb21d19adc6b44fcd70425df72c55c137f55eec9cf6895"
+    },
+    {
+      "path": "integer-red-evidence.json",
+      "sha256": "d7b23155be5bd6a6de00778a5a5aa41e0ae7d0e5eec4cbc617fa2b454c040e83"
+    },
+    {
+      "path": "offline-controls/reference/oracle-probes.json",
+      "sha256": "3f06f3b718d34a934bcd81371621e7830564e2f74638d4ca8e67b3cd1c369d4d"
+    },
+    {
+      "path": "offline-controls/reference/public.log",
+      "sha256": "70e6e176ecc6aa62dde1e788c5f489aa593fbc6a4e6ab79af2382e1f12acc13f"
+    },
+    {
+      "path": "offline-controls/reference/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "offline-controls/reference/workspace/attempts.py",
+      "sha256": "62eae85e0c6ba702ed2c2b54e1cbce10528fd28b000ab7711655470e182770c0"
+    },
+    {
+      "path": "offline-controls/reference/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "offline-controls/reference/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "offline-controls/reference/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "offline-controls/reference/workspace/durations.py",
+      "sha256": "98cc4c3e2e0943326cce8d8b6e42e68922d8853f41752cc6dc8479974276b3d3"
+    },
+    {
+      "path": "offline-controls/reference/workspace/report.py",
+      "sha256": "c47e563332ba323b65a15fc55b07760270a4d9eb473d70cc33994cbd4f12c000"
+    },
+    {
+      "path": "offline-controls/reference/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "offline-controls/results.json",
+      "sha256": "0d89bc1956a8243a210a0425214b319ec1ea612754935e3c059929f0f57e3e19"
+    },
+    {
+      "path": "offline-controls/seeded/oracle-probes.json",
+      "sha256": "92e7469217548b2e9efd35475ffd1799f15b916eb4fad9b77fca13120f70ea86"
+    },
+    {
+      "path": "offline-controls/seeded/public.log",
+      "sha256": "a65be4531d22918b34a5e8d9885f930f085f96be625b14e26321ef2a74a23ef5"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/attempts.py",
+      "sha256": "95d8a77a4fdd4ceee54fe0d68602cca2faa3c2775d3ca96f6de25dcabf070b7e"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/durations.py",
+      "sha256": "53fbd63f3fb105585a86530ce8b15a287ca8004b40916e8644ff99fd04fa8d7d"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/report.py",
+      "sha256": "fca7811b7c832f2861afb92299f1a36e5ba7c023ae8e8a72af26abb1fd8e1892"
+    },
+    {
+      "path": "offline-controls/seeded/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "offline-controls-final/reference/oracle-probes.json",
+      "sha256": "8e2d910570a97081dace4de2bb16941c2769b0c157c122077cbe1cee008cd39e"
+    },
+    {
+      "path": "offline-controls-final/reference/public.log",
+      "sha256": "70e6e176ecc6aa62dde1e788c5f489aa593fbc6a4e6ab79af2382e1f12acc13f"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/attempts.py",
+      "sha256": "ba1d103f40078423b9538bde06c0200934598b2d43cbdf4bc28dccda2f30e22e"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/durations.py",
+      "sha256": "b2833d93add83fe2dedbcfd548b04a0208416ea6d620210cf33949e71cb835f1"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/report.py",
+      "sha256": "81bfed204d40aecc928a8194d65be9db09033b2fb0a3ddbafc7a1cadde6f3241"
+    },
+    {
+      "path": "offline-controls-final/reference/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "offline-controls-final/results.json",
+      "sha256": "e2498d67caea87302c14e21aa4158b39f624df13b281fa44161b9a0789fa50c3"
+    },
+    {
+      "path": "offline-controls-final/seeded/oracle-probes.json",
+      "sha256": "3fb251b95dde97e222b7d8ff2cc80e38a2c19b752744bb61aafa4a8fd43d4135"
+    },
+    {
+      "path": "offline-controls-final/seeded/public.log",
+      "sha256": "8c58f1b4efc6a7083d624b289534013a7f16b647d912a794eb4f08b81a0fa685"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/attempts.py",
+      "sha256": "95d8a77a4fdd4ceee54fe0d68602cca2faa3c2775d3ca96f6de25dcabf070b7e"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/durations.py",
+      "sha256": "53fbd63f3fb105585a86530ce8b15a287ca8004b40916e8644ff99fd04fa8d7d"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/report.py",
+      "sha256": "fca7811b7c832f2861afb92299f1a36e5ba7c023ae8e8a72af26abb1fd8e1892"
+    },
+    {
+      "path": "offline-controls-final/seeded/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "plan-review.json",
+      "sha256": "817dfb9a91d52683b84b81d9d4ebb10a802e7aabe77df444111386370a611a87"
+    },
+    {
+      "path": "preparation-final.json",
+      "sha256": "7472efed77f3898920c295679ca830e8880ca59bd7cdafd09b3b11d980b54d0e"
+    },
+    {
+      "path": "preparation.json",
+      "sha256": "86b2e221ee8f241a4e38367b7b29e532a5763c93463781f4f1f119f8bc4e8306"
+    },
+    {
+      "path": "prepared/allocation.json",
+      "sha256": "98c6bcc320291f56438c0806f355aece108b6f3c110622a39282b714ecdcf5be"
+    },
+    {
+      "path": "prepared/owner/manifest.json",
+      "sha256": "002fce32953c46e529052be5ac6cd0a23b452665d298d80aa190e94f5158bc23"
+    },
+    {
+      "path": "prepared/owner/prompt.txt",
+      "sha256": "6880467eb8b74194c8e5de4fd09f0b8bebad035eba641bffb7abbb92acf1f4f0"
+    },
+    {
+      "path": "prepared/owner/schema.json",
+      "sha256": "3a3e8e30b8aa0aea08115822c1811e2533bf8f5bdd8473a82b5222b35b57bb44"
+    },
+    {
+      "path": "prepared/owner/workspace/.agents/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared/owner/workspace/.agents/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared/owner/workspace/.agents/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared/owner/workspace/.agents/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared/owner/workspace/.agents/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared/owner/workspace/.agents/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared/owner/workspace/.agents/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared/owner/workspace/.claude/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared/owner/workspace/.claude/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared/owner/workspace/.claude/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared/owner/workspace/.claude/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared/owner/workspace/.claude/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared/owner/workspace/.claude/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared/owner/workspace/.claude/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared/owner/workspace/AGENTS.md",
+      "sha256": "0bc46aecbc6c463c13287e2a58a01975db42a6a91b7e27e0110c2b31faab3713"
+    },
+    {
+      "path": "prepared/owner/workspace/CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "prepared/owner/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "prepared/owner/workspace/attempts.py",
+      "sha256": "95d8a77a4fdd4ceee54fe0d68602cca2faa3c2775d3ca96f6de25dcabf070b7e"
+    },
+    {
+      "path": "prepared/owner/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "prepared/owner/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "prepared/owner/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "prepared/owner/workspace/durations.py",
+      "sha256": "53fbd63f3fb105585a86530ce8b15a287ca8004b40916e8644ff99fd04fa8d7d"
+    },
+    {
+      "path": "prepared/owner/workspace/report.py",
+      "sha256": "fca7811b7c832f2861afb92299f1a36e5ba7c023ae8e8a72af26abb1fd8e1892"
+    },
+    {
+      "path": "prepared/owner/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "prepared/seal.json",
+      "sha256": "e4d97de7e5a3087a5112a5d89b7ca56c8138d773c8dbbcc1f08970931c1ac5b6"
+    },
+    {
+      "path": "prepared/support/manifest.json",
+      "sha256": "1cd982d20a54a279d155763d1c4f484bbf6d84fc97aa275bc347c3171df7ae4f"
+    },
+    {
+      "path": "prepared/support/prompt.txt",
+      "sha256": "ec389dfd8f23c10d8aa8f6eb22448b8c21dd89b652645284d5f7732c5bdbde52"
+    },
+    {
+      "path": "prepared/support/schema.json",
+      "sha256": "3a3e8e30b8aa0aea08115822c1811e2533bf8f5bdd8473a82b5222b35b57bb44"
+    },
+    {
+      "path": "prepared/support/workspace/.agents/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared/support/workspace/.agents/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared/support/workspace/.agents/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared/support/workspace/.agents/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared/support/workspace/.agents/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared/support/workspace/.agents/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared/support/workspace/.agents/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared/support/workspace/.claude/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared/support/workspace/.claude/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared/support/workspace/.claude/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared/support/workspace/.claude/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared/support/workspace/.claude/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared/support/workspace/.claude/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared/support/workspace/.claude/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared/support/workspace/AGENTS.md",
+      "sha256": "0bc46aecbc6c463c13287e2a58a01975db42a6a91b7e27e0110c2b31faab3713"
+    },
+    {
+      "path": "prepared/support/workspace/CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "prepared/support/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "prepared/support/workspace/attempts.py",
+      "sha256": "95d8a77a4fdd4ceee54fe0d68602cca2faa3c2775d3ca96f6de25dcabf070b7e"
+    },
+    {
+      "path": "prepared/support/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "prepared/support/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "prepared/support/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "prepared/support/workspace/durations.py",
+      "sha256": "53fbd63f3fb105585a86530ce8b15a287ca8004b40916e8644ff99fd04fa8d7d"
+    },
+    {
+      "path": "prepared/support/workspace/report.py",
+      "sha256": "fca7811b7c832f2861afb92299f1a36e5ba7c023ae8e8a72af26abb1fd8e1892"
+    },
+    {
+      "path": "prepared/support/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "prepared-final/allocation.json",
+      "sha256": "16d492e6ab7139ef4771b9fc948475f19bcdd5a8d6f58872724d68d36c35fb55"
+    },
+    {
+      "path": "prepared-final/owner/manifest.json",
+      "sha256": "f657d30884fd9da84fa5c3d37a4b661d02f36cda0b27b3b9c24d34699485446e"
+    },
+    {
+      "path": "prepared-final/owner/prompt.txt",
+      "sha256": "65a919f0190704672f637609967bc751a8799efdd5c6295e24a1bdf4d7493532"
+    },
+    {
+      "path": "prepared-final/owner/schema.json",
+      "sha256": "3a3e8e30b8aa0aea08115822c1811e2533bf8f5bdd8473a82b5222b35b57bb44"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.agents/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.agents/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.agents/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.agents/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.agents/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.agents/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.agents/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.claude/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.claude/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.claude/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.claude/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.claude/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.claude/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared-final/owner/workspace/.claude/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared-final/owner/workspace/AGENTS.md",
+      "sha256": "d6e4320d6f25d6213e781ba5201a240a51e6d7cebde6de126c1cf7e45d615f54"
+    },
+    {
+      "path": "prepared-final/owner/workspace/CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "prepared-final/owner/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "prepared-final/owner/workspace/attempts.py",
+      "sha256": "95d8a77a4fdd4ceee54fe0d68602cca2faa3c2775d3ca96f6de25dcabf070b7e"
+    },
+    {
+      "path": "prepared-final/owner/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "prepared-final/owner/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "prepared-final/owner/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "prepared-final/owner/workspace/durations.py",
+      "sha256": "53fbd63f3fb105585a86530ce8b15a287ca8004b40916e8644ff99fd04fa8d7d"
+    },
+    {
+      "path": "prepared-final/owner/workspace/report.py",
+      "sha256": "fca7811b7c832f2861afb92299f1a36e5ba7c023ae8e8a72af26abb1fd8e1892"
+    },
+    {
+      "path": "prepared-final/owner/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "prepared-final/seal.json",
+      "sha256": "4a17bdccf1207eeaa3c7ed32028079272b2bc3341b5a3bdc9c9c3edee3057f5b"
+    },
+    {
+      "path": "prepared-final/support/manifest.json",
+      "sha256": "0e6e645519772bb43a2427c6d0f5372e062c3caab3069a070dde9775d24eff27"
+    },
+    {
+      "path": "prepared-final/support/prompt.txt",
+      "sha256": "dbdfd24586daa6d52cde59a51cecbe3bd90955f332d963b5550e481b80da6158"
+    },
+    {
+      "path": "prepared-final/support/schema.json",
+      "sha256": "3a3e8e30b8aa0aea08115822c1811e2533bf8f5bdd8473a82b5222b35b57bb44"
+    },
+    {
+      "path": "prepared-final/support/workspace/.agents/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared-final/support/workspace/.agents/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared-final/support/workspace/.agents/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared-final/support/workspace/.agents/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared-final/support/workspace/.agents/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared-final/support/workspace/.agents/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared-final/support/workspace/.agents/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared-final/support/workspace/.claude/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "prepared-final/support/workspace/.claude/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "prepared-final/support/workspace/.claude/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "prepared-final/support/workspace/.claude/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "prepared-final/support/workspace/.claude/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "prepared-final/support/workspace/.claude/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "prepared-final/support/workspace/.claude/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "prepared-final/support/workspace/AGENTS.md",
+      "sha256": "d6e4320d6f25d6213e781ba5201a240a51e6d7cebde6de126c1cf7e45d615f54"
+    },
+    {
+      "path": "prepared-final/support/workspace/CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "prepared-final/support/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "prepared-final/support/workspace/attempts.py",
+      "sha256": "95d8a77a4fdd4ceee54fe0d68602cca2faa3c2775d3ca96f6de25dcabf070b7e"
+    },
+    {
+      "path": "prepared-final/support/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "prepared-final/support/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "prepared-final/support/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "prepared-final/support/workspace/durations.py",
+      "sha256": "53fbd63f3fb105585a86530ce8b15a287ca8004b40916e8644ff99fd04fa8d7d"
+    },
+    {
+      "path": "prepared-final/support/workspace/report.py",
+      "sha256": "fca7811b7c832f2861afb92299f1a36e5ba7c023ae8e8a72af26abb1fd8e1892"
+    },
+    {
+      "path": "prepared-final/support/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "preservation-before.json",
+      "sha256": "d38babaf237ab795fd48dabb436945256d172a254d1ce38107816aa93ecb32fd"
+    },
+    {
+      "path": "preservation-final.json",
+      "sha256": "d6a93c2a029f797d6a3241bc59759fa46dd9dc0303b78520eaf44f8ddac7c021"
+    },
+    {
+      "path": "preservation.json",
+      "sha256": "835e7f06a2e0824693810487a172e487bcd8c4287a88b713c42286c8302c089f"
+    },
+    {
+      "path": "review-packet.json",
+      "sha256": "defde98180937870e73d169a892cda842092f5d13a2f17684a13420abd9bfaad"
+    },
+    {
+      "path": "skill-structure.log",
+      "sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0"
+    },
+    {
+      "path": "structure.log",
+      "sha256": "e2148b041b6e6b6bc092df7fe1519c7084ab18564830b808bac1a7fa6dd156a6"
+    },
+    {
+      "path": "validation-driver.py",
+      "sha256": "ca6fd4dcef4d7cf693224fbbd4ca2d3c1b36080dc311dfecc00c30c6eaeec81a"
+    },
+    {
+      "path": "validation.json",
+      "sha256": "9d1c73ddbd6aa318e08cc052cf029b0b30071297f91b5cdc9884556d1bea7057"
+    },
+    {
+      "path": "../../scripts/implementation_fixture.py",
+      "sha256": "9b3a14c44252c9f80f8ee1185f565da4b8190c9ec5de65379b2d489e6b4a85d1"
+    },
+    {
+      "path": "../../scripts/implementation_pair.py",
+      "sha256": "ec3e239551d73ce0daf0841e406b7a9c2f84ca4361bd3bf10d1aa5b2037397f1"
+    },
+    {
+      "path": "../../tests/test_implementation_fixture.py",
+      "sha256": "c3fd5c66247a9d5dcd2e33ca5b5a877df8e612f508a7775b807785caef09196c"
+    },
+    {
+      "path": "../../tests/test_implementation_pair.py",
+      "sha256": "ace703cebbeceb2d2d7a2d1546d7cba95b680bc4712ef88d14cb232a7ecdbcaa"
+    },
+    {
+      "path": "runtime-drift.json",
+      "sha256": "6c2da0b19b95a4512ba46f10e8a0b0f4c7425fce2a1f237836135fa285acf9cf"
+    },
+    {
+      "path": "settings-drift-review.json",
+      "sha256": "ebec69170b3e731137f4fb5a0c8277a3cebf1ba12b54cb234ef2cece067c10d9"
+    },
+    {
+      "path": "results-for-readiness.md",
+      "sha256": "dcdcb4f334d544400170c05eb46700ab9b87a67aa9f3979b8197d161a4d3ae82"
+    }
+  ],
+  "required_checks": [
+    "full-suite",
+    "structure",
+    "skill-structure",
+    "frozen-pair-and-allocation-refusal",
+    "fixture-reference-and-negative-controls",
+    "historical-preservation",
+    "current-runtime-binding"
+  ],
+  "checks": [
+    {
+      "name": "full-suite",
+      "status": "passed",
+      "evidence": "final-validation/validation.json"
+    },
+    {
+      "name": "structure",
+      "status": "passed",
+      "evidence": "final-validation/validation.json"
+    },
+    {
+      "name": "skill-structure",
+      "status": "passed",
+      "evidence": "final-validation/validation.json"
+    },
+    {
+      "name": "frozen-pair-and-allocation-refusal",
+      "status": "passed",
+      "evidence": "preparation-final.json"
+    },
+    {
+      "name": "fixture-reference-and-negative-controls",
+      "status": "passed",
+      "evidence": "offline-controls-final/results.json"
+    },
+    {
+      "name": "historical-preservation",
+      "status": "failed",
+      "evidence": "preservation-final.json"
+    },
+    {
+      "name": "current-runtime-binding",
+      "status": "passed",
+      "evidence": "runtime-drift.json"
+    }
+  ]
+}

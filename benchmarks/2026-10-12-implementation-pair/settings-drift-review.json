@@ -1,0 +1,10 @@
+{
+  "reviewer": "/root/final_evidence_review",
+  "phase": "correction-readiness",
+  "disposition": "revise evidence record",
+  "verified_artifacts": 184,
+  "fixture_corrections": "accepted;175 bound tests and65/65 reference probes",
+  "launch_code": "no remaining blocker for manual-review scope",
+  "blocker": "Preservation receipt reports Claude settings changed, but packet claimed passed. Retain old/new hashes and disclose provenance/material effect, then correct status.",
+  "allocation_approved": false
+}

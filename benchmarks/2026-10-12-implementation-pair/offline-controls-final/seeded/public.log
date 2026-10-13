@@ -1,0 +1,63 @@
+test_duration_zero_and_units (test_public.PublicContract.test_duration_zero_and_units) ... FAIL
+test_invalid_duration_is_whole_input_error (test_public.PublicContract.test_invalid_duration_is_whole_input_error) ... FAIL
+test_largest_attempt_controls_state (test_public.PublicContract.test_largest_attempt_controls_state) ... FAIL
+test_unknown_is_separate_from_known_zero (test_public.PublicContract.test_unknown_is_separate_from_known_zero) ... FAIL
+
+======================================================================
+FAIL: test_duration_zero_and_units (test_public.PublicContract.test_duration_zero_and_units)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/offline-controls-final/seeded/workspace/tests/test_public.py", line 7, in test_duration_zero_and_units
+    self.assertEqual(normalize({"value": 0, "unit": "ms"}), 0)
+AssertionError: None != 0
+
+======================================================================
+FAIL: test_invalid_duration_is_whole_input_error (test_public.PublicContract.test_invalid_duration_is_whole_input_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/offline-controls-final/seeded/workspace/tests/test_public.py", line 26, in test_invalid_duration_is_whole_input_error
+    self.assertEqual(generate({"attempts": [{"job": "j", "attempt": 1,
+AssertionError: {'jobs': [{'job': 'j', 'attempts': 1, 'last[254 chars]: 0}} != {'error': 'invalid_input'}
++ {'error': 'invalid_input'}
+- {'jobs': [{'attempts': 1,
+-            'duration_ms': 0.001,
+-            'job': 'j',
+-            'known_duration_ms': 0.001,
+-            'last_attempt': 1,
+-            'state': 'success',
+-            'unknown_attempts': 0}],
+-  'totals': {'duration_ms': 0.0,
+-             'failed_jobs': 0,
+-             'jobs': 1,
+-             'known_duration_ms': 0.0,
+-             'stopped_jobs': 0,
+-             'successful_jobs': 1,
+-             'unknown_attempts': 0}}
+
+======================================================================
+FAIL: test_largest_attempt_controls_state (test_public.PublicContract.test_largest_attempt_controls_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/offline-controls-final/seeded/workspace/tests/test_public.py", line 16, in test_largest_attempt_controls_state
+    self.assertEqual((row["last_attempt"], row["state"], row["attempts"]), (4, "failed", 2))
+AssertionError: Tuples differ: (2, 'success', 2) != (4, 'failed', 2)
+
+First differing element 0:
+2
+4
+
+- (2, 'success', 2)
++ (4, 'failed', 2)
+
+======================================================================
+FAIL: test_unknown_is_separate_from_known_zero (test_public.PublicContract.test_unknown_is_separate_from_known_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/offline-controls-final/seeded/workspace/tests/test_public.py", line 21, in test_unknown_is_separate_from_known_zero
+    self.assertIsNone(result["totals"]["duration_ms"])
+AssertionError: 0 is not None
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

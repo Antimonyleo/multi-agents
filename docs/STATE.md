@@ -4,10 +4,27 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-12, reviewed guidance activated; offline evaluator hardening complete and independently accepted (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-12, fresh implementation comparison preparation complete and independently accepted (branch `codex-claude-shared-workflow-20261009`; no push).
 
-Current authorized work: the user approved activation and offline evaluator
-hardening. The exact reviewed two-file candidate is live at `b1bfb74`.
+Current authorized work: complete remaining offline comparison preparation after
+activation and evaluator hardening. [Fresh preparation](../benchmarks/2026-10-12-implementation-pair/RESULTS.md)
+has 175 passing repository tests, passing structure/skill checks, retained
+65 hidden reference probes, 12 defect variants, matched frozen inputs, and a verified refusal
+of an unallocated start. Independent readiness review accepted the corrected preparation and disclosed
+Claude-settings drift. Proposed
+allocation is two sequential Claude families at $1.50 reported limit each
+($3.00 nominal, may overshoot), with the same required native reviewer in both
+arms and at most one optional explorer. No fresh paid start is approved. Old
+failed/stopped arms remain closed. Scientific pauses remain unchanged. Claude settings changed during preparation;
+provenance and exact field differences are unknown. The current pair binds the
+current hash; runtime drift is recorded and no rollback/edit was made. Codex
+config and native agent/skill file inventory remain unchanged. The current pair is `prepared-final/`; the earlier preparation is retained but
+superseded. Integer precision and exact-identity/extra-field corrections passed
+the full suite. The local preparation checkpoint includes the accepted review;
+no push. Next boundary: request that new exact allocation. No further offline
+test is planned for unchanged inputs.
+
+The prior activation and offline evaluator hardening are complete. The exact reviewed two-file candidate is live at `b1bfb74`.
 [Current results](../benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/RESULTS.md)
 record **154 repository tests passed**, followed by **45 affected tests** after
 a final zero-count read guard. Independent review exposed four defects and then

@@ -1,0 +1,67 @@
+{
+  "checks": {
+    "full-suite": {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "full-suite.log",
+      "log_sha256": "68ead94ee414caebb478913e6df2e0e36de2771227743be6fc12bf4f871e30e0",
+      "returncode": 0,
+      "wall_s": 101.95186516270041
+    },
+    "skill-structure": {
+      "command": [
+        "python",
+        "/home/hao/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skill/scientific-workflow"
+      ],
+      "log": "skill-structure.log",
+      "log_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "returncode": 0,
+      "wall_s": 0.022591973189264536
+    },
+    "structure": {
+      "command": [
+        "python",
+        "scripts/validate.py"
+      ],
+      "log": "structure.log",
+      "log_sha256": "e2148b041b6e6b6bc092df7fe1519c7084ab18564830b808bac1a7fa6dd156a6",
+      "returncode": 0,
+      "wall_s": 0.023063255939632654
+    }
+  },
+  "scratch_retained": "/home/hao/.cache/codex-scratch/task.9dwuq51d",
+  "source_sha256": {
+    "scripts/behavioral_calibration.py": "274167abe30e826075bd878f273f0a9d1f221074dd2da74314b3cb222c9553e6",
+    "scripts/behavioral_evidence.py": "dcba6b962f75df169ca287a8c037a87f0e3433691b8a6c54c9d6dc337fd8c07f",
+    "scripts/behavioral_fixture.py": "7b2c9533cdb8f78b695dd1f216f4b3c07070018c1bdc790dbef086d4403bcb85",
+    "scripts/codex_permission_check.py": "366f8979fb560abd5fc025d8030fb7b34e44a3c494e821d50cca52f873e64b11",
+    "scripts/implementation_fixture.py": "40ac0e770042c47c1270aabdeb50bc6bad1b75809330bd01776e83aa79abb240",
+    "scripts/implementation_pair.py": "fa196720b6c5dd4679f61f76ae11deaf36b2365e3d46707471dc2c2425f6ed51",
+    "scripts/install.py": "5dc60f8348b9e8f1e7c5519a85e2fd0a23325d9aefdacc8f6002777acbbe3c6b",
+    "scripts/native_calibration.py": "35b4de606e8f90100d6d98e7df435d3ca7278d905ae82f5220e1e6de97657ea4",
+    "scripts/review_packet.py": "1503858278d02c2a92c551ec186e260410d4fba009b25575dba4e2e5f510adb5",
+    "scripts/semantic_fixture.py": "531292ae0af3c4b9e3296e5837149da2ed0c3b9dd417462abb487596c35415c0",
+    "scripts/validate.py": "4d319c40a9168819099470bb45104c471ad0be9ade8924f63585cbf1780f74f9",
+    "tests/test_behavioral_calibration.py": "1ea4cacc42d0a41e0d192a33928877005ffcec23029bf58c4964cbf15a449648",
+    "tests/test_behavioral_evidence.py": "d11f0bafbf44781d0c8fe74e3e81def34e888efa980d6cae78439d978c810a02",
+    "tests/test_behavioral_fixture.py": "15ffbdc4f18dc05a311c5cdb795d0b59e270242d49ed4076af387e770a39fb46",
+    "tests/test_codex_permission_check.py": "38db0c69a42ba4b123a83ccb5cf540e04a4bb667820a4b4de5f0dc3a7f69df1e",
+    "tests/test_implementation_fixture.py": "79cf27a25ec875d2adf426f7135f5dbd5269c0e4dd79caaa647cc3c94a8725a3",
+    "tests/test_implementation_pair.py": "60bae05e8817b8f352911e4405887cae8ecbb698d3e089aa22ac674e570a8d78",
+    "tests/test_install.py": "012ed242640347b5052071d10e6effb82fd26059b2a93d8a36699c91d32d9df5",
+    "tests/test_native_calibration.py": "e6e46594e2aa3b327c393d9311d9fcb9de98d67c9793a8f14b18d2138a9f4c92",
+    "tests/test_native_reliability.py": "938e20236231bedcd6432bab2b3a3b21f809ac203ad0fe2549c0d7f4f6b384c5",
+    "tests/test_permission_probe.py": "64bdf57206319d5c256397806e4391860498e65a61c819c7ed901362ab4221e2",
+    "tests/test_review_packet.py": "0e8d7f3c346e46f43c34360f91268499836a7a58202d09d53aaf52e4e94776f9",
+    "tests/test_semantic_fixture.py": "107c99653a696639584fefc663f777d38293c1e880d7c508999121c0eef198b9"
+  },
+  "sources_unchanged": true
+}
