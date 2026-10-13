@@ -99,3 +99,29 @@ Comparisons, within each runtime only:
 - Spearman rank correlation only for groups of at least 10 labelled sessions.
   All results are descriptive leads, not tests. Claude polling is shown with
   and without `1ef22ddd`. Sessions live at freeze are flagged.
+
+## Amendment 2 (2026-10-13, before any labels): agent labelling
+
+The user asked for an independent agent team instead of manual labels.
+
+- **Labels by agents:** `outcome`, `on_track`, `rework` and `helpers_useful`.
+  Each comes with a confidence (high / medium / low) and cited evidence.
+- **Labels left to the user (optional):** `stop_wanted` and `worth_cost`.
+  They are preferences, and an agent would infer them from the same steering
+  prompts that signal 2 counts.
+- **Evidence:** one packet per session (`packets.py`). It holds the user
+  prompts, with continue and no-stop phrases redacted. It also holds the
+  agent's reports, the helper list, and the first prompts of later sessions in
+  the same project. Labellers may read the project directory and its Git
+  history, read-only, for hindsight.
+- **Blinding:** labellers may not read signal outputs or this benchmark's
+  reports. Blinding is partial: the agent's reports still show where it
+  stopped.
+- **Independence:** two Sonnet labellers code each session separately, in
+  three balanced batches.
+- **Adjudication:** one Opus reviewer resolves any label on which the two
+  labellers differ, from the same packets and both labellers' evidence.
+- **Analysis:** agreement is reported per label. The final label is the
+  agreed or adjudicated value. Any user labels override agent labels and are
+  reported separately. Comparisons follow Amendment 1 (`compare.py`), with
+  label agreement as a stated limit.
