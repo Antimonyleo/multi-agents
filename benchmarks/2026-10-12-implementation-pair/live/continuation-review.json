@@ -1,0 +1,35 @@
+{
+  "accounting": {
+    "cache_creation_input_tokens": 55907,
+    "cache_read_input_tokens": 233428,
+    "family_reported_usd": 0.8697036,
+    "input_tokens": 20,
+    "output_tokens": 20636,
+    "unique_parent_responses": 8,
+    "unique_reviewer_responses": 2,
+    "wall_s": 189.03
+  },
+  "checks": {
+    "family_inclusion": true,
+    "final_version_review_binding": true,
+    "helper_limits": true,
+    "immutable_inputs_preserved": true,
+    "native_role_identity": true,
+    "permission_boundary": true,
+    "public_check_observed": true,
+    "retrieval_replacement_assessed": true,
+    "review_completed": true,
+    "usage_present": true
+  },
+  "disposition": "stop before owner arm",
+  "measurement_valid": false,
+  "next": "Owner remains unstarted; no retry, repair, scorer change or favorable re-score. Revised comparison needs separate design and authority.",
+  "phase": "continuation",
+  "reason": "Two hidden probes impose sorted attempts.summarize output, while the disclosed sorting contract applies to report.jobs. Both observations match rows by exact job identity; report/CLI sorting passes. Frozen strict acceptance failed, but disclosed-contract failure is not established.",
+  "review_operations": "Read-only inspection and independent reconciliation; no edits, tests or native calls.",
+  "reviewer": "/root/final_evidence_review",
+  "strict_frozen_passed": 63,
+  "strict_frozen_total": 65,
+  "task_accepted": null,
+  "terminal_sha256": "cb1816b0e5f09cb7243be38c315900fced0b94208b3a0323d4e470567d1f795a"
+}

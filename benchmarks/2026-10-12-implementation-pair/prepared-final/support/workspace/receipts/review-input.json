@@ -1,0 +1,8 @@
+{
+  "sha256": {
+    "durations.py": "1b0c7f65b3120ca7da0666b060830e8325193d94caa85e5142394a01c3631eb5",
+    "attempts.py": "50a9ddf5a78bd98304571c997dc857a1089dc21d6e2bc89fad56483694b9dc90",
+    "report.py": "7691d729ce6461e6ab12616f7d1d5ecb9c50770134e1da989c056f7a511d7c83",
+    "receipts/public.log": "70e6e176ecc6aa62dde1e788c5f489aa593fbc6a4e6ab79af2382e1f12acc13f"
+  }
+}

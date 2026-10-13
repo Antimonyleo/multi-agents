@@ -1,0 +1,283 @@
+{
+  "comparisons": {
+    "claude-opus-5-5": {
+      "cache_creation_input_tokens": {
+        "matches": true,
+        "owned_sum": 55907,
+        "terminal": 55907
+      },
+      "cache_read_input_tokens": {
+        "matches": true,
+        "owned_sum": 233428,
+        "terminal": 233428
+      },
+      "input_tokens": {
+        "matches": true,
+        "owned_sum": 20,
+        "terminal": 20
+      },
+      "output_tokens": {
+        "matches": true,
+        "owned_sum": 20636,
+        "terminal": 20636
+      }
+    }
+  },
+  "cost_scope": "Native family estimate including same-model reviewer; coordinator/external assessment and billing unknown.",
+  "extraction_errors": [],
+  "family_reported_usd": 0.8697036,
+  "method": "Latest native assistant usage per stable message ID within owned thread; child stream echoes excluded. Input counters checked stable and output variants retained. Exact four-category terminal reconciliation is required, independently reviewed.",
+  "model_totals": {
+    "claude-opus-5-5": {
+      "cache_creation_input_tokens": 55907,
+      "cache_read_input_tokens": 233428,
+      "input_tokens": 20,
+      "output_tokens": 20636
+    }
+  },
+  "reconciles_exactly": true,
+  "rows": [
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 6017,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 2,
+        "output_tokens": 1177
+      },
+      "message_id": "msg_011CfyfZVLV3fWNZcaFSYDGT",
+      "model": "claude-opus-5-5",
+      "record_count": 12,
+      "thread_file": "agent-a162d765ac776365e.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 6017,
+          "cache_read_input_tokens": 0,
+          "input_tokens": 2,
+          "output_tokens": 8
+        },
+        {
+          "cache_creation_input_tokens": 6017,
+          "cache_read_input_tokens": 0,
+          "input_tokens": 2,
+          "output_tokens": 1177
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 6329,
+        "cache_read_input_tokens": 6017,
+        "input_tokens": 2,
+        "output_tokens": 8347
+      },
+      "message_id": "msg_011Cfyfa5TpfrUxQ5wWFyDx9",
+      "model": "claude-opus-5-5",
+      "record_count": 2,
+      "thread_file": "agent-a162d765ac776365e.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 6329,
+          "cache_read_input_tokens": 6017,
+          "input_tokens": 2,
+          "output_tokens": 8
+        },
+        {
+          "cache_creation_input_tokens": 6329,
+          "cache_read_input_tokens": 6017,
+          "input_tokens": 2,
+          "output_tokens": 8347
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 21537,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 2,
+        "output_tokens": 130
+      },
+      "message_id": "msg_011CfyfTEcnQFyfcRRaRJ4jy",
+      "model": "claude-opus-5-5",
+      "record_count": 3,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 21537,
+          "cache_read_input_tokens": 0,
+          "input_tokens": 2,
+          "output_tokens": 130
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 1734,
+        "cache_read_input_tokens": 21537,
+        "input_tokens": 2,
+        "output_tokens": 1287
+      },
+      "message_id": "msg_011CfyfTMzYthLJ7rigoGuU5",
+      "model": "claude-opus-5-5",
+      "record_count": 13,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 1734,
+          "cache_read_input_tokens": 21537,
+          "input_tokens": 2,
+          "output_tokens": 1287
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 7754,
+        "cache_read_input_tokens": 23271,
+        "input_tokens": 2,
+        "output_tokens": 3754
+      },
+      "message_id": "msg_011CfyfU2S5XySCBiVuUB869",
+      "model": "claude-opus-5-5",
+      "record_count": 3,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 7754,
+          "cache_read_input_tokens": 23271,
+          "input_tokens": 2,
+          "output_tokens": 3754
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 3900,
+        "cache_read_input_tokens": 31025,
+        "input_tokens": 2,
+        "output_tokens": 1625
+      },
+      "message_id": "msg_011CfyfWjWwNBNBBGQ2ZaAKh",
+      "model": "claude-opus-5-5",
+      "record_count": 5,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 3900,
+          "cache_read_input_tokens": 31025,
+          "input_tokens": 2,
+          "output_tokens": 1625
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 2014,
+        "cache_read_input_tokens": 34925,
+        "input_tokens": 2,
+        "output_tokens": 1486
+      },
+      "message_id": "msg_011CfyfXZaRQgAvTHCoJPRTV",
+      "model": "claude-opus-5-5",
+      "record_count": 3,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 2014,
+          "cache_read_input_tokens": 34925,
+          "input_tokens": 2,
+          "output_tokens": 1486
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 2401,
+        "cache_read_input_tokens": 36939,
+        "input_tokens": 2,
+        "output_tokens": 470
+      },
+      "message_id": "msg_011CfyfYZFbfhDzQbCxAMGbj",
+      "model": "claude-opus-5-5",
+      "record_count": 3,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 2401,
+          "cache_read_input_tokens": 36939,
+          "input_tokens": 2,
+          "output_tokens": 470
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 1034,
+        "cache_read_input_tokens": 39340,
+        "input_tokens": 2,
+        "output_tokens": 884
+      },
+      "message_id": "msg_011CfyfYrgr2v6mNsA95eG4y",
+      "model": "claude-opus-5-5",
+      "record_count": 1,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 1034,
+          "cache_read_input_tokens": 39340,
+          "input_tokens": 2,
+          "output_tokens": 884
+        }
+      ]
+    },
+    {
+      "final_usage": {
+        "cache_creation_input_tokens": 3187,
+        "cache_read_input_tokens": 40374,
+        "input_tokens": 2,
+        "output_tokens": 1476
+      },
+      "message_id": "msg_011Cfyfg6u44ezVnZiMLhZfo",
+      "model": "claude-opus-5-5",
+      "record_count": 2,
+      "thread_file": "parent.jsonl",
+      "usage_variants": [
+        {
+          "cache_creation_input_tokens": 3187,
+          "cache_read_input_tokens": 40374,
+          "input_tokens": 2,
+          "output_tokens": 1476
+        }
+      ]
+    }
+  ],
+  "terminal_model_usage": {
+    "claude-opus-5-5": {
+      "cacheCreationInputTokens": 55907,
+      "cacheReadInputTokens": 233428,
+      "canonicalModel": "claude-opus-5-5",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.8697036,
+      "inputTokens": 20,
+      "maxOutputTokens": 128000,
+      "outputTokens": 20636,
+      "provider": "firstParty",
+      "thinkingTokens": 10182,
+      "webSearchRequests": 0
+    }
+  },
+  "thread_totals": {
+    "agent-a162d765ac776365e.jsonl": {
+      "cache_creation_input_tokens": 12346,
+      "cache_read_input_tokens": 6017,
+      "input_tokens": 4,
+      "output_tokens": 9524
+    },
+    "parent.jsonl": {
+      "cache_creation_input_tokens": 43561,
+      "cache_read_input_tokens": 227411,
+      "input_tokens": 16,
+      "output_tokens": 11112
+    }
+  }
+}

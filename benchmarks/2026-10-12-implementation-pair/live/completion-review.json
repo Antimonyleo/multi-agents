@@ -1,0 +1,14 @@
+{
+  "accepted_scope": "Original63/65 score preserved; measurementinvalid/taskunresolved; ownerunstarted; allocationclosed; same-model native reviewer included in$0.869703600/189.030s. No new savings/default/qualification claims.",
+  "disposition": "continue / accept scoped closure",
+  "next": "Local Git checkpoint only; no further starts.",
+  "packet_sha256": "3f758436fdc47e2b70797264b1c72d5d10081c7616c34305aaa70a79395ef313",
+  "phase": "completion",
+  "remaining_blockers": [],
+  "review_operations": "Read-only checks; no edits/tests/nativecalls.",
+  "reviewer": "/root/final_evidence_review",
+  "scope_clarification": "No post-review edit/check refers to the benchmark owner. The prescribed evaluator oracle ran after native termination and did not mutate candidate files.",
+  "settings": "Both globalsettings baseline differences retained with unknownprovenance. No tasksettings-edit command or rollback; currentClaudehashmatchesactive seal.",
+  "source_validation": "Reuse unchanged175-test/structure/skill evidence; no frozen source or scorer edits.",
+  "verified_artifacts": 67
+}

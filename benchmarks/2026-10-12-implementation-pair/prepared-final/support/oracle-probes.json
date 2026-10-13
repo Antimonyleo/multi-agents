@@ -1,0 +1,3267 @@
+{
+  "checks": {
+    "empty": true,
+    "mixed_units_zero_unknown_final": true,
+    "known_retry_work": true,
+    "large_integer_ms": true,
+    "large_integer_seconds": true,
+    "exact_identity_and_ignored_keys": true,
+    "all_unknown": true,
+    "invalid_record_0": true,
+    "invalid_record_1": true,
+    "invalid_record_2": true,
+    "invalid_record_3": true,
+    "invalid_record_4": true,
+    "invalid_record_5": true,
+    "invalid_record_6": true,
+    "invalid_record_7": true,
+    "invalid_record_8": true,
+    "invalid_record_9": true,
+    "invalid_record_10": true,
+    "invalid_record_11": true,
+    "invalid_record_12": true,
+    "invalid_record_13": true,
+    "invalid_record_14": true,
+    "duplicate_identity": true,
+    "invalid_payload_0": true,
+    "invalid_payload_1": true,
+    "invalid_payload_2": true,
+    "invalid_payload_3": true,
+    "invalid_payload_4": true,
+    "invalid_json": true,
+    "normalization_overflow": true,
+    "sum_overflow": true,
+    "normalize_api_zero": true,
+    "normalize_api_fraction": true,
+    "normalize_api_seconds": true,
+    "normalize_api_unknown": true,
+    "normalize_api_large_ms": true,
+    "normalize_api_large_seconds": true,
+    "normalize_api_invalid_0": true,
+    "normalize_api_invalid_1": true,
+    "normalize_api_invalid_2": true,
+    "normalize_api_invalid_3": true,
+    "normalize_api_invalid_4": true,
+    "normalize_api_invalid_5": true,
+    "normalize_api_invalid_6": true,
+    "normalize_api_invalid_7": true,
+    "normalize_api_invalid_8": true,
+    "summarize_api_empty": true,
+    "summarize_api_mixed_units_zero_unknown_final": false,
+    "summarize_api_known_retry_work": true,
+    "summarize_api_large_integer_ms": true,
+    "summarize_api_large_integer_seconds": true,
+    "summarize_api_exact_identity_and_ignored_keys": false,
+    "summarize_api_all_unknown": true,
+    "summarize_api_duplicate": true,
+    "summarize_api_invalid": true,
+    "summarize_api_not_list": true,
+    "generate_api_empty": true,
+    "generate_api_mixed_units_zero_unknown_final": true,
+    "generate_api_known_retry_work": true,
+    "generate_api_large_integer_ms": true,
+    "generate_api_large_integer_seconds": true,
+    "generate_api_exact_identity_and_ignored_keys": true,
+    "generate_api_all_unknown": true,
+    "generate_api_invalid": true,
+    "imports_silent": true
+  },
+  "probes": [
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": []
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [],
+        "totals": {
+          "jobs": 0,
+          "successful_jobs": 0,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": 0,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [], \"totals\": {\"jobs\": 0, \"successful_jobs\": 0, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 0, \"duration_ms\": 0, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "empty",
+      "expected": {
+        "jobs": [],
+        "totals": {
+          "jobs": 0,
+          "successful_jobs": 0,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": 0,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "beta",
+            "attempt": 9,
+            "status": "failed",
+            "duration": {
+              "value": 0.125,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "alpha",
+            "attempt": 4,
+            "status": "success",
+            "duration": {
+              "value": 0.125,
+              "unit": "s"
+            }
+          },
+          {
+            "job": "beta",
+            "attempt": 2,
+            "status": "success",
+            "duration": {
+              "value": 0,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "alpha",
+            "attempt": 1,
+            "status": "failed"
+          },
+          {
+            "job": "gamma",
+            "attempt": 3,
+            "status": "stopped",
+            "duration": {
+              "value": 0,
+              "unit": "s"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "alpha",
+            "attempts": 2,
+            "last_attempt": 4,
+            "state": "success",
+            "duration_ms": null,
+            "known_duration_ms": 125.0,
+            "unknown_attempts": 1
+          },
+          {
+            "job": "beta",
+            "attempts": 2,
+            "last_attempt": 9,
+            "state": "failed",
+            "duration_ms": 0.125,
+            "known_duration_ms": 0.125,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "gamma",
+            "attempts": 1,
+            "last_attempt": 3,
+            "state": "stopped",
+            "duration_ms": 0,
+            "known_duration_ms": 0,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 3,
+          "successful_jobs": 1,
+          "failed_jobs": 1,
+          "stopped_jobs": 1,
+          "known_duration_ms": 125.125,
+          "duration_ms": null,
+          "unknown_attempts": 1
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"alpha\", \"attempts\": 2, \"last_attempt\": 4, \"state\": \"success\", \"duration_ms\": null, \"known_duration_ms\": 125.0, \"unknown_attempts\": 1}, {\"job\": \"beta\", \"attempts\": 2, \"last_attempt\": 9, \"state\": \"failed\", \"duration_ms\": 0.125, \"known_duration_ms\": 0.125, \"unknown_attempts\": 0}, {\"job\": \"gamma\", \"attempts\": 1, \"last_attempt\": 3, \"state\": \"stopped\", \"duration_ms\": 0, \"known_duration_ms\": 0, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 3, \"successful_jobs\": 1, \"failed_jobs\": 1, \"stopped_jobs\": 1, \"known_duration_ms\": 125.125, \"duration_ms\": null, \"unknown_attempts\": 1}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "mixed_units_zero_unknown_final",
+      "expected": {
+        "jobs": [
+          {
+            "job": "alpha",
+            "attempts": 2,
+            "last_attempt": 4,
+            "state": "success",
+            "duration_ms": null,
+            "known_duration_ms": 125,
+            "unknown_attempts": 1
+          },
+          {
+            "job": "beta",
+            "attempts": 2,
+            "last_attempt": 9,
+            "state": "failed",
+            "duration_ms": 0.125,
+            "known_duration_ms": 0.125,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "gamma",
+            "attempts": 1,
+            "last_attempt": 3,
+            "state": "stopped",
+            "duration_ms": 0,
+            "known_duration_ms": 0,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 3,
+          "successful_jobs": 1,
+          "failed_jobs": 1,
+          "stopped_jobs": 1,
+          "known_duration_ms": 125.125,
+          "duration_ms": null,
+          "unknown_attempts": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 7,
+            "status": "success",
+            "duration": {
+              "value": 1.5,
+              "unit": "s"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "failed",
+            "duration": {
+              "value": 25,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 7,
+            "state": "success",
+            "duration_ms": 1525.0,
+            "known_duration_ms": 1525.0,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 1525.0,
+          "duration_ms": 1525.0,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"j\", \"attempts\": 2, \"last_attempt\": 7, \"state\": \"success\", \"duration_ms\": 1525.0, \"known_duration_ms\": 1525.0, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 1525.0, \"duration_ms\": 1525.0, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "known_retry_work",
+      "expected": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 7,
+            "state": "success",
+            "duration_ms": 1525,
+            "known_duration_ms": 1525,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 1525,
+          "duration_ms": 1525,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "large",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 9007199254740993,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993,
+            "known_duration_ms": 9007199254740993,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993,
+          "duration_ms": 9007199254740993,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"large\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 9007199254740993, \"known_duration_ms\": 9007199254740993, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 9007199254740993, \"duration_ms\": 9007199254740993, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "large_integer_ms",
+      "expected": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993,
+            "known_duration_ms": 9007199254740993,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993,
+          "duration_ms": 9007199254740993,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "large",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 9007199254740993,
+              "unit": "s"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993000,
+            "known_duration_ms": 9007199254740993000,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993000,
+          "duration_ms": 9007199254740993000,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"large\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 9007199254740993000, \"known_duration_ms\": 9007199254740993000, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 9007199254740993000, \"duration_ms\": 9007199254740993000, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "large_integer_seconds",
+      "expected": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993000,
+            "known_duration_ms": 9007199254740993000,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993000,
+          "duration_ms": 9007199254740993000,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "extra_payload": "ignored",
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "extra_attempt": 7,
+            "duration": {
+              "value": 2,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": " j ",
+            "attempt": 1,
+            "status": "stopped",
+            "extra_attempt": false,
+            "duration": {
+              "value": 3,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": " j ",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "stopped",
+            "duration_ms": 3,
+            "known_duration_ms": 3,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "j",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 2,
+            "known_duration_ms": 2,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 2,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 1,
+          "known_duration_ms": 5,
+          "duration_ms": 5,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \" j \", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"stopped\", \"duration_ms\": 3, \"known_duration_ms\": 3, \"unknown_attempts\": 0}, {\"job\": \"j\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 2, \"known_duration_ms\": 2, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 2, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 1, \"known_duration_ms\": 5, \"duration_ms\": 5, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "exact_identity_and_ignored_keys",
+      "expected": {
+        "jobs": [
+          {
+            "job": " j ",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "stopped",
+            "duration_ms": 3,
+            "known_duration_ms": 3,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "j",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 2,
+            "known_duration_ms": 2,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 2,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 1,
+          "known_duration_ms": 5,
+          "duration_ms": 5,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "stopped",
+            "duration": null
+          },
+          {
+            "job": "j",
+            "attempt": 3,
+            "status": "failed"
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 3,
+            "state": "failed",
+            "duration_ms": null,
+            "known_duration_ms": 0,
+            "unknown_attempts": 2
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 0,
+          "failed_jobs": 1,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": null,
+          "unknown_attempts": 2
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"j\", \"attempts\": 2, \"last_attempt\": 3, \"state\": \"failed\", \"duration_ms\": null, \"known_duration_ms\": 0, \"unknown_attempts\": 2}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 0, \"failed_jobs\": 1, \"stopped_jobs\": 0, \"known_duration_ms\": 0, \"duration_ms\": null, \"unknown_attempts\": 2}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "all_unknown",
+      "expected": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 3,
+            "state": "failed",
+            "duration_ms": null,
+            "known_duration_ms": 0,
+            "unknown_attempts": 2
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 0,
+          "failed_jobs": 1,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": null,
+          "unknown_attempts": 2
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": true,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_0",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": -1,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_1",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": Infinity,
+              "unit": "s"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_2",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": NaN,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_3",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": "2",
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_4",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 2,
+              "unit": "MS"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_5",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": null,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_6",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 0
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_7",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms",
+              "extra": 1
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_8",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": true,
+            "status": "success"
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_9",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 0,
+            "status": "success"
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_10",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": " ",
+            "attempt": 1,
+            "status": "success"
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_11",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "pending"
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_12",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_13",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "valid",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1,
+              "unit": "ms"
+            }
+          },
+          17
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_record_14",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success"
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success"
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "duplicate_identity",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": null,
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_payload_0",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": [],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_payload_1",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {},
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_payload_2",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": null
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_payload_3",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": {}
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_payload_4",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": "{bad",
+      "raw_input": true,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "invalid_json",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1e+308,
+              "unit": "s"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalization_overflow",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "cli",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1e+308,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "k",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 1e+308,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);import runpy;runpy.run_path(sys.argv[1]+\"/report.py\",run_name=\"__main__\")",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "sum_overflow",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 0,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": 0,
+      "returncode": 0,
+      "stdout": "0\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_zero",
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 0.125,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": 0.125,
+      "returncode": 0,
+      "stdout": "0.125\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_fraction",
+      "expected": 0.125,
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 1.5,
+        "unit": "s"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": 1500.0,
+      "returncode": 0,
+      "stdout": "1500.0\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_seconds",
+      "expected": 1500,
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": null,
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": null,
+      "returncode": 0,
+      "stdout": "null\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_unknown",
+      "expected": null,
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 9007199254740993,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": 9007199254740993,
+      "returncode": 0,
+      "stdout": "9007199254740993\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_large_ms",
+      "expected": 9007199254740993,
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 9007199254740993,
+        "unit": "s"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": 9007199254740993000,
+      "returncode": 0,
+      "stdout": "9007199254740993000\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_large_seconds",
+      "expected": 9007199254740993000,
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": true,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_0",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": -1,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_1",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": Infinity,
+        "unit": "s"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_2",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": NaN,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_3",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": "2",
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_4",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 2,
+        "unit": "MS"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_5",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": null,
+        "unit": "ms"
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_6",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 0
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_7",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "durations.normalize",
+      "payload": {
+        "value": 1,
+        "unit": "ms",
+        "extra": 1
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport durations\npayload = json.load(sys.stdin)\ntry:\n    actual = durations.normalize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "normalize_api_invalid_8",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": [],
+      "returncode": 0,
+      "stdout": "[]\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_empty",
+      "expected": [],
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "beta",
+          "attempt": 9,
+          "status": "failed",
+          "duration": {
+            "value": 0.125,
+            "unit": "ms"
+          }
+        },
+        {
+          "job": "alpha",
+          "attempt": 4,
+          "status": "success",
+          "duration": {
+            "value": 0.125,
+            "unit": "s"
+          }
+        },
+        {
+          "job": "beta",
+          "attempt": 2,
+          "status": "success",
+          "duration": {
+            "value": 0,
+            "unit": "ms"
+          }
+        },
+        {
+          "job": "alpha",
+          "attempt": 1,
+          "status": "failed"
+        },
+        {
+          "job": "gamma",
+          "attempt": 3,
+          "status": "stopped",
+          "duration": {
+            "value": 0,
+            "unit": "s"
+          }
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": [
+        {
+          "job": "beta",
+          "attempts": 2,
+          "last_attempt": 9,
+          "state": "failed",
+          "duration_ms": 0.125,
+          "known_duration_ms": 0.125,
+          "unknown_attempts": 0
+        },
+        {
+          "job": "alpha",
+          "attempts": 2,
+          "last_attempt": 4,
+          "state": "success",
+          "duration_ms": null,
+          "known_duration_ms": 125.0,
+          "unknown_attempts": 1
+        },
+        {
+          "job": "gamma",
+          "attempts": 1,
+          "last_attempt": 3,
+          "state": "stopped",
+          "duration_ms": 0,
+          "known_duration_ms": 0,
+          "unknown_attempts": 0
+        }
+      ],
+      "returncode": 0,
+      "stdout": "[{\"job\": \"beta\", \"attempts\": 2, \"last_attempt\": 9, \"state\": \"failed\", \"duration_ms\": 0.125, \"known_duration_ms\": 0.125, \"unknown_attempts\": 0}, {\"job\": \"alpha\", \"attempts\": 2, \"last_attempt\": 4, \"state\": \"success\", \"duration_ms\": null, \"known_duration_ms\": 125.0, \"unknown_attempts\": 1}, {\"job\": \"gamma\", \"attempts\": 1, \"last_attempt\": 3, \"state\": \"stopped\", \"duration_ms\": 0, \"known_duration_ms\": 0, \"unknown_attempts\": 0}]\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_mixed_units_zero_unknown_final",
+      "expected": [
+        {
+          "job": "alpha",
+          "attempts": 2,
+          "last_attempt": 4,
+          "state": "success",
+          "duration_ms": null,
+          "known_duration_ms": 125,
+          "unknown_attempts": 1
+        },
+        {
+          "job": "beta",
+          "attempts": 2,
+          "last_attempt": 9,
+          "state": "failed",
+          "duration_ms": 0.125,
+          "known_duration_ms": 0.125,
+          "unknown_attempts": 0
+        },
+        {
+          "job": "gamma",
+          "attempts": 1,
+          "last_attempt": 3,
+          "state": "stopped",
+          "duration_ms": 0,
+          "known_duration_ms": 0,
+          "unknown_attempts": 0
+        }
+      ],
+      "passed": false
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "j",
+          "attempt": 7,
+          "status": "success",
+          "duration": {
+            "value": 1.5,
+            "unit": "s"
+          }
+        },
+        {
+          "job": "j",
+          "attempt": 1,
+          "status": "failed",
+          "duration": {
+            "value": 25,
+            "unit": "ms"
+          }
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": [
+        {
+          "job": "j",
+          "attempts": 2,
+          "last_attempt": 7,
+          "state": "success",
+          "duration_ms": 1525.0,
+          "known_duration_ms": 1525.0,
+          "unknown_attempts": 0
+        }
+      ],
+      "returncode": 0,
+      "stdout": "[{\"job\": \"j\", \"attempts\": 2, \"last_attempt\": 7, \"state\": \"success\", \"duration_ms\": 1525.0, \"known_duration_ms\": 1525.0, \"unknown_attempts\": 0}]\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_known_retry_work",
+      "expected": [
+        {
+          "job": "j",
+          "attempts": 2,
+          "last_attempt": 7,
+          "state": "success",
+          "duration_ms": 1525,
+          "known_duration_ms": 1525,
+          "unknown_attempts": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "large",
+          "attempt": 1,
+          "status": "success",
+          "duration": {
+            "value": 9007199254740993,
+            "unit": "ms"
+          }
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": [
+        {
+          "job": "large",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "success",
+          "duration_ms": 9007199254740993,
+          "known_duration_ms": 9007199254740993,
+          "unknown_attempts": 0
+        }
+      ],
+      "returncode": 0,
+      "stdout": "[{\"job\": \"large\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 9007199254740993, \"known_duration_ms\": 9007199254740993, \"unknown_attempts\": 0}]\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_large_integer_ms",
+      "expected": [
+        {
+          "job": "large",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "success",
+          "duration_ms": 9007199254740993,
+          "known_duration_ms": 9007199254740993,
+          "unknown_attempts": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "large",
+          "attempt": 1,
+          "status": "success",
+          "duration": {
+            "value": 9007199254740993,
+            "unit": "s"
+          }
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": [
+        {
+          "job": "large",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "success",
+          "duration_ms": 9007199254740993000,
+          "known_duration_ms": 9007199254740993000,
+          "unknown_attempts": 0
+        }
+      ],
+      "returncode": 0,
+      "stdout": "[{\"job\": \"large\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 9007199254740993000, \"known_duration_ms\": 9007199254740993000, \"unknown_attempts\": 0}]\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_large_integer_seconds",
+      "expected": [
+        {
+          "job": "large",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "success",
+          "duration_ms": 9007199254740993000,
+          "known_duration_ms": 9007199254740993000,
+          "unknown_attempts": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "j",
+          "attempt": 1,
+          "status": "success",
+          "extra_attempt": 7,
+          "duration": {
+            "value": 2,
+            "unit": "ms"
+          }
+        },
+        {
+          "job": " j ",
+          "attempt": 1,
+          "status": "stopped",
+          "extra_attempt": false,
+          "duration": {
+            "value": 3,
+            "unit": "ms"
+          }
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": [
+        {
+          "job": "j",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "success",
+          "duration_ms": 2,
+          "known_duration_ms": 2,
+          "unknown_attempts": 0
+        },
+        {
+          "job": " j ",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "stopped",
+          "duration_ms": 3,
+          "known_duration_ms": 3,
+          "unknown_attempts": 0
+        }
+      ],
+      "returncode": 0,
+      "stdout": "[{\"job\": \"j\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 2, \"known_duration_ms\": 2, \"unknown_attempts\": 0}, {\"job\": \" j \", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"stopped\", \"duration_ms\": 3, \"known_duration_ms\": 3, \"unknown_attempts\": 0}]\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_exact_identity_and_ignored_keys",
+      "expected": [
+        {
+          "job": " j ",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "stopped",
+          "duration_ms": 3,
+          "known_duration_ms": 3,
+          "unknown_attempts": 0
+        },
+        {
+          "job": "j",
+          "attempts": 1,
+          "last_attempt": 1,
+          "state": "success",
+          "duration_ms": 2,
+          "known_duration_ms": 2,
+          "unknown_attempts": 0
+        }
+      ],
+      "passed": false
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "j",
+          "attempt": 1,
+          "status": "stopped",
+          "duration": null
+        },
+        {
+          "job": "j",
+          "attempt": 3,
+          "status": "failed"
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": [
+        {
+          "job": "j",
+          "attempts": 2,
+          "last_attempt": 3,
+          "state": "failed",
+          "duration_ms": null,
+          "known_duration_ms": 0,
+          "unknown_attempts": 2
+        }
+      ],
+      "returncode": 0,
+      "stdout": "[{\"job\": \"j\", \"attempts\": 2, \"last_attempt\": 3, \"state\": \"failed\", \"duration_ms\": null, \"known_duration_ms\": 0, \"unknown_attempts\": 2}]\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_all_unknown",
+      "expected": [
+        {
+          "job": "j",
+          "attempts": 2,
+          "last_attempt": 3,
+          "state": "failed",
+          "duration_ms": null,
+          "known_duration_ms": 0,
+          "unknown_attempts": 2
+        }
+      ],
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "j",
+          "attempt": 1,
+          "status": "success"
+        },
+        {
+          "job": "j",
+          "attempt": 1,
+          "status": "success"
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_duplicate",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": [
+        {
+          "job": "j",
+          "attempt": 1,
+          "status": "success",
+          "duration": {
+            "value": true,
+            "unit": "ms"
+          }
+        }
+      ],
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_invalid",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "attempts.summarize",
+      "payload": {},
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport attempts\npayload = json.load(sys.stdin)\ntry:\n    actual = attempts.summarize(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "raised": "ValueError"
+      },
+      "returncode": 0,
+      "stdout": "{\"raised\": \"ValueError\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "summarize_api_not_list",
+      "expected": {
+        "raised": "ValueError"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "attempts": []
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [],
+        "totals": {
+          "jobs": 0,
+          "successful_jobs": 0,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": 0,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [], \"totals\": {\"jobs\": 0, \"successful_jobs\": 0, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 0, \"duration_ms\": 0, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_empty",
+      "expected": {
+        "jobs": [],
+        "totals": {
+          "jobs": 0,
+          "successful_jobs": 0,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": 0,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "attempts": [
+          {
+            "job": "beta",
+            "attempt": 9,
+            "status": "failed",
+            "duration": {
+              "value": 0.125,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "alpha",
+            "attempt": 4,
+            "status": "success",
+            "duration": {
+              "value": 0.125,
+              "unit": "s"
+            }
+          },
+          {
+            "job": "beta",
+            "attempt": 2,
+            "status": "success",
+            "duration": {
+              "value": 0,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": "alpha",
+            "attempt": 1,
+            "status": "failed"
+          },
+          {
+            "job": "gamma",
+            "attempt": 3,
+            "status": "stopped",
+            "duration": {
+              "value": 0,
+              "unit": "s"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "alpha",
+            "attempts": 2,
+            "last_attempt": 4,
+            "state": "success",
+            "duration_ms": null,
+            "known_duration_ms": 125.0,
+            "unknown_attempts": 1
+          },
+          {
+            "job": "beta",
+            "attempts": 2,
+            "last_attempt": 9,
+            "state": "failed",
+            "duration_ms": 0.125,
+            "known_duration_ms": 0.125,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "gamma",
+            "attempts": 1,
+            "last_attempt": 3,
+            "state": "stopped",
+            "duration_ms": 0,
+            "known_duration_ms": 0,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 3,
+          "successful_jobs": 1,
+          "failed_jobs": 1,
+          "stopped_jobs": 1,
+          "known_duration_ms": 125.125,
+          "duration_ms": null,
+          "unknown_attempts": 1
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"alpha\", \"attempts\": 2, \"last_attempt\": 4, \"state\": \"success\", \"duration_ms\": null, \"known_duration_ms\": 125.0, \"unknown_attempts\": 1}, {\"job\": \"beta\", \"attempts\": 2, \"last_attempt\": 9, \"state\": \"failed\", \"duration_ms\": 0.125, \"known_duration_ms\": 0.125, \"unknown_attempts\": 0}, {\"job\": \"gamma\", \"attempts\": 1, \"last_attempt\": 3, \"state\": \"stopped\", \"duration_ms\": 0, \"known_duration_ms\": 0, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 3, \"successful_jobs\": 1, \"failed_jobs\": 1, \"stopped_jobs\": 1, \"known_duration_ms\": 125.125, \"duration_ms\": null, \"unknown_attempts\": 1}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_mixed_units_zero_unknown_final",
+      "expected": {
+        "jobs": [
+          {
+            "job": "alpha",
+            "attempts": 2,
+            "last_attempt": 4,
+            "state": "success",
+            "duration_ms": null,
+            "known_duration_ms": 125,
+            "unknown_attempts": 1
+          },
+          {
+            "job": "beta",
+            "attempts": 2,
+            "last_attempt": 9,
+            "state": "failed",
+            "duration_ms": 0.125,
+            "known_duration_ms": 0.125,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "gamma",
+            "attempts": 1,
+            "last_attempt": 3,
+            "state": "stopped",
+            "duration_ms": 0,
+            "known_duration_ms": 0,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 3,
+          "successful_jobs": 1,
+          "failed_jobs": 1,
+          "stopped_jobs": 1,
+          "known_duration_ms": 125.125,
+          "duration_ms": null,
+          "unknown_attempts": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 7,
+            "status": "success",
+            "duration": {
+              "value": 1.5,
+              "unit": "s"
+            }
+          },
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "failed",
+            "duration": {
+              "value": 25,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 7,
+            "state": "success",
+            "duration_ms": 1525.0,
+            "known_duration_ms": 1525.0,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 1525.0,
+          "duration_ms": 1525.0,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"j\", \"attempts\": 2, \"last_attempt\": 7, \"state\": \"success\", \"duration_ms\": 1525.0, \"known_duration_ms\": 1525.0, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 1525.0, \"duration_ms\": 1525.0, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_known_retry_work",
+      "expected": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 7,
+            "state": "success",
+            "duration_ms": 1525,
+            "known_duration_ms": 1525,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 1525,
+          "duration_ms": 1525,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "attempts": [
+          {
+            "job": "large",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 9007199254740993,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993,
+            "known_duration_ms": 9007199254740993,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993,
+          "duration_ms": 9007199254740993,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"large\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 9007199254740993, \"known_duration_ms\": 9007199254740993, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 9007199254740993, \"duration_ms\": 9007199254740993, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_large_integer_ms",
+      "expected": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993,
+            "known_duration_ms": 9007199254740993,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993,
+          "duration_ms": 9007199254740993,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "attempts": [
+          {
+            "job": "large",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": 9007199254740993,
+              "unit": "s"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993000,
+            "known_duration_ms": 9007199254740993000,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993000,
+          "duration_ms": 9007199254740993000,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"large\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 9007199254740993000, \"known_duration_ms\": 9007199254740993000, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 0, \"known_duration_ms\": 9007199254740993000, \"duration_ms\": 9007199254740993000, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_large_integer_seconds",
+      "expected": {
+        "jobs": [
+          {
+            "job": "large",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 9007199254740993000,
+            "known_duration_ms": 9007199254740993000,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 0,
+          "known_duration_ms": 9007199254740993000,
+          "duration_ms": 9007199254740993000,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "extra_payload": "ignored",
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "extra_attempt": 7,
+            "duration": {
+              "value": 2,
+              "unit": "ms"
+            }
+          },
+          {
+            "job": " j ",
+            "attempt": 1,
+            "status": "stopped",
+            "extra_attempt": false,
+            "duration": {
+              "value": 3,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": " j ",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "stopped",
+            "duration_ms": 3,
+            "known_duration_ms": 3,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "j",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 2,
+            "known_duration_ms": 2,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 2,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 1,
+          "known_duration_ms": 5,
+          "duration_ms": 5,
+          "unknown_attempts": 0
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \" j \", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"stopped\", \"duration_ms\": 3, \"known_duration_ms\": 3, \"unknown_attempts\": 0}, {\"job\": \"j\", \"attempts\": 1, \"last_attempt\": 1, \"state\": \"success\", \"duration_ms\": 2, \"known_duration_ms\": 2, \"unknown_attempts\": 0}], \"totals\": {\"jobs\": 2, \"successful_jobs\": 1, \"failed_jobs\": 0, \"stopped_jobs\": 1, \"known_duration_ms\": 5, \"duration_ms\": 5, \"unknown_attempts\": 0}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_exact_identity_and_ignored_keys",
+      "expected": {
+        "jobs": [
+          {
+            "job": " j ",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "stopped",
+            "duration_ms": 3,
+            "known_duration_ms": 3,
+            "unknown_attempts": 0
+          },
+          {
+            "job": "j",
+            "attempts": 1,
+            "last_attempt": 1,
+            "state": "success",
+            "duration_ms": 2,
+            "known_duration_ms": 2,
+            "unknown_attempts": 0
+          }
+        ],
+        "totals": {
+          "jobs": 2,
+          "successful_jobs": 1,
+          "failed_jobs": 0,
+          "stopped_jobs": 1,
+          "known_duration_ms": 5,
+          "duration_ms": 5,
+          "unknown_attempts": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "stopped",
+            "duration": null
+          },
+          {
+            "job": "j",
+            "attempt": 3,
+            "status": "failed"
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 3,
+            "state": "failed",
+            "duration_ms": null,
+            "known_duration_ms": 0,
+            "unknown_attempts": 2
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 0,
+          "failed_jobs": 1,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": null,
+          "unknown_attempts": 2
+        }
+      },
+      "returncode": 0,
+      "stdout": "{\"jobs\": [{\"job\": \"j\", \"attempts\": 2, \"last_attempt\": 3, \"state\": \"failed\", \"duration_ms\": null, \"known_duration_ms\": 0, \"unknown_attempts\": 2}], \"totals\": {\"jobs\": 1, \"successful_jobs\": 0, \"failed_jobs\": 1, \"stopped_jobs\": 0, \"known_duration_ms\": 0, \"duration_ms\": null, \"unknown_attempts\": 2}}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_all_unknown",
+      "expected": {
+        "jobs": [
+          {
+            "job": "j",
+            "attempts": 2,
+            "last_attempt": 3,
+            "state": "failed",
+            "duration_ms": null,
+            "known_duration_ms": 0,
+            "unknown_attempts": 2
+          }
+        ],
+        "totals": {
+          "jobs": 1,
+          "successful_jobs": 0,
+          "failed_jobs": 1,
+          "stopped_jobs": 0,
+          "known_duration_ms": 0,
+          "duration_ms": null,
+          "unknown_attempts": 2
+        }
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "report.generate",
+      "payload": {
+        "attempts": [
+          {
+            "job": "j",
+            "attempt": 1,
+            "status": "success",
+            "duration": {
+              "value": true,
+              "unit": "ms"
+            }
+          }
+        ]
+      },
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nimport report\npayload = json.load(sys.stdin)\ntry:\n    actual = report.generate(payload)\nexcept ValueError:\n    actual = {\"raised\": \"ValueError\"}\nprint(json.dumps(actual, allow_nan=False))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "error": "invalid_input"
+      },
+      "returncode": 0,
+      "stdout": "{\"error\": \"invalid_input\"}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "generate_api_invalid",
+      "expected": {
+        "error": "invalid_input"
+      },
+      "passed": true
+    },
+    {
+      "entrypoint": "imports",
+      "payload": null,
+      "raw_input": false,
+      "command": [
+        "/usr/bin/python",
+        "-I",
+        "-B",
+        "-c",
+        "import sys,json;sys.path.insert(0,sys.argv[1]);\nclass ForbiddenInput:\n    def read(self, *a, **k): raise RuntimeError(\"import consumed stdin\")\n    readline = read\n    readlines = read\n    __iter__ = read\nclass ForbiddenOutput:\n    def write(self, *a, **k): raise RuntimeError(\"import emitted output\")\n    def flush(self): pass\nsaved = sys.stdin, sys.stdout, sys.stderr\nsys.stdin, sys.stdout, sys.stderr = ForbiddenInput(), ForbiddenOutput(), ForbiddenOutput()\ntry:\n    import durations, attempts, report\nfinally:\n    sys.stdin, sys.stdout, sys.stderr = saved\nprint(json.dumps({\"import_silent\": True}))\n",
+        "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-12-implementation-pair/prepared-final/support/workspace"
+      ],
+      "actual": {
+        "import_silent": true
+      },
+      "returncode": 0,
+      "stdout": "{\"import_silent\": true}\n",
+      "stderr": "",
+      "timed_out": false,
+      "error": null,
+      "name": "imports_silent",
+      "expected": {
+        "import_silent": true
+      },
+      "passed": true
+    }
+  ],
+  "limits": "Synthetic bounded software probes; no scientific or general reliability claim."
+}

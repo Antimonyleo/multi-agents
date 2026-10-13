@@ -1,0 +1,341 @@
+{
+  "phase": "completion",
+  "question": "Does this exact closure honestly preserve the invalid63/65 observation, obey planned no-retry/conditional stop, correctly account the inclusive native family, and support the recommendation without savings or quality claims? Prior continuation review found hidden API ordering undisclosed; do not re-open accepted unchanged code/capture checks absent a discrepancy.",
+  "scope": "Closure of user-approved two-family allocation: one support family ran, owner stopped, no further starts; no source/skill/native agent/settings edit or push. Final report and rolling STATE updated.",
+  "stop_boundary": "No retry, repair, favorable re-score or owner start. Any revised comparison needs its own design and authority. Preserve scientific pauses and other sessions.",
+  "artifacts": [
+    {
+      "path": "../PROTOCOL.md",
+      "sha256": "ec881d2067d96ab71525d2c7fb3757f6298c4d430d32d6d0f4afff25e7d9c4e3"
+    },
+    {
+      "path": "../final-validation/full-suite.log",
+      "sha256": "fe891534c1f12fd9fca64218922ac02724814cd2144325ea5189392ee05a9038"
+    },
+    {
+      "path": "../final-validation/skill-structure.log",
+      "sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0"
+    },
+    {
+      "path": "../final-validation/structure.log",
+      "sha256": "e2148b041b6e6b6bc092df7fe1519c7084ab18564830b808bac1a7fa6dd156a6"
+    },
+    {
+      "path": "../final-validation/validation.json",
+      "sha256": "980db79b2b6a7c9b741e92be77c860490c8744714342b3e1d5b7f200728e0301"
+    },
+    {
+      "path": "RESULTS.md",
+      "sha256": "95f8837c2d4b8cc056fca8553239e3b697f1e0fd840e473555491ef59607cbfe"
+    },
+    {
+      "path": "audit_saved.py",
+      "sha256": "10339b78106e0d82cc14535e475416a95a71e1f49ddbf4ff7f52ca605914178c"
+    },
+    {
+      "path": "authorization.json",
+      "sha256": "051609676d2af431a4aa333d32ec9188e1538a6919dcb3c97ac359e9a10a13ba"
+    },
+    {
+      "path": "closure.json",
+      "sha256": "1f021a61093bc5faba798982c6ed9f989815368cb3c9f4a39454602a7ea3be4e"
+    },
+    {
+      "path": "continuation-review.json",
+      "sha256": "3650076812f8369cfb23578fae3b9bda414b6798b2256d75922b3b2facc3e17a"
+    },
+    {
+      "path": "contract-scope-diagnosis.json",
+      "sha256": "38c268e923726370949ffce4b1acccb0e8361faa5d5b50a16d85fd33faa5513f"
+    },
+    {
+      "path": "owner-stop-verification.json",
+      "sha256": "998b5d310d1eb7355ca5767bb3f4a4d377ff877e24a04f8d6ddf98d18d925086"
+    },
+    {
+      "path": "preservation-after-support.json",
+      "sha256": "08b2711a0640ec7f161cb6806e2c4f1961c310f1100898795ad068a54b7cdda2"
+    },
+    {
+      "path": "proposed-allocation.json",
+      "sha256": "16d492e6ab7139ef4771b9fc948475f19bcdd5a8d6f58872724d68d36c35fb55"
+    },
+    {
+      "path": "support-accounting.json",
+      "sha256": "f2a8423a4868564f97577db915c99f8b75e703bc2e91e3d3c9a31669138413be"
+    },
+    {
+      "path": "support-evidence.json",
+      "sha256": "83665ce31c910a7bbf370b143c6337d53ceb20b137a85608a0afe4c9216f8929"
+    },
+    {
+      "path": "support-tools.json",
+      "sha256": "77ebaaab4a61ef098f0d74728c48d9cba4347055ac1f94bc6649877f9c87938c"
+    },
+    {
+      "path": "../prepared-final/allocation.json",
+      "sha256": "a597b813cc3aa1a53a59c485107eb89de162c055a1d83c78c9310a401e292e77"
+    },
+    {
+      "path": "../prepared-final/owner/manifest.json",
+      "sha256": "f657d30884fd9da84fa5c3d37a4b661d02f36cda0b27b3b9c24d34699485446e"
+    },
+    {
+      "path": "../prepared-final/seal.json",
+      "sha256": "4a17bdccf1207eeaa3c7ed32028079272b2bc3341b5a3bdc9c9c3edee3057f5b"
+    },
+    {
+      "path": "../prepared-final/support/children.json",
+      "sha256": "1b9f6d25da3afdacb2307b7d3a68c6790a4151ace64622752f3924a8f97ecd11"
+    },
+    {
+      "path": "../prepared-final/support/continuation.json",
+      "sha256": "3650076812f8369cfb23578fae3b9bda414b6798b2256d75922b3b2facc3e17a"
+    },
+    {
+      "path": "../prepared-final/support/execution.json",
+      "sha256": "6194b49c5dd84d2128c43f46b9c3e55bfab32b8d85033ff973be9352563709dd"
+    },
+    {
+      "path": "../prepared-final/support/manifest.json",
+      "sha256": "0e6e645519772bb43a2427c6d0f5372e062c3caab3069a070dde9775d24eff27"
+    },
+    {
+      "path": "../prepared-final/support/native/agent-a162d765ac776365e.jsonl",
+      "sha256": "798e583d1126acfb4f3a9fe5a8a74553cbcff7ff009caaca0cddc12518c9588e"
+    },
+    {
+      "path": "../prepared-final/support/native/agent-a162d765ac776365e.meta.json",
+      "sha256": "11d55bc65a4dac44ac756763154fe0dfcdf1c5f2fdfc7bf28aa2dd22178ee11d"
+    },
+    {
+      "path": "../prepared-final/support/native/parent.jsonl",
+      "sha256": "46554c2ed66372b59baaa2f3425d630f6ddd1036a12ec2fbcf7b9f637d718ed8"
+    },
+    {
+      "path": "../prepared-final/support/native_capture.json",
+      "sha256": "1aad97b08bf948574fcbd1c416fa661285b92057d2c1aa4b4da9efd04eb0f87d"
+    },
+    {
+      "path": "../prepared-final/support/oracle-probes.json",
+      "sha256": "b83bea0327b075f5d08911ac0c0d20ef89402af7bc891811f1545d032c32b592"
+    },
+    {
+      "path": "../prepared-final/support/oracle.json",
+      "sha256": "50afc47d5f2f3ace1927ca7985afc962ca929e3c5d1e6427a3630a5fbcaeffe5"
+    },
+    {
+      "path": "../prepared-final/support/prompt.txt",
+      "sha256": "dbdfd24586daa6d52cde59a51cecbe3bd90955f332d963b5550e481b80da6158"
+    },
+    {
+      "path": "../prepared-final/support/schema.json",
+      "sha256": "3a3e8e30b8aa0aea08115822c1811e2533bf8f5bdd8473a82b5222b35b57bb44"
+    },
+    {
+      "path": "../prepared-final/support/started.json",
+      "sha256": "26709ead9362a3cce05c907b9f1d47d73402b4c5d495f480055b16f971f4949b"
+    },
+    {
+      "path": "../prepared-final/support/stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "../prepared-final/support/terminal.json",
+      "sha256": "cb1816b0e5f09cb7243be38c315900fced0b94208b3a0323d4e470567d1f795a"
+    },
+    {
+      "path": "../prepared-final/support/trace.jsonl",
+      "sha256": "adfc75b8961f4f02dff76d244c0dd8497b0b5a91530d5d3f1be9f41861bec02c"
+    },
+    {
+      "path": "../prepared-final/support/usage.json",
+      "sha256": "abed36cf1c6aa80958af2f3a04a8bb890b984690194a07f3c81bab9d2021f61f"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.agents/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.agents/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.agents/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.agents/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.agents/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.agents/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.agents/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.claude/skills/scientific-workflow/SKILL.md",
+      "sha256": "b3d679bb0c1b9f5c48f87ce596e3686d0e5f99db5fc9889d73e98f80432a39ed"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.claude/skills/scientific-workflow/maintenance.md",
+      "sha256": "bae452728b9d33bdcd8346343fcb26dbead7a0527f3dee009b51f11a5e3546af"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.claude/skills/scientific-workflow/references/claude-code.md",
+      "sha256": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.claude/skills/scientific-workflow/references/codex.md",
+      "sha256": "e2b8cf625434f4bd3d0624ba405cd955c09e6a37eb1e17a5d186f3eaea946d6b"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.claude/skills/scientific-workflow/references/coordination.md",
+      "sha256": "f3c1ecf76aaa2761b894ed047fdffc89f4ef976c87bfd453c0975c9a327f8065"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.claude/skills/scientific-workflow/references/rationale.md",
+      "sha256": "724ec4e713f58b9c8174b3bdef6386d14197d12928f47560e8aa1950f294e0c5"
+    },
+    {
+      "path": "../prepared-final/support/workspace/.claude/skills/scientific-workflow/references/triggers.md",
+      "sha256": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793"
+    },
+    {
+      "path": "../prepared-final/support/workspace/AGENTS.md",
+      "sha256": "d6e4320d6f25d6213e781ba5201a240a51e6d7cebde6de126c1cf7e45d615f54"
+    },
+    {
+      "path": "../prepared-final/support/workspace/CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "../prepared-final/support/workspace/CONTRACT.md",
+      "sha256": "aaa44b2d27533a706dae2c5fa40bbc5c405feabfa0065fb081645ee179d6a551"
+    },
+    {
+      "path": "../prepared-final/support/workspace/attempts.py",
+      "sha256": "50a9ddf5a78bd98304571c997dc857a1089dc21d6e2bc89fad56483694b9dc90"
+    },
+    {
+      "path": "../prepared-final/support/workspace/docs/attempts.md",
+      "sha256": "b097ee5d36b939230e9a0fa9cc5557bd51ceec0b90ef772785e6fcf641099426"
+    },
+    {
+      "path": "../prepared-final/support/workspace/docs/durations.md",
+      "sha256": "3a28f836275fe95ba0db1707879e7105183e8fad0b6df02f8acbe274fc77d9eb"
+    },
+    {
+      "path": "../prepared-final/support/workspace/docs/report.md",
+      "sha256": "299a8d169267b8c806aa88cd61ffa1325eaa47603b316da1508d826fbe670e6d"
+    },
+    {
+      "path": "../prepared-final/support/workspace/durations.py",
+      "sha256": "1b0c7f65b3120ca7da0666b060830e8325193d94caa85e5142394a01c3631eb5"
+    },
+    {
+      "path": "../prepared-final/support/workspace/receipts/public-exit.json",
+      "sha256": "10166825210222861da08979d14c9692a7d717e3becf51a9aa1f43e47b577a41"
+    },
+    {
+      "path": "../prepared-final/support/workspace/receipts/public.log",
+      "sha256": "70e6e176ecc6aa62dde1e788c5f489aa593fbc6a4e6ab79af2382e1f12acc13f"
+    },
+    {
+      "path": "../prepared-final/support/workspace/receipts/review-input.json",
+      "sha256": "e662d65526ef3c09cee932b0bf379479f54ff84bfdb3d68d4f88db35f31f1ff0"
+    },
+    {
+      "path": "../prepared-final/support/workspace/report.py",
+      "sha256": "7691d729ce6461e6ab12616f7d1d5ecb9c50770134e1da989c056f7a511d7c83"
+    },
+    {
+      "path": "../prepared-final/support/workspace/tests/test_public.py",
+      "sha256": "1c62bf496dc7b581d78f299747f498356643b88891be84149e82d72e51a69a40"
+    },
+    {
+      "path": "../../../docs/STATE.md",
+      "sha256": "fd7ff91622774001dd00cdd6ac1b563424fa1a8b6bcf169c750ee106504153f7"
+    },
+    {
+      "path": "../../../scripts/implementation_fixture.py",
+      "sha256": "9b3a14c44252c9f80f8ee1185f565da4b8190c9ec5de65379b2d489e6b4a85d1"
+    },
+    {
+      "path": "../../../scripts/implementation_pair.py",
+      "sha256": "ec3e239551d73ce0daf0841e406b7a9c2f84ca4361bd3bf10d1aa5b2037397f1"
+    }
+  ],
+  "required_checks": [
+    "prior-source-validation",
+    "owned-terminal-cleanup",
+    "native-capture",
+    "same-model-family-accounting",
+    "public-check-and-final-review-binding",
+    "measurement-validity",
+    "owner-arm",
+    "original-settings-preservation",
+    "active-source-and-Claude-binding",
+    "allocation-closure"
+  ],
+  "checks": [
+    {
+      "name": "prior-source-validation",
+      "status": "passed",
+      "evidence": "../final-validation/validation.json"
+    },
+    {
+      "name": "owned-terminal-cleanup",
+      "status": "passed",
+      "evidence": "../prepared-final/support/execution.json"
+    },
+    {
+      "name": "native-capture",
+      "status": "passed",
+      "evidence": "../prepared-final/support/terminal.json"
+    },
+    {
+      "name": "same-model-family-accounting",
+      "status": "passed",
+      "evidence": "support-accounting.json"
+    },
+    {
+      "name": "public-check-and-final-review-binding",
+      "status": "passed",
+      "evidence": "support-evidence.json"
+    },
+    {
+      "name": "measurement-validity",
+      "status": "failed",
+      "evidence": "continuation-review.json"
+    },
+    {
+      "name": "owner-arm",
+      "status": "skipped",
+      "evidence": "owner-stop-verification.json",
+      "reason": "First measurement invalid; planned stop rule keeps owner unstarted."
+    },
+    {
+      "name": "original-settings-preservation",
+      "status": "failed",
+      "evidence": "preservation-after-support.json"
+    },
+    {
+      "name": "active-source-and-Claude-binding",
+      "status": "passed",
+      "evidence": "preservation-after-support.json"
+    },
+    {
+      "name": "allocation-closure",
+      "status": "passed",
+      "evidence": "closure.json"
+    }
+  ]
+}

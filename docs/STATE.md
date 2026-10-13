@@ -4,25 +4,38 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-12, fresh implementation comparison preparation complete and independently accepted (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-12, approved fresh implementation comparison closed on invalid first measurement (branch `codex-claude-shared-workflow-20261009`; no push).
 
-Current authorized work: complete remaining offline comparison preparation after
-activation and evaluator hardening. [Fresh preparation](../benchmarks/2026-10-12-implementation-pair/RESULTS.md)
-has 175 passing repository tests, passing structure/skill checks, retained
-65 hidden reference probes, 12 defect variants, matched frozen inputs, and a verified refusal
-of an unallocated start. Independent readiness review accepted the corrected preparation and disclosed
-Claude-settings drift. Proposed
-allocation is two sequential Claude families at $1.50 reported limit each
-($3.00 nominal, may overshoot), with the same required native reviewer in both
-arms and at most one optional explorer. No fresh paid start is approved. Old
-failed/stopped arms remain closed. Scientific pauses remain unchanged. Claude settings changed during preparation;
-provenance and exact field differences are unknown. The current pair binds the
-current hash; runtime drift is recorded and no rollback/edit was made. Codex
-config and native agent/skill file inventory remain unchanged. The current pair is `prepared-final/`; the earlier preparation is retained but
-superseded. Integer precision and exact-identity/extra-field corrections passed
-the full suite. The local preparation checkpoint includes the accepted review;
-no push. Next boundary: request that new exact allocation. No further offline
-test is planned for unchanged inputs.
+Current authorized work is terminal: [live results](../benchmarks/2026-10-12-implementation-pair/live/RESULTS.md).
+The user approved two sequential Claude families at $1.50 reported limit each
+($3 nominal, possible overshoot). Support ended in 189.030 s at reported family
+cost $0.869703600; one native Opus/high reviewer, no explorer. Public tests passed
+4/4; frozen hidden probes passed 63/65. Independent review found both failures
+require an unspecified internal `summarize` ordering; report/CLI sorting passes.
+Preserve the strict score, but do not infer a disclosed-contract defect or task
+acceptance. Measurement validity failed. The owner arm stopped without a start;
+no retry, repair, changed scorer or favorable re-score. All ten capture/accounting,
+review, scope and input checks passed. Independent response-ID reconciliation
+includes the same-model reviewer. Complete project cost remains unknown.
+
+[Closure](../benchmarks/2026-10-12-implementation-pair/live/closure.json) records
+one of two parent starts and one of three possible helper starts. No additional
+start is authorized; unused limits cannot fund a retry. Original model outputs,
+checker receipts and frozen preparations remain preserved. Source identities and
+all 1,185 earlier benchmark files are unchanged. Claude config matches the active
+seal. Both global settings files differ from the original preparation baseline;
+provenance/field differences are unknown, with no rollback or task settings edit.
+Codex config drift is newly recorded and is outside matched Claude controls.
+Scientific pauses remain closed.
+
+The 175-test offline preparation, required structure/skill checks and independent
+readiness were completed at `4348991`; reuse those unchanged source checks.
+Final closure evidence review and the local checkpoint finish this allocation.
+No paid comparison remains pending. A revised comparison needs separate design
+and authority. Practical recommendation stays one capable dependent owner,
+useful independent support and consequential review; hidden checks must bind to
+explicit requirements at the exact API boundary. No savings/default-change or
+general reliability claim.
 
 The prior activation and offline evaluator hardening are complete. The exact reviewed two-file candidate is live at `b1bfb74`.
 [Current results](../benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/RESULTS.md)

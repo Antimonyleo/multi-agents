@@ -1,6 +1,12 @@
 {
-  "approved": false,
-  "authority": null,
+  "approved": true,
+  "authority": {
+    "context": "Response to explicit request approving two $1.50 CLI reported family limits ($3 nominal total), possible overshoot, unmetered external coordination/review cost.",
+    "preparation_checkpoint": "4348991",
+    "recorded_utc": "2026-10-13T05:12:53.356020+00:00",
+    "scope": "prepared-final only; support then owner; no retry/reverse or scientific work",
+    "user_message": "go ahead"
+  },
   "limits": {
     "children": 3,
     "nominal_total_usd": 3.0,

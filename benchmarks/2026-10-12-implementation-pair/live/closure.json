@@ -1,0 +1,21 @@
+{
+  "additional_start_authorized": false,
+  "authority": "New user go ahead approval recorded in authorization.json; original limits retained.",
+  "child_limit": 3,
+  "child_starts": 1,
+  "coordinator_external_review_cost": "unknown",
+  "family_reported_usd": 0.8697036,
+  "nominal_approved_usd": 3.0,
+  "owner": "stopped_without_start",
+  "parent_limit": 2,
+  "parent_starts": 1,
+  "push": false,
+  "recorded_utc": "2026-10-13T05:23:12.840679+00:00",
+  "retry": false,
+  "scientific_execution": false,
+  "status": "closed_invalid_measurement",
+  "strict_frozen_score": "63/65",
+  "support": "terminal_invalid_measurement",
+  "task_acceptance": "unresolved",
+  "unused_limits_are_retry_authority": false
+}

@@ -1,15 +1,37 @@
 import json
 import sys
 from attempts import summarize
+from durations import exact_sum
+
+INVALID = {"error": "invalid_input"}
+
 
 def generate(payload):
-    rows = summarize(payload["attempts"])
-    total = round(sum(row["known_duration_ms"] for row in rows), 2)
+    try:
+        if not isinstance(payload, dict) or "attempts" not in payload:
+            raise ValueError("invalid payload")
+        rows = sorted(summarize(payload["attempts"]), key=lambda row: row["job"])
+        known = exact_sum(row["known_duration_ms"] for row in rows)
+    except ValueError:
+        return dict(INVALID)
+    unknown = sum(row["unknown_attempts"] for row in rows)
     return {"jobs": rows, "totals": {"jobs": len(rows),
-        "successful_jobs": sum(row["state"] == "success" for row in rows),
-        "failed_jobs": sum(row["state"] == "failed" for row in rows),
-        "stopped_jobs": sum(row["state"] == "stopped" for row in rows),
-        "known_duration_ms": total, "duration_ms": total, "unknown_attempts": 0}}
+        "successful_jobs": sum(1 for row in rows if row["state"] == "success"),
+        "failed_jobs": sum(1 for row in rows if row["state"] == "failed"),
+        "stopped_jobs": sum(1 for row in rows if row["state"] == "stopped"),
+        "known_duration_ms": known, "duration_ms": known if unknown == 0 else None,
+        "unknown_attempts": unknown}}
+
+
+def main():
+    try:
+        payload = json.loads(sys.stdin.buffer.read())
+    except (ValueError, RecursionError):
+        result = dict(INVALID)
+    else:
+        result = generate(payload)
+    sys.stdout.write(json.dumps(result) + "\n")
+
 
 if __name__ == "__main__":
-    print(json.dumps(generate(json.load(sys.stdin))))
+    main()

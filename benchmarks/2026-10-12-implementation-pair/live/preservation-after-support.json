@@ -1,0 +1,13 @@
+{
+  "historical_files_checked": 1185,
+  "changes_from_original_preservation_baseline": [
+    "/home/hao/.claude/settings.json",
+    "/home/hao/.codex/config.toml"
+  ],
+  "frozen_source_changes": [],
+  "current_config_matches_active_seal": true,
+  "current_config_sha256": "b556b1f89acb60b68e763b54144141726ee7658e6743138c967e6aed2dfa7a8a",
+  "interpretation": "All1185 historical benchmark files unchanged; frozen source and currentClaudeconfig match active seal. Originalsettingsbaseline differs forClaude(recorded earlier) and nowCodex. No settings-edit command issued by this task; provenance and exact field differences unknown. Do not restore settings or claim globalpreservation.",
+  "codex_baseline_sha256": "40649a2d1d5c168b31d2cabda1e34ca8faf53d8c3a2f23578268029a3ad89061",
+  "codex_current_sha256": "ebe90051d6817d220f76c0806b855906d8364065dab127f2190fe365e6ab7e75"
+}

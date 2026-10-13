@@ -1,0 +1,21 @@
+{
+  "approved": true,
+  "approved_allocation_sha256": "a597b813cc3aa1a53a59c485107eb89de162c055a1d83c78c9310a401e292e77",
+  "authority": {
+    "context": "Response to explicit request approving two $1.50 CLI reported family limits ($3 nominal total), possible overshoot, unmetered external coordination/review cost.",
+    "preparation_checkpoint": "4348991",
+    "recorded_utc": "2026-10-13T05:12:53.356020+00:00",
+    "scope": "prepared-final only; support then owner; no retry/reverse or scientific work",
+    "user_message": "go ahead"
+  },
+  "limits": {
+    "children": 3,
+    "nominal_total_usd": 3.0,
+    "parents": 2,
+    "per_family_reported_usd": 1.5,
+    "retry": false,
+    "timeout_s": 300
+  },
+  "proposed_allocation_sha256": "16d492e6ab7139ef4771b9fc948475f19bcdd5a8d6f58872724d68d36c35fb55",
+  "seal_sha256": "4a17bdccf1207eeaa3c7ed32028079272b2bc3341b5a3bdc9c9c3edee3057f5b"
+}

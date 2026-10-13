@@ -1,0 +1,24 @@
+{
+  "strict_frozen_score": "63/65",
+  "diagnostic_checks": [
+    {
+      "name": "summarize_api_mixed_units_zero_unknown_final",
+      "entrypoint": "attempts.summarize",
+      "raw_frozen_passed": false,
+      "rows_match_by_exact_job_identity": true,
+      "ordering_requirement_source": "docs/report.md R1 specifies result.jobs; CONTRACT.md and docs/attempts.md do not explicitly require attempts.summarize ordering.",
+      "use": "Supplemental contract-scope diagnosis only; frozen oracle score unchanged."
+    },
+    {
+      "name": "summarize_api_exact_identity_and_ignored_keys",
+      "entrypoint": "attempts.summarize",
+      "raw_frozen_passed": false,
+      "rows_match_by_exact_job_identity": true,
+      "ordering_requirement_source": "docs/report.md R1 specifies result.jobs; CONTRACT.md and docs/attempts.md do not explicitly require attempts.summarize ordering.",
+      "use": "Supplemental contract-scope diagnosis only; frozen oracle score unchanged."
+    }
+  ],
+  "scorer_changed": false,
+  "candidate_changed": false,
+  "rerun_or_retry": false
+}

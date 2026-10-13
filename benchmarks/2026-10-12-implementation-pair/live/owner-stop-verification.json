@@ -1,0 +1,6 @@
+{
+  "launch_refused": "peer continuation is not independently accepted",
+  "owner_start_marker_absent": true,
+  "support_terminal_sha256": "cb1816b0e5f09cb7243be38c315900fced0b94208b3a0323d4e470567d1f795a",
+  "continuation_sha256": "3650076812f8369cfb23578fae3b9bda414b6798b2256d75922b3b2facc3e17a"
+}
