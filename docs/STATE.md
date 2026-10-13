@@ -4,14 +4,22 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-12, reviewed receipt/acceptance guidance activated; offline evaluator hardening in progress (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-12, reviewed guidance activated; offline evaluator hardening complete and independently accepted (branch `codex-claude-shared-workflow-20261009`; no push).
 
-Current authorized work: user approved the recommended activation and offline
-evaluator hardening. The exact reviewed two-file candidate is now live. Current
-phase evidence is [offline-hardening-2026-10-12](../benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/).
-Finish affected/full checks, installed-link/instruction checks, independent
-completion review and separate local checkpoints. No new paid benchmark is
-allocated. Earlier live results below remain historical and unchanged.
+Current authorized work: the user approved activation and offline evaluator
+hardening. The exact reviewed two-file candidate is live at `b1bfb74`.
+[Current results](../benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/RESULTS.md)
+record **154 repository tests passed**, followed by **45 affected tests** after
+a final zero-count read guard. Independent review exposed four defects and then
+one zero-count edge case; six regressions reproduced the failures. The corrections cover
+quoted/comment separators, compound-read completion, owned native capture and
+paused-dispatch classification. Earlier test/replay versions are preserved.
+Installed destinations, structure, skill and instruction health pass. Corrected
+supplemental replay preserves all 1,007 historical evidence files and native
+settings; original scores/stopped gates stay closed. Independent correction
+review accepted completion with no remaining blocker. The local evaluator
+checkpoint is separate from activation; use Git history for its identity. No
+new paid benchmark is allocated. Earlier live results below remain historical and unchanged.
 
 Goal: a shared Codex/Claude scientific workflow skill with separate native adapters, checked against measured execution.
 
@@ -55,11 +63,12 @@ are retained. The semantic baseline/reverse pair remains stopped.
 
 The full suite passed 122 tests before final affected capture corrections;
 final focused behavioral (22) and Codex permission (11) tests pass separately.
-Current protected-source/link/profile checks, source/candidate skill structure
-and instruction health pass. Counts overlap. A complete candidate is staged
-away from live links at [staging/receipt-evidence-2026-10-11](../staging/receipt-evidence-2026-10-11/README.md):
-full check logs with verified exits, and acceptance rules disclosed before
-freezing exact-output fixtures. Active skill and native settings stay unchanged.
+Those protected-source/link/profile checks, source/candidate skill structure
+and instruction-health checks passed. Counts overlap. The reviewed candidate at
+[staging/receipt-evidence-2026-10-11](../staging/receipt-evidence-2026-10-11/README.md)
+was activated on 2026-10-12 at `b1bfb74`: full check logs with verified exits,
+and acceptance rules disclosed before freezing exact-output fixtures. Native
+settings remain unchanged. The staging README describes its historical state.
 
 Final idea: one capable dependent owner, scripts for exact extraction, helpers
 for independent work they replace, consequential review reuse, full check
@@ -128,9 +137,10 @@ The shared runner is an external dependency at `/home/hao/githubrepo/sequence_de
    are terminal, with failed acceptance and conditional skips preserved.
 2. Do not retry the failed semantic arm, start its baseline/reverse pair, or use
    unused allocation as retry authority.
-3. The staged skill candidate is reviewable and separate from live links. Native
-   settings and scientific pauses remain unchanged. General reliability, real
-   compaction and representative benefit require a separate design/allocation.
+3. The reviewed skill candidate was activated at `b1bfb74`. Current offline
+   evaluator work is linked at the top of this file. Native settings and
+   scientific pauses remain unchanged. General reliability, real compaction
+   and representative benefit require a separate design/allocation.
 4. Required validation, independent completion review and local checkpoints are
    recorded with the final results. No push.
 
@@ -168,7 +178,7 @@ Both installed skill links point directly into `skill/scientific-workflow/`, so 
 
 Suggested opening request for the next session:
 
-> Read `AGENTS.md`, `docs/STATE.md` and the final remaining results. The authorized diagnostics are terminal. Preserve strict failures, conditional stops, native settings, other sessions and Project2's pause. Inspect the staged skill candidate and final review before proposing separately scoped follow-up; no push.
+> Read `AGENTS.md`, `docs/STATE.md` and the current offline-hardening results. Skill activation and evaluator hardening are complete and independently accepted. Preserve original trial failures, conditional stops, native settings, other sessions and Project2's pause. A fresh benefit comparison needs its own frozen design and allocation; no push.
 
 ## Open questions
 

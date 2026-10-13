@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/usr/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_behavioral*.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "full_log": "zero-count-final.log",
+  "full_log_sha256": "ed30a5ac068350ea60a7eb2b0ddc7e77e38a074aa836f006f9116f250aa56007",
+  "source_hashes": {
+    "scripts/behavioral_fixture.py": "7b2c9533cdb8f78b695dd1f216f4b3c07070018c1bdc790dbef086d4403bcb85",
+    "scripts/behavioral_calibration.py": "274167abe30e826075bd878f273f0a9d1f221074dd2da74314b3cb222c9553e6",
+    "scripts/behavioral_evidence.py": "dcba6b962f75df169ca287a8c037a87f0e3433691b8a6c54c9d6dc337fd8c07f",
+    "tests/test_behavioral_calibration.py": "1ea4cacc42d0a41e0d192a33928877005ffcec23029bf58c4964cbf15a449648",
+    "tests/test_behavioral_fixture.py": "15ffbdc4f18dc05a311c5cdb795d0b59e270242d49ed4076af387e770a39fb46",
+    "tests/test_behavioral_evidence.py": "d11f0bafbf44781d0c8fe74e3e81def34e888efa980d6cae78439d978c810a02"
+  },
+  "source_hashes_unchanged": true,
+  "red_proof": "zero-count-red.log"
+}

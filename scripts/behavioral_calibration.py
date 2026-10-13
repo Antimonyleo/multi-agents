@@ -19,6 +19,7 @@ def module(name):
 
 
 native = module('native_calibration')
+evidence = module('behavioral_evidence')
 
 
 def command(out, manifest):
@@ -97,6 +98,7 @@ def prepare(out, case, provider='claude', budget=0.6, previous=None, stage=1):
         'input_hashes': {name: native.sha(out / name) for name in ('prompt.txt', 'schema.json', 'truth.json')},
         'source_hashes': {str(path): native.sha(path) for path in (
             ROOT / 'scripts/native_calibration.py', ROOT / 'scripts/behavioral_fixture.py',
+            ROOT / 'scripts/behavioral_evidence.py',
             Path(__file__), native.LEGACY)},
         'runtime_version': subprocess.check_output([provider, '--version'], text=True).strip(),
         'scientific_execution': False,
@@ -130,7 +132,7 @@ def frozen_errors(out, manifest):
     return errors
 
 
-def observations(stream, children, manifest, after):
+def observations(stream, children, manifest, after, owned_traces=None):
     calls, replies, conflicts = {}, {}, []
     child_links = {c.get('parent_tool_use_id'): c['id'] for c in children if c.get('parent_tool_use_id')}
     reply_actors = {}
@@ -193,9 +195,19 @@ def observations(stream, children, manifest, after):
         tool['result'] = replies.get(tool['id'])
         if tool['id'] in reply_actors and reply_actors[tool['id']] != tool['actor']:
             conflicts.append('cross-actor tool result: ' + tool['id'])
+    unknowns = []
+    if owned_traces is not None:
+        frontend_tools = tools
+        tools = []
+        for trace in owned_traces:
+            parsed, issues = evidence.native_tools(trace['events'], trace.get('actor', 'main'))
+            tools.extend(parsed); unknowns.extend(issues)
+    else:
+        frontend_tools = []
     return {'tools': tools, 'helpers': [{k:v for k,v in c.items() if k!='events'} for c in children],
             'before': manifest['before'], 'after': after, 'tool_conflicts': conflicts,
-            'owner_ids': sorted({t['actor'] for t in tools if t['name'] in ('Edit','Write','Bash')})}
+            'evidence_unknowns': unknowns, 'frontend_tools': frontend_tools,
+            'owner_ids': sorted({t['actor'] for t in tools if t['name'] in ('Edit','Write','Bash','exec_command')})}
 
 
 def boundary(metrics, children, manifest):
@@ -273,7 +285,15 @@ def capture(out, launch_failure=None):
         if 'events' in child:
             child['models'] = sorted({e['message']['model'] for e in child['events']
                                       if isinstance(e.get('message'), dict) and e['message'].get('model')})
-    obs = observations(stream, children, manifest, native.fingerprint(out / 'workspace'))
+    owned_records, owned_unknowns = None, []
+    if manifest['provider'] == 'codex':
+        try:
+            owned_records, owned_unknowns, _ = saved_owned_records(out)
+        except (ValueError, TypeError, OSError, AttributeError) as exc:
+            owned_records = []
+            owned_unknowns = [f'owned native decoding failed: {type(exc).__name__}: {exc}']
+    obs = observations(stream, children, manifest, native.fingerprint(out / 'workspace'), owned_traces=owned_records)
+    obs.setdefault('evidence_unknowns', []).extend(owned_unknowns)
     execution = json.loads((out / 'execution.json').read_text()) if (out / 'execution.json').is_file() else {}
     obs['execution'] = execution
     answer = None
@@ -295,7 +315,7 @@ def capture(out, launch_failure=None):
     cleanup = execution.get('cleanup', {})
     checks.update({
         'terminal_success': type(execution.get('returncode')) is int and execution['returncode'] == 0 and execution.get('timed_out') is False and metrics['provider_terminal_complete'] and metrics['provider_error'] is False,
-        'capture_complete': not capture_errors and not obs['tool_conflicts'],
+        'capture_complete': not capture_errors and not obs['tool_conflicts'] and not obs.get('evidence_unknowns'),
         'usage_present': metrics['provider_telemetry_complete'],
         'helper_boundary': helper_boundary['verified'],
         'owned_cleanup': cleanup.get('verified') is True and cleanup.get('status') in ('absent','terminated'),
@@ -305,6 +325,103 @@ def capture(out, launch_failure=None):
                                        'boundary': helper_boundary, 'execution': execution, 'scientific_execution': False})
     print(json.dumps({'case':manifest['case'], 'checks':checks, 'wall_s':execution.get('wall_s'),
                       'reported_cost_usd':metrics['provider_reported_cost_usd']}))
+
+
+def saved_owned_records(saved, source_hashes=None):
+    """Load only already-copied owned records and corroborate main identity.
+
+    Both fresh capture and supplemental replay use this non-executing path.
+    Return records, unknown reasons and hashes; never replace missing records
+    with frontend absence evidence.
+    """
+    saved = Path(saved)
+    source_hashes = source_hashes if source_hashes is not None else {}
+    loaded, unknowns = [], []
+    receipt = json.loads((saved / 'native_capture.json').read_text()) if (saved / 'native_capture.json').is_file() else {}
+    ids = receipt.get('owned_ids', [])
+    if not isinstance(ids, list):
+        ids = []
+    frozen_stream = saved / 'trace.jsonl'
+    parent_id = None
+    if frozen_stream.is_file():
+        source_hashes['trace.jsonl'] = native.sha(frozen_stream)
+        starts = [e for e in native.events(frozen_stream) if e.get('type') == 'thread.started']
+        thread_ids = {e.get('thread_id') for e in starts if isinstance(e.get('thread_id'), str) and e['thread_id']}
+        if len(thread_ids) == 1 and len(starts) == sum(isinstance(e.get('thread_id'), str) and bool(e['thread_id']) for e in starts):
+            parent_id = next(iter(thread_ids))
+    if parent_id is None:
+        unknowns.append('missing or ambiguous frozen parent thread identity')
+    elif parent_id not in ids:
+        unknowns.append('frozen parent thread absent from owned inventory')
+    if receipt.get('complete') is not True or not ids:
+        unknowns.append('owned native capture missing or incomplete')
+    if len(ids) != len(set(str(i) for i in ids)):
+        unknowns.append('duplicate owned trace identity')
+    for ident in ids:
+        if not isinstance(ident, str) or '/' in ident or '\\' in ident:
+            unknowns.append('invalid owned trace identity'); continue
+        path = saved / 'native' / (ident + '.jsonl')
+        if not path.is_file():
+            unknowns.append('missing owned trace: ' + ident); continue
+        source_hashes[path.relative_to(saved).as_posix()] = native.sha(path)
+        events = native.events(path)
+        metas = [e for e in events if e.get('type') == 'session_meta']
+        session_ids = {e.get('payload', {}).get('id') for e in metas if isinstance(e.get('payload'), dict)
+                       and isinstance(e['payload'].get('id'), str)}
+        identity_valid = bool(metas) and len(session_ids) == 1 and session_ids == {ident} and all(
+            isinstance(e.get('payload'), dict) and e['payload'].get('id') == ident for e in metas)
+        if not identity_valid:
+            unknowns.append('missing or conflicting native session identity: ' + ident)
+        actor = 'main' if identity_valid and ident == parent_id else ident
+        loaded.append({'actor': actor, 'events': events})
+    return loaded, unknowns, source_hashes
+
+
+def replay(saved_stage, output_dir, owned_traces=None, *, run_hidden=False):
+    """Pure supplemental replay. Never collect native traces or replace old files.
+
+    owned_traces optionally lists {actor, events} records. Default Codex replay
+    loads only copied native files listed by the saved owned_ids receipt. Missing
+    owned evidence stays unknown. Hidden synthetic probes are opt-in, never science.
+    Returns the assessment; output_dir must be a new directory outside saved_stage.
+    """
+    saved, output = Path(saved_stage).resolve(), Path(output_dir).resolve()
+    if output == saved or saved in output.parents:
+        raise ValueError('supplemental output must be outside frozen stage')
+    names = ('manifest.json', 'truth.json', 'observations.json', 'answer.json', 'native_capture.json')
+    source_hashes = {name: native.sha(saved / name) for name in names if (saved / name).is_file()}
+    manifest = json.loads((saved / 'manifest.json').read_text())
+    truth = json.loads((saved / 'truth.json').read_text())
+    obs = json.loads((saved / 'observations.json').read_text())
+    answer = json.loads((saved / 'answer.json').read_text()) if (saved / 'answer.json').is_file() else None
+    if manifest['provider'] == 'codex':
+        if owned_traces is None:
+            try:
+                owned_traces, unknowns, _ = saved_owned_records(saved, source_hashes)
+            except (ValueError, TypeError, OSError, AttributeError) as exc:
+                owned_traces = []
+                unknowns = [f'owned native decoding failed: {type(exc).__name__}: {exc}']
+            obs.setdefault('evidence_unknowns', []).extend(unknowns)
+        original_tools = obs.get('tools', [])
+        obs['tools'] = []
+        for trace in owned_traces:
+            parsed, issues = evidence.native_tools(trace['events'], trace.get('actor', 'main'))
+            obs['tools'].extend(parsed)
+            obs.setdefault('evidence_unknowns', []).extend(issues)
+        obs['frontend_tools'] = original_tools
+    fixture = module('behavioral_fixture')
+    report = fixture.diagnose(manifest['case'], answer, truth, saved / 'workspace', obs, run_hidden=run_hidden)
+    report.update({'case': manifest['case'], 'stage': manifest.get('stage', 1),
+                   'source_stage': str(saved), 'originals_unchanged': True, 'input_hashes': source_hashes,
+                   'scorer_hashes': {str(p.relative_to(ROOT)): native.sha(p) for p in (
+                       Path(__file__), ROOT / 'scripts/behavioral_fixture.py', ROOT / 'scripts/behavioral_evidence.py')},
+                   'hidden_probes_rerun': run_hidden})
+    if any(native.sha(saved / name) != digest for name, digest in source_hashes.items()):
+        raise ValueError('frozen replay input changed during assessment')
+    output.mkdir(parents=True, exist_ok=False)
+    native.write(output / 'supplemental-assessment.json', report)
+    native.write(output / 'supplemental-observations.json', obs)
+    return report
 
 
 def main():

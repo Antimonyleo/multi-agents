@@ -1,0 +1,133 @@
+{
+  "accepted": false,
+  "case": "dependent_owner",
+  "checks": {
+    "all_dependent_modules_repaired": true,
+    "answer_correct": true,
+    "helper_roles_within_scope": true,
+    "hidden_behavior_passed": false,
+    "named_check_terminal_pass": false,
+    "observation_integrity": true,
+    "observations_present": true,
+    "one_execution_owner": true,
+    "supported_operation_scope": false,
+    "workspace_boundary_preserved": true
+  },
+  "diagnostics": {
+    "all_dependent_modules_repaired": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    },
+    "answer_correct": {
+      "reason": "literal type/value/whitespace equality",
+      "status": "passed"
+    },
+    "helper_roles_within_scope": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "hidden_behavior_passed": {
+      "reason": "hidden synthetic probes not rerun",
+      "status": "unknown"
+    },
+    "named_check_terminal_pass": {
+      "reason": "complete named command, terminal exit and full log required; filtered or masked receipts fail",
+      "status": "unknown"
+    },
+    "observation_integrity": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "observations_present": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "one_execution_owner": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "supported_operation_scope": {
+      "reason": "required evidence missing or unsupported",
+      "status": "unknown"
+    },
+    "workspace_boundary_preserved": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    }
+  },
+  "evidence": {
+    "reasons": [],
+    "status": "supported"
+  },
+  "hidden_probes_rerun": false,
+  "input_hashes": {
+    "answer.json": "b73d1183ccc832edf71921b35ca7a247a024935165a41c7e3125f794193e3ab7",
+    "manifest.json": "7f77cd65151a23fee015ca6bd08af7338631220ecfef240a6b0714b42ec12410",
+    "native_capture.json": "1aad97b08bf948574fcbd1c416fa661285b92057d2c1aa4b4da9efd04eb0f87d",
+    "observations.json": "ead91ffeeb2d4d3387fe04b2a757f856f0668a26964e7727d2a382a0d0624220",
+    "truth.json": "e54df81d6d5549b0a12872ece87b42f6e1b515600bea0c7ab02d899ee266dce1"
+  },
+  "limit": "n=1 synthetic diagnostics; no scientific, savings or general permission claim",
+  "literal_answer": {
+    "reason": "literal type/value/whitespace equality",
+    "status": "passed"
+  },
+  "observed_behavior": {
+    "status": "unknown"
+  },
+  "originals_unchanged": true,
+  "scorer_hashes": {
+    "scripts/behavioral_calibration.py": "eb8533946ac1e3f14ff68c4f5cd48ee515133c624a05840014da90507bd9d446",
+    "scripts/behavioral_evidence.py": "a88a05d8f2c0c1487884b7b4498d6615e384fcd198f9c24f4350df6c63f965ac",
+    "scripts/behavioral_fixture.py": "ba616ceef1d91bfeb7611816cf43e3a3131fc1b3ef438ad924088395a099aa1a"
+  },
+  "source_stage": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/dependent_owner/stage-1",
+  "stage": 1,
+  "tools": [
+    {
+      "actor": "main",
+      "id": "toolu_01Pyzic9NkHUmMrzZGPt7yTz",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "digests": [],
+      "id": "toolu_01U1zJHfQrdxRisvbFsNWP7d",
+      "reads": [
+        "contract.md",
+        "source.py",
+        "driver.py",
+        "summary.py"
+      ],
+      "reason": "bounded read/display grammar",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "digests": [],
+      "id": "toolu_01XdF5ppaTCzSpRQ5N4PLUYf",
+      "reads": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "entry.py",
+        "tests/test_shape.py"
+      ],
+      "reason": "bounded read/display grammar",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_01MGR1ppFANskToJv6kz7gmr",
+      "reads": [],
+      "reason": "substitution, redirection or escape outside read grammar",
+      "status": "rejected"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_012YZXC351q9ZY1rGWqrNTr2",
+      "reason": "native read or output tool",
+      "status": "supported"
+    }
+  ]
+}

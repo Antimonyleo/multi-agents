@@ -1,0 +1,14 @@
+test_zero_count_headers_do_not_prove_file_content_reads (test_behavioral_fixture.BehavioralFixtureTests.test_zero_count_headers_do_not_prove_file_content_reads) ... FAIL
+
+======================================================================
+FAIL: test_zero_count_headers_do_not_prove_file_content_reads (test_behavioral_fixture.BehavioralFixtureTests.test_zero_count_headers_do_not_prove_file_content_reads)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 183, in test_zero_count_headers_do_not_prove_file_content_reads
+    self.assertFalse(fixture._read_observed([tool],'USER_AUTHORITY.md'),count)
+AssertionError: True is not false : -n 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

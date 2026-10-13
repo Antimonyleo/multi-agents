@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/usr/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_behavioral*.py",
+    "-v"
+  ],
+  "tmpdir": "/home/hao/.cache/codex-scratch/task.LMILbF",
+  "returncode": 0,
+  "log": "focused-review-fix.log",
+  "log_sha256": "bceac2c62cfc6ba35372eae07c1913be5233e79dd49769d148b0788aa7611979",
+  "red_log": "review-fix-red-regressions.log",
+  "red_log_sha256": "bc4b7a711596a31657204e3bbf0c514a3798dccb532d8ab8cd20f547c1950c35",
+  "source_hashes": {
+    "scripts/behavioral_calibration.py": "274167abe30e826075bd878f273f0a9d1f221074dd2da74314b3cb222c9553e6",
+    "scripts/behavioral_fixture.py": "7b2c9533cdb8f78b695dd1f216f4b3c07070018c1bdc790dbef086d4403bcb85",
+    "scripts/behavioral_evidence.py": "0782c55a4f1227bbf32c186516103e0d35efdedbf9215398ca8512431264e202",
+    "tests/test_behavioral_calibration.py": "1ea4cacc42d0a41e0d192a33928877005ffcec23029bf58c4964cbf15a449648",
+    "tests/test_behavioral_fixture.py": "ca05d8aefba747f0d153b24da20cb28b336b78f8c9f1d7402019b599314a3cc7",
+    "tests/test_behavioral_evidence.py": "d11f0bafbf44781d0c8fe74e3e81def34e888efa980d6cae78439d978c810a02"
+  },
+  "source_hashes_unchanged": true,
+  "scientific_execution": false
+}

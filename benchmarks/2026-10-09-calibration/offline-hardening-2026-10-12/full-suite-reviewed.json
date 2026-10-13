@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/usr/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "full_log": "full-suite-reviewed.log",
+  "full_log_sha256": "25dfcc2d82177d55ed0de75c2d9724f9661f56830826692b1f5b2ab5950ab454",
+  "native_model_starts": 0,
+  "scratch": "/home/hao/.cache/codex-scratch/task.26yypn1d",
+  "source_hashes": {
+    "scripts/behavioral_calibration.py": "274167abe30e826075bd878f273f0a9d1f221074dd2da74314b3cb222c9553e6",
+    "scripts/behavioral_evidence.py": "0782c55a4f1227bbf32c186516103e0d35efdedbf9215398ca8512431264e202",
+    "scripts/behavioral_fixture.py": "7b2c9533cdb8f78b695dd1f216f4b3c07070018c1bdc790dbef086d4403bcb85",
+    "scripts/codex_permission_check.py": "366f8979fb560abd5fc025d8030fb7b34e44a3c494e821d50cca52f873e64b11",
+    "tests/test_behavioral_calibration.py": "1ea4cacc42d0a41e0d192a33928877005ffcec23029bf58c4964cbf15a449648",
+    "tests/test_behavioral_evidence.py": "d11f0bafbf44781d0c8fe74e3e81def34e888efa980d6cae78439d978c810a02",
+    "tests/test_behavioral_fixture.py": "ca05d8aefba747f0d153b24da20cb28b336b78f8c9f1d7402019b599314a3cc7",
+    "tests/test_codex_permission_check.py": "38db0c69a42ba4b123a83ccb5cf540e04a4bb667820a4b4de5f0dc3a7f69df1e"
+  },
+  "source_hashes_unchanged": true,
+  "wall_s": 64.6
+}

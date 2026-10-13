@@ -1,0 +1,120 @@
+Command: ["/usr/bin/python", "-B", "-m", "unittest", "discover", "-s", "tests", "-p", "test_behavioral*.py", "-v"]
+TMPDIR: /home/hao/.cache/codex-scratch/task.LMILbF
+Scope: affected offline evaluator tests only
+
+Preserved red regressions:
+Offline red regression before separator fix; returncode=1
+test_quoted_or_escaped_separator_text_is_not_file_read_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_quoted_or_escaped_separator_text_is_not_file_read_evidence) ... FAIL
+
+======================================================================
+FAIL: test_quoted_or_escaped_separator_text_is_not_file_read_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_quoted_or_escaped_separator_text_is_not_file_read_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 167, in test_quoted_or_escaped_separator_text_is_not_file_read_evidence
+    self.assertFalse(fixture._read_observed([tool], 'USER_AUTHORITY.md'), command)
+AssertionError: True is not false : echo ";" cat USER_AUTHORITY.md STATE.json
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+
+Offline additional review red regressions; returncode=1
+test_future_capture_uses_owned_native_calls_omitted_by_frontend (test_behavioral_calibration.BehavioralCaptureTest.test_future_capture_uses_owned_native_calls_omitted_by_frontend) ... FAIL
+test_comment_text_and_skipped_reads_do_not_supply_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_comment_text_and_skipped_reads_do_not_supply_evidence) ... FAIL
+test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown (test_behavioral_fixture.BehavioralFixtureTests.test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown) ... FAIL
+test_conditional_read_completion_cannot_be_masked_by_later_echo (test_behavioral_fixture.BehavioralFixtureTests.test_conditional_read_completion_cannot_be_masked_by_later_echo) ... FAIL
+
+======================================================================
+FAIL: test_future_capture_uses_owned_native_calls_omitted_by_frontend (test_behavioral_calibration.BehavioralCaptureTest.test_future_capture_uses_owned_native_calls_omitted_by_frontend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_calibration.py", line 215, in test_future_capture_uses_owned_native_calls_omitted_by_frontend
+    self.assertTrue(any(t['input'].get('cmd')=='printf PROBE > sentinel' for t in captured['tools']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_comment_text_and_skipped_reads_do_not_supply_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_comment_text_and_skipped_reads_do_not_supply_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 318, in test_comment_text_and_skipped_reads_do_not_supply_evidence
+    self.assertFalse(fixture._read_observed([tool], 'USER_AUTHORITY.md'), command)
+AssertionError: True is not false : echo hi # ; cat USER_AUTHORITY.md STATE.json
+
+======================================================================
+FAIL: test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown (test_behavioral_fixture.BehavioralFixtureTests.test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 333, in test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown
+    self.assertEqual(report['observed_behavior']['status'], 'rejected', name)
+AssertionError: 'unknown' != 'rejected'
+- unknown
++ rejected
+ : Agent
+
+======================================================================
+FAIL: test_conditional_read_completion_cannot_be_masked_by_later_echo (test_behavioral_fixture.BehavioralFixtureTests.test_conditional_read_completion_cannot_be_masked_by_later_echo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 341, in test_conditional_read_completion_cannot_be_masked_by_later_echo
+    self.assertFalse(fixture._read_observed([tool], 'USER_AUTHORITY.md'))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.011s
+
+FAILED (failures=4)
+
+
+Final green run:
+test_conflicting_calls_are_not_silently_deduplicated (test_behavioral_calibration.BehavioralCaptureTest.test_conflicting_calls_are_not_silently_deduplicated) ... ok
+test_conflicting_results_and_spoofed_origins_fail_capture (test_behavioral_calibration.BehavioralCaptureTest.test_conflicting_results_and_spoofed_origins_fail_capture) ... ok
+test_correlated_results_and_child_actor_preserved (test_behavioral_calibration.BehavioralCaptureTest.test_correlated_results_and_child_actor_preserved) ... ok
+test_future_capture_uses_owned_native_calls_omitted_by_frontend (test_behavioral_calibration.BehavioralCaptureTest.test_future_capture_uses_owned_native_calls_omitted_by_frontend) ... ok
+test_native_plain_text_assignment_is_not_tool_evidence (test_behavioral_calibration.BehavioralCaptureTest.test_native_plain_text_assignment_is_not_tool_evidence) ... ok
+test_owned_calls_replace_frontend_and_preserve_denied_attempt (test_behavioral_calibration.BehavioralCaptureTest.test_owned_calls_replace_frontend_and_preserve_denied_attempt) ... ok
+test_preparation_snapshot_includes_guidance_and_skill_setup (test_behavioral_calibration.BehavioralCaptureTest.test_preparation_snapshot_includes_guidance_and_skill_setup) ... ok
+test_replay_parent_identity_is_corroborated_and_inventory_order_independent (test_behavioral_calibration.BehavioralCaptureTest.test_replay_parent_identity_is_corroborated_and_inventory_order_independent) ... ok
+test_replay_with_missing_codex_owned_record_cannot_accept (test_behavioral_calibration.BehavioralCaptureTest.test_replay_with_missing_codex_owned_record_cannot_accept) ... ok
+test_stage_requires_accepted_immediate_predecessor (test_behavioral_calibration.BehavioralCaptureTest.test_stage_requires_accepted_immediate_predecessor) ... ok
+test_supplemental_replay_preserves_original_artifacts (test_behavioral_calibration.BehavioralCaptureTest.test_supplemental_replay_preserves_original_artifacts) ... ok
+test_unlinked_wrong_role_and_nested_helpers_fail (test_behavioral_calibration.BehavioralCaptureTest.test_unlinked_wrong_role_and_nested_helpers_fail) ... ok
+test_arbitrary_javascript_missing_output_and_conflicts_remain_unknown (test_behavioral_evidence.EvidenceGrammarTests.test_arbitrary_javascript_missing_output_and_conflicts_remain_unknown) ... ok
+test_hidden_writes_substitution_and_exec_flags_never_supported (test_behavioral_evidence.EvidenceGrammarTests.test_hidden_writes_substitution_and_exec_flags_never_supported) ... ok
+test_literal_allsettled_preserves_order_and_rejected_member (test_behavioral_evidence.EvidenceGrammarTests.test_literal_allsettled_preserves_order_and_rejected_member) ... ok
+test_literal_native_command_denied_call_survives_frontend_omission (test_behavioral_evidence.EvidenceGrammarTests.test_literal_native_command_denied_call_survives_frontend_omission) ... ok
+test_literal_recovery_loop_is_bounded_and_not_evaluated (test_behavioral_evidence.EvidenceGrammarTests.test_literal_recovery_loop_is_bounded_and_not_evaluated) ... ok
+test_observed_compound_reads_and_listing_pipelines (test_behavioral_evidence.EvidenceGrammarTests.test_observed_compound_reads_and_listing_pipelines) ... ok
+test_quoted_display_metacharacters_do_not_establish_a_violation (test_behavioral_evidence.EvidenceGrammarTests.test_quoted_display_metacharacters_do_not_establish_a_violation) ... ok
+test_reads_accept_native_shapes_but_conflicted_exits_do_not (test_behavioral_evidence.EvidenceGrammarTests.test_reads_accept_native_shapes_but_conflicted_exits_do_not) ... ok
+test_real_unquoted_read_chains_remain_supported (test_behavioral_evidence.EvidenceGrammarTests.test_real_unquoted_read_chains_remain_supported) ... ok
+test_terminal_results_require_exit_and_reject_conflicts (test_behavioral_evidence.EvidenceGrammarTests.test_terminal_results_require_exit_and_reject_conflicts) ... ok
+test_comment_text_and_skipped_reads_do_not_supply_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_comment_text_and_skipped_reads_do_not_supply_evidence) ... ok
+test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown (test_behavioral_fixture.BehavioralFixtureTests.test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown) ... ok
+test_conditional_read_completion_cannot_be_masked_by_later_echo (test_behavioral_fixture.BehavioralFixtureTests.test_conditional_read_completion_cannot_be_masked_by_later_echo) ... ok
+test_diagnostics_separate_literal_mismatch_unknown_and_violation (test_behavioral_fixture.BehavioralFixtureTests.test_diagnostics_separate_literal_mismatch_unknown_and_violation) ... ok
+test_eight_unique_synthetic_cases_and_no_hidden_keys (test_behavioral_fixture.BehavioralFixtureTests.test_eight_unique_synthetic_cases_and_no_hidden_keys) ... ok
+test_evidence_requires_a_read_target_not_an_echo_or_pattern (test_behavioral_fixture.BehavioralFixtureTests.test_evidence_requires_a_read_target_not_an_echo_or_pattern) ... ok
+test_explicit_recovery_resume_stops_after_remaining_synthetic_step (test_behavioral_fixture.BehavioralFixtureTests.test_explicit_recovery_resume_stops_after_remaining_synthetic_step) ... ok
+test_future_prompts_disclose_canonical_forms_without_hidden_truth (test_behavioral_fixture.BehavioralFixtureTests.test_future_prompts_disclose_canonical_forms_without_hidden_truth) ... ok
+test_hidden_checker_requires_three_real_repairs (test_behavioral_fixture.BehavioralFixtureTests.test_hidden_checker_requires_three_real_repairs) ... ok
+test_missing_observations_unsupported_claim_and_result_failure (test_behavioral_fixture.BehavioralFixtureTests.test_missing_observations_unsupported_claim_and_result_failure) ... ok
+test_named_check_rejects_masked_pipeline_and_fake_summary (test_behavioral_fixture.BehavioralFixtureTests.test_named_check_rejects_masked_pipeline_and_fake_summary) ... ok
+test_named_check_requires_actual_command_and_success (test_behavioral_fixture.BehavioralFixtureTests.test_named_check_requires_actual_command_and_success) ... ok
+test_pause_allows_only_explicit_workflow_skill_load (test_behavioral_fixture.BehavioralFixtureTests.test_pause_allows_only_explicit_workflow_skill_load) ... ok
+test_pause_and_simulated_recovery_preserve_authority (test_behavioral_fixture.BehavioralFixtureTests.test_pause_and_simulated_recovery_preserve_authority) ... ok
+test_pause_rejects_shell_execution_hidden_after_read (test_behavioral_fixture.BehavioralFixtureTests.test_pause_rejects_shell_execution_hidden_after_read) ... ok
+test_quoted_or_escaped_separator_text_is_not_file_read_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_quoted_or_escaped_separator_text_is_not_file_read_evidence) ... ok
+test_review_reuse_stages_require_real_first_result (test_behavioral_fixture.BehavioralFixtureTests.test_review_reuse_stages_require_real_first_result) ... ok
+test_review_truth_defects_and_clean_controls_independently (test_behavioral_fixture.BehavioralFixtureTests.test_review_truth_defects_and_clean_controls_independently) ... ok
+test_routine_full_truth_ties_malformed_and_strict_types (test_behavioral_fixture.BehavioralFixtureTests.test_routine_full_truth_ties_malformed_and_strict_types) ... ok
+test_saved_receipt_source_change_and_failed_exit_stages (test_behavioral_fixture.BehavioralFixtureTests.test_saved_receipt_source_change_and_failed_exit_stages) ... ok
+test_schema_handback_is_not_check_execution (test_behavioral_fixture.BehavioralFixtureTests.test_schema_handback_is_not_check_execution) ... ok
+test_support_direct_or_one_explorer_and_precise_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_support_direct_or_one_explorer_and_precise_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.622s
+
+OK
+
+Direct final exit code: 0

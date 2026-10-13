@@ -1,0 +1,9 @@
+{
+  "reviewer": "/root/final_evidence_review",
+  "disposition": "original4 findings resolved; one residual zero-count false-read blocker",
+  "packet_sha256": "9b9d301f4c44526a1e0d9078f81e69bf0a464b42892507c656fec7bf37ab418b",
+  "verified_artifacts": 109,
+  "historical_hashes_verified": 1007,
+  "finding": "head -n0 and equivalent zero-count commands can output only headings and falsely receive content-read credit",
+  "resolution": "Red regression reproduced failure; zero-count commands now outside supported content-read grammar;45 affected tests pass. Final independent recheck pending."
+}

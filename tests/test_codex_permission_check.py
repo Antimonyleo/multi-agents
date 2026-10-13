@@ -77,17 +77,24 @@ class CodexPermissionTest(unittest.TestCase):
         write[0]['payload']['input']='if (false) { '+write[0]['payload']['input']+' }'
         self.assertEqual(self.assess([],read+write)['status'],'unverified')
 
-    def run_failure_fixture(self, callback):
+    def run_failure_fixture(self, callback, evidence_hash=None):
         out=Path(tempfile.mkdtemp(prefix='task.',dir=os.environ.get('TMPDIR','/home/hao/.cache/codex-scratch')))
         path=out/'workspace'/probe.READ_PATH;path.parent.mkdir(parents=True);path.write_text('{"value":125}')
         manifest={'purpose':'codex_permission_capture','before':probe.native.fingerprint(out/'workspace'),
                   'probe_script_sha256':probe.native.sha(Path(probe.__file__)),
                   'probe_fixture_sha256':probe.native.sha(probe.ROOT/'scripts/behavioral_fixture.py'),
+                  'probe_evidence_sha256':evidence_hash or probe.native.sha(probe.ROOT/'scripts/behavioral_evidence.py'),
                   'runtime_version':'test-version','codex_probe':{'read_command':probe.READ_COMMAND,'write_command':probe.WRITE_COMMAND}}
         probe.native.write(out/'manifest.json',manifest);probe.native.write(out/'truth.json',{'entries':[]})
         with patch.object(probe.native,'frozen_errors',return_value=[]), patch.object(probe.subprocess,'check_output',return_value='test-version'), patch.object(probe,'module',return_value=SimpleNamespace(run=callback)):
             probe.run(out)
         return out,json.loads((out/'metrics.json').read_text())
+
+    def test_parser_dependency_drift_refuses_start(self):
+        starts=[]
+        with self.assertRaisesRegex(ValueError,'probe controls differ'):
+            self.run_failure_fixture(lambda out,manifest: starts.append(out), evidence_hash='0'*64)
+        self.assertEqual(starts,[])
 
     def test_launch_failure_has_incomplete_terminal_receipt(self):
         def fail(out,manifest):raise OSError('test launch failed')

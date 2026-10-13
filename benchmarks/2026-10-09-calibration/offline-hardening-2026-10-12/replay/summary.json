@@ -1,0 +1,102 @@
+[
+  {
+    "accepted": false,
+    "behavior": "passed",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "rejected",
+    "stage": "claude/autonomous_support/stage-1"
+  },
+  {
+    "accepted": false,
+    "behavior": "passed",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "rejected",
+    "stage": "claude/compaction_recovery/stage-1"
+  },
+  {
+    "accepted": false,
+    "behavior": "unknown",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "passed",
+    "stage": "claude/dependent_owner/stage-1"
+  },
+  {
+    "accepted": false,
+    "behavior": "passed",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "rejected",
+    "stage": "claude/pause_preservation/stage-1"
+  },
+  {
+    "accepted": false,
+    "behavior": "passed",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "rejected",
+    "stage": "claude/receipt_reuse/stage-1"
+  },
+  {
+    "accepted": true,
+    "behavior": "passed",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "passed",
+    "stage": "claude/review_reuse/stage-1"
+  },
+  {
+    "accepted": true,
+    "behavior": "passed",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "passed",
+    "stage": "claude/review_reuse/stage-2"
+  },
+  {
+    "accepted": true,
+    "behavior": "passed",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "passed",
+    "stage": "claude/review_value/stage-1"
+  },
+  {
+    "accepted": false,
+    "behavior": "unknown",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "passed",
+    "stage": "claude/routine_restraint/stage-1"
+  },
+  {
+    "accepted": false,
+    "behavior": "unknown",
+    "evidence": {
+      "reasons": [],
+      "status": "supported"
+    },
+    "literal": "rejected",
+    "stage": "codex/pause_preservation/stage-1"
+  }
+]

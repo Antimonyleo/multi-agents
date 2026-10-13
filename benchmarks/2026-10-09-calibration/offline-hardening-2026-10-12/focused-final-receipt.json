@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/usr/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_behavioral*.py",
+    "-v"
+  ],
+  "tmpdir": "/home/hao/.cache/codex-scratch/task.LMILbF",
+  "returncode": 0,
+  "log": "focused-final.log",
+  "log_sha256": "46028248732b4553ce59affeb77fa1becd5b4dda9096d7eab166d4fb85262f72",
+  "source_hashes": {
+    "scripts/behavioral_calibration.py": "e1d3ded47733686630b1af0447db0e2b86d96def6010bc11312c47c9b2c765a2",
+    "scripts/behavioral_fixture.py": "ba616ceef1d91bfeb7611816cf43e3a3131fc1b3ef438ad924088395a099aa1a",
+    "scripts/behavioral_evidence.py": "7ba32c7762efac0e6dff0acdea35acd6445f30b95ab5d8efa8a994a42605687a"
+  },
+  "source_hashes_unchanged": true,
+  "scientific_execution": false
+}

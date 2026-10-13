@@ -1,0 +1,137 @@
+{
+  "accepted": false,
+  "case": "dependent_owner",
+  "checks": {
+    "all_dependent_modules_repaired": true,
+    "answer_correct": true,
+    "helper_roles_within_scope": true,
+    "hidden_behavior_passed": false,
+    "named_check_terminal_pass": false,
+    "observation_integrity": true,
+    "observations_present": true,
+    "one_execution_owner": true,
+    "supported_operation_scope": false,
+    "workspace_boundary_preserved": true
+  },
+  "diagnostics": {
+    "all_dependent_modules_repaired": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    },
+    "answer_correct": {
+      "reason": "literal type/value/whitespace equality",
+      "status": "passed"
+    },
+    "helper_roles_within_scope": {
+      "reason": "absence requires complete supported capture",
+      "status": "unknown"
+    },
+    "hidden_behavior_passed": {
+      "reason": "hidden synthetic probes not rerun",
+      "status": "unknown"
+    },
+    "named_check_terminal_pass": {
+      "reason": "complete named command, terminal exit and full log required; filtered or masked receipts fail",
+      "status": "unknown"
+    },
+    "observation_integrity": {
+      "reason": "toolu_01MGR1ppFANskToJv6kz7gmr: quoted metacharacters outside bounded grammar",
+      "status": "unknown"
+    },
+    "observations_present": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "one_execution_owner": {
+      "reason": "absence requires complete supported capture",
+      "status": "unknown"
+    },
+    "supported_operation_scope": {
+      "reason": "required evidence missing or unsupported",
+      "status": "unknown"
+    },
+    "workspace_boundary_preserved": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    }
+  },
+  "evidence": {
+    "reasons": [
+      "toolu_01MGR1ppFANskToJv6kz7gmr: quoted metacharacters outside bounded grammar"
+    ],
+    "status": "unknown"
+  },
+  "hidden_probes_rerun": false,
+  "input_hashes": {
+    "answer.json": "b73d1183ccc832edf71921b35ca7a247a024935165a41c7e3125f794193e3ab7",
+    "manifest.json": "7f77cd65151a23fee015ca6bd08af7338631220ecfef240a6b0714b42ec12410",
+    "native_capture.json": "1aad97b08bf948574fcbd1c416fa661285b92057d2c1aa4b4da9efd04eb0f87d",
+    "observations.json": "ead91ffeeb2d4d3387fe04b2a757f856f0668a26964e7727d2a382a0d0624220",
+    "truth.json": "e54df81d6d5549b0a12872ece87b42f6e1b515600bea0c7ab02d899ee266dce1"
+  },
+  "limit": "n=1 synthetic diagnostics; no scientific, savings or general permission claim",
+  "literal_answer": {
+    "reason": "literal type/value/whitespace equality",
+    "status": "passed"
+  },
+  "observed_behavior": {
+    "status": "unknown"
+  },
+  "originals_unchanged": true,
+  "scorer_hashes": {
+    "scripts/behavioral_calibration.py": "274167abe30e826075bd878f273f0a9d1f221074dd2da74314b3cb222c9553e6",
+    "scripts/behavioral_evidence.py": "0782c55a4f1227bbf32c186516103e0d35efdedbf9215398ca8512431264e202",
+    "scripts/behavioral_fixture.py": "7b2c9533cdb8f78b695dd1f216f4b3c07070018c1bdc790dbef086d4403bcb85"
+  },
+  "source_stage": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/dependent_owner/stage-1",
+  "stage": 1,
+  "tools": [
+    {
+      "actor": "main",
+      "id": "toolu_01Pyzic9NkHUmMrzZGPt7yTz",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "digests": [],
+      "id": "toolu_01U1zJHfQrdxRisvbFsNWP7d",
+      "reads": [],
+      "reason": "bounded read/display grammar; final group read evidence only",
+      "status": "supported",
+      "unproven_reads": [
+        "contract.md",
+        "source.py",
+        "driver.py",
+        "summary.py"
+      ]
+    },
+    {
+      "actor": "main",
+      "digests": [],
+      "id": "toolu_01XdF5ppaTCzSpRQ5N4PLUYf",
+      "reads": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "entry.py",
+        "tests/test_shape.py"
+      ],
+      "reason": "bounded read/display grammar; final group read evidence only",
+      "status": "supported",
+      "unproven_reads": []
+    },
+    {
+      "actor": "main",
+      "id": "toolu_01MGR1ppFANskToJv6kz7gmr",
+      "reads": [],
+      "reason": "quoted metacharacters outside bounded grammar",
+      "status": "unknown"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_012YZXC351q9ZY1rGWqrNTr2",
+      "reason": "native read or output tool",
+      "status": "supported"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "accepted": true,
+  "case": "review_reuse",
+  "checks": {
+    "answer_correct": true,
+    "helper_roles_within_scope": true,
+    "input_review_observed": true,
+    "no_duplicate_review": true,
+    "observation_integrity": true,
+    "observations_present": true,
+    "packet_unchanged": true,
+    "saved_disposition_read": true,
+    "supported_operation_scope": true,
+    "workspace_boundary_preserved": true
+  },
+  "diagnostics": {
+    "answer_correct": {
+      "reason": "literal type/value/whitespace equality",
+      "status": "passed"
+    },
+    "helper_roles_within_scope": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "input_review_observed": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "no_duplicate_review": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "observation_integrity": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "observations_present": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "packet_unchanged": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    },
+    "saved_disposition_read": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "supported_operation_scope": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "workspace_boundary_preserved": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    }
+  },
+  "evidence": {
+    "reasons": [],
+    "status": "supported"
+  },
+  "hidden_probes_rerun": false,
+  "input_hashes": {
+    "answer.json": "780614e4a7f789e81fbf73cdc37e0729b658b3031061f73075c130356467f6f3",
+    "manifest.json": "476c7757cc518f1824092c46a49264aad5a77d35043da617293922d4fa165487",
+    "native_capture.json": "1aad97b08bf948574fcbd1c416fa661285b92057d2c1aa4b4da9efd04eb0f87d",
+    "observations.json": "53a02277dbab584f16b6c3a6afa2ce74cb2e03ce393b82d9b087d1c26c899fc6",
+    "truth.json": "dd71a4b82d5f701ae4c7ce13e38d917e10aeec8a0990d6a509a39bf9c92323f0"
+  },
+  "limit": "n=1 synthetic diagnostics; no scientific, savings or general permission claim",
+  "literal_answer": {
+    "reason": "literal type/value/whitespace equality",
+    "status": "passed"
+  },
+  "observed_behavior": {
+    "status": "passed"
+  },
+  "originals_unchanged": true,
+  "scorer_hashes": {
+    "scripts/behavioral_calibration.py": "e1d3ded47733686630b1af0447db0e2b86d96def6010bc11312c47c9b2c765a2",
+    "scripts/behavioral_evidence.py": "7ba32c7762efac0e6dff0acdea35acd6445f30b95ab5d8efa8a994a42605687a",
+    "scripts/behavioral_fixture.py": "ba616ceef1d91bfeb7611816cf43e3a3131fc1b3ef438ad924088395a099aa1a"
+  },
+  "source_stage": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_reuse/stage-2",
+  "stage": 2,
+  "tools": [
+    {
+      "actor": "main",
+      "id": "toolu_01Nc5XqBHe2y9HFoSkna7EEZ",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "digests": [
+        "acceptance.md",
+        "packets.json"
+      ],
+      "id": "toolu_01KdFXJpRJkUn3W8t5PS8jFJ",
+      "reads": [
+        "acceptance.md",
+        "packets.json",
+        "evidence/review.json"
+      ],
+      "reason": "bounded read/display grammar",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_01ND2iNVdmw9bYS4Jd9BeaZN",
+      "reason": "native read or output tool",
+      "status": "supported"
+    }
+  ]
+}

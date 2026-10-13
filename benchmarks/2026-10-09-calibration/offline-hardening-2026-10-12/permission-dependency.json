@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_codex_permission_check.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "full_log": "permission-dependency.log"
+}

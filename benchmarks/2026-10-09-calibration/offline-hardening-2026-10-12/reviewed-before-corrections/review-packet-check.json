@@ -1,0 +1,17 @@
+{
+  "phase": "completion",
+  "packet_complete_for_phase": true,
+  "errors": [],
+  "verified_artifacts": 64,
+  "observed_nonpassing_checks": [
+    "replay-final/claude/autonomous_support/stage-1",
+    "replay-final/claude/compaction_recovery/stage-1",
+    "replay-final/claude/dependent_owner/stage-1",
+    "replay-final/claude/pause_preservation/stage-1",
+    "replay-final/claude/receipt_reuse/stage-1",
+    "replay-final/claude/routine_restraint/stage-1",
+    "replay-final/codex/pause_preservation/stage-1"
+  ],
+  "acknowledged_missing": [],
+  "gate_decision": "not_evaluated"
+}

@@ -1,0 +1,62 @@
+Offline red regression before separator fix; returncode=1
+test_quoted_or_escaped_separator_text_is_not_file_read_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_quoted_or_escaped_separator_text_is_not_file_read_evidence) ... FAIL
+
+======================================================================
+FAIL: test_quoted_or_escaped_separator_text_is_not_file_read_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_quoted_or_escaped_separator_text_is_not_file_read_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 167, in test_quoted_or_escaped_separator_text_is_not_file_read_evidence
+    self.assertFalse(fixture._read_observed([tool], 'USER_AUTHORITY.md'), command)
+AssertionError: True is not false : echo ";" cat USER_AUTHORITY.md STATE.json
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+
+Offline additional review red regressions; returncode=1
+test_future_capture_uses_owned_native_calls_omitted_by_frontend (test_behavioral_calibration.BehavioralCaptureTest.test_future_capture_uses_owned_native_calls_omitted_by_frontend) ... FAIL
+test_comment_text_and_skipped_reads_do_not_supply_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_comment_text_and_skipped_reads_do_not_supply_evidence) ... FAIL
+test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown (test_behavioral_fixture.BehavioralFixtureTests.test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown) ... FAIL
+test_conditional_read_completion_cannot_be_masked_by_later_echo (test_behavioral_fixture.BehavioralFixtureTests.test_conditional_read_completion_cannot_be_masked_by_later_echo) ... FAIL
+
+======================================================================
+FAIL: test_future_capture_uses_owned_native_calls_omitted_by_frontend (test_behavioral_calibration.BehavioralCaptureTest.test_future_capture_uses_owned_native_calls_omitted_by_frontend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_calibration.py", line 215, in test_future_capture_uses_owned_native_calls_omitted_by_frontend
+    self.assertTrue(any(t['input'].get('cmd')=='printf PROBE > sentinel' for t in captured['tools']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_comment_text_and_skipped_reads_do_not_supply_evidence (test_behavioral_fixture.BehavioralFixtureTests.test_comment_text_and_skipped_reads_do_not_supply_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 318, in test_comment_text_and_skipped_reads_do_not_supply_evidence
+    self.assertFalse(fixture._read_observed([tool], 'USER_AUTHORITY.md'), command)
+AssertionError: True is not false : echo hi # ; cat USER_AUTHORITY.md STATE.json
+
+======================================================================
+FAIL: test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown (test_behavioral_fixture.BehavioralFixtureTests.test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 333, in test_completed_paused_dispatch_is_rejected_but_unresolved_is_unknown
+    self.assertEqual(report['observed_behavior']['status'], 'rejected', name)
+AssertionError: 'unknown' != 'rejected'
+- unknown
++ rejected
+ : Agent
+
+======================================================================
+FAIL: test_conditional_read_completion_cannot_be_masked_by_later_echo (test_behavioral_fixture.BehavioralFixtureTests.test_conditional_read_completion_cannot_be_masked_by_later_echo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hao/githubrepo/scientific-workflow-skill/tests/test_behavioral_fixture.py", line 341, in test_conditional_read_completion_cannot_be_masked_by_later_echo
+    self.assertFalse(fixture._read_observed([tool], 'USER_AUTHORITY.md'))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.011s
+
+FAILED (failures=4)
+

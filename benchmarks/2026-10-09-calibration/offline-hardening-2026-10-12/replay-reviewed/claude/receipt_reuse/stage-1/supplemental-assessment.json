@@ -1,0 +1,121 @@
+{
+  "accepted": false,
+  "case": "receipt_reuse",
+  "checks": {
+    "answer_correct": false,
+    "complete_receipt_valid": true,
+    "helper_roles_within_scope": true,
+    "no_check_rerun": true,
+    "observation_integrity": true,
+    "observations_present": true,
+    "saved_evidence_read": true,
+    "supported_operation_scope": true,
+    "workspace_boundary_preserved": true
+  },
+  "diagnostics": {
+    "answer_correct": {
+      "reason": "literal answer differs; this is not an execution finding",
+      "status": "rejected"
+    },
+    "complete_receipt_valid": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    },
+    "helper_roles_within_scope": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "no_check_rerun": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "observation_integrity": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "observations_present": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "saved_evidence_read": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "supported_operation_scope": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "workspace_boundary_preserved": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    }
+  },
+  "evidence": {
+    "reasons": [],
+    "status": "supported"
+  },
+  "hidden_probes_rerun": false,
+  "input_hashes": {
+    "answer.json": "31d01408a198496a3435a0d381b3821a34a201d2d472f30778d125df2d66e10d",
+    "manifest.json": "e6bd950219fed0ef385f52a64b8849fb0cef321980478aaab409310a2dfed645",
+    "native_capture.json": "1aad97b08bf948574fcbd1c416fa661285b92057d2c1aa4b4da9efd04eb0f87d",
+    "observations.json": "f05a368123d9bc822a7758f9ae7d6c62966924ba7467e6fcfa2a9daa78dbe6bb",
+    "truth.json": "9e202b41d7194676c3323da374a4c31cf6177fee9c6dc8e24a44a219396f320d"
+  },
+  "limit": "n=1 synthetic diagnostics; no scientific, savings or general permission claim",
+  "literal_answer": {
+    "reason": "literal answer differs; this is not an execution finding",
+    "status": "rejected"
+  },
+  "observed_behavior": {
+    "status": "passed"
+  },
+  "originals_unchanged": true,
+  "scorer_hashes": {
+    "scripts/behavioral_calibration.py": "274167abe30e826075bd878f273f0a9d1f221074dd2da74314b3cb222c9553e6",
+    "scripts/behavioral_evidence.py": "0782c55a4f1227bbf32c186516103e0d35efdedbf9215398ca8512431264e202",
+    "scripts/behavioral_fixture.py": "7b2c9533cdb8f78b695dd1f216f4b3c07070018c1bdc790dbef086d4403bcb85"
+  },
+  "source_stage": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/receipt_reuse/stage-1",
+  "stage": 1,
+  "tools": [
+    {
+      "actor": "main",
+      "id": "toolu_01LudrEKN2QhpZQCpswyQQZ8",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "digests": [
+        "source.py"
+      ],
+      "id": "toolu_014ahf6aFQAdqQr8kSmZGsWN",
+      "reads": [
+        "evidence/receipt.json"
+      ],
+      "reason": "bounded read/display grammar; final group read evidence only",
+      "status": "supported",
+      "unproven_reads": []
+    },
+    {
+      "actor": "main",
+      "digests": [
+        "evidence/check.log"
+      ],
+      "id": "toolu_01YE3ZbWPYYYAC7Jhd1wPDFg",
+      "reads": [
+        "evidence/check.log"
+      ],
+      "reason": "bounded read/display grammar; final group read evidence only",
+      "status": "supported",
+      "unproven_reads": []
+    },
+    {
+      "actor": "main",
+      "id": "toolu_01D9p53hF2eJLc4tyoXF8wi4",
+      "reason": "native read or output tool",
+      "status": "supported"
+    }
+  ]
+}

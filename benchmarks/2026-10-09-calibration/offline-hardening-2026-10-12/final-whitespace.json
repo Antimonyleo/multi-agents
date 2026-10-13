@@ -1,0 +1,17 @@
+{
+  "source_whitespace_passed": true,
+  "raw_diff_check_exit": 2,
+  "preserved_log_exceptions": [
+    {
+      "path": "benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/focused-evaluator.log",
+      "sha256": "eaf83166c402e879b1c6ff7acada40e3fedfeff5ef9f21c0f0862df4818333f4",
+      "reason": "Exact full log has a blank line at EOF; retained to preserve reviewed evidence."
+    },
+    {
+      "path": "benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/review-fix-red-regressions.log",
+      "sha256": "bc4b7a711596a31657204e3bbf0c514a3798dccb532d8ab8cd20f547c1950c35",
+      "reason": "Exact full log has a blank line at EOF; retained to preserve reviewed evidence."
+    }
+  ],
+  "raw_output": "benchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/focused-evaluator.log:46: new blank line at EOF.\nbenchmarks/2026-10-09-calibration/offline-hardening-2026-10-12/review-fix-red-regressions.log:62: new blank line at EOF.\n"
+}

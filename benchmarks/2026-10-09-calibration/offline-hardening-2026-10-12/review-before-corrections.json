@@ -1,0 +1,16 @@
+{
+  "disposition": "revise; evaluator completion blocked pending correction",
+  "reviewer": "/root/final_evidence_review",
+  "verified_artifacts": 64,
+  "hash_mismatches": 0,
+  "packet_sha256": "194b23968bb46643a0e0e31344de0e2a23105b252ca8af49a4382bdb66d79de1",
+  "scope": "Static independent review; no tests or edits by reviewer. Activation remains accepted.",
+  "findings": [
+    "Quoted/escaped separators and shell comments can fabricate file reads.",
+    "Final compound exit can mask skipped required reads.",
+    "Future capture collects but does not use owned native traces.",
+    "Completed forbidden dispatch during pause is mislabeled unknown."
+  ],
+  "resolution": "Worker assigned red regressions and bounded corrections. Current native diagnostics stay frozen.",
+  "snapshots": "reviewed-before-corrections stores reviewed implementation/tests and report; original packet paths describe submitted tree."
+}

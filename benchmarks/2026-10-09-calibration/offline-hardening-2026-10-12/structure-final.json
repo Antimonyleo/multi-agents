@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "scripts/validate.py"
+  ],
+  "exit_code": 0,
+  "stdout": "PASS: 7 local links, 5 Codex profiles, 74 protected Claude/benchmark files\n",
+  "stderr": ""
+}

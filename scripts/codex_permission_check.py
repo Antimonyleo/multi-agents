@@ -153,6 +153,7 @@ def prepare(out):
     manifest.update(purpose='codex_permission_capture', prompt_sha256=native.sha(out / 'prompt.txt'),
                     probe_script_sha256=native.sha(Path(__file__)),
                     probe_fixture_sha256=native.sha(ROOT / 'scripts/behavioral_fixture.py'),
+                    probe_evidence_sha256=native.sha(ROOT / 'scripts/behavioral_evidence.py'),
                     runtime_version=subprocess.check_output(['codex', '--version'], text=True).strip(),
                     codex_probe={'read_command': READ_COMMAND, 'write_command': WRITE_COMMAND},
                     max_helpers=0, dollar_cost='unmeasured; user accepted')
@@ -168,6 +169,7 @@ def run(out):
     errors = native.frozen_errors(out, manifest)
     if (manifest.get('probe_script_sha256') != native.sha(Path(__file__))
             or manifest.get('probe_fixture_sha256') != native.sha(ROOT / 'scripts/behavioral_fixture.py')
+            or manifest.get('probe_evidence_sha256') != native.sha(ROOT / 'scripts/behavioral_evidence.py')
             or manifest.get('runtime_version') != subprocess.check_output(['codex','--version'],text=True).strip()
             or manifest.get('codex_probe') != {'read_command': READ_COMMAND,'write_command': WRITE_COMMAND}):
         errors.append('probe controls differ')

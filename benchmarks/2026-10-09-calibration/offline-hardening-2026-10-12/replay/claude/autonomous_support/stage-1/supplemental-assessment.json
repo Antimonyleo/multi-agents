@@ -1,0 +1,132 @@
+{
+  "accepted": false,
+  "case": "autonomous_support",
+  "checks": {
+    "answer_correct": false,
+    "delegation_replaces_work": true,
+    "helper_roles_within_scope": true,
+    "observation_integrity": true,
+    "observations_present": true,
+    "source_evidence_observed": true,
+    "supported_operation_scope": true,
+    "workspace_boundary_preserved": true
+  },
+  "diagnostics": {
+    "answer_correct": {
+      "reason": "literal answer differs; this is not an execution finding",
+      "status": "rejected"
+    },
+    "delegation_replaces_work": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "helper_roles_within_scope": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "observation_integrity": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "observations_present": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "source_evidence_observed": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "supported_operation_scope": {
+      "reason": "strict check satisfied",
+      "status": "passed"
+    },
+    "workspace_boundary_preserved": {
+      "reason": "evaluator inspected artifact or executed synthetic probe",
+      "status": "passed"
+    }
+  },
+  "evidence": {
+    "reasons": [],
+    "status": "supported"
+  },
+  "hidden_probes_rerun": false,
+  "input_hashes": {
+    "answer.json": "47903ba105b98475a402fa62fba4493902b5f8c9462d817d65dfad4a984f01d0",
+    "manifest.json": "ce38c5320bf5871b34b7e50d44c7cfa7b0715fd51906c79c0a5eec9a56c111e6",
+    "native_capture.json": "1aad97b08bf948574fcbd1c416fa661285b92057d2c1aa4b4da9efd04eb0f87d",
+    "observations.json": "071217425203543eb39465e6002a8e087307ccb2f88cb7724a4577505d52b699",
+    "truth.json": "e1d9becd4f62447a3489ec11d5a9ab070b66b5fa395261cfceefc6af28e94038"
+  },
+  "limit": "n=1 synthetic diagnostics; no scientific, savings or general permission claim",
+  "literal_answer": {
+    "reason": "literal answer differs; this is not an execution finding",
+    "status": "rejected"
+  },
+  "observed_behavior": {
+    "status": "passed"
+  },
+  "originals_unchanged": true,
+  "scorer_hashes": {
+    "scripts/behavioral_calibration.py": "eb8533946ac1e3f14ff68c4f5cd48ee515133c624a05840014da90507bd9d446",
+    "scripts/behavioral_evidence.py": "a88a05d8f2c0c1487884b7b4498d6615e384fcd198f9c24f4350df6c63f965ac",
+    "scripts/behavioral_fixture.py": "ba616ceef1d91bfeb7611816cf43e3a3131fc1b3ef438ad924088395a099aa1a"
+  },
+  "source_stage": "/home/hao/githubrepo/scientific-workflow-skill/benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/autonomous_support/stage-1",
+  "stage": 1,
+  "tools": [
+    {
+      "actor": "main",
+      "id": "toolu_016v1Z8LV7yHdrFMUfj4Gc5g",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_01TAx4HVWkh8y3PZ54STePXp",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_017xWpZYXVpSF1VfaZiFQF3D",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_01QCiLbDqRxvZuYt87ZPBNpB",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_018B7tqJsxVFiPwUMz37k7sC",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_013kXyU72QNobYB79tQGvdg7",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_018SDkxvPvKY2H2zq9wzPpnz",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_0147F7W5qJuVJn4AxsBEefgw",
+      "reason": "native read or output tool",
+      "status": "supported"
+    },
+    {
+      "actor": "main",
+      "id": "toolu_01AnBkwH14rBhTPf2jWKucPE",
+      "reason": "native read or output tool",
+      "status": "supported"
+    }
+  ]
+}
