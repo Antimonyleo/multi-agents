@@ -1,0 +1,208 @@
+{
+  "scope": "Complete authorized test/implementation inventory; preserve conditional stops. No new paid/scientific run.",
+  "behavioral": {
+    "planned_claude_stages": 12,
+    "executed": 9,
+    "stopped": 3,
+    "cases": [
+      {
+        "case": "autonomous_support",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": false
+      },
+      {
+        "case": "compaction_recovery",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": false
+      },
+      {
+        "case": "compaction_recovery",
+        "stage": 2,
+        "status": "stopped_by_predecessor",
+        "reason": "immediate predecessor failed strict acceptance; no retry or scientific resume"
+      },
+      {
+        "case": "dependent_owner",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": false
+      },
+      {
+        "case": "pause_preservation",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": false
+      },
+      {
+        "case": "receipt_reuse",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": false
+      },
+      {
+        "case": "receipt_reuse",
+        "stage": 2,
+        "status": "stopped_by_predecessor",
+        "reason": "immediate predecessor failed strict acceptance; no retry or scientific resume"
+      },
+      {
+        "case": "receipt_reuse",
+        "stage": 3,
+        "status": "stopped_by_predecessor",
+        "reason": "immediate predecessor failed strict acceptance; no retry or scientific resume"
+      },
+      {
+        "case": "review_reuse",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": true
+      },
+      {
+        "case": "review_reuse",
+        "stage": 2,
+        "status": "terminal",
+        "strict_accepted": false
+      },
+      {
+        "case": "review_value",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": true
+      },
+      {
+        "case": "routine_restraint",
+        "stage": 1,
+        "status": "terminal",
+        "strict_accepted": true
+      }
+    ],
+    "strict_passes": 3
+  },
+  "codex": [
+    {
+      "case": "permission_capture",
+      "status": "terminal",
+      "original_strict_accepted": false
+    },
+    {
+      "case": "pause_preservation",
+      "status": "terminal",
+      "original_strict_accepted": false
+    }
+  ],
+  "implementation_pair": {
+    "status": "closed_invalid_measurement",
+    "parent_starts": 1,
+    "owner_started": false,
+    "original_score": "63/65",
+    "additional_start_authorized": false
+  },
+  "source_validation": {
+    "tests": 179,
+    "reused_exact_source_checkpoint": "2de74f5",
+    "validated_log_hashes": 7,
+    "source_versions_match": true,
+    "preserved_identities": 1418
+  },
+  "research": "Original completion plan item6 explicitly leaves broad held-out benefit qualification for future work; no unresolved implementation fact requires external research.",
+  "unmeasured_future_questions": [
+    "helper break-even",
+    "whole-project cost",
+    "general and long-run reliability",
+    "actual compaction",
+    "representative scientific benefit"
+  ],
+  "unfinished_authorized_items": [],
+  "evidence_sha256": {
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/allocation.json": "00b38e7662550e0a6df6735ad06219184e85fb283556634908dc6d1b9fa50341",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/autonomous_support/stage-1/execution.json": "11ef1b719d20292076926a1587ed56a4466606d3d5911dea477fed9c57839bef",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/autonomous_support/stage-1/metrics.json": "34e07a3b9a0c27263b7fe1e32ce497943fb4bf9c0c855c540ba0aad187c43e44",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/compaction_recovery/stopped-stages.json": "7d2f6d30a00bbcc7d482f3ef0c640ded7bee8db1ac3cc3342dfd1d5ed3d3255b",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/compaction_recovery/stage-1/execution.json": "cc1a75858d783a48b257400b6e1985f5a53720e3a092c4bf7ccb5499f6bd02e0",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/compaction_recovery/stage-1/metrics.json": "1a756558e68374c8cf65f28b4fa16d07a5c24a01f3639622e2c3a0b934662039",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/dependent_owner/stage-1/execution.json": "d920245d9df130660b574bf26007b844c069577be90f04f00525f0d81e6d7b7c",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/dependent_owner/stage-1/metrics.json": "89cbb42fa0e9388150174a0cb18c8b003ba1adcc9c0f353899e3f3503f016220",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/pause_preservation/stage-1/execution.json": "2f14da835b54d120af503f16b5a8ea6d788de9ad1ae7a1a68c7c5cc02be17d1f",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/pause_preservation/stage-1/metrics.json": "d4240f648ebf9a3d647b2dc195432f0b463c58820ad2d9cadedf31f7ec168f25",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/receipt_reuse/stopped-stages.json": "ce0a8bdc950b4cb47b5727b7f2e69edba2e683bed78a9ad470002ec15dee0f61",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/receipt_reuse/stage-1/execution.json": "dc015ca0259540fc4b3301f33010a38222a6ad07e96e2101273c8f546fc8bc2d",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/receipt_reuse/stage-1/metrics.json": "a1c816f84c1a8edc125e4032a13b0262c1b341e9cc33b96fe35e788b85eaacd9",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_reuse/stage-1/execution.json": "baacf2355158ebddcd46b37134180d1743dce0c19fb114fa69040fc46c551cd0",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_reuse/stage-1/metrics.json": "f2adc25199a04e09ca5a535b770f148cdbbd67ea07ec5d7916a64ad8a6862b35",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_reuse/stage-2/execution.json": "bfdac1f97dcefb5c60347ac55e22022c2306e5d9253b8c4a7b97364a033f84ad",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_reuse/stage-2/metrics.json": "d8f68f37245ada353b21b02baff0d05bde0e456e106b52c4485e4086fc4aa874",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_value/stage-1/execution.json": "88bf6c0d5b74923653cda893c491fd212180778caad57b0591441f8262bb840b",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/review_value/stage-1/metrics.json": "69961585274aafa86bc4134d213a5c9616957caeb66ba0173f865cb5711d845e",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/routine_restraint/stage-1/execution.json": "bdf9eb7e5d691f741180ff4d64b5f22c73b9e92d204990aa405921af686f410c",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/claude/routine_restraint/stage-1/metrics.json": "5a6881cc254fa680352a72262a35e510812571ab280ae70b81c219909f9ee5e5",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/codex/permission_capture/execution.json": "38d7f334a6e2d396152104dcdaf9a5c1bf66688493ebbbfb0847cfd7db76e3a2",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/codex/permission_capture/metrics.json": "cfe01b355861cd8a926c925097671f3d1f5c476e8cf24aad6ff4c14d67ce0a83",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/codex/pause_preservation/stage-1/execution.json": "2235fd2a3cdd09b32a738c7b4f063adcb8f5f9f287e99ffe5bbcbcc515766d7b",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/codex/pause_preservation/stage-1/metrics.json": "cb73426213f7bd603b5e9d64460cd02c2bcbc6d1ba7d645fbcd84c665372b71e",
+    "benchmarks/2026-10-09-calibration/live-remaining-2026-10-11/final-review.json": "52ec05060350e3b66e0ad593b1b9500ca44a0ab1c88aea3217707207f11bc514",
+    "benchmarks/2026-10-12-implementation-pair/live/closure.json": "1f021a61093bc5faba798982c6ed9f989815368cb3c9f4a39454602a7ea3be4e",
+    "benchmarks/2026-10-12-implementation-pair/prepared-final/support/continuation.json": "3650076812f8369cfb23578fae3b9bda414b6798b2256d75922b3b2facc3e17a",
+    "benchmarks/2026-10-12-implementation-pair/live/completion-review.json": "6c6e29ae3848cf0a52761315324cff73c139b89d223d6ef420c84b80f8281145",
+    "docs/contract-boundary-maintenance-2026-10-13/validation.json": "62ec8dff85aaec690569819cdfb157e22956d009d8bb183ac248e71e41169ed7",
+    "docs/contract-boundary-maintenance-2026-10-13/activation.json": "3a0b46fe4417816da1e47a8a9129a9ffebfa72aea903fb6a7355573b370fd69d",
+    "docs/contract-boundary-maintenance-2026-10-13/completion-review.json": "e1eb1d2e66293546015bad84b7a1e7bd6e86411e7098aa10b4aed71dd57c8adb",
+    "docs/contract-boundary-maintenance-2026-10-13/review-input-resolved.json": "81b4d0011c2ea8887c6e95febb17a3932e47af6659477d95feab07354e2acdc3",
+    "docs/contract-boundary-maintenance-2026-10-13/preservation-before.json": "e09a2538d39be2d7985f19b6c0f8a2dae582d10762e112ebe236f452fcfec281",
+    "benchmarks/2026-10-09-calibration/completion-2026-10-10/qualification/execution.json": "5d70a27b75bc487b7e17fc443db2f835ffa3aaeab8d0d645503bf3dd6022c273",
+    "benchmarks/2026-10-09-calibration/completion-2026-10-10/qualification-review.json": "517f227494184f6a6dc387183fe4906fff93629a2bfc45a7c81c1d9328d519f9",
+    "benchmarks/2026-10-09-calibration/completion-2026-10-10/pair/workflow/metrics.json": "192fb724b5e550133bbe992a38ba027b73147207386277e02af204dd7162c704",
+    "benchmarks/2026-10-09-calibration/completion-2026-10-10/pair/workflow/execution.json": "fb09aa97db05f4759627dec7e4a5552cc0dd4ad9e9b604e9ebf7795259f338a9",
+    "benchmarks/2026-10-09-calibration/COMPLETION_PLAN.md": "79085ee6290bbe65d5c04a7ba9c88db74e81b773caec7adef6807030656f96ce"
+  },
+  "qualification_and_semantic": {
+    "qualification": "terminal; narrow independent acceptance",
+    "semantic_workflow": "terminal failed strict acceptance",
+    "baseline": "unstarted by gate",
+    "reverse_pair": "stopped; not retry authority"
+  },
+  "handoff_validation": {
+    "checks": {
+      "structure": {
+        "command": [
+          "python",
+          "scripts/validate.py"
+        ],
+        "returncode": 0,
+        "full_output": "PASS: 7 local links, 5 Codex profiles, 74 protected Claude/benchmark files\n"
+      },
+      "skill": {
+        "command": [
+          "python",
+          "/home/hao/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+          "skill/scientific-workflow"
+        ],
+        "returncode": 0,
+        "full_output": "Skill is valid!\n"
+      },
+      "instruction_health": {
+        "command": [
+          "agent-workflow",
+          "check",
+          "--repo",
+          "/home/hao/githubrepo/scientific-workflow-skill"
+        ],
+        "returncode": 0,
+        "full_output": "[\n  {\n    \"repo\": \"/home/hao/githubrepo/scientific-workflow-skill\",\n    \"staged\": false,\n    \"sizes\": {\n      \"AGENTS.md\": 1527,\n      \"CLAUDE.md\": 11\n    },\n    \"passed\": true,\n    \"errors\": []\n  }\n]\n"
+      },
+      "whitespace": {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "returncode": 0,
+        "full_output": ""
+      }
+    },
+    "local_links_checked": 30,
+    "state_sha256": "ee3b1ae8ae07a5b53efc18c40267ea77ab68fa5273c65605fb840ac3fd4dc9dd",
+    "unchanged_executable_sources": "179-test full suite reused; no source changes or unresolved test concern."
+  }
+}

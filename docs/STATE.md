@@ -4,7 +4,27 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-13, offline contract-boundary maintenance complete (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-13, authorized test inventory and maintenance complete (branch `codex-claude-shared-workflow-20261009`; no push).
+
+The latest request was to finish all needed tests, implementations and research.
+The [completion audit](completion-audit-2026-10-13.json) verifies the original
+plan against saved receipts: corrected qualification ended with narrow acceptance;
+the semantic workflow arm failed and its conditional arms stayed stopped;
+all 12 behavioral stages have terminal outcomes (nine executed, three stopped);
+both Codex checks ended. The fresh implementation allocation is also closed on
+invalid measurement, with its owner arm unstarted. All required fixture/capture
+corrections, skill activation and independent completion reviews are complete.
+No authorized item is left pending. Failed and invalid results remain failures
+or unresolved acceptance, rather than successful qualification.
+
+The original completion plan makes broad held-out benefit qualification future
+work. No additional external research is needed to finish these implementation
+items. Helper break-even, complete project cost, long-run reliability, actual
+compaction and representative scientific benefit remain unmeasured. Those are
+new research questions with separate designs and allocations, not unfinished
+checks in the closed plan. Reuse the exact 179-test validation at `2de74f5`;
+source versions, seven validation log hashes and 1,418 protected identities
+match. This handoff-only correction does not change routing or acceptance.
 
 The user authorized offline continuation after the trial closure. Future
 `attempts.summarize` checks now compare rows by unique exact identity without
@@ -23,6 +43,8 @@ Practical recommendation remains one capable dependent owner, useful independent
 support and consequential review; qualify hidden checks at their disclosed API
 boundary before another separately authorized comparison. No efficiency or
 runtime/scientific qualification claim.
+
+## Historical execution records
 
 The prior approved allocation is terminal: [live results](../benchmarks/2026-10-12-implementation-pair/live/RESULTS.md).
 The user approved two sequential Claude families at $1.50 reported limit each
@@ -71,7 +93,7 @@ new paid benchmark is allocated. Earlier live results below remain historical an
 
 Goal: a shared Codex/Claude scientific workflow skill with separate native adapters, checked against measured execution.
 
-Active continuation: [completion results](../benchmarks/2026-10-09-calibration/completion-2026-10-10/RESULTS.md) and [plan](../benchmarks/2026-10-09-calibration/COMPLETION_PLAN.md).
+Historical diagnostic plan and closure: [completion results](../benchmarks/2026-10-09-calibration/completion-2026-10-10/RESULTS.md) and [plan](../benchmarks/2026-10-09-calibration/COMPLETION_PLAN.md).
 The new permission probe passed independent review and one fresh native qualification:
 all seven capture checks, successful parent Read, one runtime-denied exact Bash
 attempt, one native Haiku explorer, reconciled family accounting and owned cleanup.
@@ -151,9 +173,9 @@ Test plan: [reliability before efficiency](../benchmarks/2026-10-09-calibration/
 
 Execution record: [test results](../benchmarks/2026-10-09-calibration/TEST_RESULTS.md). Stage A passed independent correction review: 82 workflow tests and 16 isolated runner tests, with red regressions for original defects and a Codex event-conflict defect. The ten-case semantic fixture passed independent truth/scorer inspection; matched preparations passed preflight. Shared-runner recovery branch: `workflow-runner-reliability-20261009`, commit `383b16d`; active scientific branch and unrelated edits preserved.
 
-Bounded retrospective completed: [findings and validation](../benchmarks/2026-10-09-calibration/retrospective/REPORT.md). Two existing long parent sessions and eleven discovered Codex descendants were frozen and scanned offline. The sample covers different workloads; it cannot establish savings. Codex event totals omitted exactly three compaction responses in this trace. The adapter preserves separate record totals and compaction evidence. A subsequent independent review found invalid-record deduplication and empty-ledger reconciliation defects; both are corrected and accepted in the scoped [review record](../benchmarks/2026-10-09-calibration/retrospective/review.json). Seven added regression methods and all 89 repository tests pass. The earlier independent Stage A review remains limited to its historical inputs. Two more behavioral specifications cover saved-check evidence reuse and recovery after compaction; they remain unexecuted.
+Bounded retrospective completed: [findings and validation](../benchmarks/2026-10-09-calibration/retrospective/REPORT.md). Two existing long parent sessions and eleven discovered Codex descendants were frozen and scanned offline. The sample covers different workloads; it cannot establish savings. Codex event totals omitted exactly three compaction responses in this trace. The adapter preserves separate record totals and compaction evidence. A subsequent independent review found invalid-record deduplication and empty-ledger reconciliation defects; both are corrected and accepted in the scoped [review record](../benchmarks/2026-10-09-calibration/retrospective/review.json). Seven added regression methods and all 89 repository tests pass. The earlier independent Stage A review remains limited to its historical inputs. At that historical checkpoint, saved-check reuse and context-loss recovery were unexecuted. Their later terminal and conditional-stop records are in the completed 2026-10-11 allocation.
 
-Approved native qualification completed: one Opus parent, one native Haiku explorer, correct output, complete capture and verified owned-process cleanup. Wall time was 13.078 seconds; CLI-reported family cost was $0.201237295. Helper token counts and per-model estimates reconcile for this family; billing and external review/coordinator cost remain unknown. The fixture omitted a denied-operation probe, so effective denial enforcement remains unverified. Independent review supports stopping; zero comparison starts and no retry. See [terminal results and the next permission-test design](../benchmarks/2026-10-09-calibration/live-approved-2026-10-10/RESULTS.md) and [allocation](../benchmarks/2026-10-09-calibration/live-approved-2026-10-10/allocation.json). Benefit comparison and all eight prepared behavioral specifications are unexecuted. Project2 remains paused; no efficiency/default claim.
+Approved native qualification completed: one Opus parent, one native Haiku explorer, correct output, complete capture and verified owned-process cleanup. Wall time was 13.078 seconds; CLI-reported family cost was $0.201237295. Helper token counts and per-model estimates reconcile for this family; billing and external review/coordinator cost remain unknown. The fixture omitted a denied-operation probe, so effective denial enforcement remains unverified. Independent review supports stopping; zero comparison starts and no retry. See [terminal results and the next permission-test design](../benchmarks/2026-10-09-calibration/live-approved-2026-10-10/RESULTS.md) and [allocation](../benchmarks/2026-10-09-calibration/live-approved-2026-10-10/allocation.json). At that checkpoint the comparison and eight behavioral cases were unexecuted. Later records above close them through terminal outcomes or conditional stops. Project2 remains paused; no efficiency/default claim.
 
 Evaluation discussion: see [interpretation and next evaluation](../benchmarks/2026-10-09-calibration/TEST_RESULTS.md#interpretation-and-next-evaluation-after-claude-side-checks). No universal token penalty or hours-based benefit is established. Prioritize bounded historical-session analysis before further paid benefit trials. Optional opt-in requires native invocation controls and auditing instruction routes; no settings or agents were changed.
 
@@ -173,21 +195,21 @@ The user wants reliable long-task execution and better accepted results at reaso
 
 ### Exact starting point and checkpoints
 
-Last checkpoint before the current continuation: `2f8ff3b`. Earlier source checkpoint before the first approved qualification: `05c6748` (reviewed telemetry corrections and refreshed preparations), following `cf4a306` (compaction telemetry and bounded retrospective). Earlier checkpoints include `61184ef` (delegation-economics interpretation), `d989d8c` (Claude's additional checks), `cc93787` (harness fixes and prepared fixture), `027d125` (reviewed test plan), `dfe47fd` (six efficiency corrections), and `5ee26a0` (Claude's restored scientific-evidence paragraph). Preserve them. This terminal record is checkpointed separately; find its identity with `git log -1 --oneline`.
+Latest implementation/activation checkpoint: `2de74f5` (179 tests and accepted contract-boundary correction). Prior trial closure: `e042b83`. Historical pre-diagnostic checkpoint: `2f8ff3b`. Earlier source checkpoint before the first approved qualification: `05c6748` (reviewed telemetry corrections and refreshed preparations), following `cf4a306` (compaction telemetry and bounded retrospective). Earlier checkpoints include `61184ef` (delegation-economics interpretation), `d989d8c` (Claude's additional checks), `cc93787` (harness fixes and prepared fixture), `027d125` (reviewed test plan), `dfe47fd` (six efficiency corrections), and `5ee26a0` (Claude's restored scientific-evidence paragraph). Preserve them. This terminal record is checkpointed separately; find its identity with `git log -1 --oneline`.
 
-Recheck the working tree and any active session before editing. Native-role smoke checks and independent Stage A review are complete; reuse them for unchanged inputs. The earlier workflow suite passed 89 tests; the historical isolated runner suite passed 16. These passes certify their tested paths, not live permission enforcement, scientific success or savings.
+Recheck the working tree and any active session before editing. Native-role smoke checks and independent Stage A review are complete; reuse them for unchanged inputs. Current source validation passed 179 repository tests. Older validation passed 89 workflow tests and 16 isolated runner tests; those counts overlap later coverage. These passes certify their tested paths, not live permission enforcement, scientific success or savings.
 
 The shared runner is an external dependency at `/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/run.py`. Its two-file correction is checkpointed at `383b16d3998022b77d3630ed04005494c02260a9` on `workflow-runner-reliability-20261009`, with a clean recovery worktree at `/tmp/workflow-runner-checkpoint` when inspected. Corrections were also applied to the canonical runner; that repository's `dev` contains other sessions' work. Do not merge, revert or run its broad suite automatically. The absolute runner dependency and children escaping the owned process group remain limits to consider if those questions become relevant.
 
 ### Completion and next boundary
 
-1. Read the final remaining-results link above first. The authorized diagnostics
+1. Read Current work, the completion audit and current maintenance results first. The authorized diagnostics
    are terminal, with failed acceptance and conditional skips preserved.
 2. Do not retry the failed semantic arm, start its baseline/reverse pair, or use
    unused allocation as retry authority.
 3. The reviewed skill candidate was activated at `b1bfb74`. Current offline
-   evaluator work is linked at the top of this file. Native settings and
-   scientific pauses remain unchanged. General reliability, real compaction
+   evaluator work is linked at the top of this file. Native-agent identities and scientific pauses are preserved. Global settings
+   drift from the old baseline is recorded with unknown provenance. General reliability, real compaction
    and representative benefit require a separate design/allocation.
 4. Required validation, independent completion review and local checkpoints are
    recorded with the final results. No push.
@@ -204,7 +226,9 @@ Qualification acceptance must explicitly establish native identity, effective al
 
 | Need | Existing source |
 | --- | --- |
-| Active staged test plan and stopping rules | [NATIVE_ADAPTER.md](../benchmarks/2026-10-09-calibration/NATIVE_ADAPTER.md#next-test-plan-reliability-before-efficiency) |
+| Completed inventory, terminal and stopped stages | [completion audit](completion-audit-2026-10-13.json) |
+| Current evaluator correction and activation | [maintenance results](contract-boundary-maintenance-2026-10-13/RESULTS.md) |
+| Historical staged test plan and stopping rules | [NATIVE_ADAPTER.md](../benchmarks/2026-10-09-calibration/NATIVE_ADAPTER.md#next-test-plan-reliability-before-efficiency) |
 | Results, limitations, literature and updated evaluation priorities | [TEST_RESULTS.md](../benchmarks/2026-10-09-calibration/TEST_RESULTS.md) |
 | Completed bounded retrospective, accounting correction and added test targets | [REPORT.md](../benchmarks/2026-10-09-calibration/retrospective/REPORT.md) |
 | Permanent logs, reviewed fixture truth, manifests and budget record | [test-evidence](../benchmarks/2026-10-09-calibration/test-evidence/) |
