@@ -14,7 +14,7 @@ Ask one scoped pass, including assumptions and counterevidence, without the desi
 
 ## Wait without spending model turns on unchanged state
 
-Use one progress owner and native completion notifications. Otherwise use bounded waits suited to job duration and safety deadlines, up to 60 seconds per wait for user responsiveness; back off unchanged polling. User updates may report the last verified state without another inspection or worker turn. Do not activate a second watcher or resume an agent for status-only acknowledgements. Deterministic watchdogs, not reasoning loops, enforce hard limits.
+Use one progress owner and native completion notifications. Otherwise size each bounded wait to the job's expected remaining time and safety deadlines. Follow runtime responsiveness requirements and tool limits. When the owner has no other work and those limits permit it, prefer one long native wait (minutes) to repeated short waits, which can add model turns and context processing. Use waits of 60 seconds or less when required by the runtime, requested live updates or an expected user reply. Back off unchanged polling. User updates may report the last verified state without another inspection or worker turn. Do not activate a second watcher or resume an agent for status-only acknowledgements. Deterministic watchdogs, not reasoning loops, enforce hard limits.
 
 Before relaunch after timeout, inspect owned terminal/process evidence. A timed-out tool is not proof its child stopped. Preserve other sessions' processes and allocations. Stop on changed authority or a declared resource boundary; a slot becoming free is not authority for more work.
 
