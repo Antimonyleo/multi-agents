@@ -1,0 +1,11 @@
+{
+  "authority": "User ok go ahead after scoped recommendation: integrate monitor, checkpoint rule, qualified wait rule; checks and separate commits.",
+  "monitor_commit": "35030d8753951e01824a0fbd7455fc1eeaed7efc",
+  "milestone": "Required offline checks and independent exact-version review before live activation; installed checks then separate rule commits and closure checkpoint.",
+  "native_models_or_science": "No new model-backed benchmark, scientific run, settings/profile edit, cleanup or push.",
+  "original_worktree_preserved": "/tmp/claude-1005/-home-hao-githubrepo-scientific-workflow-skill/856948b7-9833-4325-b6e8-778af0ac0c7f/scratchpad/wt",
+  "original_patches_preserved": "/tmp/claude-1005/-home-hao-githubrepo-scientific-workflow-skill/856948b7-9833-4325-b6e8-778af0ac0c7f/scratchpad/patches",
+  "candidate": "/home/hao/githubrepo/scientific-workflow-skill/staging/long-task-rules-2026-10-14/scientific-workflow",
+  "protected_paths": 1459,
+  "qualification": "Runtime responsiveness requirements and tool limits govern waits; context-processing cost is a possibility, not a measured saving."
+}

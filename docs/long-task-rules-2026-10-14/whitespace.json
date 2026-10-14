@@ -1,0 +1,16 @@
+{
+  "unfiltered_exit": 2,
+  "findings": "21 unified-diff blank-context lines, each represented by one required space, across three preserved patch artifacts.",
+  "preserved_byte_for_byte": true,
+  "source_check_command": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    ".",
+    ":(exclude)docs/long-task-rules-2026-10-14/*.patch"
+  ],
+  "source_check_exit": 0,
+  "scope": "All source, staged skill and documentation pass; exact patch artifacts retain valid context markers."
+}

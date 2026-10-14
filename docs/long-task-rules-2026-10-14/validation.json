@@ -1,0 +1,82 @@
+{
+  "checks": {
+    "structure": {
+      "command": [
+        "python",
+        "scripts/validate.py"
+      ],
+      "returncode": 0,
+      "wall_s": 0.14488965226337314,
+      "log": "structure.log",
+      "log_sha256": "e2148b041b6e6b6bc092df7fe1519c7084ab18564830b808bac1a7fa6dd156a6",
+      "capture": "Complete stdout followed by complete stderr; direct process exit."
+    },
+    "full-suite": {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_s": 103.27626541815698,
+      "log": "full-suite.log",
+      "log_sha256": "ad5096b0d29167c354b313aa0bf5059d047de987b0a579ee56f0faa8fbc71fe5",
+      "capture": "Complete stdout followed by complete stderr; direct process exit."
+    },
+    "staged-skill": {
+      "command": [
+        "/usr/bin/python3",
+        "/home/hao/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/home/hao/githubrepo/scientific-workflow-skill/staging/long-task-rules-2026-10-14/scientific-workflow"
+      ],
+      "returncode": 0,
+      "wall_s": 0.13333524484187365,
+      "log": "staged-skill.log",
+      "log_sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "capture": "Complete stdout followed by complete stderr; direct process exit."
+    }
+  },
+  "source_sha256": {
+    "scripts/behavioral_calibration.py": "274167abe30e826075bd878f273f0a9d1f221074dd2da74314b3cb222c9553e6",
+    "scripts/behavioral_evidence.py": "dcba6b962f75df169ca287a8c037a87f0e3433691b8a6c54c9d6dc337fd8c07f",
+    "scripts/behavioral_fixture.py": "7b2c9533cdb8f78b695dd1f216f4b3c07070018c1bdc790dbef086d4403bcb85",
+    "scripts/codex_permission_check.py": "366f8979fb560abd5fc025d8030fb7b34e44a3c494e821d50cca52f873e64b11",
+    "scripts/implementation_fixture.py": "668a43c0246f5c202a293b7847f7182e35210e63345e831f62e842234eb6cb3c",
+    "scripts/implementation_pair.py": "ec3e239551d73ce0daf0841e406b7a9c2f84ca4361bd3bf10d1aa5b2037397f1",
+    "scripts/install.py": "5dc60f8348b9e8f1e7c5519a85e2fd0a23325d9aefdacc8f6002777acbbe3c6b",
+    "scripts/install.sh": "ea504c54c9b5066280fcb9b6f135ae11f655f74c263b91696e52d0b65a8ea0d8",
+    "scripts/long_task_monitor.py": "23ea1a36b4ccea55cfa704509a24ae9fdd1218f3643090753b03126c8beb988f",
+    "scripts/native_calibration.py": "35b4de606e8f90100d6d98e7df435d3ca7278d905ae82f5220e1e6de97657ea4",
+    "scripts/review_packet.py": "1503858278d02c2a92c551ec186e260410d4fba009b25575dba4e2e5f510adb5",
+    "scripts/semantic_fixture.py": "531292ae0af3c4b9e3296e5837149da2ed0c3b9dd417462abb487596c35415c0",
+    "scripts/validate.py": "4d319c40a9168819099470bb45104c471ad0be9ade8924f63585cbf1780f74f9",
+    "tests/test_behavioral_calibration.py": "1ea4cacc42d0a41e0d192a33928877005ffcec23029bf58c4964cbf15a449648",
+    "tests/test_behavioral_evidence.py": "d11f0bafbf44781d0c8fe74e3e81def34e888efa980d6cae78439d978c810a02",
+    "tests/test_behavioral_fixture.py": "15ffbdc4f18dc05a311c5cdb795d0b59e270242d49ed4076af387e770a39fb46",
+    "tests/test_codex_permission_check.py": "38db0c69a42ba4b123a83ccb5cf540e04a4bb667820a4b4de5f0dc3a7f69df1e",
+    "tests/test_implementation_fixture.py": "0d76d52064df0bba938a3e755420b4a34fde579504619cc7a658074f324c319c",
+    "tests/test_implementation_pair.py": "ace703cebbeceb2d2d7a2d1546d7cba95b680bc4712ef88d14cb232a7ecdbcaa",
+    "tests/test_install.py": "012ed242640347b5052071d10e6effb82fd26059b2a93d8a36699c91d32d9df5",
+    "tests/test_long_task_monitor.py": "e8a39d64f9b6d0337aec7839c5a7a599e99ee51b2456ad3ad836d5e77c34fd7d",
+    "tests/test_native_calibration.py": "e6e46594e2aa3b327c393d9311d9fcb9de98d67c9793a8f14b18d2138a9f4c92",
+    "tests/test_native_reliability.py": "938e20236231bedcd6432bab2b3a3b21f809ac203ad0fe2549c0d7f4f6b384c5",
+    "tests/test_permission_probe.py": "64bdf57206319d5c256397806e4391860498e65a61c819c7ed901362ab4221e2",
+    "tests/test_review_packet.py": "0e8d7f3c346e46f43c34360f91268499836a7a58202d09d53aaf52e4e94776f9",
+    "tests/test_semantic_fixture.py": "107c99653a696639584fefc663f777d38293c1e880d7c508999121c0eef198b9",
+    "staging/long-task-rules-2026-10-14/scientific-workflow/maintenance.md": "a34cdf05363a20fd3d931f002d990be82378063fb77efbb9812b61dc0c34106b",
+    "staging/long-task-rules-2026-10-14/scientific-workflow/SKILL.md": "111322a3fbc3b89eb25e19e6802b34f62b033482afb794159e78ae8db2a49e47",
+    "staging/long-task-rules-2026-10-14/scientific-workflow/references/claude-code.md": "baab130616a5da93e70f3847a02f65a2d85aac461983c51608ca8ef7a545b9cc",
+    "staging/long-task-rules-2026-10-14/scientific-workflow/references/codex.md": "280d6c1092b77287c6dff913e89130c843069a1d0f148be6365ed1fc991741e1",
+    "staging/long-task-rules-2026-10-14/scientific-workflow/references/triggers.md": "44b86d77860d7e89460ad794ad7c4af9a841824ee783b53cb423f4788b1db793",
+    "staging/long-task-rules-2026-10-14/scientific-workflow/references/coordination.md": "dac460a19fcd4ffc5794a0ba9c0eaf710cc76fbe72c6a75e91d578bd6f2eb07e",
+    "staging/long-task-rules-2026-10-14/scientific-workflow/references/rationale.md": "72415a1c4ca18e09b1089bd9525d8bc5b5acb107c3af6703ea0bbe7b6b5ab0ff"
+  },
+  "sources_unchanged": true,
+  "scratch_retained": "/home/hao/.cache/codex-scratch/task.WIwVDF",
+  "no_model_or_scientific_execution": true
+}

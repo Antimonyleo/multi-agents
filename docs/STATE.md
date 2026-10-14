@@ -4,8 +4,32 @@ One rolling file. Update `Current work` in place at handoff; do not add dated co
 
 ## Current work
 
-Updated: 2026-10-13, authorized test inventory and maintenance complete (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-14, approved long-task monitor and both rules integrated and validated (branch `codex-claude-shared-workflow-20261009`; no push).
 
+The approved follow-up is complete: monitor commit `35030d8` is integrated;
+checkpoint rule `e0f5592` and qualified wait rule `6c91cce` are active. A checkpoint
+continues only into already authorized work. Longer waits require runtime
+responsiveness requirements, tool limits and safety deadlines to permit them.
+Explicit pauses, project/scientific gates and resource limits remain mandatory.
+All 182 tests, structure and staged skill checks passed. Independent exact-version
+review accepted activation with no blocker. Byte-identical activation, active
+structure/skill, both-runtime installed links and instruction health pass; all
+1,459 protected historical/native identities remain unchanged from this action's
+baseline. Full logs/direct exits, review and source hashes are retained.
+Evidence: [integration results](long-task-rules-2026-10-14/RESULTS.md).
+No paid benchmark, paused science, native settings/profile edit, cleanup or push
+occurred. Effects on early stopping, outcomes and cost remain unmeasured. The
+final local evidence/handoff checkpoint closes this maintenance.
+
+Storage: working repo and retained results stay here; the integration evidence
+is about 0.4 MiB and its staged candidate 48 KiB. Retained test scratch is
+`/home/hao/.cache/codex-scratch/task.WIwVDF` (2.3 MiB, `/dev/sdb1` HDD fallback).
+The original Claude worktree (18 MiB) and patches (8 KiB) remain intact; exact
+paths and durable patch copies are recorded in
+[storage record](long-task-rules-2026-10-14/storage.json). Cleanup remains manual
+and requires separate user authority and dependency checks.
+
+The earlier completion audit remains historical:
 The latest request was to finish all needed tests, implementations and research.
 The [completion audit](completion-audit-2026-10-13.json) verifies the original
 plan against saved receipts: corrected qualification ended with narrow acceptance;
@@ -246,9 +270,9 @@ The user wants reliable long-task execution and better accepted results at reaso
 
 ### Exact starting point and checkpoints
 
-Latest implementation/activation checkpoint: `2de74f5` (179 tests and accepted contract-boundary correction). Prior trial closure: `e042b83`. Historical pre-diagnostic checkpoint: `2f8ff3b`. Earlier source checkpoint before the first approved qualification: `05c6748` (reviewed telemetry corrections and refreshed preparations), following `cf4a306` (compaction telemetry and bounded retrospective). Earlier checkpoints include `61184ef` (delegation-economics interpretation), `d989d8c` (Claude's additional checks), `cc93787` (harness fixes and prepared fixture), `027d125` (reviewed test plan), `dfe47fd` (six efficiency corrections), and `5ee26a0` (Claude's restored scientific-evidence paragraph). Preserve them. This terminal record is checkpointed separately; find its identity with `git log -1 --oneline`.
+Latest rule checkpoints: `e0f5592` and `6c91cce`; monitor `35030d8` (182 tests, accepted review and activation). Earlier evaluator/activation checkpoint: `2de74f5` (179 tests and accepted contract-boundary correction). Prior trial closure: `e042b83`. Historical pre-diagnostic checkpoint: `2f8ff3b`. Earlier source checkpoint before the first approved qualification: `05c6748` (reviewed telemetry corrections and refreshed preparations), following `cf4a306` (compaction telemetry and bounded retrospective). Earlier checkpoints include `61184ef` (delegation-economics interpretation), `d989d8c` (Claude's additional checks), `cc93787` (harness fixes and prepared fixture), `027d125` (reviewed test plan), `dfe47fd` (six efficiency corrections), and `5ee26a0` (Claude's restored scientific-evidence paragraph). Preserve them. This terminal record is checkpointed separately; find its identity with `git log -1 --oneline`.
 
-Recheck the working tree and any active session before editing. Native-role smoke checks and independent Stage A review are complete; reuse them for unchanged inputs. Current source validation passed 179 repository tests. Older validation passed 89 workflow tests and 16 isolated runner tests; those counts overlap later coverage. These passes certify their tested paths, not live permission enforcement, scientific success or savings.
+Recheck the working tree and any active session before editing. Native-role smoke checks and independent Stage A review are complete; reuse them for unchanged inputs. Current source validation passed 182 repository tests. Older validation passed 89 workflow tests and 16 isolated runner tests; those counts overlap later coverage. These passes certify their tested paths, not live permission enforcement, scientific success or savings.
 
 The shared runner is an external dependency at `/home/hao/githubrepo/sequence_design/tools/workflow_evaluation/run.py`. Its two-file correction is checkpointed at `383b16d3998022b77d3630ed04005494c02260a9` on `workflow-runner-reliability-20261009`, with a clean recovery worktree at `/tmp/workflow-runner-checkpoint` when inspected. Corrections were also applied to the canonical runner; that repository's `dev` contains other sessions' work. Do not merge, revert or run its broad suite automatically. The absolute runner dependency and children escaping the owned process group remain limits to consider if those questions become relevant.
 

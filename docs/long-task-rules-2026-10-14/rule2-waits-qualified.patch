@@ -1,0 +1,22 @@
+--- a/skill/scientific-workflow/references/coordination.md
++++ b/skill/scientific-workflow/references/coordination.md
+@@ -14,7 +14,7 @@
+ 
+ ## Wait without spending model turns on unchanged state
+ 
+-Use one progress owner and native completion notifications. Otherwise use bounded waits suited to job duration and safety deadlines, up to 60 seconds per wait for user responsiveness; back off unchanged polling. User updates may report the last verified state without another inspection or worker turn. Do not activate a second watcher or resume an agent for status-only acknowledgements. Deterministic watchdogs, not reasoning loops, enforce hard limits.
++Use one progress owner and native completion notifications. Otherwise size each bounded wait to the job's expected remaining time and safety deadlines. Follow runtime responsiveness requirements and tool limits. When the owner has no other work and those limits permit it, prefer one long native wait (minutes) to repeated short waits, which can add model turns and context processing. Use waits of 60 seconds or less when required by the runtime, requested live updates or an expected user reply. Back off unchanged polling. User updates may report the last verified state without another inspection or worker turn. Do not activate a second watcher or resume an agent for status-only acknowledgements. Deterministic watchdogs, not reasoning loops, enforce hard limits.
+ 
+ Before relaunch after timeout, inspect owned terminal/process evidence. A timed-out tool is not proof its child stopped. Preserve other sessions' processes and allocations. Stop on changed authority or a declared resource boundary; a slot becoming free is not authority for more work.
+ 
+--- a/skill/scientific-workflow/references/rationale.md
++++ b/skill/scientific-workflow/references/rationale.md
+@@ -8,6 +8,8 @@
+ 
+ The 2026-10-13 retrospective of 27 long sessions (`benchmarks/2026-10-13-long-task-retrospective/`) found that the user had to say "do not stop" after the agent stopped part-way through assigned work in 12 to 14 sessions (two coders). This motivates the rule that a checkpoint is not a stop. It is observational; the effect of the rule is unmeasured.
+ 
++The same retrospective found that 22% of Codex parent calls only waited, and 6,857 of 7,908 `wait_agent` calls used a timeout of 60 seconds or less. This motivates sizing waits to the job instead of a fixed 60-second cap. A longer wait may delay noticing a user message; the effect on cost and responsiveness is unmeasured.
++
+ [OpenAI multi-agent guidance](https://developers.openai.com/api/docs/guides/responses-multi-agent) discusses token overhead and poor fits for dependent work or a dominant slow operation. [Anthropic's agent guidance](https://www.anthropic.com/engineering/building-effective-agents) supports simple orchestration and evaluators with clear criteria. [Outcome-based evaluation guidance](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) supports checking outcomes rather than wording.
+ 
+ The prior Codex skill and home manual are preserved under repository-root `docs/migration/2026-10-09/` for provenance only. They are historical snapshots, not competing active policy. Project-specific scientific predicates, resource allocations and pauses remain in project authority, not in this generic skill.

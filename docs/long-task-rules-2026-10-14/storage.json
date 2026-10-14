@@ -1,0 +1,28 @@
+{
+  "working_repo": "/home/hao/githubrepo/scientific-workflow-skill",
+  "retained_evidence": {
+    "path": "/home/hao/githubrepo/scientific-workflow-skill/docs/long-task-rules-2026-10-14",
+    "estimated_size": "352 KiB before final review/activation records"
+  },
+  "retained_candidate": {
+    "path": "/home/hao/githubrepo/scientific-workflow-skill/staging/long-task-rules-2026-10-14",
+    "estimated_size": "48 KiB"
+  },
+  "remaining_disposable": {
+    "path": "/home/hao/.cache/codex-scratch/task.WIwVDF",
+    "estimated_size": "2.3 MiB",
+    "filesystem": "/home on /dev/sdb1, btrfs; configured HDD fallback retained"
+  },
+  "preserved_claude_worktree": {
+    "path": "/tmp/claude-1005/-home-hao-githubrepo-scientific-workflow-skill/856948b7-9833-4325-b6e8-778af0ac0c7f/scratchpad/wt",
+    "estimated_size": "18 MiB",
+    "state": "Existing dirty skill edits retained; do not remove without owner/dependency checks."
+  },
+  "preserved_claude_patches": {
+    "path": "/tmp/claude-1005/-home-hao-githubrepo-scientific-workflow-skill/856948b7-9833-4325-b6e8-778af0ac0c7f/scratchpad/patches",
+    "estimated_size": "8 KiB",
+    "durable_copy": "/home/hao/githubrepo/scientific-workflow-skill/docs/long-task-rules-2026-10-14"
+  },
+  "cleanup": "None. Manual cleanup requires user authorization and dependency checks.",
+  "output_placement": "New source/evidence/candidate retained in the project; tests use unique task scratch and existing temporary-home checks."
+}
