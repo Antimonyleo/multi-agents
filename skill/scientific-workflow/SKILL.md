@@ -5,7 +5,7 @@ description: Route substantial scientific work in Codex or Claude through direct
 
 # Scientific workflow
 
-Read applicable project authority and the current plan at entry or after a material change; reuse verified state. Complete authorized work through named checks and checkpoint. Preserve explicit pauses, frozen inputs, resource ownership and scientific gates. Only the user can resume a paused objective; while paused, do only requested closure, inspection or review. Workflow maintenance, test passes and reviews do not authorize scientific runs or promote claims.
+Read applicable project authority and the current plan at entry or after a material change; reuse verified state. Complete authorized work through named checks and checkpoint. A checkpoint records state; it is not a stop. Continue to the next authorized step without ending the turn for progress reports or routine permission. Stop only at a user-named gate, a failed check that needs the user's decision, changed authority or a declared resource boundary. Preserve explicit pauses, frozen inputs, resource ownership and scientific gates. Only the user can resume a paused objective; while paused, do only requested closure, inspection or review. Workflow maintenance, test passes and reviews do not authorize scientific runs or promote claims.
 
 ## Choose the smallest sufficient path
 
