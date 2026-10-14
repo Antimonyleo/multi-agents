@@ -11,6 +11,7 @@ One shared scientific workflow skill for **Codex and Claude Code**, with separat
 | `settings/settings.snippet.json` | Optional existing Claude snippet; never automatically merged |
 | `scripts/install.sh` | Runtime selection, dry-run, all-destination preflight, backup receipts and rollback |
 | `scripts/validate.py`, `tests/` | Local structure and temporary-home installer checks |
+| `scripts/long_task_monitor.py` | Offline after-task check of one long session against the 2026-10-13 retrospective baseline |
 | `benchmarks/2026-10-08/` | Preserved Claude benchmark, including its original limitations |
 | `docs/migration/2026-10-09/` | Historical Codex sources and source identity inventory |
 | `docs/consolidation.md` | Migration contract, checks and activation record |

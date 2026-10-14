@@ -84,6 +84,17 @@ higher in the 2 failed sessions: a lead only. Helpers were labelled useful in
 24 of 25 sessions that had them. `stop_wanted` and `worth_cost` remain optional
 user labels.
 
+Follow-up (2026-10-13): `scripts/long_task_monitor.py <session-id>` checks one
+long session offline against the 27-session baseline. It reports stop
+candidates, wait-only calls and timeouts, polling and helper share, with no
+model calls. On two finished baseline sessions, one per runtime, it reproduced
+the retrospective's values exactly. Two coordination rules were prepared as
+separate patches for the user to commit: a checkpoint is not a stop
+(`SKILL.md`), and waits are sized to the job (`coordination.md`). Check
+`git log` for whether they are active. Run the monitor after the
+next long tasks to check whether behaviour changes. It cannot show whether
+outcomes improve.
+
 ## Historical execution records
 
 The prior approved allocation is terminal: [live results](../benchmarks/2026-10-12-implementation-pair/live/RESULTS.md).

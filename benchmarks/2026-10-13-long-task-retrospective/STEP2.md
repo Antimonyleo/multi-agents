@@ -86,3 +86,9 @@ partial, 2 failed):
   comparisons fill in if the user adds them to `labels.csv`.
 - No adjustment for project or task type. With 19 sessions, stratifying would
   leave groups of 1 to 5.
+
+## Follow-up
+
+[`scripts/long_task_monitor.py`](../../scripts/long_task_monitor.py) applies
+these measures to one new session and prints it beside this baseline. Its stop
+candidates are regex matches, not hand codes.
