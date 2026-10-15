@@ -4,7 +4,9 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated: 2026-10-14 (branch `codex-claude-shared-workflow-20261009`; no push).
+Updated: 2026-10-14 (branch `codex-claude-shared-workflow-20261009`; published to GitHub).
+
+- **README (2026-10-14):** compact introduction covering purpose, agent roles/models, installation and use. All 182 tests, documentation/skill checks and installer dry-run/check passed (exit 0). Logs and test scratch: `~/.cache/codex-scratch/task.g7Bm2Q` (about 2.3 MiB retained).
 
 - **Active rules:** a checkpoint is not a stop (`e0f5592`); waits are sized to the job within runtime limits (`6c91cce`). Codex's own runtime instructions cap blocking waits at 60 s, and all 20 studied Codex sessions carry that cap, so the wait rule changes little for Codex.
 - **Monitor:** `python scripts/long_task_monitor.py <session-id>` compares one long session with the 27-session baseline, offline (`35030d8`). Run it after the next long tasks. It shows whether stops and wait-only calls change, not whether outcomes improve.

@@ -1,45 +1,68 @@
-# scientific-workflow-skill
+# multi-agents
 
-One shared scientific workflow skill for **Codex and Claude Code**, with separate native adapters. Project authority, explicit pauses and scientific gates remain in the projects. Claude's existing agents and settings are preserved.
+A scientific workflow for **Codex and Claude Code**. One agent owns the task;
+other agents help with specific work or review important decisions.
 
-| Path | Purpose |
-| --- | --- |
-| `skill/scientific-workflow/SKILL.md` | Shared ownership, execution, review, evidence and pause rules |
-| `skill/scientific-workflow/references/` | Runtime-specific dispatch and supporting rationale |
-| `agents/scientific_*.md` | Existing Claude native agents, unchanged |
-| `agents/codex/*.toml` | Codex profiles, separately installed |
-| `settings/settings.snippet.json` | Optional existing Claude snippet; never automatically merged |
-| `scripts/install.sh` | Runtime selection, dry-run, all-destination preflight, backup receipts and rollback |
-| `scripts/validate.py`, `tests/` | Local structure and temporary-home installer checks |
-| `scripts/long_task_monitor.py` | Offline after-task check of one long session against the 2026-10-13 retrospective baseline |
-| `benchmarks/2026-10-08/` | Preserved Claude benchmark, including its original limitations |
-| `docs/migration/2026-10-09/` | Historical Codex sources and source identity inventory |
-| `docs/consolidation.md` | Migration contract, checks and activation record |
+## Why use it?
+
+An agent can stop halfway through a long task, repeat a helper's work, or report
+success without checking the result. The rules here address those problems:
+
+- One owner handles implementation, checks and handoff.
+- Helpers take independent work with a clear expected result.
+- Reviewers check important decisions and results.
+- Checkpoints record progress; pauses, budgets and required approvals still apply.
+
+Use it for research software, analysis and experiments spanning several steps
+or sessions. Simple edits stay with the main agent.
+
+## Agent setup
+
+Five optional roles are included. Their names start with `scientific_`.
+
+| Role | Job | Claude model / effort | Codex model / effort |
+| --- | --- | --- | --- |
+| Explorer | Find files and facts | Haiku / high | gpt-6-luna / high |
+| Researcher | Retrieve primary sources | Sonnet / medium | gpt-6-luna / high |
+| Worker | Write code and run checks | Sonnet / medium | gpt-6.1-sol / medium |
+| Analyst | Analyze evidence and methods | Sonnet / high | gpt-6.1-sol / high |
+| Reviewer | Review assumptions and results | Opus / high | gpt-6-astra / high |
+
+Each runtime keeps its own tools and permissions. The [Claude](skill/scientific-workflow/references/claude-code.md)
+and [Codex](skill/scientific-workflow/references/codex.md) notes explain the setup.
 
 ## Install
 
-Python 3.11+ is required. The default remains Claude for backward compatibility:
+You need Python 3.11+, a working Codex or Claude Code installation, and access to
+the configured models.
 
 ```sh
-scripts/install.sh --dry-run
-scripts/install.sh
-scripts/install.sh --check
-scripts/install.sh --target codex --dry-run
-scripts/install.sh --target codex --migrate
+git clone https://github.com/Antimonyleo/multi-agents.git
+cd multi-agents
+scripts/install.sh --target both --dry-run
+scripts/install.sh --target both
 scripts/install.sh --target both --check
-scripts/install.sh --rollback /absolute/path/to/receipt.json
 ```
 
-Claude installation links the skill and the existing root agent files. Codex installation links the same skill under `~/.agents/skills/` and copies TOML profiles into `~/.codex/agents/` to preserve the tested native discovery shape. No duplicate skill is created under `~/.codex/skills/`. Agent and CLI settings are never rewritten.
+Use `--target claude` or `--target codex` to install for one runtime.
 
-A conflict blocks the entire installation before mutation. `--migrate` explicitly backs up conflicts; it does not discard them. Each changing install writes a receipt under `~/.local/state/scientific-workflow/transactions/`. Rollback first verifies every installed destination and backup; later edits block rollback rather than being overwritten. Automatic failure recovery also preserves concurrent edits, records conflicts and restores only unchanged owned paths. An interrupted or conflicting receipt requires manual inspection; it is never reported as a clean rollback. Check copied Codex profiles after source edits and reinstall with `--migrate` when needed.
+The installer links the skill and Claude agents, and copies Codex profiles.
+It leaves runtime settings and the main model unchanged. Keep this checkout
+in place because installed links point here. Start a new session afterward.
 
-`CLAUDE_HOME`, `CODEX_HOME`, `AGENTS_HOME` and `--state-dir` support temporary-home checks. Optional `--legacy-manual /path/to/SCIENTIFIC_AGENT_WORKFLOW.md` installs a compatibility pointer for Codex, preserving the old file through the same backup/receipt mechanism. See `scripts/install.sh --help`.
+Conflicting files stop installation. `--migrate` backs them up before replacing
+them; `--rollback RECEIPT` undoes an installation. See `scripts/install.sh --help`.
 
-Legacy Claude `--uninstall` removes only exact owned links. Use a receipt rollback to undo a migration or Codex copied profiles; uninstall never deletes an unrelated real file. Restart sessions after changing native agents. Source skill edits become visible through links; stage and validate before publishing.
+## Use it
 
-## Maintenance and evidence
+Ask for the skill by name and give it a task, for example:
 
-Use `skill/scientific-workflow/maintenance.md` for native model checks and historical results. Explicit approval for a proposed workflow change authorizes its scoped implementation and validation; ordinary project work does not authorize self-modifying the skill or agents.
+> Use scientific-workflow to fix the failing parser tests. Finish the agreed
+> checks and Git checkpoint. Delegate independent work when useful.
 
-The preserved Claude benchmark reports 50 small-task runs and list-price estimates, with seeded-truth corrections. It does not establish long-task token savings, a universal model hierarchy or Codex behavior. The benchmark harness has machine-specific origamifolder7 paths. Raw run logs and generated fixtures remain outside this repo. No scientific project is resumed by installation or workflow testing.
+Read the [skill](skill/scientific-workflow/SKILL.md) for the rules and
+[maintenance guide](skill/scientific-workflow/maintenance.md) for checks. The
+[long-task study](benchmarks/2026-10-13-long-task-retrospective/REPORT.md) records
+the evidence so far. Better outcomes and lower whole-task cost remain unproven.
+
+Historical benchmark scripts may need local path changes.
