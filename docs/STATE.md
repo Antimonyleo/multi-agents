@@ -4,34 +4,23 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated 2026-10-16. The [minimal continuity update](continuity-minimal-20261016.md)
-adds experimental source helpers: bound task recovery, optional task/evidence/next
-checks and explicit safe replacement of one combined record. Existing plans and
-native goals are reused. No hooks, goals, wake loops or memory settings are installed.
+Updated 2026-10-17. User-authorized Astra findings addressed through required checks
+and a limited experimental source checkpoint. [Results and limits](continuity-completion-20261017.md).
+Task descriptions, structured verification receipts and bounded session binding now
+have 93 focused / 275 full passing tests; validators and temporary-home installation
+and rollback passed. Main skill entry and native agent/model settings unchanged.
 
-Staged and reviewed on `continuity-minimal-20261016`, based on `7721585` plus the
-reviewed core (`df1cf90`, equivalent to original `c298775`). Named final checks
-passed: 256 repository tests (74 continuity tests), validators and temporary-home
-installation/check/receipt rollback. One independent reviewer cleared the source
-for opt-in experimental support after three fixes. Logs/receipts remain local in
-`out/continuity-minimal/`; the uploaded ZIP and prior audit/pilot are preserved.
+Codex completed useful unfinished work after real native compaction with no continue
+prompt; independent acceptance passed. Its recovery hook rejected the session binding,
+so the full recovery endpoint FAILED. Claude native lifecycle remains UNTESTED after
+a pasted-command driver error; follow-up command rejected by automatic review. No
+retry or permission bypass. Optional hooks remain experimental; verify actual matching
+native delivery before relying on them. No general reliability or savings claim.
 
-The [earlier native audit](continuity-audit-20261016.md) has limited fixed-scope
-observations only. New task/replacement helpers have offline evidence. Useful
-unfinished work through native compaction, current Claude resume hooks, normal
-memory-enabled isolation and a permitted scope amendment remain unqualified.
-Do not claim solved long-session drift, automatic completion or savings. No new
-native model pilot or remote push was performed. Original pilot hooks remain
-retired; shared services, approvals and native agent/model settings are unchanged.
-
-Three fresh-context Astra/high reviewers assessed source `64a72c7` on the user's
-request. Their [team assessment](continuity-team-assessment-20261016.md) expects
-conditional recovery benefits; default continuation and whole-task efficiency
-remain unproved. No source changes or new native execution pilot were made.
-
-Use the [task prompt](long-task-prompt.md). Source support is opt-in experimental;
-automatic recovery requires a verified project-local binding. No further scientific
-or model-backed qualification campaign is authorized by this handoff.
+Pilot goals/bindings and owned standalone processes retired; retained local evidence
+in `out/continuity-completion/`. Shared services and scientific pauses preserved.
+No further pilot, scientific work or push is authorized by this handoff. Start new
+maintenance from current instructions and [the task prompt](long-task-prompt.md).
 
 ## Boundaries
 

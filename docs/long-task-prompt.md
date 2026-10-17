@@ -24,15 +24,20 @@ permission/resource/capability boundary, a failed check needing my decision, or
 verified completion. Report remaining work and the exact boundary if blocked.
 ```
 
-For a project with experimental recovery already configured and verified, add:
+For a project with experimental recovery already configured and verified through
+a real matching-session native event, add:
 
 ```text
 Use the bound Execution contract and Current work sections for this episode.
+Pin task descriptions and the frozen verification policy. Record actual verification
+exit status and current input/output hashes; a checked box alone is not completion.
 A source digest confirms identity, not scientific truth or authority to resume.
 Reconcile any mismatch with the current instruction; never repin merely to silence
 an error. Preserve user pauses and cumulative budgets across compaction or resume.
 ```
 
 The optional source helpers are experimental. Automatic recovery requires a
-verified project-local binding; no hooks or goals are installed by default. This
+verified project-local binding; no hooks or goals are installed by default.
+Hook trust or a configuration listing alone does not verify delivery. The current
+Codex pilot rejected its binding; the Claude lifecycle endpoint remains untested. This
 prompt also works without a hook.

@@ -243,5 +243,166 @@ class ProgressTests(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), before)
 
 
+class StrictProgressTests(unittest.TestCase):
+    def setUp(self):
+        ProgressTests.setUp(self)
+        self.verifier = self.root / 'verify.py'
+        self.verifier.write_text('raise SystemExit(0)\n')
+        self.output = self.root / 'REPORT.md'
+        self.output.write_text('Negative scientific result: hypothesis rejected.\n')
+        self.policy = {'argv': ['python', 'verify.py'],
+                       'inputs': {'verify.py': self.file_hash(self.verifier)},
+                       'outputs': ['REPORT.md']}
+        self.anchor += ('Task definitions: ' + recover.tasks_digest(self.tasks) + '\nVerify: ' +
+                        json.dumps(self.policy, separators=(',', ':')) + '\n')
+        self.receipt = {'episode': 'fix-1', 'anchor_sha256': recover.digest(self.anchor),
+                        'argv': self.policy['argv'], 'exit_code': 0,
+                        'inputs': self.policy['inputs'],
+                        'outputs': {'REPORT.md': self.file_hash(self.output)}}
+
+    @staticmethod
+    def file_hash(path):
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    def strict_check(self, receipt=None, tasks=None, anchor=None):
+        path = self.root / 'verification.json'
+        path.write_text(json.dumps(self.receipt if receipt is None else receipt))
+        current = self.current.replace('active', 'complete').replace('Next: fix', 'Next: none')
+        current += 'Verification: verification.json#sha256=' + self.file_hash(path) + '\n'
+        tasks = tasks or self.tasks.replace('- [ ] fix: repair and verify',
+                    f'- [x] fix: repair and verify [evidence](result.log#sha256={self.sha})')
+        return recover.progress(self.root, anchor or self.anchor, current, tasks, strict=True)
+
+    def test_definitions_pin_meaning_but_allow_status_and_evidence_changes(self):
+        updated = self.tasks.replace('- [ ] fix:', '- [x] fix:') + '\n'
+        updated = updated.replace('repair and verify', 'repair and verify ' +
+                                  f'[evidence](./result.log#sha256={self.sha})')
+        self.assertEqual(recover.tasks_digest(self.tasks), recover.tasks_digest(updated))
+        for weakened in ('repair', 'skip verification'):
+            with self.subTest(weakened=weakened), self.assertRaisesRegex(ValueError, 'task definitions'):
+                recover.progress(self.root, self.anchor, self.current,
+                    self.tasks.replace('repair and verify', weakened), strict=True)
+        self.assertEqual(self.strict_check(tasks=updated)['verification'], 'machine_receipt_verified')
+
+    def test_multiline_task_prose_cannot_escape_definition_pin(self):
+        with self.assertRaisesRegex(ValueError, 'single-line'):
+            recover.tasks_digest(self.tasks + '  extra requirement\n')
+
+    def test_legacy_complete_record_never_passes_completion_cli(self):
+        legacy_anchor = self.anchor.split('Task definitions:')[0]
+        tasks = self.tasks.replace('- [ ] fix:', '- [x] fix:').replace('repair and verify',
+                    f'repair and verify [evidence](result.log#sha256={self.sha})')
+        current = self.current.replace('active', 'complete').replace('Next: fix', 'Next: none')
+        self.target.write_text(legacy_anchor + tasks + self.boundaries + current)
+        result = subprocess.run([sys.executable, str(SCRIPT), 'check', '--project', str(self.root),
+                    '--plan', 'WORK.md', '--state', 'WORK.md', '--episode', 'fix-1',
+                    '--anchor-sha256', recover.digest(legacy_anchor), '--completion'],
+                    capture_output=True, text=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('Task definitions', result.stderr)
+
+    def test_passed_acceptance_receipt_keeps_negative_scientific_result(self):
+        result = self.strict_check()
+        self.assertTrue(result['records_complete'])
+        self.assertEqual(result['verification'], 'machine_receipt_verified')
+        self.assertEqual(result['acceptance'], 'not_evaluated')
+        self.assertIn('Negative scientific result', self.output.read_text())
+
+    def test_failed_malformed_stale_and_incomplete_receipts_fail(self):
+        changes = ({'exit_code': 1}, {'exit_code': False}, {'exit_code': '0'},
+                   {'episode': 'stale'}, {'anchor_sha256': '0' * 64},
+                   {'argv': ['echo', 'PASS']}, {'inputs': {}}, {'outputs': {}},
+                   {'outputs': {'REPORT.md': '0' * 64}}, {'extra': 'unrecognized'})
+        for change in changes:
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                self.strict_check({**self.receipt, **change})
+        for value in ('TEST FAILED', [], 0):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                self.strict_check(value)
+
+    def test_changed_frozen_verifier_and_stale_outputs_fail(self):
+        self.verifier.write_text('raise SystemExit(1)\n')
+        with self.assertRaisesRegex(ValueError, 'frozen verification input'):
+            self.strict_check()
+        self.verifier.write_text('raise SystemExit(0)\n')
+        self.output.write_text('changed\n')
+        with self.assertRaisesRegex(ValueError, 'verification output'):
+            self.strict_check()
+        self.output.unlink()
+        with self.assertRaises(OSError):
+            self.strict_check()
+
+    def test_non_json_and_changed_receipt_hash_fail(self):
+        path = self.root / 'verification.json'
+        for raw, sha in ((b'TEST FAILED\n', None), (b'{}', '0' * 64),
+                         (b'{"exit_code":0,"exit_code":1}', None)):
+            with self.subTest(raw=raw):
+                path.write_bytes(raw)
+                current = self.current.replace('active', 'complete').replace('Next: fix', 'Next: none')
+                current += 'Verification: verification.json#sha256=' + (sha or self.file_hash(path)) + '\n'
+                tasks = self.tasks.replace('- [ ] fix: repair and verify',
+                    f'- [x] fix: repair and verify [evidence](result.log#sha256={self.sha})')
+                with self.assertRaises(ValueError):
+                    recover.progress(self.root, self.anchor, current, tasks, strict=True)
+
+    def test_strict_hook_implies_task_check_and_remains_bounded(self):
+        self.target.write_text(self.anchor + self.tasks + self.boundaries + self.current)
+        event = {'hook_event_name': 'SessionStart', 'source': 'resume', 'cwd': str(self.root)}
+        result = recover.recovery(event, self.root, 'WORK.md', 'WORK.md', 'fix-1',
+                                  recover.digest(self.anchor), strict=True)
+        context = result['hookSpecificOutput']['additionalContext']
+        self.assertLessEqual(len(context.encode()), 4096)
+        self.assertEqual(json.loads(context.split('\n', 1)[1])['progress']['verification'], 'pending')
+        self.target.write_text(self.target.read_text().replace('repair and verify', 'skip'))
+        result = recover.recovery(event, self.root, 'WORK.md', 'WORK.md', 'fix-1',
+                                  recover.digest(self.anchor), strict=True)
+        self.assertIn('HANDOFF_UNVERIFIED', result['hookSpecificOutput']['additionalContext'])
+
+    def test_verification_and_task_evidence_share_file_budget(self):
+        for index in range(31):
+            name = f'input-{index}.dat'
+            path = self.root / name
+            path.write_text('frozen')
+            self.policy['inputs'][name] = self.file_hash(path)
+        anchor = self.anchor.split('Verify:')[0] + 'Verify: ' + json.dumps(self.policy) + '\n'
+        with self.assertRaisesRegex(ValueError, '32 files'):
+            self.strict_check(anchor=anchor)
+
+    def test_strict_policy_rejects_missing_malformed_and_escaping_paths(self):
+        for policy in ({}, {**self.policy, 'outputs': ['../outside']},
+                       {**self.policy, 'inputs': {'../outside': '0' * 64}},
+                       {**self.policy, 'outputs': ['REPORT.md', 'REPORT.md']},
+                       {**self.policy, 'outputs': ['.']}):
+            anchor = self.anchor.split('Verify:')[0] + 'Verify: ' + json.dumps(policy) + '\n'
+            with self.subTest(policy=policy), self.assertRaises((ValueError, OSError)):
+                recover.progress(self.root, anchor, self.current, self.tasks, strict=True)
+        with self.assertRaisesRegex(ValueError, 'Verify'):
+            recover.progress(self.root, self.anchor.split('Verify:')[0], self.current, self.tasks, strict=True)
+
+    def test_receipt_and_outputs_share_aggregate_byte_budget(self):
+        self.evidence.write_bytes(b'x' * 250000)
+        sha = self.file_hash(self.evidence)
+        self.policy['outputs'] = []
+        for index in range(4):
+            name = f'output-{index}.dat'
+            path = self.root / name
+            path.write_bytes(b'x' * 250000)
+            self.policy['outputs'].append(name)
+        anchor = self.anchor.split('Verify:')[0] + 'Verify: ' + json.dumps(self.policy) + '\n'
+        receipt = {**self.receipt, 'anchor_sha256': recover.digest(anchor),
+                   'outputs': {name: self.file_hash(self.root / name) for name in self.policy['outputs']}}
+        tasks = self.tasks.replace(self.sha, sha).replace('- [ ] fix: repair and verify',
+                    f'- [x] fix: repair and verify [evidence](result.log#sha256={sha})')
+        with self.assertRaisesRegex(ValueError, '1 MiB'):
+            self.strict_check(receipt=receipt, tasks=tasks, anchor=anchor)
+
+    def test_tasks_digest_cli_matches_helper(self):
+        self.target.write_text(self.anchor + self.tasks)
+        result = subprocess.run([sys.executable, str(SCRIPT), 'tasks-digest', '--project', str(self.root),
+                                 '--plan', 'WORK.md'], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.strip(), recover.tasks_digest(self.tasks))
+
+
 if __name__ == '__main__':
     unittest.main()

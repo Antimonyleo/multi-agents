@@ -1,84 +1,77 @@
 # Long-task continuity
 
-Reuse the existing plan and checkpoint. Keep the objective, acceptance conditions,
-units, evidence-retention rules and cumulative limits in `## Execution contract`, with
-`Episode: id`. Pin its digest when binding recovery; progress and method choices
-belong outside that section. Null results can complete scientific inquiries.
-
+Reuse the existing plan/checkpoint. Put objective, acceptance conditions, units,
+evidence-retention rules and cumulative limits in `## Execution contract`, with
+`Episode: id`. Pin its digest; progress and method choices stay outside it.
 Keep `## Boundaries` and `## Current work` current: same episode, next meaningful
-action, results (including negative/inconclusive evidence), decisions, owned jobs
-and remaining budget. One owner writes
-after consequential changes and before handoff, not every tool call.
+action, results (including negative evidence), decisions, jobs and remaining budget.
+One owner writes after consequential changes and before handoff, not every tool.
 
 ## Recover and continue
 
-The optional `scripts/recover.py hook` restores whole selected sections within
-4,096 UTF-8 bytes or reports HANDOFF_UNVERIFIED. Bind only the active project and
-episode to verified native lifecycle events. Use `--help` for arguments. Keep
-historical detail outside injected sections; avoid global or inherited bindings.
+Use an explicitly authorized native goal to retain the objective between turns.
+Continue the next authorized, unblocked item after checkpointing. A blocked item
+does not block independent authorized work. Preserve user pauses, scientific
+gates and cumulative budgets across restarts; never reset accounting to continue.
+This skill adds no Stop loop or wake service for an exited host.
 
-After recovery, reconcile the original task, checkpoint, artifacts and owned jobs.
-Memory/transcript summaries are leads, not replacement authority or proof of done.
-Another task's COMPLETE state cannot close this one. Missing job evidence means
-unknown; consult existing receipts/completion events before considering a rerun.
+`scripts/bind.py` previews an optional, experimental project/session-bound native hook. Supply runtime,
+project, plan/state, episode, anchor digest and actual native session ID; consult
+`--help`. `--apply` changes only that project's native config and preserves unrelated
+entries. Existing owned bindings need inspection and explicit `--replace-owned`.
+Review/trust through the host's native `/hooks` flow; setup never bypasses it.
+Trust, `hooks/list` and on-disk equality do not prove the active callback binding.
+Before relying on recovery, observe matching-session SOURCE_MATCHED_ONLY from a
+real native event. A mismatch requires manual reconciliation, never automatic repinning.
+Use a stable callback path; retain it until every owned binding is retired.
 
-Use verified native goals for continuation. After checkpointing, continue the next
-authorized, unblocked item. Continue another authorized item when one is blocked. Preserve user pauses,
-scientific gates and cumulative budgets when counters reset.
-This skill supplies no wake mechanism for an exited host.
+The read-only recovery hook returns whole selected sections within 4,096 UTF-8
+bytes or HANDOFF_UNVERIFIED. New bindings use strict checks and reject other-session
+state. Rebind a new session or changed task only after reconciling current authority.
+A changed request within the same session still needs owner judgment; saved files
+cannot independently identify live user intent. Memory summaries are leads, not
+replacement authority. Reconcile source/artifacts/jobs before acting; missing job
+evidence is unknown, not permission to rerun. Keep history outside injected sections.
 
-At existing milestone boundaries, check whether work advanced acceptance or
-resolved a dependency. Necessary scientific detours are valid. Repeated attempts
-without useful evidence call for a changed approach or an exact blocker. Defer
-unrelated cleanup; reuse required reviewers without a standing monitoring team.
+## Check task meaning and completion
 
-## Optional task check
+Reuse a single-line checklist under `## Tasks` with `- [ ] id: description` rows.
+The contract's `Tasks:` lists IDs; `Task definitions:` pins the output of
+`recover.py tasks-digest`. Checked rows append a Markdown link labelled `evidence`,
+with destination `receipt.log#sha256=ACTUAL_SHA256`. Status/evidence updates do not
+change task meaning. Authorized requirement changes need a new reviewed pin.
 
-Reuse the plan's checklist with stable IDs. List them in the pinned contract's
-`Tasks:` field; put task rows under `## Tasks` and Status/Next in Current work:
+Current work has `Status: active|paused|blocked|complete` and `Next: pending-id|none`;
+paused/blocked need `Reason:`. Run `recover.py check --strict` with the existing
+binding arguments. It checks task meaning, exact coverage, next item and current
+evidence. Legacy record-only checks disclose their weaker limits.
 
-```markdown
-## Execution contract
-Episode: repair-1
-Repair with named regression checks; preserve public behavior.
-Tasks: inspect, repair, verify
-## Tasks
-- [ ] inspect: reproduce
-- [ ] repair: implement the correction
-- [ ] verify: run final acceptance checks
-## Boundaries
-Use authorized files/budget; retain failures.
-## Current work
-Episode: repair-1
-Status: active
-Next: repair
-```
+Pin one `Verify:` JSON policy in the contract: `argv` is the acceptance command
+array, `inputs` maps frozen verifier/input paths to SHA-256 values, and `outputs`
+lists required output paths. For completion, the existing acceptance harness writes
+a JSON receipt with `episode`, `anchor_sha256`, `argv`, integer `exit_code`, `inputs`
+and `outputs` (path-to-hash map). Record its project-relative path and hash in
+`Verification: receipt.json#sha256=ACTUAL_SHA256` in Current work.
 
-Checked rows link local evidence: label `evidence`, destination
-`repro.log#sha256=ACTUAL_SHA256` (actual file hash).
-`recover.py check` checks episode/contract, exact task coverage, next item and
-checked tasks' evidence hashes: nonempty, at most 256 KiB per file, 32 files,
-128 links and 1 MiB total accepted bytes. Link short receipts for larger logs. `hook --check-tasks` adds a compact progress
-summary, not the task list. Contradictions or changed/missing evidence make the
-handoff unverified. Other projects can retain their existing format.
+`check --completion` requires strict records, zero exit, matching command/identity,
+frozen inputs and current outputs. Failed, missing or stale receipts do not pass.
+The helper never executes saved commands or interprets arbitrary logs. Receipts
+are recorded assertions, not authenticated execution or scientific truth; run real
+acceptance and required review. A negative scientific result can validly complete.
+Reads are bounded: 256 KiB/file, 32 unique files, 128 references, 1 MiB accepted
+bytes. Use concise receipts pointing to retained full logs.
 
-Status is `active`, `paused`, `blocked` or `complete`; paused/blocked need `Reason:`.
-Next names a pending ID or `none`. `check --completion` exits nonzero unless every
-task is evidenced and Status is complete. It does not run checks, interpret logs
-or prove scientific truth. Run named acceptance commands and required review
-before marking done.
+## Retain focus and replace safely
 
-## Change scope safely
+At existing milestones, check whether work advanced acceptance or resolved a real
+dependency. Keep necessary scientific detours; defer unrelated cleanup. Repeated
+unproductive attempts call for a changed approach or an exact blocker. Reuse
+required reviewers; add no permanent monitoring team.
 
-An authorized scope change may revise contract and binding. A mismatch alone never
-permits repinning. Preserve the original source and reason for the change.
-For a combined record, `recover.py replace` validates a candidate,
-checks the expected current file hash, preserves raw prior bytes and atomically
-replaces the file. Boundaries/episode and structured paused status stay fixed; `--check-tasks`
-also validates progress. This assumes one writer, not concurrent
-editors or a multi-file transaction.
-
-Retire the original only after success. Verify before separately rebinding; an
-old binding reports an unverified handoff meanwhile. Denied approval or failed
-writes leave the original authoritative. A draft is not active; never label the
-original superseded early or weaken acceptance to declare success.
+For one combined record, `recover.py replace` validates a candidate, checks the
+expected current-file hash, preserves prior bytes and atomically replaces the file.
+Boundaries, episode and structured pause remain; `--check-tasks` validates progress.
+It assumes one writer, not a concurrent-editor or multi-file transaction. Retire
+the old source only after success, verify, then separately rebind. Until then a
+changed contract gives an unverified handoff. A denied/failed edit leaves the old
+source authoritative; never label it superseded early or weaken acceptance.
