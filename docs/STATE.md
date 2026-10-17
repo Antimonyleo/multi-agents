@@ -24,6 +24,11 @@ Do not claim solved long-session drift, automatic completion or savings. No new
 native model pilot or remote push was performed. Original pilot hooks remain
 retired; shared services, approvals and native agent/model settings are unchanged.
 
+Three fresh-context Astra/high reviewers assessed source `64a72c7` on the user's
+request. Their [team assessment](continuity-team-assessment-20261016.md) expects
+conditional recovery benefits; default continuation and whole-task efficiency
+remain unproved. No source changes or new native execution pilot were made.
+
 Use the [task prompt](long-task-prompt.md). Source support is opt-in experimental;
 automatic recovery requires a verified project-local binding. No further scientific
 or model-backed qualification campaign is authorized by this handoff.
