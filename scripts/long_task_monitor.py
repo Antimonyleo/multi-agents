@@ -3,8 +3,9 @@
 
   python scripts/long_task_monitor.py <session-id-prefix> [--json OUT]
 
-Read-only on transcripts; no model calls. Reuses the retrospective's extractor
-(benchmarks/2026-10-13-long-task-retrospective/) so measures match its definitions.
+Read-only on transcripts; no model calls. Reuses the retrospective's non-token
+metrics and legacy counter segments, preferring validated native thread usage
+for current Codex transcripts. Missing or invalid Codex usage remains unknown.
 The baseline is its 27 sessions (7 Claude, 20 Codex); sessions differ in task, so a
 difference is a lead, not a verdict. Stop candidates are regex matches, not hand codes:
 read the listed prompts and judge whether each stop was wanted.
@@ -26,6 +27,73 @@ import polling as P  # noqa: E402
 from signals import CATEGORIES  # noqa: E402
 
 STOP_CATEGORIES = ('continue_no_pause', 'continue_broad')
+CODEX_TOKEN_FIELDS = ('input_tokens', 'cached_input_tokens', 'output_tokens', 'total_tokens')
+
+
+def valid_codex_usage(usage):
+    """Validate cumulative counters without coercing missing or malformed values."""
+    return (isinstance(usage, dict)
+            and all(type(usage.get(k)) is int and usage[k] >= 0 for k in CODEX_TOKEN_FIELDS)
+            and usage['cached_input_tokens'] <= usage['input_tokens']
+            and usage['total_tokens'] == usage['input_tokens'] + usage['output_tokens'])
+
+
+def codex_usage(records):
+    """Canonical per-thread tokens/source; a telemetry gap is never a zero cost.
+
+    Native counters cover the thread, including reasoning in output. Legacy-only
+    counters retain the retrospective's sum of final counter segments on resets.
+    Native records take precedence even when their cumulative payload is absent.
+    """
+    native = [r for r in records if r.get('type') == 'token_usage_record']
+    if native:
+        previous = None
+        for record in native:
+            payload = record.get('payload')
+            usage = payload.get('thread_token_usage') if isinstance(payload, dict) else None
+            if not valid_codex_usage(usage):
+                return None, 'unknown'
+            if previous is not None and any(usage[k] < previous[k] for k in CODEX_TOKEN_FIELDS):
+                return None, 'unknown'
+            previous = usage
+        return {k: previous[k] for k in CODEX_TOKEN_FIELDS}, 'native_thread_cumulative'
+
+    previous, segments = None, collections.Counter()
+    for record in records:
+        payload = record.get('payload')
+        if (record.get('type') != 'event_msg' or not isinstance(payload, dict)
+                or payload.get('type') != 'token_count'):
+            continue
+        info = payload.get('info')
+        usage = info.get('total_token_usage') if isinstance(info, dict) else None
+        if not valid_codex_usage(usage):
+            return None, 'unknown'
+        if previous is not None and usage['total_tokens'] < previous['total_tokens']:
+            segments.update({k: previous[k] for k in CODEX_TOKEN_FIELDS})
+        previous = usage
+    if previous is None:
+        return None, 'unknown'
+    segments.update({k: previous[k] for k in CODEX_TOKEN_FIELDS})
+    return dict(segments), 'legacy_cumulative'
+
+
+def codex_activity(records):
+    """Keep historical activity metrics independent of malformed token counters."""
+    safe = []
+    for record in records:
+        payload = record.get('payload')
+        if (record.get('type') == 'event_msg' and isinstance(payload, dict)
+                and payload.get('type') == 'token_count'):
+            info = payload.get('info')
+            last = info.get('last_token_usage') if isinstance(info, dict) else None
+            if (not isinstance(info, dict) or not valid_codex_usage(info.get('total_token_usage'))
+                    or (last and (not isinstance(last, dict)
+                                  or type(last.get('input_tokens')) is not int
+                                  or last['input_tokens'] < 0))):
+                # Retain timestamps without passing invalid values to the frozen extractor.
+                record = dict(record, payload={})
+        safe.append(record)
+    return X.codex_metrics(safe)
 
 
 def new_tokens(runtime, t):
@@ -98,12 +166,17 @@ def measure(runtime, path, codex_root=X.CODEX_SESSIONS):
             poll_processed += sum(kp.values())
             parts.update(kparts)
     else:
-        m = X.codex_metrics(records)
-        helper_tokens = [X.codex_metrics(list(X.safe_records(c)))['tokens'] for c in codex_children(path, codex_root)]
+        m = codex_activity(records)
+        family_usage = [codex_usage(records)]
+        family_usage += [codex_usage(list(X.safe_records(c))) for c in codex_children(path, codex_root)]
+        m['tokens'], _ = family_usage[0]
+        helper_tokens = [tokens for tokens, _ in family_usage[1:]]
     active_h = (m['active_s'] or 0) / 3600
-    helper_new = sum(new_tokens(runtime, t) for t in helper_tokens)
-    total_new = new_tokens(runtime, m['tokens']) + helper_new
-    total_processed = processed_tokens(runtime, m['tokens']) + sum(processed_tokens(runtime, t) for t in helper_tokens)
+    unknown = runtime == 'codex' and any(tokens is None for tokens, _ in family_usage)
+    helper_new = None if unknown else sum(new_tokens(runtime, t) for t in helper_tokens)
+    total_new = None if unknown else new_tokens(runtime, m['tokens']) + helper_new
+    total_processed = (None if unknown else processed_tokens(runtime, m['tokens'])
+                       + sum(processed_tokens(runtime, t) for t in helper_tokens))
     candidates = [dict(i=i, category=cat, prompt=X.excerpt(p, 300), before=X.excerpt(a, 300))
                   for p, a, i in m['_prompt_ctx'] for cat in STOP_CATEGORIES if CATEGORIES[cat].search(p)]
     prompts = m['user_prompts']
@@ -120,6 +193,9 @@ def measure(runtime, path, codex_root=X.CODEX_SESSIONS):
         out.update(polling_responses=poll_n, polling_share=poll_processed / total_processed if total_processed else None,
                    polling_parts=dict(parts))
     else:
+        sources = {source for _, source in family_usage}
+        out.update(token_status='unknown' if unknown else 'valid',
+                   token_source='unknown' if unknown else next(iter(sources)) if len(sources) == 1 else 'mixed')
         timeouts = m['wait_agent_timeouts']
         out.update(wait_only_share=m['wait_only_responses'] / m['responses'] if m['responses'] else None,
                    wait_only_input_tokens=m['wait_only_input_tokens'], wait_agent_timeouts=timeouts,
@@ -171,9 +247,10 @@ def compare(result):
 
 def show(result, table):
     g = lambda v: '—' if v is None else f'{v:.3g}'  # noqa: E731
+    count = lambda v: 'unknown' if v is None else f'{v:,}'  # noqa: E731
     print(f"{result['runtime']} session {Path(result['path']).stem[-36:]} — {g(result['active_h'])} active h, "
           f"{result['prompts']} prompts, {result['responses']} parent responses, {result['helpers']} helpers, "
-          f"{result['new_tokens']:,} new / {result['processed_tokens']:,} processed tokens (family)\n")
+          f"{count(result['new_tokens'])} new / {count(result['processed_tokens'])} processed tokens (family)\n")
     print('| Measure | This session | Baseline median [min–max] (n) | Baseline sessions below |')
     print('|---|---:|---:|---:|')
     for r in table:
