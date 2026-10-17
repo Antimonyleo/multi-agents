@@ -4,15 +4,31 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated: 2026-10-14 (branch `codex-claude-shared-workflow-20261009`; published to GitHub).
+Updated 2026-10-16. The continuity-v2 audit is checkpointed in the
+[audit report](continuity-audit-20261016.md). Candidate `c298775` is on the separate
+`continuity-v2-20261016` branch; live skill source remains at `c20214a`. Do not
+merge or broadly activate it: native qualification is incomplete and the pilot
+exposed semantic failures. No push or real scientific work was performed.
 
-- **README (2026-10-14):** compact introduction covering purpose, agent roles/models, installation and use. All 182 tests, documentation/skill checks and installer dry-run/check passed (exit 0). Logs and test scratch: `~/.cache/codex-scratch/task.g7Bm2Q` (about 2.3 MiB retained).
+Three independent fresh-context reviews and separate adjudication were performed.
+Final candidate checks passed: 229 repository tests, 107 supplied tests (serial),
+validators and temporary-home installation/rollback. Retained failures include an
+optional wrapper defect, one timing failure, contaminated Claude startup, a false
+report claim and premature contract retirement. The scope-change probe was blocked
+by native approval; no policy bypass or alternate edit was used.
 
-- **Active rules:** a checkpoint is not a stop (`e0f5592`); waits are sized to the job within runtime limits (`6c91cce`). Codex's own runtime instructions cap blocking waits at 60 s, and all 20 studied Codex sessions carry that cap, so the wait rule changes little for Codex.
-- **Monitor:** `python scripts/long_task_monitor.py <session-id>` compares one long session with the 27-session baseline, offline (`35030d8`). Run it after the next long tasks. It shows whether stops and wait-only calls change, not whether outcomes improve.
-- **Evidence behind the rules:** [long-task retrospective](../benchmarks/2026-10-13-long-task-retrospective/REPORT.md) and [Step 2 labels](../benchmarks/2026-10-13-long-task-retrospective/STEP2.md). Session length tracks outcome more strongly than any workflow signal. `stop_wanted` and `worth_cost` are optional user labels.
-- **Maintenance overhead cut (2026-10-14):** older detail of this file moved to `history.md`; `maintenance.md` limits evidence to commits plus one short results note. Earlier `staging/` copies stay because frozen records reference them. Removed as disposable: Claude's staging worktree and patches (copies in `docs/long-task-rules-2026-10-14/`) and Codex test scratch `~/.cache/codex-scratch/task.WIwVDF`.
-- **Unmeasured:** effects of both rules on early stops, outcomes and cost; helper break-even; long-task benefit of the workflow.
+Both runtimes completed the toy plan without a "continue" prompt. Real manual
+compactions were observed after completion, not during unfinished science. There
+is no long-session reliability or savings claim. Raw local evidence remains in
+`out/continuity-v2-{audit,pilot}/` (Git-ignored); the uploaded ZIP and isolated source
+worktree `/home/hao/.cache/codex-scratch/continuity-v2.dby2dhwe/upstream` are retained.
+Owned native pilot processes exited and project-only hook bindings were retired;
+shared services, model settings, global hooks and permissions were not changed.
+
+Next qualification requires useful unfinished work through native compaction,
+Claude resume-hook/current-version checks, permitted scope amendment and memory
+isolation. This does not authorize more model sessions or resume paused science.
+The [reusable task prompt](long-task-prompt.md) works with the current workflow.
 
 ## Boundaries
 
@@ -37,4 +53,4 @@ Use temporary homes for installer checks. Static checks do not prove live routin
 
 ## Session memory
 
-claude-mem's observer allowance is exhausted (again on 2026-10-13), so it records nothing; this file carries state between sessions. User-level skills installed 2026-10-09: `handoff`, `wait-what`, `writing-for-agents`, `retro`.
+The 2026-10-13 observer allowance exhaustion is historical, not a current disabled-state guarantee. On 2026-10-16, enabled claude-mem injected another toy arm's results into startup; that comparison was invalid. The corrected pilot excluded it per invocation only; global settings/data remain unchanged. This file is the explicit project handoff. User-level skills installed 2026-10-09: `handoff`, `wait-what`, `writing-for-agents`, `retro`.
