@@ -4,26 +4,22 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated 2026-10-17. User-authorized Astra findings addressed through required checks
-and a limited experimental source checkpoint. [Results and limits](continuity-completion-20261017.md).
-Task descriptions, structured verification receipts and bounded session binding now
-have 93 focused / 275 full passing tests; validators and temporary-home installation
-and rollback passed. Main skill entry and native agent/model settings unchanged.
+Updated 2026-10-17. Authorized native tests and local integration are complete;
+see [results and limits](native-continuity-20261017.md). Configured Codex recovery
+passed in 155.257 / 900 seconds on unchanged helpers from `9c5fcc9`. A separate
+Codex maintenance task finished 5/5 milestones after manual compaction with one
+independent child in 305.641 / 1,800 seconds, without automatic recovery injection.
+Claude startup delivery passed; goal-entry protocol failed, with no retry or
+lifecycle acceptance. The old Codex mismatch cause remains unknown. Multi-hour
+reliability and savings remain unmeasured; no further trial is authorized here.
 
-Codex completed useful unfinished work after real native compaction with no continue
-prompt; independent acceptance passed. Its recovery hook rejected the session binding,
-so the full recovery endpoint FAILED. Claude native lifecycle remains UNTESTED after
-a pasted-command driver error; follow-up command rejected by automatic review. No
-retry or permission bypass. Optional hooks remain experimental; verify actual matching
-native delivery before relying on them. No general reliability or savings claim.
-
-Pilot goals/bindings and owned standalone processes retired; retained local evidence
-in `out/continuity-completion/`. Shared services and scientific pauses preserved.
-Fresh Astra design review against pstack found no required implementation change.
-Freeze feature scope; native recovery qualification remains open. See the results
-note for the review and exact next checks.
-No further pilot, scientific work or push is authorized by this handoff. Start new
-maintenance from current instructions and [the task prompt](long-task-prompt.md).
+Monitor repair `6f0ec54` now selects validated native counters and preserves unknown
+usage. Final portable-source checks: 289 tests, validation, skill checker and
+instruction health passed; installed links passed for both runtimes. Astra review
+closed the fixture portability issue. Production skill, helpers and native settings
+are unchanged. Goals/bindings retired; scientific pauses preserved. No push.
+Raw evidence and original accepted worktree remain in ignored
+`out/continuity-native-20261017/`; do not treat their terminal plans as new authority.
 
 ## Boundaries
 

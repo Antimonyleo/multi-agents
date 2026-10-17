@@ -38,6 +38,8 @@ an error. Preserve user pauses and cumulative budgets across compaction or resum
 
 The optional source helpers are experimental. Automatic recovery requires a
 verified project-local binding; no hooks or goals are installed by default.
-Hook trust or a configuration listing alone does not verify delivery. The current
-Codex pilot rejected its binding; the Claude lifecycle endpoint remains untested. This
-prompt also works without a hook.
+Hook trust or a configuration listing alone does not verify delivery. A configured
+Codex recovery episode passed matching-session delivery after an earlier failed
+binding test; the Claude goal/compaction endpoint remains unqualified. See the
+[native results and limits](native-continuity-20261017.md). This prompt also works
+without a hook.
