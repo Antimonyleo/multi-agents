@@ -26,6 +26,4 @@ Record versions, parameters, randomness, units, commands and evidence paths. Che
 
 Judge efficiency by complete accepted work, including owner, helpers, integration and required review. Missing cost is unknown. For workflow evaluation or maintenance only, read [maintenance](maintenance.md); ordinary execution does not load its procedures or authorize self-modification. Smaller context and static checks are not proof of savings.
 
-<!-- scientific-continuity:start -->
-For authorized work spanning compaction, long jobs or sessions, read [long-task continuity](references/long-running.md). Reuse the current plan and checkpoint; preserve scope and evidence while choosing methods freely. Native runtime continuation and optional recovery remain separate.
-<!-- scientific-continuity:end -->
+For work spanning compaction or sessions, read [experimental long-task continuity](references/long-running.md) to recover the active task, check remaining items and use native continuation.

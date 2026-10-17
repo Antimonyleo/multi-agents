@@ -1,8 +1,9 @@
 # Prompt for a long task
 
 Use this with the scientific workflow. Replace the bracketed parts. For runtimes
-with a verified native goal command, use that command to retain the objective
-between turns. A saved plan alone does not cause automatic continuation.
+with a verified native goal command, explicitly create a goal with the text below
+to retain the objective between turns. A saved plan alone does not cause automatic
+continuation.
 
 ```text
 Complete [outcome] through every authorized item in [existing plan], verified by
@@ -23,7 +24,7 @@ permission/resource/capability boundary, a failed check needing my decision, or
 verified completion. Report remaining work and the exact boundary if blocked.
 ```
 
-For a project with the continuity candidate already qualified and bound, add:
+For a project with experimental recovery already configured and verified, add:
 
 ```text
 Use the bound Execution contract and Current work sections for this episode.
@@ -32,5 +33,6 @@ Reconcile any mismatch with the current instruction; never repin merely to silen
 an error. Preserve user pauses and cumulative budgets across compaction or resume.
 ```
 
-The recovery extension remains a scoped pilot until its native lifecycle gate
-passes. This prompt works with the existing workflow without installing a hook.
+The optional source helpers are experimental. Automatic recovery requires a
+verified project-local binding; no hooks or goals are installed by default. This
+prompt also works without a hook.

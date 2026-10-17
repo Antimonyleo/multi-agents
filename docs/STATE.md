@@ -4,31 +4,29 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated 2026-10-16. The continuity-v2 audit is checkpointed in the
-[audit report](continuity-audit-20261016.md). Candidate `c298775` is on the separate
-`continuity-v2-20261016` branch; live skill source remains at `c20214a`. Do not
-merge or broadly activate it: native qualification is incomplete and the pilot
-exposed semantic failures. No push or real scientific work was performed.
+Updated 2026-10-16. The [minimal continuity update](continuity-minimal-20261016.md)
+adds experimental source helpers: bound task recovery, optional task/evidence/next
+checks and explicit safe replacement of one combined record. Existing plans and
+native goals are reused. No hooks, goals, wake loops or memory settings are installed.
 
-Three independent fresh-context reviews and separate adjudication were performed.
-Final candidate checks passed: 229 repository tests, 107 supplied tests (serial),
-validators and temporary-home installation/rollback. Retained failures include an
-optional wrapper defect, one timing failure, contaminated Claude startup, a false
-report claim and premature contract retirement. The scope-change probe was blocked
-by native approval; no policy bypass or alternate edit was used.
+Staged and reviewed on `continuity-minimal-20261016`, based on `7721585` plus the
+reviewed core (`df1cf90`, equivalent to original `c298775`). Named final checks
+passed: 256 repository tests (74 continuity tests), validators and temporary-home
+installation/check/receipt rollback. One independent reviewer cleared the source
+for opt-in experimental support after three fixes. Logs/receipts remain local in
+`out/continuity-minimal/`; the uploaded ZIP and prior audit/pilot are preserved.
 
-Both runtimes completed the toy plan without a "continue" prompt. Real manual
-compactions were observed after completion, not during unfinished science. There
-is no long-session reliability or savings claim. Raw local evidence remains in
-`out/continuity-v2-{audit,pilot}/` (Git-ignored); the uploaded ZIP and isolated source
-worktree `/home/hao/.cache/codex-scratch/continuity-v2.dby2dhwe/upstream` are retained.
-Owned native pilot processes exited and project-only hook bindings were retired;
-shared services, model settings, global hooks and permissions were not changed.
+The [earlier native audit](continuity-audit-20261016.md) has limited fixed-scope
+observations only. New task/replacement helpers have offline evidence. Useful
+unfinished work through native compaction, current Claude resume hooks, normal
+memory-enabled isolation and a permitted scope amendment remain unqualified.
+Do not claim solved long-session drift, automatic completion or savings. No new
+native model pilot or remote push was performed. Original pilot hooks remain
+retired; shared services, approvals and native agent/model settings are unchanged.
 
-Next qualification requires useful unfinished work through native compaction,
-Claude resume-hook/current-version checks, permitted scope amendment and memory
-isolation. This does not authorize more model sessions or resume paused science.
-The [reusable task prompt](long-task-prompt.md) works with the current workflow.
+Use the [task prompt](long-task-prompt.md). Source support is opt-in experimental;
+automatic recovery requires a verified project-local binding. No further scientific
+or model-backed qualification campaign is authorized by this handoff.
 
 ## Boundaries
 
