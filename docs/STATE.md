@@ -19,6 +19,9 @@ native delivery before relying on them. No general reliability or savings claim.
 
 Pilot goals/bindings and owned standalone processes retired; retained local evidence
 in `out/continuity-completion/`. Shared services and scientific pauses preserved.
+Fresh Astra design review against pstack found no required implementation change.
+Freeze feature scope; native recovery qualification remains open. See the results
+note for the review and exact next checks.
 No further pilot, scientific work or push is authorized by this handoff. Start new
 maintenance from current instructions and [the task prompt](long-task-prompt.md).
 

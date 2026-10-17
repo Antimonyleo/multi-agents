@@ -83,3 +83,30 @@ experimental session binding”. For any later opt-in binding, first retire only
 owned hook, preserving unrelated entries; restore the saved prior config if needed.
 Keep the stable callback and evidence until all bindings using them are retired.
 No default hooks or goals require removal. No remote push is included.
+
+## Final design review against pstack
+
+A fresh Astra/high reviewer, session `01a14b33-ec03-7181-a090-220bfe8182cb`,
+found no consequential source defect requiring another implementation change at
+`9c5fcc9`. Owner compared current upstream pstack playbooks on 2026-10-17;
+upstream `main` is mutable. This was read-only source/evidence review, with no
+new model-backed execution pilot or repeated test suite.
+
+Pstack's [autonomous-run playbook](https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/autonomous-run.md)
+also separates a checkable exit condition from native wake/continuation. Its
+[orchestration playbook](https://github.com/cursor/plugins/blob/main/pstack/skills/poteto-mode/playbooks/orchestrate.md)
+reserves persistent queues and coordinator layers for programs larger than one
+agent can finish. Its [verification guidance](https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/SKILL.md)
+requires proof through the real user path, not configuration checks alone.
+
+Decision: freeze feature scope. Keep one plan, one execution owner, bounded helpers
+and existing verification checks. Do not add another planner, reviewer layer or
+persistent queue. Reused-agent assignments already carry current requirements;
+automatic propagation of later parent-only steering is not guaranteed.
+
+Runtime qualification remains open. The next useful work is capturing the actual
+callback arguments and native event identity to diagnose the Codex mismatch, then
+proving recovery through the real lifecycle. Claude needs verified native goal
+entry before its lifecycle test. Neither is replaced by this review or authorized
+by this note. Only after that should a representative longer task assess sustained
+focus and unnecessary stops; whole-task savings still need separate matched evidence.
