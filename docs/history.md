@@ -3,6 +3,21 @@
 Moved verbatim from `docs/STATE.md` on 2026-10-14 so that the session-start file stays short.
 Paths, budgets and checkpoints below describe their time; current state is in [STATE.md](STATE.md).
 
+## 2026-10-22: Execution shape and verification rigor
+
+Applied lessons from the user's supplied Workbench summary without adding a new
+framework. Verification depends on consequences, uncertainty and project gates,
+independently of execution shape. Assignments carry overall intent; reviews identify
+independent evidence. Long-task guidance adds bounded uncertainty investigation and
+iteration with a baseline, consistent evaluator, limits and rechecked best result.
+Core plus long-task guidance grew by 88 words, from 767 to 855; no new skill files.
+
+Independent source review accepted the three-file skill diff. Repository validation,
+289 tests (including temporary-home installer coverage) and the skill checker all
+passed with exit 0. Strict recovery, scripts, profiles and project gates are unchanged.
+No new runtime trial or behavioral-benefit claim. The user authorized commit and push.
+Rollback: revert “Separate verification rigor from execution shape”.
+
 ## 2026-10-21: Compact long-task path
 
 Clarified the skill description to cover multi-step execution and recovery, including

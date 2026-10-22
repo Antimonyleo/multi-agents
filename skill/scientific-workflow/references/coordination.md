@@ -4,13 +4,13 @@
 
 Reuse the project's current plan/manifest. Record scope, authority, deliverable, checks, resource/retry limits, required milestone and next action there. Do not create parallel readiness, progress and completion narratives that restate the same facts. Keep separate raw logs or review records when required for evidence/recovery; link them from the current record. Preserve frozen history.
 
-A substantial delegate gets relevant requirements/input identities, owned paths/tools, replaced owner work, bounded return, acceptance check and stop boundary. Prefer fresh bounded context to the entire conversation. Writers preserve others' work. Keep detailed outputs on disk; return results, anomalies and source paths. The owner integrates and checks acceptance without repeating the delegated investigation unless concrete evidence or a required audit warrants it. Delegates do not start their own team.
+A substantial delegate gets the overall outcome its work advances, constraints to preserve, relevant requirements/input identities, owned paths/tools, replaced owner work, bounded return, acceptance check and stop boundary. Prefer fresh bounded context to the entire conversation. Writers preserve others' work. Keep detailed outputs on disk; return results, anomalies and source paths. The owner integrates and checks acceptance without repeating the delegated investigation unless concrete evidence or a required audit warrants it. Delegates do not start their own team.
 
 ## Review once when ready
 
 State original requirements, the consequential decision and why review is needed. Bind exact inputs and terminal checks before readiness/completion review. Planning reviews evaluate methods and limits; blocking questions state missing evidence. Use a project's existing checker or the optional [packet checker](../maintenance.md#review-packet-check) only when many artifacts make it useful. A compact self-contained review does not need another JSON packet.
 
-Ask one scoped pass, including assumptions and counterevidence, without the desired verdict. For efficiency claims require matched controls, workload relevance, complete cost scope and uncertainty—not just passing tests/hashes. Plan authors cannot independently certify consequential completion. User/project-required gates remain mandatory. Routine edits within an already reviewed decision do not activate another reviewer.
+Ask one scoped pass, including assumptions and counterevidence, without the desired verdict. For efficiency claims require matched controls, workload relevance, complete cost scope and uncertainty—not just passing tests/hashes. A second opinion is not independent evidence: identify the reproduction, reference case or other check that challenges the claim. Plan authors cannot independently certify consequential completion. User/project-required gates remain mandatory. Routine edits within an already reviewed decision do not activate another reviewer.
 
 ## Wait without spending model turns on unchanged state
 

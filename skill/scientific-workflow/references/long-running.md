@@ -7,13 +7,20 @@ work. Ordinary execution needs no new record format or hook.
    After context loss, reconcile completed evidence, changed requirements and owned
    jobs before acting. Missing job evidence is unknown, not permission to rerun.
 2. Work on the next incomplete, authorized item. Resolve dependencies that advance
-   acceptance; defer unrelated cleanup. If an item is blocked, continue independent
+   acceptance; defer unrelated cleanup. When the path is unclear, investigate the
+   blocking question within scope and update dependencies from the evidence.
+   If an item is blocked, continue independent
    authorized work. Preserve explicit pauses, review gates and cumulative limits.
 3. After meaningful progress and before handoff, update completed checks, decisions,
    failures, owned jobs, remaining budget and the next action in that same record.
    Continue after checkpointing; a progress report is not a completion condition.
 4. Finish when the requested deliverables and named acceptance checks are complete.
    Otherwise report the exact unresolved boundary and remaining work.
+
+For iterative improvement, record the baseline, consistent evaluator, constraints
+and attempt or resource limit in the existing plan. Retain the best supported
+result and recheck it before claiming improvement. Changing the evaluator starts
+a new comparison; it does not establish improvement against the old baseline.
 
 Use an explicitly authorized native goal when continuation between turns is needed.
 A saved plan alone cannot wake an exited host; this skill adds no wake service.

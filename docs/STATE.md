@@ -4,20 +4,20 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated 2026-10-21. The user authorized a clearer discovery trigger and compact
-long-task path. Staged implementation separates ordinary execution from optional
-strict recovery, preserving existing bindings and project gates. The core plus
-ordinary long-task reference is 767 words (previously 1,215). README includes a
-project pointer and bundled-copy update policy; active projects were not edited.
+Updated 2026-10-22. User authorized compact improvements from the supplied
+Workbench lessons, verification, commit and push. Verification rigor is separate
+from execution shape; assignments carry their overall purpose. Long-task guidance
+now covers bounded investigation and baseline/evaluator/limit discipline for
+improvement. Core plus long-task reference: 855 words (previously 767).
 
-Independent source review accepted the routing change. All 289 tests, repository
-validation and the skill structure checker passed (exit 0). These are source and
-offline checks, not evidence of better live skill selection or longer execution.
-Native agents, scripts and models are unchanged. No new native trial or push.
-Prior [native results and limitations](native-continuity-20261017.md) still apply:
-Codex passed bounded manual-compaction episodes, Claude goal/compaction remains
-unqualified, and multi-hour reliability and savings are unmeasured. Previous
-commits through `7697f0a` were pushed after the user's explicit request.
+All 289 tests, repository validation and skill structure checks passed (exit 0).
+Independent routing review accepted the change. These offline/source checks do
+not establish improved live behavior. No scripts, native
+profiles, strict recovery protocol or other projects were changed. No new runtime
+trial is authorized by this maintenance. Prior [native evidence and limits](native-continuity-20261017.md)
+remain: bounded Codex manual-compaction passes, Claude lifecycle unqualified,
+and multi-hour reliability and savings unmeasured. Earlier compact update
+`ad43dfd` was pushed on the user's request.
 
 ## Boundaries
 
