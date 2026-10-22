@@ -60,6 +60,22 @@ Ask for the skill by name and give it a task, for example:
 > Use scientific-workflow to fix the failing parser tests. Finish the agreed
 > checks and Git checkpoint. Delegate independent work when useful.
 
+For project discovery, add a short pointer to `AGENTS.md` using the installed or
+bundled skill's actual path:
+
+> For substantial multi-step execution or recovery after context loss, use
+> scientific-workflow, including for single-agent work. Reuse this project's
+> plan, acceptance checks and pause boundaries.
+
+Keep project-specific scientific gates locally. If a project bundles its own copy,
+record its upstream revision and local differences beside that copy; update it
+through the project's normal review. A shared installation does not update bundles.
+
+Ordinary long tasks use the existing checkpoint. Hooks and strict receipts are
+optional unless an existing binding or project gate requires them. Judge adoption
+by forgotten items, unnecessary stops, recovery errors and duplicated helper work
+in normal authorized tasks; skill invocation alone is not a success measure.
+
 Read the [skill](skill/scientific-workflow/SKILL.md) for the rules and
 [maintenance guide](skill/scientific-workflow/maintenance.md) for checks. The
 [long-task study](benchmarks/2026-10-13-long-task-retrospective/REPORT.md) records

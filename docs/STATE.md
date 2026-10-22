@@ -4,22 +4,20 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated 2026-10-17. Authorized native tests and local integration are complete;
-see [results and limits](native-continuity-20261017.md). Configured Codex recovery
-passed in 155.257 / 900 seconds on unchanged helpers from `9c5fcc9`. A separate
-Codex maintenance task finished 5/5 milestones after manual compaction with one
-independent child in 305.641 / 1,800 seconds, without automatic recovery injection.
-Claude startup delivery passed; goal-entry protocol failed, with no retry or
-lifecycle acceptance. The old Codex mismatch cause remains unknown. Multi-hour
-reliability and savings remain unmeasured; no further trial is authorized here.
+Updated 2026-10-21. The user authorized a clearer discovery trigger and compact
+long-task path. Staged implementation separates ordinary execution from optional
+strict recovery, preserving existing bindings and project gates. The core plus
+ordinary long-task reference is 767 words (previously 1,215). README includes a
+project pointer and bundled-copy update policy; active projects were not edited.
 
-Monitor repair `6f0ec54` now selects validated native counters and preserves unknown
-usage. Final portable-source checks: 289 tests, validation, skill checker and
-instruction health passed; installed links passed for both runtimes. Astra review
-closed the fixture portability issue. Production skill, helpers and native settings
-are unchanged. Goals/bindings retired; scientific pauses preserved. No push.
-Raw evidence and original accepted worktree remain in ignored
-`out/continuity-native-20261017/`; do not treat their terminal plans as new authority.
+Independent source review accepted the routing change. All 289 tests, repository
+validation and the skill structure checker passed (exit 0). These are source and
+offline checks, not evidence of better live skill selection or longer execution.
+Native agents, scripts and models are unchanged. No new native trial or push.
+Prior [native results and limitations](native-continuity-20261017.md) still apply:
+Codex passed bounded manual-compaction episodes, Claude goal/compaction remains
+unqualified, and multi-hour reliability and savings are unmeasured. Previous
+commits through `7697f0a` were pushed after the user's explicit request.
 
 ## Boundaries
 

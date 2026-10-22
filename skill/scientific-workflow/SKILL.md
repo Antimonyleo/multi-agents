@@ -1,6 +1,6 @@
 ---
 name: scientific-workflow
-description: Route substantial scientific work in Codex or Claude through direct tools, one execution owner, bounded support or major-milestone review. Routine tasks use lightweight handling.
+description: Complete substantial scientific and engineering tasks through verification. Use for multi-step execution, recovery after context loss, or bounded delegation; reuse the existing plan. Routine small tasks use direct tools.
 ---
 
 # Scientific workflow
@@ -26,4 +26,4 @@ Record versions, parameters, randomness, units, commands and evidence paths. Che
 
 Judge efficiency by complete accepted work, including owner, helpers, integration and required review. Missing cost is unknown. For workflow evaluation or maintenance only, read [maintenance](maintenance.md); ordinary execution does not load its procedures or authorize self-modification. Smaller context and static checks are not proof of savings.
 
-For work spanning compaction or sessions, read [experimental long-task continuity](references/long-running.md) to recover the active task, check remaining items and use native continuation.
+For work spanning compaction or sessions, read [long-task execution and recovery](references/long-running.md). This applies to a single owner as well as delegated work.

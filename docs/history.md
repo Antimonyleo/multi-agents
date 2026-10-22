@@ -3,6 +3,21 @@
 Moved verbatim from `docs/STATE.md` on 2026-10-14 so that the session-start file stays short.
 Paths, budgets and checkpoints below describe their time; current state is in [STATE.md](STATE.md).
 
+## 2026-10-21: Compact long-task path
+
+Clarified the skill description to cover multi-step execution and recovery, including
+single-agent tasks. Ordinary execution reuses the current plan/checkpoint; strict
+hook, digest and receipt instructions moved intact behind a conditional reference.
+Core plus ordinary long-task guidance: 1,215 to 767 words, measured with `wc -w`.
+README supplies a project pointer and explicit bundled-copy provenance/update policy.
+No other project's instructions or skill copies changed.
+
+Independent routing review accepted the change and verified preserved strict text.
+Repository validation, all 289 tests (including temporary-home installer checks),
+and skill structure validation passed with exit 0. Native profiles and executable
+scripts are unchanged. No new runtime trial; prior reliability limits still apply.
+Rollback: revert the commit titled “Simplify long-task entry and disclose strict recovery”.
+
 ## Earlier current-work notes (to 2026-10-14)
 
 The earlier completion audit remains historical:
