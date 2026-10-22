@@ -4,20 +4,23 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated 2026-10-22. User authorized compact improvements from the supplied
-Workbench lessons, verification, commit and push. Verification rigor is separate
-from execution shape; assignments carry their overall purpose. Long-task guidance
-now covers bounded investigation and baseline/evaluator/limit discipline for
-improvement. Core plus long-task reference: 855 words (previously 767).
+Updated 2026-10-22. Completed the authorized power-use plan: two independent
+Astra reviews narrowed scope; a fresh third reviewer accepted the final patch.
+Changed-intent propagation and unknown-outcome recovery now live in existing
+references. Core stays 583 words; long-task reference is 307 words (was 272).
+No new scripts, profiles, hooks, planner or readiness layer were added.
 
-All 289 tests, repository validation and skill structure checks passed (exit 0).
-Independent routing review accepted the change. These offline/source checks do
-not establish improved live behavior. No scripts, native
-profiles, strict recovery protocol or other projects were changed. No new runtime
-trial is authorized by this maintenance. Prior [native evidence and limits](native-continuity-20261017.md)
-remain: bounded Codex manual-compaction passes, Claude lifecycle unqualified,
-and multi-hour reliability and savings unmeasured. Earlier compact update
-`ad43dfd` was pushed on the user's request.
+All 289 tests, repository validation, skill structure, both-runtime installation
+(12 destinations) and instruction health passed. The skill links expose the
+changes to Codex and Claude; existing sessions need to reread changed guidance.
+No profile restart is needed. These source/offline checks do not demonstrate
+improved multi-hour behavior, native steering delivery or safe external retries.
+Historical [native evidence and limits](native-continuity-20261017.md) remain.
+
+[Research, decisions, agent identifiers, checks and rollback](power-use-research-20261022.md)
+are recorded outside the production skill. Local Git checkpoint completes this
+maintenance; no new push was requested. Earlier `fcc894b` is already pushed.
+Uploaded ZIP, other sessions and paused projects are preserved.
 
 ## Boundaries
 

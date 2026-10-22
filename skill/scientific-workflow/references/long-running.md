@@ -5,7 +5,10 @@ work. Ordinary execution needs no new record format or hook.
 
 1. Read the current objective, authority, acceptance checks and remaining items.
    After context loss, reconcile completed evidence, changed requirements and owned
-   jobs before acting. Missing job evidence is unknown, not permission to rerun.
+   jobs before acting. Missing outcome evidence is unknown, not permission to repeat
+   an action. Before retrying a write or submission with a lost acknowledgment,
+   inspect native evidence using its operation ID where available. Repeat only
+   when safe within current authority and retry limits; otherwise mark it unresolved.
 2. Work on the next incomplete, authorized item. Resolve dependencies that advance
    acceptance; defer unrelated cleanup. When the path is unclear, investigate the
    blocking question within scope and update dependencies from the evidence.
