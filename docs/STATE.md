@@ -4,23 +4,25 @@ One rolling file, read at session start. Update `Current work` in place at hando
 
 ## Current work
 
-Updated 2026-10-22. Completed the authorized power-use plan: two independent
-Astra reviews narrowed scope; a fresh third reviewer accepted the final patch.
-Changed-intent propagation and unknown-outcome recovery now live in existing
-references. Core stays 583 words; long-task reference is 307 words (was 272).
-No new scripts, profiles, hooks, planner or readiness layer were added.
+Updated 2026-10-22. Added the authorized 24-word verification clarification:
+use or establish a working check of the actual outcome, choose a proportionate
+method, and keep project-specific procedures with the project. Core is now 607
+words; long-task reference remains 307. No new workflow layer, prescribed method,
+review gate, script or native profile was added. This wording refinement required
+no additional reviewer under maintenance guidance.
 
-All 289 tests, repository validation, skill structure, both-runtime installation
-(12 destinations) and instruction health passed. The skill links expose the
-changes to Codex and Claude; existing sessions need to reread changed guidance.
-No profile restart is needed. These source/offline checks do not demonstrate
-improved multi-hour behavior, native steering delivery or safe external retries.
-Historical [native evidence and limits](native-continuity-20261017.md) remain.
+Staged away from live links. Repository validation, all 289 tests (390.142 seconds),
+and skill structure checks passed (exit 0). After activation, both-runtime
+installation (12 destinations) and instruction health passed (exit 0).
+Validation logs: `/home/hao/.cache/codex-scratch/task._uhw6t9k/checks/`.
+Shared links expose the change to Codex and Claude; existing sessions need to
+reread the guidance. No profile restart is required. Runtime benefit is untested.
 
-[Research, decisions, agent identifiers, checks and rollback](power-use-research-20261022.md)
-are recorded outside the production skill. Local Git checkpoint completes this
-maintenance; no new push was requested. Earlier `fcc894b` is already pushed.
-Uploaded ZIP, other sessions and paused projects are preserved.
+Prior changed-intent and unknown-outcome guidance is committed in `e87dca8`;
+[research and review decisions](power-use-research-20261022.md) and historical
+[native evidence](native-continuity-20261017.md) retain their limits.
+Local Git checkpoint only; no push requested. The separate Sottiaux/Tan research
+note and uploaded ZIP remain untracked and preserved.
 
 ## Boundaries
 

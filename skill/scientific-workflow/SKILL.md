@@ -23,7 +23,9 @@ Use the existing task record for scope, authority, checks, resource/retry limits
 
 Set verification by consequences, uncertainty and project gates, independently of
 execution shape or task size. Name the observation that would establish success;
-checks support only the claims they actually test.
+checks support only the claims they actually test. Use or establish a working check of the actual
+outcome; choose the method proportionate to the claim, and keep project-specific
+procedures with the project.
 
 Use the strong reviewer for project scope/planning before costly science, declared
 major-phase gates, final project review or a material exception. A routine task,
